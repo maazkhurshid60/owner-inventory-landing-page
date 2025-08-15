@@ -1,7 +1,7 @@
 'use client';
-import Button from '@/components/button/ButtonLg';
+
 import ButtonSm from '@/components/button/ButtonSm';
-import Link from 'next/link';
+
 import React from 'react';
 
 const HeroSection: React.FC = () => {

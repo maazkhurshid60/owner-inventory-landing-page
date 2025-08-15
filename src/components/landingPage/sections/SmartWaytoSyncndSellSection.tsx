@@ -1,5 +1,4 @@
 import ButtonLg from "@/components/button/ButtonLg"
-import Button from "@/components/button/ButtonLg"
 import Image from "next/image"
 
 function SmartWaytoSyncndSellSection() {

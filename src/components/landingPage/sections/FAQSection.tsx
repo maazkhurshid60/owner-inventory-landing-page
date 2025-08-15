@@ -3,7 +3,6 @@ import { useState } from 'react';
 import Image from 'next/image';
 import '../../../app/globals.css'
 import ButtonLg from '@/components/button/ButtonLg';
-
 const faqs = [
   {
     question: 'What can I manage with Owners Inventory?',
