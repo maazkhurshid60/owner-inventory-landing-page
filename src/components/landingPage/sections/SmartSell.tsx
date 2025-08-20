@@ -3,7 +3,7 @@ import React from "react";
 
 export default function SmartSellSection() {
   return (
-    <section className="wrapper w-full  ">
+    <section className="wrapper xl:w-full  ">
       <div className="max-w-[1312px] mx-auto flex flex-col items-start justify-center mt-20 md:mt-28 lg:mt-40">
         
         {/* Heading */}
