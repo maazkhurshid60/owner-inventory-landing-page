@@ -97,7 +97,7 @@ export default function InsightsSection() {
         </div>
 
         <div className="lg:mt-[100px] md:mt-[60px] mt-10">
-          <button className="bg-[#795CF5] text-white border border-transparent hover:bg-transparent hover:border-[#795CF5] hover:text-[#795CF5] font-onest font-semibold text-base px-[60px] py-5 rounded-full transition">
+          <button className="bg-[#795CF5] text-white border border-transparent cursor-pointer hover:bg-transparent hover:border-[#795CF5] hover:text-[#795CF5] font-onest font-semibold text-base px-[60px] py-5 rounded-full transition">
             Browse Insights
           </button>
         </div>

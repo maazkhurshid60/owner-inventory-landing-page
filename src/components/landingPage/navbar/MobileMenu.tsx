@@ -363,21 +363,22 @@ export default function OffcanvasMenu({
                                 className="submenu-icon-minus"
                                 aria-hidden="true"
                               >
-                                <img
-                                  src="/assets/header-dropdown-images/arrow-down-icon.svg"
-                                  alt="collapse"
+                                  <img
+                                  src="/assets/header-dropdown-images/arrow-up-icon.svg"
+                                  alt="expand"
                                   loading="lazy"
                                   className="h-3 w-3"
                                 />
+                             
                               </span>
                             ) : (
                               <span
                                 className="submenu-icon-plus"
                                 aria-hidden="true"
                               >
-                                <img
-                                  src="/assets/header-dropdown-images/arrow-up-icon.svg"
-                                  alt="expand"
+                                 <img
+                                  src="/assets/header-dropdown-images/arrow-down-icon.svg"
+                                  alt="collapse"
                                   loading="lazy"
                                   className="h-3 w-3"
                                 />
