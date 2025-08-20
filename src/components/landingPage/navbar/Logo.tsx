@@ -8,7 +8,7 @@ const Logo = () => (
       width={130}
       height={40}
       className="w-[78px] h-[24px] md:w-[105px] md:h-[35px] lg:w-[130px] lg:h-[40px]"
-      loading="lazy"
+      priority
     />
   </a>
 );

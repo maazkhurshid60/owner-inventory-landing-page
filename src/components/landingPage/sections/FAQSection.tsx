@@ -61,10 +61,10 @@ export default function FaqSection() {
                     {faq.question}
                   </span>
                   <span className={`icon-plus ${openIndex === index ? 'hidden' : 'block'}`}>
-                    <Image src="/assets/plus-icon.svg" alt="Plus-icon" width={24} height={24} />
+                    <Image src="/assets/plus-icon.svg" alt="Plus-icon" width={24} height={24} priority/>
                   </span>
                   <span className={`icon-minus ${openIndex === index ? 'block' : 'hidden'}`}>
-                    <Image src="/assets/minus-icon.svg" alt="Minus-icon" width={24} height={24} />
+                    <Image src="/assets/minus-icon.svg" alt="Minus-icon" width={24} height={24} priority/>
                   </span>
                 </button>
                 <div

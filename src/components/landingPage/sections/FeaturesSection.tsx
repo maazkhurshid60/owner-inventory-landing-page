@@ -115,6 +115,7 @@ export default function FeaturesSection() {
                     width={20}
                     height={20}
                     className="w-5 h-5"
+                    priority
                   />
                 </div>
                 <span

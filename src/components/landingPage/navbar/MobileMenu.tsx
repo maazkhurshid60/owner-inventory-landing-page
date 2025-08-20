@@ -160,7 +160,6 @@ export default function OffcanvasMenu({
               alt="Close"
               width={16}
               height={16}
-              priority={false}
             />
           </button>
 
@@ -351,6 +350,7 @@ export default function OffcanvasMenu({
                             alt={item.title}
                             width={16}
                             height={16}
+                            loading="lazy"
                           />
 
                           <span className="ml-2 text-sm font-[500] text-[#231F20] hover:font-semibold flex-1">
