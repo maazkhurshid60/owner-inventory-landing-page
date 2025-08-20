@@ -22,7 +22,6 @@ const positionClasses = isLeftAligned
           src="/assets/header-images/dropdown-icon.svg"
           className="w-2 h-1"
           alt="dropdown-icon"
-          loading="lazy"
         />
       </a>
       

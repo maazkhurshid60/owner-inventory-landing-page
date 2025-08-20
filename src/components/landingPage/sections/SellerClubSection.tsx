@@ -41,7 +41,6 @@ export default function SellerClubSection() {
               alt="Sell Image"
               width={800}
               height={600}
-              loading="lazy"
               className="w-full"
             />
           </div>
