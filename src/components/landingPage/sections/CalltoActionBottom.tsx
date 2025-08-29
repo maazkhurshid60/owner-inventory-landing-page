@@ -6,6 +6,10 @@ import ButtonLg from '@/components/button/ButtonLg';
 
 const CalltoActionBottom: React.FC = () => {
   return (
+    <div   style={{
+        background: 'linear-gradient(90deg, rgba(121, 92, 245, 0.25) 0%, rgba(26, 209, 185, 0.25) 100%)',
+          backgroundPosition: 'bottom center',
+      }}>
     <section
       className="ownerinventory-landing__pos-icons-section rounded-[40px] z-50"
       style={{
@@ -44,7 +48,9 @@ const CalltoActionBottom: React.FC = () => {
           </div>
         </div>
       </div>
+      
     </section>
+    </div>
   );
 };
 

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 const Logo = () => (
-  <a href="#" className="shrink-0">
+  <a href="/" className="shrink-0">
     <Image
       src="/assets/owner-inventory-logo.svg"
       alt="Owner's logo"

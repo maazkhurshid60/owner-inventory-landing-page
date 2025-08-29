@@ -92,7 +92,7 @@ const NavItems = () => {
       {/* PRICING LINK */}
       <li>
         <a
-          href="#"
+          href="/pricing"
           className="flex items-center justify-center gap-3 px-3.5 py-1.5 md:text-[10px] xl:px-4 xl:py-[9px] xl:text-sm font-semibold hover:bg-gray-100 hover:border-[#795CF5] text-[#231F20] bg-white border border-[#F3F4F6] rounded-full"
         >
           Pricing

@@ -252,7 +252,7 @@ export default function OffcanvasMenu({
             </li>
             <li className={listItem}>
               <a
-                href="#"
+                href="/pricing"
                 className="flex items-center justify-between px-5 py-3 text-sm font-semibold text-[#231F20] bg-white border border-[#D9D9D9] hover:bg-gray-100 hover:border-[#795CF5] active:bg-gray-100 active:border-[#795CF5] rounded-full font-onest"
               >
                 Pricing
