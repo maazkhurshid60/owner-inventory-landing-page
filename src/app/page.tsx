@@ -1,20 +1,18 @@
+"use client"
 import Head from "next/head";
-import Navbar from "@/components/landingPage/navbar/Navbar";
-import Hero from "@/components/landingPage/Hero";
-import Footer from "@/components/landingPage/sections/Footer";
+
 import './globals.css'
+import Hero from "@/components/pages/Hero";
+import { useHeaderAnimation } from "@/hooks/useHeaderAnimation";
 
 
 export default function Home() {
+   useHeaderAnimation(); // ✅ runs GSAP animation on every page
   return (
     <>
     <div className="">
-      {/* Navbar */}
-      <Navbar/>
       {/* Hero Section */}
       <Hero/>
-      {/* Footer */}
-      <Footer/>
      </div>
     </>
   );

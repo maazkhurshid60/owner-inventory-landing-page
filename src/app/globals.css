@@ -35,3 +35,59 @@ body {
         margin: 0 auto; 
     }
 }
+
+
+/* Pagination bullets */
+.swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background-color: #795CF5;
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+/* Active bullet */
+.swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  width: 15px;
+  height: 15px;
+  background-color: #795CF5;
+}
+
+.swiper-mobile {
+  display: none;
+}
+
+.columns-container {
+  display: block;
+}
+
+@media (max-width: 767px) {
+
+  .swiper-mobile {
+    display: block;
+  }
+
+  .columns-container {
+    display: none;
+  }
+}
+
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+
+@media (max-width: 767px) {
+  .ownerinventory-landing__pos-buildingmobile {
+    background: linear-gradient(180deg, rgba(121, 92, 245, 0.5) 0%, rgba(26, 209, 185, 0.4) 100%);
+  }
+}
+

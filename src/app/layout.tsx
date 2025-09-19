@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Onest } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/pages/navbar/Navbar";
+import Footer from "@/components/pages/Footer";
+import Lenis from "@studio-freight/lenis/types";
+import LenisProvider from "@/components/pages/LenixProvider";
+
 
 // Load fonts with CSS variable bindings
 const geistSans = Geist({
@@ -35,7 +40,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${onest.variable} antialiased`}
       >
-        {children}
+
+        <Navbar/>
+        <div>
+    <LenisProvider>{children}</LenisProvider>
+        </div>
+        <Footer/>
+     
       </body>
     </html>
   );
