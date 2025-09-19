@@ -7,7 +7,7 @@ export default function LenisProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1,
-      smooth: true,
+     
       // You can tweak easing/direction here
     });
 
