@@ -36,8 +36,8 @@ export default function FeaturesTabSection() {
   const [activeFeature, setActiveFeature] = useState(features[0].id);
   const [progress, setProgress] = useState(0);
 
-  const desktopRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
-  const mobileRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
+  const desktopRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
+  const mobileRefs = useRef<{ [key: string]: HTMLVideoElement}>({});
 
   useEffect(() => {
     const video =
