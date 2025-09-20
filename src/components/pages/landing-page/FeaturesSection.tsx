@@ -36,8 +36,8 @@ export default function FeaturesTabSection() {
   const [activeFeature, setActiveFeature] = useState(features[0].id);
   const [progress, setProgress] = useState(0);
 
-  const desktopRefs = useRef<{ [key: string]: HTMLVideoElement }>({});
-  const mobileRefs = useRef<{ [key: string]: HTMLVideoElement}>({});
+  const desktopRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
+  const mobileRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
 
   useEffect(() => {
     const video =
@@ -55,13 +55,12 @@ export default function FeaturesTabSection() {
       }
     };
 
-    // When video loops, restart progress
     const handleLoop = () => {
       setProgress(0);
     };
 
     video.addEventListener("timeupdate", updateProgress);
-    video.addEventListener("ended", handleLoop); // fires before looping restarts
+    video.addEventListener("ended", handleLoop);
 
     return () => {
       video.removeEventListener("timeupdate", updateProgress);
@@ -87,7 +86,9 @@ export default function FeaturesTabSection() {
                 } items-center justify-center`}
               >
                 <video
-                  ref={(el) => (desktopRefs.current[feature.id] = el)}
+                  ref={(el) => {
+                    desktopRefs.current[feature.id] = el;
+                  }}
                   className="w-full md:h-[300px] lg:h-[380px] xl:h-[430px] object-cover rounded-3xl"
                   muted
                   playsInline
@@ -154,12 +155,14 @@ export default function FeaturesTabSection() {
                     }`}
                   >
                     <video
-                      ref={(el) => (mobileRefs.current[feature.id] = el)}
+                      ref={(el) => {
+                        mobileRefs.current[feature.id] = el;
+                      }}
                       className="w-full object-cover rounded-3xl"
                       muted
                       playsInline
                       autoPlay
-                      loop 
+                      loop
                     >
                       <source src={feature.video} type="video/mp4" />
                     </video>
@@ -173,3 +176,4 @@ export default function FeaturesTabSection() {
     </section>
   );
 }
+
