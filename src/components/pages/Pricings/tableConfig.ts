@@ -6,6 +6,7 @@ export const pricingPlans: PricingPlan[] = [
     name: 'Basic',
     price: 0,
     yearlyPrice: 0,
+     description: '2 users',
     color: '#1AD1B9',
     bgColor: 'rgba(26,209,185,0.1)',
     features: [
@@ -28,6 +29,7 @@ export const pricingPlans: PricingPlan[] = [
     name: 'Standard',
     price: 49,
     yearlyPrice: 44, // 10% off
+    description: '5 users',
     color: '#38ACCC',
     bgColor: 'rgba(56,172,204,0.1)',
     features: [
@@ -50,7 +52,7 @@ export const pricingPlans: PricingPlan[] = [
     name: 'Professional',
     price: 99,
     yearlyPrice: 89, // 10% off
-
+    description: '10 users',
     color: '#5588DF',
     bgColor: 'rgba(85,136,223,0.1)',
     features: [
@@ -76,7 +78,7 @@ export const pricingPlans: PricingPlan[] = [
     name: 'Premium',
     price: 199,
     yearlyPrice: 179, // 10% off
-    
+     description: 'Unlimited users',
     color: '#795CF5',
     bgColor: 'rgba(121,92,245,0.1)',
     features: [
