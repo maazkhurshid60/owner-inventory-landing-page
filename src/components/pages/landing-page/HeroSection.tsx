@@ -138,7 +138,7 @@ const HeroSection: React.FC = () => {
             </div>
 
             {/* Video */}
-            <div className="owner-inventory-hero__video w-full mt-10 md:mt-14 xl:mt-40 sm:max-w-lg md:max-w-xl lg:max-w-4xl ">
+            <div className="owner-inventory-hero__video w-full mt-10 md:mt-10 xl:mt-10 sm:max-w-lg md:max-w-xl lg:max-w-4xl">
               <video
                 className="w-full object-cover rounded-3xl lazy-video feature-video"
                 autoPlay
