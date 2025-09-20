@@ -3,7 +3,6 @@ export interface PricingPlan {
   name: string;
   price: number;
   yearlyPrice?: number;
-  description: string;
   color: string;
   bgColor: string;
   features: string[];
@@ -13,6 +12,7 @@ export interface PricingPlan {
 export interface FeatureRow {
   name: string;
   info?: boolean;
+  infoText?: string;
   basic: string | boolean;
   standard: string | boolean;
   professional: string | boolean;

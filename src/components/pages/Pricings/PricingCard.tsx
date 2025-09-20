@@ -8,7 +8,7 @@ interface PricingCardProps {
 
 const PricingCard: React.FC<PricingCardProps> = ({ plan, isYearly = false }) => {
   const displayPrice = isYearly ? plan.yearlyPrice : plan.price;
-  const priceText = displayPrice === 0 ? 'Free' : `$${displayPrice}${isYearly ? ' (10% off)' : ''}`;
+  const priceText = displayPrice === 0 ? 'Free' : `$${displayPrice}${isYearly ? '' : ''}`;
 
   return (
     <div className="flex flex-col items-center justify-start p-8 bg-white rounded-[30px] w-[310px] lg:w-[310px] snap-start flex-shrink-0">
@@ -19,11 +19,9 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan, isYearly = false }) => 
         className="lg:text-4xl md:text-[32px] text-[28px] font-semibold leading-[100%] text-center mb-3 font-onest"
         style={{ color: plan.color }}
       >
-        {priceText}
+         {plan.price === 0 ? "Free" : `${priceText}`}<span className="text-xs">{plan.price === 0 ? "" : `/month`}</span>
       </h2>
-      <p className="md:text-base text-sm text-[#231F20] font-normal leading-9 text-center mb-6 font-onest">
-        {plan.description}
-      </p>
+     
       <a
         href="#"
         className="inline-block px-6 md:px-10 lg:px-[75px] py-3 md:py-2.5 text-xs lg:text-base leading-none font-semibold text-white whitespace-nowrap border border-transparent hover:bg-transparent rounded-full font-onest mb-8 transition-all"

@@ -129,28 +129,59 @@ useEffect(() => {
                     <tbody>
                       {category.features.map((feature, featureIndex) => (
                         <tr key={featureIndex} style={{ height: "68px" }}>
-                          <td
-                            className="px-4 border-b border-[#1AD1B9] text-left text-sm md:text-base lg:text-lg leading-6 text-[#231F20] font-normal"
-                            style={{ height: "68px", verticalAlign: "middle" }}
-                          >
-                            <div className="flex items-center justify-start gap-3 ">
-                              <span
-                                className={` ${
-                                  isSmallScreen? "max-w-[70px] truncate flex-shrink" : ""
-                                }`}
-                              >
-                                {feature.name}
-                              </span>
-                              {feature.info && (
-                                <img
-                                  src="./assets/owners-inventory-pricing/compare-feature/info-icon.svg"
-                                  className="md:h-3 md:w-3 h-[10px] w-[10px]"
-                                  alt="Info Icon"
-                                  loading="lazy"
-                                />
-                              )}
-                            </div>
-                          </td>
+                        <td
+  className="px-4 border-b border-[#1AD1B9] text-left text-sm md:text-base lg:text-lg leading-6 text-[#231F20] font-normal"
+  style={{ height: "68px", verticalAlign: "middle" }}
+>
+  <div className="flex flex-col items-start justify-center gap-1">
+    {/* Title + Tooltip */}
+    <div className="flex items-center gap-3">
+      <span
+        className={`${
+          isSmallScreen ? "max-w-[70px] truncate flex-shrink" : ""
+        }`}
+      >
+        {feature.name}
+      </span>
+
+     {feature.info && (
+  <div className="relative group inline-block">
+    <img
+      src="/assets/owners-inventory-pricing/compare-feature/info-icon.svg"
+      className="md:h-3 md:w-3 h-[10px] w-[10px] cursor-pointer"
+      alt="Info Icon"
+      loading="lazy"
+    />
+
+    {/* Tooltip (opens upward) */}
+    <div className="absolute left-[-20px] bottom-[120%] z-[999] hidden group-hover:flex flex-col items-start">
+      {/* Tooltip text */}
+      <div className="rounded-xl border border-[#795DF5] bg-white px-4 py-2 text-xs leading-4 font-normal text-[#231F20] shadow-lg w-[150px] md:w-[200px] lg:w-[250px]">
+        {feature.infoText}
+      </div>
+      {/* Arrow (pointing down) */}
+      <div className="w-2 h-2 rotate-45 bg-white border-b border-r border-[#795DF5] -mt-1 ms-5"></div>
+    </div>
+  </div>
+)}
+
+    </div>
+
+    {/* Subtitle e.g. (Sales, Purchases, Inventory) */}
+    {feature.name === "Standard Reports" && (
+      <span className="text-[10px] sm:text-xs lg:text-sm xl:text-base text-[#231F20]">
+        (Sales, Purchases, Inventory)
+      </span>
+    )}
+
+    {feature.name === "Advanced Reports" && (
+      <span className="text-[10px] sm:text-xs lg:text-sm xl:text-base text-[#231F20]">
+        (Dashboards, Inventory Aging)
+      </span>
+    )}
+  </div>
+</td>
+
                         </tr>
                       ))}
                     </tbody>
