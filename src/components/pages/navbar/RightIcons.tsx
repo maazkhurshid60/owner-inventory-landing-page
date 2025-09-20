@@ -1,8 +1,12 @@
 import Image from "next/image";
 
-const RightIcons = ({ searchOpen, setSearchOpen }) => (
+type RightIconsProps = {
+  searchOpen: boolean;
+  setSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const RightIcons: React.FC<RightIconsProps> = ({ searchOpen, setSearchOpen }) => (
   <div className="header-right-col hidden md:flex justify-end items-center gap-1.5 xl:gap-4 lg:gap-[6px] ps-1 md:absolute right-2 z-50">
-   
     <div className="relative group">
       <button
         type="button"
@@ -50,7 +54,6 @@ const RightIcons = ({ searchOpen, setSearchOpen }) => (
       </div>
     </div>
 
-  
     <a
       href="#"
       className="px-3.5 py-1.5 xl:px-[18px] xl:py-[9px] md:text-[10px] xl:text-sm font-bold font-onest text-white bg-[#231F20] rounded-full border hover:bg-white hover:text-[#231F20] hover:border-[#231F20] transition-all whitespace-nowrap"
