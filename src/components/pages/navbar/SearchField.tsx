@@ -15,13 +15,13 @@ const SearchField: React.FC<SearchFieldProps> = ({ searchOpen, setSearchOpen }) 
       }`}
     >
       <div className="py-4 px-7 relative">
-        <form action="./main-pages/searchpage.html" method="GET">
+        <form action="/search" method="GET">
           <input
             type="text"
             name="q"
             placeholder="Search for features overviews, FAQs, and more..."
             className="w-full border text-[#231F20] border-gray-300 rounded-full p-3"
-            onBlur={() => setSearchOpen(false)} // optional: close on blur
+            onBlur={() => setSearchOpen(false)} 
           />
           <button type="submit" className="absolute top-[40%] right-12">
             <Image
