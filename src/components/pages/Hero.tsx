@@ -22,7 +22,12 @@ export default function Hero() {
     <>
       {/* Rounded Background Header Shape */}
     <div className='font-onset '>
-   <HeroSection/>
+   <HeroSection
+  title="Grow Faster with Smarter Inventory Tools"
+  description="Get full access to powerful inventory tools without upfront costs. Start managing smarter today..."
+  showButtons={true}
+/>
+
     <SmartWaytoSyncndSellSection/>
     <FeaturesSection />
     <UnifiedPlatform/>
@@ -30,7 +35,14 @@ export default function Hero() {
     <PosIconsSection/>
     <ReviewSection/>
    
-    <SellerClubSection/>
+   <SellerClubSection
+  mediaType="image"
+  mediaSrc="/assets/features-section/testing.webp"
+  heading="Join the Smart Sellers Club"
+  description="Discover how easy it is to manage inventory, run POS, and launch an online store — all from a single, unified dashboard."
+  buttonText="Book a Free Demo"
+  buttonUrl="#"
+/>
     <FlexiblePricingSection/>
     <InsightsSection />
     <FaqSection/>

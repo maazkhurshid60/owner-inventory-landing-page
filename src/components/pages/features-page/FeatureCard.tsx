@@ -1,0 +1,68 @@
+import React from "react";
+
+interface FeatureCardProps {
+  title: string;
+  description: string;
+  videoSrc: string;
+  className?: string;
+  videoClassName?: string;
+  paddingClass?: string;
+  buttonLabel?: string;
+  buttonHref?: string;  
+}
+
+const FeatureCard: React.FC<FeatureCardProps> = ({
+  title,
+  description,
+  videoSrc,
+  className = "",
+  videoClassName = "",
+  paddingClass = "px-[24px]",
+  buttonLabel, 
+  buttonHref, 
+}) => {
+  return (
+    <div
+      className={`p-[1px] rounded-[30px] features-core-opretions__cards bg-[linear-gradient(90deg,#1AD1B9_32.74%,#38ACCC_52.46%,#5588DF_76.39%,#795CF5_100%)] h-fit ${className}`}
+    >
+      <div className="bg-white rounded-[30px] p-2 lg:p-4">
+        <div className="flex flex-col">
+          <div
+            className={`w-full ${paddingClass} pb-0 pt-4 production-banner bg-[linear-gradient(90deg,rgba(26,209,185,0.2)_32.74%,rgba(56,172,204,0.2)_52.46%,rgba(85,136,223,0.2)_76.39%,rgba(121,92,245,0.2)_100%)] rounded-tl-[20px] rounded-tr-[20px]`}
+          >
+            <video
+              className={`w-full rounded-tl-[20px] rounded-tr-[20px] lazy-video feature-video ${videoClassName}`}
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src={videoSrc} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="mt-5">
+            <h3 className="xl:text-2xl text-xl leading-100% font-semibold text-[#231F20] font-onest">
+              {title}
+            </h3>
+            <p className="xl:text-base text-sm font-normal font-onest text-[#231F20] mt-3 lg:mt-4">
+              {description}
+            </p>
+
+            {/* 👇 Optional button */}
+            {buttonLabel && (
+              <a
+                href={buttonHref || "#"}
+                className="xl:text-base text-sm font-bold font-onest text-[#795CF5] mt-4 xl:mt-6 cursor-pointer inline-block"
+              >
+                {buttonLabel} &gt;&gt;&gt;
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FeatureCard;

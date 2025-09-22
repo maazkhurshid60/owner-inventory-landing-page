@@ -27,7 +27,7 @@ export default function CustomSwiper<T>({
       pagination={{
         clickable: true,
         renderBullet: (index, className) =>
-          `<button class="${className}" type="button"></button>`, // ✅ no page reload
+          `<span class="${className}"></span>`, // ✅ no reload issue
       }}
       breakpoints={{
         768: { slidesPerView: 2 },
