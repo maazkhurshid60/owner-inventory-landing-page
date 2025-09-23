@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -8,7 +8,21 @@ import ButtonSm from '@/components/button/ButtonSm';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  title?: string;
+  description?: string; 
+  video?: string; 
+  showButtons?: boolean;
+  children?: ReactNode; 
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({
+  title = 'Grow Faster with Smarter Inventory Tools',
+  description,
+  video,
+  showButtons = true,
+  children,
+}) => {
   useEffect(() => {
     let heroBreak = gsap.matchMedia();
 
@@ -127,14 +141,24 @@ const HeroSection: React.FC = () => {
             {/* Heading */}
             <div className="owner-inventory-hero__content flex flex-col items-center justify-center w-full">
               <h1 className="owner-inventory-hero__content--title text-4xl md:text-[60px] xl:text-7xl leading-[48px] md:leading-[66px] xl:leading-[90px] text-center font-onest font-semibold mx-auto md:max-w-screen-sm xl:max-w-5xl lg:mt-[150px] text-[#231F20]">
-                Grow Faster with Smarter Inventory Tools
+                 {title}
               </h1>
 
-              {/* CTA Buttons */}
-              <div className="inline-flex p-1 lg:p-1.5 mt-10 xl:mt-20 rounded-full bg-white owner-inventory-hero__content--buttons">
+              {description && !showButtons &&(
+                 <p className="font-onest text-xl leading-9 font-normal text-[#231F20] text-center w-full max-w-4xl mt-16">
+                  {description}
+                </p>
+              )}
+
+              {showButtons &&(
+                <div className="inline-flex p-1 lg:p-1.5 mt-10 xl:mt-20 rounded-full bg-white owner-inventory-hero__content--buttons">
                 <ButtonSm url="#" text="Book Free Demo" bgColor="[#1AD1B9]" textColor="white" isBorder />
                 <ButtonSm url="#" text="View Pricing Plans" bgColor="white" textColor="[#231F20]" isBorder={false} />
               </div>
+              )}
+                {/* Extra flexibility */}
+              {children}
+              
             </div>
 
             {/* Video */}
@@ -146,7 +170,7 @@ const HeroSection: React.FC = () => {
                 loop
                 playsInline
               >
-                <source src="/assets/Manual.mp4" type="video/mp4" />
+                <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
