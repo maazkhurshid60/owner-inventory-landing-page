@@ -1,14 +1,15 @@
-'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
 
 const Footer: React.FC = () => {
   return (
     <footer
       className="owner-inventory-footer relative  -mt-[131px] pt-[251px] lg:pt-[291px] pb-10 px-4 md:px-6 lg:px-10"
       style={{
-        background: 'linear-gradient(90deg, rgba(121, 92, 245, 0.25) 0%, rgba(26, 209, 185, 0.25) 100%)',
+        background:
+          "linear-gradient(90deg, rgba(121, 92, 245, 0.25) 0%, rgba(26, 209, 185, 0.25) 100%)",
       }}
     >
       <div className="flex flex-col gap-10 bg-white px-6 py-10 xl:px-[60px] xl:py-[60px] rounded-[40px]">
@@ -28,13 +29,19 @@ const Footer: React.FC = () => {
 
           {/* Navigation Links */}
           <ul className="flex flex-col md:flex-row items-center justify-center gap-4 xl:gap-6">
-            {['Privacy Policy', 'Terms & Conditions', 'Help Center', 'Cookies', 'FAQs'].map((text, index) => (
+            {[
+              { text: "Privacy Policy", href: "/privacy-policy" },
+              { text: "Terms & Conditions", href: "/terms-and-conditions" },
+              { text: "Help Center", href: "/help-center" },
+              { text: "Cookies", href: "/cookies" },
+              { text: "FAQs", href: "/faqs" },
+            ].map((item, index) => (
               <li key={index}>
                 <Link
-                  href="#"
+                  href={item.href}
                   className="text-sm md:text-[10px] lg:text-xs xl:text-sm font-semibold font-onest text-[#231F20] cursor-pointer"
                 >
-                  {text}
+                  {item.text}
                 </Link>
               </li>
             ))}
@@ -42,22 +49,24 @@ const Footer: React.FC = () => {
 
           {/* Social Icons */}
           <div className="flex items-center justify-center gap-6 md:gap-[10px] lg:gap-4 xl:gap-6">
-            {['facebook', 'instagram', 'twitter', 'linkdn'].map((platform, index) => (
-              <Link
-                key={index}
-                href="#"
-                className="cursor-pointer w-7 h-7 md:w-[17px] md:h-[17px] lg:w-7 lg:h-7"
-              >
-                <Image
-                  src={`/assets/footer/${platform}-logo.svg`}
-                  alt={`${platform}-logo`}
-                  width={28}
-                  height={28}
-                  className="w-full"
-                  loading="lazy"
-                />
-              </Link>
-            ))}
+            {["facebook", "instagram", "twitter", "linkdn"].map(
+              (platform, index) => (
+                <Link
+                  key={index}
+                  href="#"
+                  className="cursor-pointer w-7 h-7 md:w-[17px] md:h-[17px] lg:w-7 lg:h-7"
+                >
+                  <Image
+                    src={`/assets/footer/${platform}-logo.svg`}
+                    alt={`${platform}-logo`}
+                    width={28}
+                    height={28}
+                    className="w-full"
+                    loading="lazy"
+                  />
+                </Link>
+              )
+            )}
           </div>
         </div>
 
@@ -70,7 +79,7 @@ const Footer: React.FC = () => {
             ©2025 Owners Inventory - All rights reserved
           </p>
           <p className="text-[10px] lg:text-base font-normal text-[#231F20]">
-            A product of{' '}
+            A product of{" "}
             <Link href="#" className="font-semibold underline cursor-pointer">
               Owners Universe
             </Link>
