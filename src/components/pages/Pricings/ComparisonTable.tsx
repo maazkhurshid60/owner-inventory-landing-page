@@ -169,13 +169,13 @@ useEffect(() => {
 
     {/* Subtitle e.g. (Sales, Purchases, Inventory) */}
     {feature.name === "Standard Reports" && (
-      <span className="text-[10px] sm:text-xs lg:text-sm xl:text-base text-[#231F20]">
+      <span className="text-[9px] sm:text-xs lg:text-sm xl:text-base text-[#231F20]">
         (Sales, Purchases, Inventory)
       </span>
     )}
 
     {feature.name === "Advanced Reports" && (
-      <span className="text-[10px] sm:text-xs lg:text-sm xl:text-base text-[#231F20]">
+      <span className="text-[9px] sm:text-xs lg:text-sm xl:text-base text-[#231F20]">
         (Dashboards, Inventory Aging)
       </span>
     )}
