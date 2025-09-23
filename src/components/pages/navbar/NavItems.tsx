@@ -90,7 +90,7 @@ const NavItems = () => {
 
             {/* Right Section (3/12, hidden on mobile) */}
             {featuresDetailsMap[selectedFeatureKey] && (
-              <div className="hidden lg:block col-span-3 border-l border-[#D9D9D9] pl-4 overflow-y-auto">
+              <div className="hidden lg:block col-span-3 border-l border-[#D9D9D9] pl-4 overflow-y-auto overflow-x-auto w-3xl">
                 <p className="mb-4 text-xs font-bold text-[#231F20]">
                   {
                     featuresItems.find(

@@ -13,6 +13,7 @@ const PricingPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'monthly' | 'yearly'>('monthly');
 
   const handleTabChange = (tab: 'monthly' | 'yearly') => {
+    console.log("tab", tab);
     setActiveTab(tab);
   };
 
@@ -33,7 +34,7 @@ const PricingPage: React.FC = () => {
 
         
         {/* Comparison Table */}
-        <ComparisonTable categories={featureCategories} />
+        <ComparisonTable categories={featureCategories} tab={activeTab} />
 
         <section className="">
           <FeaturesSection/>
