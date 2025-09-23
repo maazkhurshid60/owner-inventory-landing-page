@@ -80,7 +80,7 @@ export default function SellerClubSection({
             <p className="font-onest font-normal text-white lg:leading-6 leading-6 md:text-base text-xs xl:mb-14 md:mb-10 mb-8">
               {description}
             </p>
-            <ButtonLg url={buttonUrl} text={buttonText} bgColor="[#795CF5]" textColor="white" isBorder />
+            <ButtonLg url={buttonUrl} text={buttonText} bgColor="[#795CF5]" textColor="white" isBorder/>
           </div>
         </div>
       </div>

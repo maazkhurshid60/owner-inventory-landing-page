@@ -37,8 +37,8 @@ export default function Hero() {
     <ReviewSection/>
    
    <SellerClubSection
-  mediaType="image"
-  mediaSrc="/assets/features-section/testing.webp"
+    mediaType="image"
+     mediaSrc="/assets/features-section/testing.webp"
   heading="Join the Smart Sellers Club"
   description="Discover how easy it is to manage inventory, run POS, and launch an online store — all from a single, unified dashboard."
   buttonText="Book a Free Demo"
