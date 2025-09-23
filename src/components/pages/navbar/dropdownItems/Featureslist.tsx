@@ -200,8 +200,8 @@ sales: [
       title: 'Sales',
       children: [
         { title: 'Products' },
-        { title: 'Products 2.0 (Review and Naming convention)' },
-        { title: 'Products 3.0 (Review and Naming convention)' },
+        { title: 'Products 2.0' },
+        { title: 'Products 3.0 ' },
         { title: 'Invoice Payments' },
         { title: 'Cashier' },
         { title: 'Credit' },
