@@ -1,5 +1,4 @@
-"use client"; // required for GSAP in Next.js
-
+"use client"; 
 import { useState } from "react";
 import Logo from "./Logo";
 import NavItems from "./NavItems";
@@ -9,6 +8,7 @@ import SearchField from "./SearchField";
 
 const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <div className="header-animation relative z-[200]">
@@ -18,11 +18,20 @@ const Navbar = () => {
             <Logo />
             <Mobileicons />
             <NavItems />
-            <RightIcons searchOpen={searchOpen} setSearchOpen={setSearchOpen} />
+            <RightIcons
+              searchOpen={searchOpen}
+              setSearchOpen={setSearchOpen}
+              setSearchQuery={setSearchQuery}
+            />
           </nav>
 
           {/* Search dropdown */}
-          <SearchField searchOpen={searchOpen} setSearchOpen={setSearchOpen} />
+          <SearchField
+            searchOpen={searchOpen}
+            setSearchOpen={setSearchOpen}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+          />
         </div>
       </header>
     </div>

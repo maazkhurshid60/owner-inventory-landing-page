@@ -1,12 +1,20 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 
 type SearchFieldProps = {
   searchOpen: boolean;
   setSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  searchQuery: string;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const SearchField: React.FC<SearchFieldProps> = ({ searchOpen, setSearchOpen }) => {
+const SearchField: React.FC<SearchFieldProps> = ({
+  searchOpen,
+  setSearchOpen,
+  searchQuery,
+  setSearchQuery,
+}) => {
   return (
     <div
       id="searchDropdown"
@@ -21,7 +29,8 @@ const SearchField: React.FC<SearchFieldProps> = ({ searchOpen, setSearchOpen }) 
             name="q"
             placeholder="Search for features overviews, FAQs, and more..."
             className="w-full border text-[#231F20] border-gray-300 rounded-full p-3"
-            onBlur={() => setSearchOpen(false)} 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
           <button type="submit" className="absolute top-[40%] right-12">
             <Image

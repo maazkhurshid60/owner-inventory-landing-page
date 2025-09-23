@@ -16,19 +16,22 @@ const teamFeatures = [
     title: "People",
     description: "Centralized customer and supplier management with loyalty programs and CRM tools.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/peoples-bg.webm",
-    videoClassName: "w-full scale-[1.15] h-[200px] rounded-tl-[20px] rounded-tr-[20px]",
+    mediaClassName: "w-full scale-[1.15] h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
+    heightClass: "h-full",
   },
   {
     title: "Human Resource (HR)",
     description: "Simplify attendance, shifts, payroll, and employee records in one system.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/humanresources.webm",
-    videoClassName: "w-full scale-x-[1.15] h-[200px] rounded-tl-[20px] rounded-tr-[20px]",
+    mediaClassName: "w-full scale-x-[1.15] h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
+    heightClass: "h-full"
   },
   {
     title: "Facilities",
     description: "Track and manage workspaces, business assets, and internal resources effectively.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/facilities.webm",
-    videoClassName: "w-full scale-[1.15] h-[200px] rounded-tl-[20px] rounded-tr-[20px]",
+    mediaClassName: "w-full scale-[1.15] h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
+    heightClass: "h-full"
   },
 ];
 
@@ -37,19 +40,22 @@ const financeFeatures = [
     title: "Accounting & Financials",
     description: "Integrated invoicing, expense tracking, and tax compliance made simple.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/acounting%26financial.webm",
-    videoClassName: "w-full scale-110 h-[170px] rounded-tl-[20px] rounded-tr-[20px]",
+    mediaClassName: "w-full scale-100 h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
+    heightClass: "h-fit"
   },
   {
     title: "Advanced Reports",
     description: "Unlock in-depth analytics, trends, and forecasting for smarter decision-making.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/advance-report.webm",
-    videoClassName: "w-full scale-150 h-[170px] rounded-tl-[20px] rounded-tr-[20px]",
+    mediaClassName: "w-full scale-150 h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
+    heightClass: "h-fit"
   },
   {
     title: "Standard Reports",
     description: "Get instant insights into sales, purchases, and stock performance.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/standards-reports.webm",
-    videoClassName: "w-full h-[170px] rounded-tl-[20px] rounded-tr-[20px]",
+    mediaClassName: "w-full h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
+    heightClass: "h-fit"
   },
 ];
 
@@ -63,7 +69,7 @@ const page = () => {
         showButtons={false}
       />
 
-      <FeaturesCoreOperations/>
+      <FeaturesCoreOperations />
 
       <EmpoweredSection
         title="Your Team, Organized & Empowered"
@@ -72,7 +78,7 @@ const page = () => {
         wrapperClass="bg-[#F3F4F6] rounded-[40px] py-10 lg:py-[100px] px-5 lg:px-[60px] mx-0"
       />
 
-      <FeaturesssSection/>
+      <FeaturesssSection />
 
       <SellerClubSection
         mediaType="video"
@@ -83,15 +89,17 @@ const page = () => {
         buttonUrl="#"
       />
 
-      <SmartIntegration/>
-        <EmpoweredSection
+      <SmartIntegration />
+
+      <EmpoweredSection
         title="Finance & Reporting Made Simple"
         description="Empower your team, build customer loyalty, and manage resources with ease."
         features={financeFeatures}
         wrapperClass="finance-reporting-shadow mx-10"
       />
-      <FaqSection/>
-      <CalltoActionBottom/>
+
+      <FaqSection />
+      <CalltoActionBottom />
     </>
   );
 };
