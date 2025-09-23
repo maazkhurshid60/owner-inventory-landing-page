@@ -3,13 +3,14 @@ import React from "react";
 interface FeatureCardProps {
   title: string;
   description: string;
-  videoSrc?: string;      // optional
-  imageSrc?: string;      // optional
+  videoSrc?: string;       // optional
+  imageSrc?: string;       // optional
   className?: string;
   mediaClassName?: string; // applies to video or image
   paddingClass?: string;
   buttonLabel?: string;
-  buttonHref?: string;  
+  buttonHref?: string;
+  heightClass?: string;    // NEW → control h-full or h-fit
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
@@ -20,19 +21,24 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   className = "",
   mediaClassName = "",
   paddingClass = "px-[24px]",
-  buttonLabel, 
-  buttonHref, 
+  buttonLabel,
+  buttonHref,
+  heightClass = "h-full", // default is h-full, but you can override with h-fit
 }) => {
   return (
     <div
-      className={`p-[1px] rounded-[30px] features-core-opretions__cards bg-[linear-gradient(90deg,#1AD1B9_32.74%,#38ACCC_52.46%,#5588DF_76.39%,#795CF5_100%)] h-full ${className}`}
+      className={`p-[1px] rounded-[30px] features-core-opretions__cards 
+        bg-[linear-gradient(90deg,#1AD1B9_32.74%,#38ACCC_52.46%,#5588DF_76.39%,#795CF5_100%)] 
+        ${heightClass} ${className}`}
     >
       <div className="bg-white rounded-[30px] h-full p-2 lg:p-4">
         <div className="flex flex-col">
+          {/* Media */}
           <div
-            className={`w-full ${paddingClass} pb-0 pt-4 production-banner bg-[linear-gradient(90deg,rgba(26,209,185,0.2)_32.74%,rgba(56,172,204,0.2)_52.46%,rgba(85,136,223,0.2)_76.39%,rgba(121,92,245,0.2)_100%)] rounded-tl-[20px] rounded-tr-[20px]`}
+            className={`w-full ${paddingClass} pb-0 pt-4 production-banner 
+              bg-[linear-gradient(90deg,rgba(26,209,185,0.2)_32.74%,rgba(56,172,204,0.2)_52.46%,rgba(85,136,223,0.2)_76.39%,rgba(121,92,245,0.2)_100%)] 
+              rounded-tl-[20px] rounded-tr-[20px]`}
           >
-            {/* Render image if imageSrc is provided, otherwise video */}
             {imageSrc ? (
               <img
                 src={imageSrc}
@@ -52,15 +58,16 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
               </video>
             ) : null}
           </div>
+
+          {/* Text */}
           <div className="mt-5">
-            <h3 className="xl:text-2xl text-xl leading-100% font-semibold text-[#231F20] font-onest">
+            <h3 className="xl:text-2xl text-xl leading-[100%] font-semibold text-[#231F20] font-onest">
               {title}
             </h3>
             <p className="xl:text-base text-sm font-normal font-onest text-[#231F20] mt-3 lg:mt-4">
               {description}
             </p>
 
-            {/* Optional button */}
             {buttonLabel && (
               <a
                 href={buttonHref || "#"}

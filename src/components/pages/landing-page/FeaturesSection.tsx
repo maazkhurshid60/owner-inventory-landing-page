@@ -34,7 +34,7 @@ const features = [
 
 export default function FeaturesTabSection() {
   const [activeFeature, setActiveFeature] = useState(features[0].id);
-  const [progress, setProgress] = useState(0);
+  const [progressMap, setProgressMap] = useState<{ [key: string]: number }>({});
 
   const desktopRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
   const mobileRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
@@ -44,26 +44,31 @@ export default function FeaturesTabSection() {
       desktopRefs.current[activeFeature] || mobileRefs.current[activeFeature];
     if (!video) return;
 
-    setProgress(0);
+    // reset only current active tab’s progress
+    setProgressMap((prev) => ({ ...prev, [activeFeature]: 0 }));
     video.currentTime = 0;
     video.play();
+
+    let frameId: number;
 
     const updateProgress = () => {
       if (video.duration > 0) {
         const percent = (video.currentTime / video.duration) * 100;
-        setProgress(percent);
+        setProgressMap((prev) => ({ ...prev, [activeFeature]: percent }));
       }
+      frameId = requestAnimationFrame(updateProgress);
     };
+
+    updateProgress(); // start animation loop
 
     const handleLoop = () => {
-      setProgress(0);
+      setProgressMap((prev) => ({ ...prev, [activeFeature]: 0 }));
     };
 
-    video.addEventListener("timeupdate", updateProgress);
     video.addEventListener("ended", handleLoop);
 
     return () => {
-      video.removeEventListener("timeupdate", updateProgress);
+      cancelAnimationFrame(frameId);
       video.removeEventListener("ended", handleLoop);
     };
   }, [activeFeature]);
@@ -105,6 +110,8 @@ export default function FeaturesTabSection() {
           <div className="flex flex-col items-start justify-center gap-10 xl:gap-10 h-full">
             {features.map((feature) => {
               const isActive = activeFeature === feature.id;
+              const progress = progressMap[feature.id] || 0;
+
               return (
                 <div key={feature.id} className="flex flex-col w-full items-start">
                   {/* Tab Button */}
@@ -143,8 +150,8 @@ export default function FeaturesTabSection() {
                     }`}
                   >
                     <div
-                      className="h-full bg-[#F3F4F6] transition-[width] duration-200 ease-linear"
-                      style={{ width: `${isActive ? progress : 0}%` }}
+                      className="h-full bg-[#F3F4F6] transition-all duration-[500ms] ease-linear"
+                      style={{ width: `${progress}%` }}
                     ></div>
                   </div>
 
@@ -176,4 +183,3 @@ export default function FeaturesTabSection() {
     </section>
   );
 }
-

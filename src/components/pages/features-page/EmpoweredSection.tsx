@@ -15,6 +15,7 @@ interface EmpoweredSectionProps {
     className?: string;
     mediaClassName?: string;
     paddingClass?: string;
+    heightClass?: string;
   }[];
   wrapperClass?: string;
 }
@@ -51,6 +52,8 @@ const EmpoweredSection: React.FC<EmpoweredSectionProps> = ({
                 paddingClass={card.paddingClass}
                 buttonLabel="View Details"
                 buttonHref="#"
+                heightClass={card.heightClass}
+
               />
             </div>
           )}
