@@ -11,6 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 interface HeroSectionProps {
   title?: string;
   description?: string; 
+  video?: string; 
   showButtons?: boolean;
   children?: ReactNode; 
 }
@@ -18,6 +19,7 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({
   title = 'Grow Faster with Smarter Inventory Tools',
   description,
+  video,
   showButtons = true,
   children,
 }) => {
@@ -168,7 +170,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 loop
                 playsInline
               >
-                <source src="/assets/Manual.mp4" type="video/mp4" />
+                <source src={video} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>

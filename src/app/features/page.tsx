@@ -59,6 +59,7 @@ const page = () => {
       <HeroSection
         title="Explore the Tools Behind Your Success"
         description="Owners Inventory brings together everything you need to manage, track, and grow your business in one unified platform. Explore our powerful features, categorized to help you run operations smoothly, manage people efficiently, and scale with confidence."
+        video="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/main-feature.webm"
         showButtons={false}
       />
 

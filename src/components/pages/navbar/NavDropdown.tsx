@@ -1,13 +1,17 @@
+import { useRouter } from "next/navigation";
+
 type NavDropdownProps = {
   label: string;
   children: React.ReactNode;
 };
 
 const NavDropdown = ({ label, children }: NavDropdownProps) => {
+  const router = useRouter();
   return (
     <li className="group ">
       {/* Trigger */}
       <a
+      onClick={()=>{router.push(`/${label.toLowerCase()}`)}}
         href="#"
         className="dropdown-toggle flex items-center justify-center gap-3 px-3.5 py-1.5 
                    md:text-[10px] xl:px-4 xl:py-[9px] xl:text-sm 

@@ -13,7 +13,7 @@ interface EmpoweredSectionProps {
     description: string;
     videoSrc: string;
     className?: string;
-    videoClassName?: string;
+    mediaClassName?: string;
     paddingClass?: string;
   }[];
   wrapperClass?: string;
@@ -47,7 +47,7 @@ const EmpoweredSection: React.FC<EmpoweredSectionProps> = ({
                 description={card.description}
                 videoSrc={card.videoSrc}
                 className={card.className}
-                videoClassName={card.videoClassName}
+                mediaClassName={card.mediaClassName}
                 paddingClass={card.paddingClass}
                 buttonLabel="View Details"
                 buttonHref="#"

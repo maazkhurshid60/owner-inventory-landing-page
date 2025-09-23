@@ -25,6 +25,7 @@ export default function Hero() {
    <HeroSection
   title="Grow Faster with Smarter Inventory Tools"
   description="Get full access to powerful inventory tools without upfront costs. Start managing smarter today..."
+  video="/assets/Manual.mp4"
   showButtons={true}
 />
 

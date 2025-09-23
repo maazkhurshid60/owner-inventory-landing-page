@@ -3,9 +3,10 @@ import React from "react";
 interface FeatureCardProps {
   title: string;
   description: string;
-  videoSrc: string;
+  videoSrc?: string;      // optional
+  imageSrc?: string;      // optional
   className?: string;
-  videoClassName?: string;
+  mediaClassName?: string; // applies to video or image
   paddingClass?: string;
   buttonLabel?: string;
   buttonHref?: string;  
@@ -15,31 +16,41 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   description,
   videoSrc,
+  imageSrc,
   className = "",
-  videoClassName = "",
+  mediaClassName = "",
   paddingClass = "px-[24px]",
   buttonLabel, 
   buttonHref, 
 }) => {
   return (
     <div
-      className={`p-[1px] rounded-[30px] features-core-opretions__cards bg-[linear-gradient(90deg,#1AD1B9_32.74%,#38ACCC_52.46%,#5588DF_76.39%,#795CF5_100%)] h-fit ${className}`}
+      className={`p-[1px] rounded-[30px] features-core-opretions__cards bg-[linear-gradient(90deg,#1AD1B9_32.74%,#38ACCC_52.46%,#5588DF_76.39%,#795CF5_100%)] h-full ${className}`}
     >
-      <div className="bg-white rounded-[30px] p-2 lg:p-4">
+      <div className="bg-white rounded-[30px] h-full p-2 lg:p-4">
         <div className="flex flex-col">
           <div
             className={`w-full ${paddingClass} pb-0 pt-4 production-banner bg-[linear-gradient(90deg,rgba(26,209,185,0.2)_32.74%,rgba(56,172,204,0.2)_52.46%,rgba(85,136,223,0.2)_76.39%,rgba(121,92,245,0.2)_100%)] rounded-tl-[20px] rounded-tr-[20px]`}
           >
-            <video
-              className={`w-full rounded-tl-[20px] rounded-tr-[20px] lazy-video feature-video ${videoClassName}`}
-              autoPlay
-              muted
-              loop
-              playsInline
-            >
-              <source src={videoSrc} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+            {/* Render image if imageSrc is provided, otherwise video */}
+            {imageSrc ? (
+              <img
+                src={imageSrc}
+                alt={title}
+                className={`w-full rounded-tl-[20px] rounded-tr-[20px] ${mediaClassName}`}
+              />
+            ) : videoSrc ? (
+              <video
+                className={`w-full rounded-tl-[20px] rounded-tr-[20px] lazy-video feature-video ${mediaClassName}`}
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src={videoSrc} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : null}
           </div>
           <div className="mt-5">
             <h3 className="xl:text-2xl text-xl leading-100% font-semibold text-[#231F20] font-onest">
@@ -49,7 +60,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
               {description}
             </p>
 
-            {/* 👇 Optional button */}
+            {/* Optional button */}
             {buttonLabel && (
               <a
                 href={buttonHref || "#"}
