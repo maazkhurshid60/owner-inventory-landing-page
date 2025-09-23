@@ -30,12 +30,12 @@ const NavItems = () => {
   const router= useRouter();
 
   return (
-    <div className="bg-white md:px-1 md:py-1 xl:px-3 xl:py-1.5 shadow-[0_0_20px_0_#0000001A] rounded-full  inventory-menu md:flex justify-center w-auto z-50">
+    <div className="bg-white md:px-1 md:py-1 xl:px-3 xl:py-1.5 shadow-[0_0_20px_0_#0000001A] rounded-full  inventory-menu md:flex justify-center w-auto">
       <ul className="hidden md:flex items-center justify-center md:gap-1 lg:gap-3 w-auto">
         {/* FEATURES DROPDOWN */}
         <NavDropdown label="Features" >
           <div className="h-2 bg-transparent"></div>
-
+           
           <div
             
             className="grid grid-cols-12 gap-6 p-10 mt-2 mx-auto bg-white 

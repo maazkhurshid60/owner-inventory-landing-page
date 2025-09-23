@@ -8,15 +8,12 @@ type NavDropdownProps = {
 const NavDropdown = ({ label, children }: NavDropdownProps) => {
   const router = useRouter();
   return (
-    <li className="group ">
+    <li className="group lg:group">
       {/* Trigger */}
       <a
       onClick={()=>{router.push(`/${label.toLowerCase()}`)}}
         href="#"
-        className="dropdown-toggle flex items-center justify-center gap-3 px-3.5 py-1.5 
-                   md:text-[10px] xl:px-4 xl:py-[9px] xl:text-sm 
-                   font-semibold text-[#231F20] bg-white border border-[#F3F4F6] 
-                   rounded-full hover:bg-gray-100 hover:border-[#795CF5] cursor-pointer"
+        className="dropdown-toggle flex items-center justify-center xl:gap-3 gap-1 px-[6px] py-[6px] md:text-[8px] xl:px-4 xl:py-[9px] xl:text-sm font-semibold text-[#231F20] bg-white border border-[#F3F4F6] hover:bg-gray-100 hover:border-[#795CF5] active:bg-gray-100 active:border-[#795CF5] rounded-full"
       >
         {label}
         <img
@@ -29,9 +26,8 @@ const NavDropdown = ({ label, children }: NavDropdownProps) => {
       {/* Dropdown Menu */}
       <div
         className={`
-          dropdown-menu absolute top-8 lg:top-12 left-1/2 z-50 hidden group-hover:flex
-          transform -translate-x-1/2
-          md:w-[750px] lg:w-[950px] xl:w-[1220px] 2xl:w-[1500px]
+          dropdown-menu absolute lg:top-10 top-8 left-1/2 z-50 hidden xl:w-[1220px] lg:w-[950px] md:w-[700px] transform -translate-x-1/2  group-hover:flex flex-col h-[55
+                  0px]
         `}
       >
         {children}

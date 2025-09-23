@@ -49,26 +49,22 @@ export default function FeaturesTabSection() {
     video.currentTime = 0;
     video.play();
 
-    let frameId: number;
-
     const updateProgress = () => {
       if (video.duration > 0) {
         const percent = (video.currentTime / video.duration) * 100;
         setProgressMap((prev) => ({ ...prev, [activeFeature]: percent }));
       }
-      frameId = requestAnimationFrame(updateProgress);
     };
-
-    updateProgress(); // start animation loop
 
     const handleLoop = () => {
       setProgressMap((prev) => ({ ...prev, [activeFeature]: 0 }));
     };
 
+    video.addEventListener("timeupdate", updateProgress);
     video.addEventListener("ended", handleLoop);
 
     return () => {
-      cancelAnimationFrame(frameId);
+      video.removeEventListener("timeupdate", updateProgress);
       video.removeEventListener("ended", handleLoop);
     };
   }, [activeFeature]);
@@ -150,7 +146,7 @@ export default function FeaturesTabSection() {
                     }`}
                   >
                     <div
-                      className="h-full bg-[#F3F4F6] transition-all duration-[500ms] ease-linear"
+                      className="h-full bg-[#F3F4F6] transition-[width] duration-200 ease-linear"
                       style={{ width: `${progress}%` }}
                     ></div>
                   </div>
