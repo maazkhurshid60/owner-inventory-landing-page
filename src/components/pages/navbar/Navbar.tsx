@@ -12,7 +12,7 @@ const Navbar = () => {
 
   return (
     <div className="header-animation relative z-[200]">
-      <header className="fixed md:top-8 top-8 z-20 w-full transition-colors duration-300 ease-in-out">
+      <header className="fixed md:top-8 top-8  z-20 w-full transition-colors duration-300 ease-in-out">
         <div className="wrapper relative">
           <nav className="relative flex items-center justify-end md:justify-center py-2">
             <Logo />
