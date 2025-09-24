@@ -1,7 +1,4 @@
-"use client"
-import Head from "next/head";
-
-import './globals.css'
+import '../globals.css'
 import Hero from "@/components/pages/Hero";
 
 
