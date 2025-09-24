@@ -13,7 +13,7 @@ const PinnedSection3 = () => {
   useEffect(() => {
     let mm = gsap.matchMedia();
 
-    // ✅ Tablet: 768px – 1023px
+  
     mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -38,7 +38,7 @@ const PinnedSection3 = () => {
         .to(".smart-way-cards", { y: -830 }, 3);
     });
 
-    // ✅ Desktop small: 1024px – 1279px
+    
     mm.add("(min-width: 1024px) and (max-width: 1279px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -62,7 +62,7 @@ const PinnedSection3 = () => {
         .to(".smart-way-cards", { y: -1205 }, 3);
     });
 
-    // ✅ Desktop medium: 1280px – 1535px
+  
     mm.add("(min-width: 1280px) and (max-width: 1535px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -86,7 +86,7 @@ const PinnedSection3 = () => {
         .to(".smart-way-cards", { y: -1220 }, 3);
     });
 
-    // ✅ Desktop large: 1536px+
+    
     mm.add("(min-width: 1536px)", () => {
       const tl = gsap.timeline({
         scrollTrigger: {
