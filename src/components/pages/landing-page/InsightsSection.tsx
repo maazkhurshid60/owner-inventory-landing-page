@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import '../../../app/globals.css'
 const insights = [
   {
     title: 'Mastering Stock Control in 5 Steps',
