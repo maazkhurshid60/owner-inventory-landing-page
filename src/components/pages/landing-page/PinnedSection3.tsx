@@ -11,111 +11,126 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PinnedSection3 = () => {
   useEffect(() => {
-    let mm = gsap.matchMedia();
+    let smartBreak = gsap.matchMedia();
 
-  
-    mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
-      const tl = gsap.timeline({
+    // 📱 Medium screens (768px – 1023px)
+    smartBreak.add("(min-width: 768px) and (max-width: 1023px)", () => {
+      const tl2 = gsap.timeline({
         scrollTrigger: {
-          trigger: ".pinned-section-3",
-          start: "top top",
+          scroller: "body",
+          start: "top -5%",
           end: "+=" + window.innerHeight * 3,
-          pin: true,
+          pin: ".pinned-section-3",
           scrub: 2,
           // markers: true,
         },
       });
 
-      gsap.set(".smart-way-images", { y: 30, x: 182 });
+      if (window.innerWidth >= 800 && window.innerWidth < 1024) {
+        gsap.set(".smart-way-images", { y: 30, x: 145 });
 
-      tl.to(".smart-way-images", { x: -62 }, 0)
-        .to(".smart-way-cards", { y: -200 }, 0)
-        .to(".smart-way-images", { x: -308 }, 1)
-        .to(".smart-way-cards", { y: -400 }, 1)
-        .to(".smart-way-images", { x: -550 }, 2)
-        .to(".smart-way-cards", { y: -600 }, 2)
-        .to(".smart-way-images", { x: -800 }, 3)
-        .to(".smart-way-cards", { y: -830 }, 3);
+        tl2.to(".smart-way-images", { x: -80, duration: 1 }, 0)
+          .to(".smart-way-cards", { y: -200, duration: 1 }, 0)
+          .to(".smart-way-images", { x: -328, duration: 1 }, 1)
+          .to(".smart-way-cards", { y: -400, duration: 1 }, 1)
+          .to(".smart-way-images", { x: -574, duration: 1 }, 2)
+          .to(".smart-way-cards", { y: -600, duration: 1 }, 2)
+          .to(".smart-way-images", { x: -835, duration: 1 }, 3)
+          .to(".smart-way-cards", { y: -830, duration: 1 }, 3);
+      } else {
+        gsap.set(".smart-way-images", { y: 30, x: 125 });
+
+        tl2.to(".smart-way-images", { x: -120, duration: 1 }, 0)
+          .to(".smart-way-cards", { y: -200, duration: 1 }, 0)
+          .to(".smart-way-images", { x: -365, duration: 1 }, 1)
+          .to(".smart-way-cards", { y: -400, duration: 1 }, 1)
+          .to(".smart-way-images", { x: -613, duration: 1 }, 2)
+          .to(".smart-way-cards", { y: -600, duration: 1 }, 2)
+          .to(".smart-way-images", { x: -858, duration: 1 }, 3)
+          .to(".smart-way-cards", { y: -830, duration: 1 }, 3);
+      }
     });
 
-    
-    mm.add("(min-width: 1024px) and (max-width: 1279px)", () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".pinned-section-3",
-          start: "top top",
-          end: "+=" + window.innerHeight * 2,
-          pin: true,
-          scrub: 2,
+    // 💻 Large screens (>= 1024px)
+    smartBreak.add("(min-width: 1024px)", () => {
+      ScrollTrigger.matchMedia({
+        "(min-width: 1536px)": function () {
+          const tl2 = gsap.timeline({
+            scrollTrigger: {
+              scroller: "body",
+              start: "top -4%",
+              end: "+=" + window.innerHeight * 2,
+              pin: ".pinned-section-3",
+              scrub: 2,
+            },
+          });
+
+          gsap.set(".smart-way-images", { y: 30, x: 200 });
+
+          tl2.to(".smart-way-images", { x: -130, duration: 1 }, 0)
+            .to(".smart-way-cards", { y: -330, duration: 1 }, 0)
+            .to(".smart-way-images", { x: -460, duration: 1 }, 1)
+            .to(".smart-way-cards", { y: -630, duration: 1 }, 1)
+            .to(".smart-way-images", { x: -795, duration: 1 }, 2)
+            .to(".smart-way-cards", { y: -930, duration: 1 }, 2)
+            .to(".smart-way-images", { x: -1130, duration: 1 }, 3)
+            .to(".smart-way-cards", { y: -1230, duration: 1 }, 3);
+        },
+
+        "(min-width: 1280px) and (max-width: 1535px)": function () {
+          const tl2 = gsap.timeline({
+            scrollTrigger: {
+              scroller: "body",
+              start: "top -7%",
+              end: "+=" + window.innerHeight * 2,
+              pin: ".pinned-section-3",
+              scrub: 2,
+            },
+          });
+
+          gsap.set(".smart-way-images", { y: 30, x: 230 });
+
+          tl2.to(".smart-way-images", { x: -52, duration: 1 }, 0)
+            .to(".smart-way-cards", { y: -300, duration: 1 }, 0)
+            .to(".smart-way-images", { x: -330, duration: 1 }, 1)
+            .to(".smart-way-cards", { y: -600, duration: 1 }, 1)
+            .to(".smart-way-images", { x: -615, duration: 1 }, 2)
+            .to(".smart-way-cards", { y: -900, duration: 1 }, 2)
+            .to(".smart-way-images", { x: -900, duration: 1 }, 3)
+            .to(".smart-way-cards", { y: -1220, duration: 1 }, 3);
+        },
+
+        "(min-width: 1024px) and (max-width: 1279px)": function () {
+          const tl2 = gsap.timeline({
+            scrollTrigger: {
+              scroller: "body",
+              start: "top -7%",
+              end: "+=" + window.innerHeight * 2,
+              pin: ".pinned-section-3",
+              scrub: 2,
+            },
+          });
+
+          gsap.set(".smart-way-images", { y: 30, x: 120 });
+
+          tl2.to(".smart-way-images", { x: -165, duration: 1 }, 0)
+            .to(".smart-way-cards", { y: -330, duration: 1 }, 0)
+            .to(".smart-way-images", { x: -445, duration: 1 }, 1)
+            .to(".smart-way-cards", { y: -630, duration: 1 }, 1)
+            .to(".smart-way-images", { x: -726, duration: 1 }, 2)
+            .to(".smart-way-cards", { y: -930, duration: 1 }, 2)
+            .to(".smart-way-images", { x: -1010, duration: 1 }, 3)
+            .to(".smart-way-cards", { y: -1205, duration: 1 }, 3);
         },
       });
-
-      gsap.set(".smart-way-images", { y: 30, x: 158 });
-
-      tl.to(".smart-way-images", { x: -123 }, 0)
-        .to(".smart-way-cards", { y: -330 }, 0)
-        .to(".smart-way-images", { x: -405 }, 1)
-        .to(".smart-way-cards", { y: -630 }, 1)
-        .to(".smart-way-images", { x: -687 }, 2)
-        .to(".smart-way-cards", { y: -930 }, 2)
-        .to(".smart-way-images", { x: -970 }, 3)
-        .to(".smart-way-cards", { y: -1205 }, 3);
     });
 
-  
-    mm.add("(min-width: 1280px) and (max-width: 1535px)", () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".pinned-section-3",
-          start: "top top",
-          end: "+=" + window.innerHeight * 2,
-          pin: true,
-          scrub: 2,
-        },
-      });
-
-      gsap.set(".smart-way-images", { y: 20, x: 330 });
-
-      tl.to(".smart-way-images", { x: 48 }, 0)
-        .to(".smart-way-cards", { y: -300 }, 0)
-        .to(".smart-way-images", { x: -235 }, 1)
-        .to(".smart-way-cards", { y: -600 }, 1)
-        .to(".smart-way-images", { x: -515 }, 2)
-        .to(".smart-way-cards", { y: -900 }, 2)
-        .to(".smart-way-images", { x: -798 }, 3)
-        .to(".smart-way-cards", { y: -1220 }, 3);
-    });
-
-    
-    mm.add("(min-width: 1536px)", () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".pinned-section-3",
-          start: "top top",
-          end: "+=" + window.innerHeight * 2,
-          pin: true,
-          scrub: 2,
-        },
-      });
-
-      gsap.set(".smart-way-images", { y: 30, x: 300 });
-
-      tl.to(".smart-way-images", { x: -30 }, 0)
-        .to(".smart-way-cards", { y: -330 }, 0)
-        .to(".smart-way-images", { x: -360 }, 1)
-        .to(".smart-way-cards", { y: -630 }, 1)
-        .to(".smart-way-images", { x: -695 }, 2)
-        .to(".smart-way-cards", { y: -925 }, 2)
-        .to(".smart-way-images", { x: -1030 }, 3)
-        .to(".smart-way-cards", { y: -1230 }, 3);
-    });
-
-    // 🔄 Fix hydration/layout shifts
+    // 🔄 Refresh to prevent hydration/layout shift issues
     ScrollTrigger.refresh();
 
     return () => {
-      mm.revert();
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      smartBreak.revert();
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
     };
   }, []);
 
