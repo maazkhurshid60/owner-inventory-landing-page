@@ -128,7 +128,7 @@ const PricingHero: React.FC<PricingHeroProps> = ({
           </p>
 
           {/* Tabs */}
-          <PricingTabs activeTab={activeTab} onTabChange={onTabChange} />
+         <PricingTabs activeTab={activeTab} onTabChange={onTabChange} variant="tabs" />
 
           {/* Pricing Cards */}
           <div className="w-full mt-10 md:mt-14 xl:mt-20">

@@ -2,13 +2,15 @@
 import React, { useEffect, useState } from "react";
 import { FeatureCategory } from "./types";
 import { pricingPlans } from "./tableConfig";
+import PricingTabs from "./PricingTabs";
 
 interface ComparisonTableProps {
   categories: FeatureCategory[];
-  tab: string; // "monthly" | "yearly"
+  tab: "monthly" | "yearly";
+  onTabChange: (tab: "monthly" | "yearly") => void; 
 }
 
-const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab }) => {
+const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab, onTabChange, }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
@@ -73,6 +75,9 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab }) =>
           isVisible ? "block" : "hidden"
         }`}
       >
+        <div className="w-full flex items-center justify-end mb-10">
+          <PricingTabs activeTab={tab} onTabChange={onTabChange} variant="toggle" />
+        </div>
         <div className="flex w-full overflow-hidden rounded-[30px] bg-gradient-to-r from-[#1AD1B9] to-[#795CF5] p-[2px]">
           <div className="flex w-full overflow-hidden bg-white rounded-[28px]">
             {/* Left sticky column with feature names */}
@@ -82,7 +87,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab }) =>
                   <React.Fragment key={categoryIndex}>
                     <thead>
                       <tr>
-                        <th className="text-center md:h-[150px] h-[110px] p-2">
+                        <th className="text-center md:h-[150px] h-[110px] p-2 md:p-4">
                           <div className="flex flex-col items-center text-sm md:text-base lg:text-lg bg-[#F3F4F6] font-semibold text-[#231F20] rounded-[10px] justify-center gap-[6px] md:h-[150px] h-[110px] p-2 md:p-4">
                             {category.name}
                           </div>
