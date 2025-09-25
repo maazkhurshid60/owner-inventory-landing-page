@@ -1,4 +1,4 @@
-"use client"; 
+"use client";
 import { useState } from "react";
 import Logo from "./Logo";
 import NavItems from "./NavItems";
@@ -9,7 +9,7 @@ import SearchField from "./SearchField";
 const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-
+  console.log(searchQuery, 'qweuewra');
   return (
     <div className="header-animation relative z-[200]">
       <header className="fixed md:top-8 top-8  z-20 w-full transition-colors duration-300 ease-in-out">
@@ -27,6 +27,7 @@ const Navbar = () => {
 
           {/* Search dropdown */}
           <SearchField
+            variant="navbar"
             searchOpen={searchOpen}
             setSearchOpen={setSearchOpen}
             searchQuery={searchQuery}
