@@ -118,10 +118,11 @@ export default function UnifiedPlatform() {
                 errors, and scale your business faster with a platform built to
                 unify, automate, and grow alongside you.
               </p>
+
               <ButtonLg
                 url="#"
-                text="Book a Free Demo"
-                bgColor="[#1AD1B9]"
+                text="Book Free Demo"
+                bgColor="#1AD1B9"
                 textColor="white"
                 isBorder
               />
