@@ -46,7 +46,7 @@ export default function IndustryPOSShowcase() {
           alt="Glow Border"
           width={320}
           height={320}
-          className="scrolling-images-pointer hidden md:block absolute z-10 md:w-[226px] md:h-[223px] lg:w-[270px] lg:h-[270px] 2xl:w-[320px] 2xl:h-[320px] md:right-[64px] lg:right-[263px] md:top-[58px] lg:top-[40px] xl:top-[30px] 2xl:top-[40px]"
+          className="scrolling-images-pointer hidden md:block absolute z-10 md:w-[226px] md:h-[223px] lg:w-[270px] lg:h-[270px] 2xl:w-[320px] 2xl:h-[320px] md:right-[64px] lg:right-[263px] md:top-[58px] lg:top-[40px] xl:top-[40px] 2xl:top-[40px]"
         />
 
         <div className="smart-way-images flex items-center gap-8 w-full md:max-w-full max-w-[342px]">

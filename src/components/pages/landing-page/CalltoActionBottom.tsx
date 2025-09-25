@@ -40,8 +40,23 @@ const CalltoActionBottom: React.FC = () => {
             >
               Contact Us
             </Link> */}
-            <ButtonLg url='#' text='Book Free Demo' bgColor='[#795CF5]' textColor="white" isBorder/>
-           <ButtonLg url='#' text='Contact Us' bgColor='white' textColor="[#231F20]" isBorder={false}/>
+          <ButtonLg 
+  url="#" 
+  text="Book Free Demo" 
+  bgColor="#795CF5" 
+  textColor="white" 
+  isBorder 
+/>
+
+<ButtonLg 
+  url="#" 
+  text="Contact Us" 
+  bgColor="transparent"  
+  textColor="#231F20" 
+  hoverBgColor="#795CF5" 
+  isBorder 
+/>
+
           </div>
         </div>
       </div>

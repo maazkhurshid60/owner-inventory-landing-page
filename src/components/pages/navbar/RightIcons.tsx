@@ -76,7 +76,7 @@ const RightIcons: React.FC<RightIconsProps> = ({
       href="#"
       className="px-3.5 py-1.5 xl:px-[18px] xl:py-[9px] md:text-[10px] xl:text-sm font-bold font-onest text-white bg-[#231F20] rounded-full border hover:bg-white hover:text-[#231F20] hover:border-[#231F20] transition-all whitespace-nowrap"
     >
-      Contact Us
+       Start for free
     </a>
   </div>
 );

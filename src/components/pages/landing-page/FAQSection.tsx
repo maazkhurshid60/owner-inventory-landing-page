@@ -1,40 +1,40 @@
-'use client';
-import { useState } from 'react';
-import Image from 'next/image';
-import '../../../app/globals.css'
-import ButtonLg from '@/components/button/ButtonLg';
+"use client";
+import { useState } from "react";
+import Image from "next/image";
+import "../../../app/globals.css";
+import ButtonLg from "@/components/button/ButtonLg";
 const faqs = [
   {
-    question: 'What can I manage with Owners Inventory?',
+    question: "What can I manage with Owners Inventory?",
     answer:
-      'Owners Inventory gives you full control over your business operations from tracking stock and managing products to processing in-store sales, handling supplier purchases, monitoring customer activity, and even running a fully synced online store.',
+      "Owners Inventory gives you full control over your business operations from tracking stock and managing products to processing in-store sales, handling supplier purchases, monitoring customer activity, and even running a fully synced online store.",
   },
   {
-    question: 'Does the system support multi-location inventory?',
+    question: "Does the system support multi-location inventory?",
     answer:
-      'Owners Inventory gives you full control over your business operations from tracking stock and managing products to processing in-store sales, handling supplier purchases, monitoring customer activity, and even running a fully synced online store.',
+      "Owners Inventory gives you full control over your business operations from tracking stock and managing products to processing in-store sales, handling supplier purchases, monitoring customer activity, and even running a fully synced online store.",
   },
   {
-    question: 'Can I create an online store with this platform?',
+    question: "Can I create an online store with this platform?",
     answer:
-      'Owners Inventory gives you full control over your business operations from tracking stock and managing products to processing in-store sales, handling supplier purchases, monitoring customer activity, and even running a fully synced online store.',
+      "Owners Inventory gives you full control over your business operations from tracking stock and managing products to processing in-store sales, handling supplier purchases, monitoring customer activity, and even running a fully synced online store.",
   },
   {
-    question: 'Is there a built-in POS system?',
+    question: "Is there a built-in POS system?",
     answer:
-      'Owners Inventory gives you full control over your business operations from tracking stock and managing products to processing in-store sales, handling supplier purchases, monitoring customer activity, and even running a fully synced online store.',
+      "Owners Inventory gives you full control over your business operations from tracking stock and managing products to processing in-store sales, handling supplier purchases, monitoring customer activity, and even running a fully synced online store.",
   },
   {
-    question: 'How long does it take to get started?',
+    question: "How long does it take to get started?",
     answer:
-      'Owners Inventory gives you full control over your business operations from tracking stock and managing products to processing in-store sales, handling supplier purchases, monitoring customer activity, and even running a fully synced online store.',
+      "Owners Inventory gives you full control over your business operations from tracking stock and managing products to processing in-store sales, handling supplier purchases, monitoring customer activity, and even running a fully synced online store.",
   },
 ];
 
 export default function FaqSection() {
   const [openIndex, setOpenIndex] = useState(null);
 
-  const toggle = (index : any) => {
+  const toggle = (index: any) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -51,24 +51,44 @@ export default function FaqSection() {
                   className="accordion-toggle flex items-center justify-between w-full p-5 md:px-6 md:py-4 text-left font-medium rounded-[20px] focus:outline-none"
                   onClick={() => toggle(index)}
                 >
-                  <span className={`spansss w-full max-w-[90%] text-sm md:text-xl leading-5 md:leading-9 font-onest
+                  <span
+                    className={`spansss w-full max-w-[90%] text-sm md:text-xl leading-5 md:leading-9 font-onest
                     
-                    ${
-                    openIndex === index ? 'text-[#795cf5]' : 'text-[#231f20]'
-                  }
-                    `}>
+                    ${openIndex === index ? "text-[#795cf5]" : "text-[#231f20]"}
+                    `}
+                  >
                     {faq.question}
                   </span>
-                  <span className={`icon-plus ${openIndex === index ? 'hidden' : 'block'}`}>
-                    <Image src="/assets/plus-icon.svg" alt="Plus-icon" width={24} height={24} priority/>
+                  <span
+                    className={`icon-plus ${
+                      openIndex === index ? "hidden" : "block"
+                    }`}
+                  >
+                    <Image
+                      src="/assets/plus-icon.svg"
+                      alt="Plus-icon"
+                      width={24}
+                      height={24}
+                      priority
+                    />
                   </span>
-                  <span className={`icon-minus ${openIndex === index ? 'block' : 'hidden'}`}>
-                    <Image src="/assets/minus-icon.svg" alt="Minus-icon" width={24} height={24} priority/>
+                  <span
+                    className={`icon-minus ${
+                      openIndex === index ? "block" : "hidden"
+                    }`}
+                  >
+                    <Image
+                      src="/assets/minus-icon.svg"
+                      alt="Minus-icon"
+                      width={24}
+                      height={24}
+                      priority
+                    />
                   </span>
                 </button>
                 <div
-                 className={`accordion-content px-5 pb-5 text-xs md:text-base text-[#231F20] ${
-                    openIndex === index ? 'block' : 'hidden'
+                  className={`accordion-content px-5 pb-5 text-xs md:text-base text-[#231F20] ${
+                    openIndex === index ? "block" : "hidden"
                   }`}
                 >
                   {faq.answer}
@@ -83,8 +103,9 @@ export default function FaqSection() {
               Everything You Were About to Ask
             </h1>
             <p className="mb-8 md:mb-5 xl:mb-14 text-xs md:text-xl leading-6 lg:leading-9 font-normal text-[#231F20] font-onest">
-              We’ve compiled the most common questions about Owners Inventory — from setup and features to pricing and
-              support. If you’re still unsure, our team is here to help.
+              We’ve compiled the most common questions about Owners Inventory —
+              from setup and features to pricing and support. If you’re still
+              unsure, our team is here to help.
             </p>
             {/* <a
               href="#"
@@ -93,8 +114,13 @@ export default function FaqSection() {
               View All FAQs
             </a> */}
 
-            <ButtonLg url='#' text='View All FAQs' bgColor='[#1AD1B9]' textColor="white" isBorder/>
-
+            <ButtonLg
+              url="#"
+              text="Book Free Demo"
+              bgColor="#1AD1B9"
+              textColor="white"
+              isBorder
+            />
           </div>
         </div>
       </div>
