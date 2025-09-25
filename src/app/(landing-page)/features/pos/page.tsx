@@ -45,6 +45,11 @@ const page = () => {
       />
       
       <KeyHighlights/>
+        
+              <div>
+        <PinnedSection3 />
+        </div>     
+     
        <SellerClubSection2
         description="Our POS system helps you sell smarter, faster, and with"
         highlight="complete control—integrated seamlessly with your business operations."
@@ -52,15 +57,14 @@ const page = () => {
         buttonHref="/demo"
         imageSrc="/assets/point-of-sale/pos-image.webp"
       />
+      
       <WhyChoosePOS
         heading="Why Choose Our POS?"
         cards={whyChoseCards}
         mainImage="/assets/point-of-sale/why-chose/why-chose-main.webp"
       />
-      <div>
-       <PinnedSection3 />
-      </div>
-     
+
+
        <FaqSection/>
     <CalltoActionBottom/>
     

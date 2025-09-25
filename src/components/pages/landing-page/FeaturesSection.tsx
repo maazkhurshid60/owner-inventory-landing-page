@@ -14,7 +14,7 @@ const features = [
     id: "inventory-ecommerce",
     title: "Sell online with built-in, fully synced e-commerce",
     icon: "/assets/features-section/cart-icon.svg",
-    video: "/assets/Manual.mp4",
+    video: "/assets/Posvideo.mp4",
   },
   {
     id: "inventory-management",
@@ -77,7 +77,7 @@ export default function FeaturesTabSection() {
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-7 lg:gap-14 xl:gap-32 items-center justify-center w-full">
-          {/* Left Side (Desktop Video) */}
+      
           <div className="hidden md:flex flex-col justify-center items-center gap-3 h-full">
             {features.map((feature) => (
               <div
