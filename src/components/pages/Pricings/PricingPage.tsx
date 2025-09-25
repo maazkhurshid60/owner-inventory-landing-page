@@ -34,7 +34,7 @@ const PricingPage: React.FC = () => {
 
         
         {/* Comparison Table */}
-        <ComparisonTable categories={featureCategories} tab={activeTab} />
+        <ComparisonTable categories={featureCategories} tab={activeTab} onTabChange={setActiveTab} />
 
         <section className="">
           <FeaturesSection/>

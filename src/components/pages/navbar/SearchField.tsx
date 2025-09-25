@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 
 type SearchFieldProps = {
@@ -15,6 +15,15 @@ const SearchField: React.FC<SearchFieldProps> = ({
   searchQuery,
   setSearchQuery,
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+ 
+  useEffect(() => {
+    if (searchOpen && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [searchOpen]);
+
   return (
     <div
       id="searchDropdown"
@@ -25,6 +34,7 @@ const SearchField: React.FC<SearchFieldProps> = ({
       <div className="py-4 px-7 relative">
         <form action="/search" method="GET">
           <input
+            ref={inputRef}
             type="text"
             name="q"
             placeholder="Search for features overviews, FAQs, and more..."
