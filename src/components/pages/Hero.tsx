@@ -32,7 +32,7 @@ export default function Hero() {
     <SmartWaytoSyncndSellSection/>
     <FeaturesSection />
     <UnifiedPlatform/>
-    <PinnedSection3/>
+    <PinnedSection3 sectionId="pinned-landing" />
     <PosIconsSection/>
     <ReviewSection/>
    

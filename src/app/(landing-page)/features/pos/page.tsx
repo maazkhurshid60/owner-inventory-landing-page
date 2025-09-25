@@ -5,6 +5,7 @@ import CalltoActionBottom from '@/components/pages/landing-page/CalltoActionBott
 import FaqSection from '@/components/pages/landing-page/FAQSection'
 import HeroSection from '@/components/pages/landing-page/HeroSection'
 import PinnedSection3 from '@/components/pages/landing-page/PinnedSection3'
+
 import React from 'react'
 
 
@@ -56,7 +57,7 @@ const page = () => {
         cards={whyChoseCards}
         mainImage="/assets/point-of-sale/why-chose/why-chose-main.webp"
       />
-      <PinnedSection3/>
+      <PinnedSection3 sectionId="pinned-pos" />
        <FaqSection/>
     <CalltoActionBottom/>
     
