@@ -9,7 +9,7 @@ const features = [
     description:
       "Seamlessly connect your inventory with online stores and marketplaces. Manage stock, sync products, and process orders across multiple sales channels — all from one unified platform.",
     videoSrc:
-      "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/purchases.webm",
+      "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/E-commerce.webm",
     buttonLabel: "View Details",
     buttonHref: "#",
     buttonColor: "#795CF5",
