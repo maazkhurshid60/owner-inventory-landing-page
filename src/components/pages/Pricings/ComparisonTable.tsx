@@ -87,7 +87,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab, onTa
                   <React.Fragment key={categoryIndex}>
                     <thead>
                       <tr>
-                        <th className="text-center md:h-[150px] h-[110px] p-2 md:p-4">
+                        <th className="text-center md:h-[150px] h-[110px] p-[7.8px] md:p-[15.8px]">
                           <div className="flex flex-col items-center text-sm md:text-base lg:text-lg bg-[#F3F4F6] font-semibold text-[#231F20] rounded-[10px] justify-center gap-[6px] md:h-[150px] h-[110px] p-2 md:p-4">
                             {category.name}
                           </div>

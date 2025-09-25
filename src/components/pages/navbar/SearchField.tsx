@@ -3,35 +3,39 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 
 type SearchFieldProps = {
-  searchOpen: boolean;
-  setSearchOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  searchOpen?: boolean; // only relevant for navbar variant
+  setSearchOpen?: React.Dispatch<React.SetStateAction<boolean>>;
   searchQuery: string;
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+  variant?: "navbar" | "page"; // NEW
 };
 
 const SearchField: React.FC<SearchFieldProps> = ({
-  searchOpen,
+  searchOpen = false,
   setSearchOpen,
   searchQuery,
   setSearchQuery,
+  variant = "navbar",
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
- 
   useEffect(() => {
-    if (searchOpen && inputRef.current) {
+    if (variant === "navbar" && searchOpen && inputRef.current) {
       inputRef.current.focus();
     }
-  }, [searchOpen]);
+  }, [searchOpen, variant]);
+
+  // Wrapper classes based on variant
+  const wrapperClasses =
+    variant === "navbar"
+      ? `absolute left-0 top-[100%] w-full h-fit bg-white shadow-[0_0_20px_0_#0000001A] rounded-2xl transition-all duration-300 ${
+        searchOpen ? "block" : "hidden"
+      }`
+      : "w-full"; // page variant is always visible
 
   return (
-    <div
-      id="searchDropdown"
-      className={`absolute left-0 top-[100%] w-full h-fit bg-white shadow-[0_0_20px_0_#0000001A] rounded-2xl transition-all duration-300 ${
-        searchOpen ? "block" : "hidden"
-      }`}
-    >
-      <div className="py-4 px-7 relative">
+    <div id="searchDropdown" className={wrapperClasses}>
+      <div className={`${variant === "navbar" ? "py-4 px-7" : "py-4 px-0 md:px-7"} relative`}>
         <form action="/search" method="GET">
           <input
             ref={inputRef}
@@ -42,7 +46,7 @@ const SearchField: React.FC<SearchFieldProps> = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button type="submit" className="absolute top-[40%] right-12">
+          <button type="submit" className="absolute top-[40%] right-4 md:right-12">
             <Image
               src="/assets/header-images/search-icon.svg"
               alt="Search"
