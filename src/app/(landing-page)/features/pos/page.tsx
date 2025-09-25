@@ -36,7 +36,7 @@ const whyChoseCards = [
 
 const page = () => {
   return (
-    <>
+    <div>
     <HeroSection
         title="Point of Sale (POS) Fast, Reliable & Intuitive"
         description="Our Point of Sale system is designed to make every sale simple, quick, and error-free. Whether you run a retail store, supermarket, or restaurant, our POS brings together speed, accuracy, and seamless integration with your inventory and accounts."
@@ -57,12 +57,15 @@ const page = () => {
         cards={whyChoseCards}
         mainImage="/assets/point-of-sale/why-chose/why-chose-main.webp"
       />
-      <PinnedSection3 sectionId="pinned-pos" />
+      <div>
+       <PinnedSection3 />
+      </div>
+     
        <FaqSection/>
     <CalltoActionBottom/>
     
 
-    </>
+    </div>
   )
 }
 
