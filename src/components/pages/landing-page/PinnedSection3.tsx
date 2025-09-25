@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SmartSellSection from "./SmartSell";
@@ -9,157 +9,148 @@ import IndustryPosMobile from "./IndustryPosMobile";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface Props {
-  sectionId?: string; // unique ID for each page
-}
-
-const PinnedSection3: React.FC<Props> = ({ sectionId = "pinned-section-3" }) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
+const PinnedSection3 = () => {
   useEffect(() => {
-    if (!containerRef.current) return;
+    let smartBreak = gsap.matchMedia();
 
-    const images = containerRef.current.querySelector(".smart-way-images");
-    const cards = containerRef.current.querySelector(".smart-way-cards");
-
-    if (!images || !cards) return; // ✅ prevents "_gsap" undefined errors
-
-    let mm = gsap.matchMedia();
-
-    // 📱 Medium screens (768px – 1023px)
-    mm.add("(min-width: 768px) and (max-width: 1023px)", () => {
+    smartBreak.add("(min-width: 768px) and (max-width: 1023px)", () => {
       const tl2 = gsap.timeline({
         scrollTrigger: {
           scroller: "body",
-          trigger: containerRef.current,
-          pin: containerRef.current,
-          start: "top top",
+          start: "top -5%",
           end: "+=" + window.innerHeight * 3,
+          pin: ".pinned-section-3",
           scrub: 2,
           // markers: true,
         },
       });
 
       if (window.innerWidth >= 800 && window.innerWidth < 1024) {
-        gsap.set(images, { y: 30, x: 145 });
+        gsap.set(".smart-way-images", { y: 30, x: 182 });
 
-        tl2.to(images, { x: -80, duration: 1 }, 0)
-          .to(cards, { y: -200, duration: 1 }, 0)
-          .to(images, { x: -328, duration: 1 }, 1)
-          .to(cards, { y: -400, duration: 1 }, 1)
-          .to(images, { x: -574, duration: 1 }, 2)
-          .to(cards, { y: -600, duration: 1 }, 2)
-          .to(images, { x: -835, duration: 1 }, 3)
-          .to(cards, { y: -830, duration: 1 }, 3);
+        tl2.to(".smart-way-images", { x: -62, duration: 1 }, 0);
+        tl2.to(".smart-way-cards", { y: -200, duration: 1 }, 0);
+
+        tl2.to(".smart-way-images", { x: -308, duration: 1 }, 1);
+        tl2.to(".smart-way-cards", { y: -400, duration: 1 }, 1);
+
+        tl2.to(".smart-way-images", { x: -550, duration: 1 }, 2);
+        tl2.to(".smart-way-cards", { y: -600, duration: 1 }, 2);
+
+        tl2.to(".smart-way-images", { x: -800, duration: 1 }, 3);
+        tl2.to(".smart-way-cards", { y: -830, duration: 1 }, 3);
       } else {
-        gsap.set(images, { y: 30, x: 125 });
+        gsap.set(".smart-way-images", { y: 30, x: 165 });
 
-        tl2.to(images, { x: -120, duration: 1 }, 0)
-          .to(cards, { y: -200, duration: 1 }, 0)
-          .to(images, { x: -365, duration: 1 }, 1)
-          .to(cards, { y: -400, duration: 1 }, 1)
-          .to(images, { x: -613, duration: 1 }, 2)
-          .to(cards, { y: -600, duration: 1 }, 2)
-          .to(images, { x: -858, duration: 1 }, 3)
-          .to(cards, { y: -830, duration: 1 }, 3);
+        tl2.to(".smart-way-images", { x: -80, duration: 1 }, 0);
+        tl2.to(".smart-way-cards", { y: -200, duration: 1 }, 0);
+
+        tl2.to(".smart-way-images", { x: -325, duration: 1 }, 1);
+        tl2.to(".smart-way-cards", { y: -400, duration: 1 }, 1);
+
+        tl2.to(".smart-way-images", { x: -573, duration: 1 }, 2);
+        tl2.to(".smart-way-cards", { y: -600, duration: 1 }, 2);
+
+        tl2.to(".smart-way-images", { x: -815, duration: 1 }, 3);
+        tl2.to(".smart-way-cards", { y: -830, duration: 1 }, 3);
       }
     });
 
-    // 💻 Large screens (>= 1024px)
-    mm.add("(min-width: 1024px)", () => {
+    
+    smartBreak.add("(min-width: 1024px)", () => {
       ScrollTrigger.matchMedia({
-        // 🖥️ 1536px+
-        "(min-width: 1536px)": () => {
+        "(min-width: 1536px)": function () {
           const tl2 = gsap.timeline({
             scrollTrigger: {
               scroller: "body",
-              trigger: containerRef.current,
-              pin: containerRef.current,
-              start: "top top",
+              start: "top -4%",
               end: "+=" + window.innerHeight * 2,
+              pin: ".pinned-section-3",
               scrub: 2,
             },
           });
 
-          gsap.set(images, { y: 30, x: 200 });
+          gsap.set(".smart-way-images", { y: 30, x: 300 });
 
-          tl2.to(images, { x: -130, duration: 1 }, 0)
-            .to(cards, { y: -330, duration: 1 }, 0)
-            .to(images, { x: -460, duration: 1 }, 1)
-            .to(cards, { y: -630, duration: 1 }, 1)
-            .to(images, { x: -795, duration: 1 }, 2)
-            .to(cards, { y: -930, duration: 1 }, 2)
-            .to(images, { x: -1130, duration: 1 }, 3)
-            .to(cards, { y: -1230, duration: 1 }, 3);
+          tl2.to(".smart-way-images", { x: -30, duration: 1 }, 0);
+          tl2.to(".smart-way-cards", { y: -330, duration: 1 }, 0);
+
+          tl2.to(".smart-way-images", { x: -360, duration: 1 }, 1);
+          tl2.to(".smart-way-cards", { y: -630, duration: 1 }, 1);
+
+          tl2.to(".smart-way-images", { x: -695, duration: 1 }, 2);
+          tl2.to(".smart-way-cards", { y: -925, duration: 1 }, 2);
+
+          tl2.to(".smart-way-images", { x: -1030, duration: 1 }, 3);
+          tl2.to(".smart-way-cards", { y: -1230, duration: 1 }, 3);
         },
 
-        // 🖥️ 1280–1535px
-        "(min-width: 1280px) and (max-width: 1535px)": () => {
+        "(min-width: 1280px) and (max-width: 1535px)": function () {
           const tl2 = gsap.timeline({
             scrollTrigger: {
               scroller: "body",
-              trigger: containerRef.current,
-              pin: containerRef.current,
-              start: "top top",
+              start: "top -7%",
               end: "+=" + window.innerHeight * 2,
+              pin: ".pinned-section-3",
               scrub: 2,
             },
           });
 
-          gsap.set(images, { y: 30, x: 230 });
+          gsap.set(".smart-way-images", { y: 20, x: 330 });
 
-          tl2.to(images, { x: -52, duration: 1 }, 0)
-            .to(cards, { y: -300, duration: 1 }, 0)
-            .to(images, { x: -330, duration: 1 }, 1)
-            .to(cards, { y: -600, duration: 1 }, 1)
-            .to(images, { x: -615, duration: 1 }, 2)
-            .to(cards, { y: -900, duration: 1 }, 2)
-            .to(images, { x: -900, duration: 1 }, 3)
-            .to(cards, { y: -1220, duration: 1 }, 3);
+          tl2.to(".smart-way-images", { x: 48, duration: 1 }, 0);
+          tl2.to(".smart-way-cards", { y: -300, duration: 1 }, 0);
+
+          tl2.to(".smart-way-images", { x: -235, duration: 1 }, 1);
+          tl2.to(".smart-way-cards", { y: -600, duration: 1 }, 1);
+
+          tl2.to(".smart-way-images", { x: -515, duration: 1 }, 2);
+          tl2.to(".smart-way-cards", { y: -900, duration: 1 }, 2);
+
+          tl2.to(".smart-way-images", { x: -798, duration: 1 }, 3);
+          tl2.to(".smart-way-cards", { y: -1220, duration: 1 }, 3);
         },
 
-        // 🖥️ 1024–1279px
-        "(min-width: 1024px) and (max-width: 1279px)": () => {
+        "(min-width: 1024px) and (max-width: 1279px)": function () {
           const tl2 = gsap.timeline({
             scrollTrigger: {
               scroller: "body",
-              trigger: containerRef.current,
-              pin: containerRef.current,
-              start: "top top",
+              start: "top -7%",
               end: "+=" + window.innerHeight * 2,
+              pin: ".pinned-section-3",
               scrub: 2,
             },
           });
 
-          gsap.set(images, { y: 30, x: 120 });
+          gsap.set(".smart-way-images", { y: 30, x: 158 });
 
-          tl2.to(images, { x: -165, duration: 1 }, 0)
-            .to(cards, { y: -330, duration: 1 }, 0)
-            .to(images, { x: -445, duration: 1 }, 1)
-            .to(cards, { y: -630, duration: 1 }, 1)
-            .to(images, { x: -726, duration: 1 }, 2)
-            .to(cards, { y: -930, duration: 1 }, 2)
-            .to(images, { x: -1010, duration: 1 }, 3)
-            .to(cards, { y: -1205, duration: 1 }, 3);
+          tl2.to(".smart-way-images", { x: -123, duration: 1 }, 0);
+          tl2.to(".smart-way-cards", { y: -330, duration: 1 }, 0);
+
+          tl2.to(".smart-way-images", { x: -405, duration: 1 }, 1);
+          tl2.to(".smart-way-cards", { y: -630, duration: 1 }, 1);
+
+          tl2.to(".smart-way-images", { x: -687, duration: 1 }, 2);
+          tl2.to(".smart-way-cards", { y: -930, duration: 1 }, 2);
+
+          tl2.to(".smart-way-images", { x: -970, duration: 1 }, 3);
+          tl2.to(".smart-way-cards", { y: -1205, duration: 1 }, 3);
         },
       });
     });
 
-    // 🔄 Refresh ScrollTrigger after setup
-    ScrollTrigger.refresh();
-
     return () => {
-      mm.revert();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      smartBreak.revert();
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
     };
-  }, [sectionId]);
+  }, []);
 
   return (
-    <div id={sectionId} ref={containerRef} className="pinned-section-3">
+    <div className="pinned-section-3">
       <div className="md:h-screen lg:block flex flex-col items-center justify-center">
         <SmartSellSection />
         <IndustryPOSShowcase />
-        <IndustryPosMobile />
+        <IndustryPosMobile/>
       </div>
     </div>
   );
