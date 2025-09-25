@@ -8,18 +8,18 @@ export interface IndustryItem {
 
 export const industriesItems: IndustryItem[] = [
   // Group 1: Retail & Ecommerce (with subcategories)
-  { key: 'retail', title: 'Retail & Ecommerce', icon:"./assets/header-dropdown-images/industries-dropdown/retail-ecommerce.svg" },
+  { key: 'retail', title: 'Retail & Ecommerce', icon:"/assets/header-dropdown-images/industries-dropdown/retail-ecommerce.svg" },
 
   // Group 2: Restaurant Types (with subcategories)
-  { key: 'restaurant', title: 'Restaurant Types', icon: "./assets/header-dropdown-images/industries-dropdown/restaurant-types.svg" },
+  { key: 'restaurant', title: 'Restaurant Types', icon: "/assets/header-dropdown-images/industries-dropdown/restaurant-types.svg" },
 
  
 
   // Group 4: Large Businesses (no subcategories)
-  {key: 'largebusinesses', title:'Large Businesses', icon: "./assets/header-dropdown-images/industries-dropdown/large-bussiness.svg"},
-  { key: 'wholesale', title: 'Wholesale', icon: "./assets/header-dropdown-images/industries-dropdown/wholesale.svg"  },
-  { key: 'manufacturing', title: 'Manufacturing', icon: "./assets/header-dropdown-images/industries-dropdown/manufacturing.svg"},
-  { key: 'distribution', title: 'Distribution', icon: "./assets/header-dropdown-images/industries-dropdown/distribution.svg" },
+  {key: 'largebusinesses', title:'Large Businesses', icon: "/assets/header-dropdown-images/industries-dropdown/large-bussiness.svg"},
+  { key: 'wholesale', title: 'Wholesale', icon: "/assets/header-dropdown-images/industries-dropdown/wholesale.svg"  },
+  { key: 'manufacturing', title: 'Manufacturing', icon: "/assets/header-dropdown-images/industries-dropdown/manufacturing.svg"},
+  { key: 'distribution', title: 'Distribution', icon: "/assets/header-dropdown-images/industries-dropdown/distribution.svg" },
 ];
 
 export interface IndustryTreeItem {

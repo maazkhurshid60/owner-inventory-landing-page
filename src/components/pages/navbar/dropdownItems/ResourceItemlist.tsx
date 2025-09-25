@@ -8,7 +8,7 @@ export const resourcesItems = [
   {
     key: 'blog',
     title: 'Blog',
-    icon: './assets/header-dropdown-images/resources-dropdown/blog.svg',
+    icon: '/assets/header-dropdown-images/resources-dropdown/blog.svg',
   },
   {
     key: 'events',
