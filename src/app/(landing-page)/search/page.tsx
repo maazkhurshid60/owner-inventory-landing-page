@@ -24,7 +24,7 @@ export default function SearchPage() {
           />
         </div>
       </div>
-      <section className="mt-10 md:mt-20 lg:mt-28">
+      <section className="mt-10 md:mt-20 lg:mt-14">
         <div className="wrapper">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-14 md:gap-14 lg:gap-24">
             <SearchRecords />

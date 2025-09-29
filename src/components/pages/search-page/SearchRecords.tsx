@@ -42,7 +42,7 @@ const SearchRecords: React.FC = () => {
 
   return (
     <div
-      className="md:col-span-7 lg:col-span-8 flex flex-col gap-8 lg:gap-10"
+      className="md:col-span-7 lg:col-span-8 flex flex-col gap-8 lg:gap-10 "
       id="search-records"
     >
       {visibleRecords.map((item, idx) => (

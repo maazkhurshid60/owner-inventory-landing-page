@@ -46,9 +46,9 @@ const page = () => {
 
       <KeyHighlights />
 
-      <div>
+      {/* <div>
         <PinnedSection3 />
-      </div>
+      </div> */}
 
       <SellerClubSection2
         description="Our POS system helps you sell smarter, faster, and with"
@@ -57,12 +57,18 @@ const page = () => {
         buttonHref="/demo"
         imageSrc="/assets/point-of-sale/pos-image.webp"
       />
+      <div className=''>
 
-      <WhyChoosePOS
-        heading="Why Choose Our POS?"
-        cards={whyChoseCards}
-        mainImage="/assets/point-of-sale/why-chose/why-chose-main.webp"
-      />
+        <WhyChoosePOS
+          heading="Why Choose Our POS?"
+          cards={whyChoseCards}
+          mainImage="/assets/point-of-sale/why-chose/why-chose-main.webp"
+        />
+      </div>
+
+      <div className=''>
+        <PinnedSection3 />
+      </div>
 
 
       <FaqSection />
