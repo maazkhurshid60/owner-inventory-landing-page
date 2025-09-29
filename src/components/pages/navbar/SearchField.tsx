@@ -28,8 +28,7 @@ const SearchField: React.FC<SearchFieldProps> = ({
   // Wrapper classes based on variant
   const wrapperClasses =
     variant === "navbar"
-      ? `absolute left-0 top-[100%] w-full h-fit bg-white shadow-[0_0_20px_0_#0000001A] rounded-2xl transition-all duration-300 ${
-        searchOpen ? "block" : "hidden"
+      ? `absolute left-0 top-[100%] w-full h-fit bg-white shadow-[0_0_20px_0_#0000001A] rounded-2xl transition-all duration-300 ${searchOpen ? "block" : "hidden"
       }`
       : "w-full"; // page variant is always visible
 
