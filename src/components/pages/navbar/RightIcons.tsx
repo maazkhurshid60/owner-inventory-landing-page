@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Image from "next/image";
+import Tooltip from "@/components/toolTip/Tooltip";
 
 type RightIconsProps = {
   searchOpen: boolean;
@@ -19,45 +20,34 @@ const RightIcons: React.FC<RightIconsProps> = ({
   return (
     <div className="header-right-col hidden md:flex justify-end items-center gap-1.5 xl:gap-4 lg:gap-[6px] ps-1 md:absolute right-2 z-50">
       <div className="relative group">
-        <button
-          type="button"
-          onClick={() => {
-            if (searchOpen) {
-              console.log(searchOpen);
-              setSearchQuery("");
-              setSearchOpen(false);
-            } else {
-              console.log(searchOpen)
-              setSearchOpen(true);
-            }
-          }}
-       
-        >
-         <Image
-  id="searchIcon"
-  src="/assets/header-images/search-icon.svg"
-  alt="Search"
-  className={`${searchOpen ? "hidden" : "block"} cursor-pointer`}
-  width={16}
-  height={16}
-/>
+        <div className="bg-white rounded-full">
+          {searchOpen ? <Image
+            onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
+            id="crossIcon"
+            src="/assets/header-images/cross-btn.svg"
+            alt="Close"
+            className={`${searchOpen ? "block" : "hidden"} cursor-pointer`}
+            width={16}
+            height={16}
+          /> : <Image
+            onClick={() => setSearchOpen(true)}
 
-<Image
-  id="crossIcon"
-  src="/assets/header-images/cross-btn.svg"
-  alt="Close"
-  className={`${searchOpen ? "block" : "hidden"} cursor-pointer`}
-  width={16}
-  height={16}
-/>
-        </button>
+            id="searchIcon"
+            src="/assets/header-images/search-icon.svg"
+            alt="Search"
+            className={`${searchOpen ? "hidden" : "block"} cursor-pointer`}
+            width={16}
+            height={16}
+          />}
+        </div>
         {/* Tooltip */}
-        <div className="absolute left-[50%] -translate-x-[50%] top-[120%] z-[999] hidden group-hover:flex flex-col items-left">
+        <Tooltip text="Search" />
+        {/* <div className="absolute left-[50%] -translate-x-[50%] top-[120%] z-[999] hidden group-hover:flex flex-col items-left">
           <div className="w-2 h-2 rotate-45 bg-white border-l border-t border-[#795DF5] -mb-1 mx-auto"></div>
           <div className="rounded-xl border border-[#795DF5] bg-white px-4 py-2 text-sm leading-4 font-onest font-semibold text-[#231F20] shadow-lg w-fit">
             Search
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* User Icon */}
@@ -70,12 +60,14 @@ const RightIcons: React.FC<RightIconsProps> = ({
             height={16}
           />
         </a>
-        <div className="absolute left-[50%] -translate-x-[50%] top-[120%] z-[999] hidden group-hover:flex flex-col items-left">
+        <Tooltip text="Login" />
+
+        {/* <div className="absolute left-[50%] -translate-x-[50%] top-[120%] z-[999] hidden group-hover:flex flex-col items-left">
           <div className="w-2 h-2 rotate-45 bg-white border-l border-t border-[#795DF5] -mb-1 mx-auto"></div>
           <div className="rounded-xl border border-[#795DF5] bg-white px-4 py-2 text-sm leading-4 font-onest font-semibold text-[#231F20] shadow-lg w-fit">
             Login
           </div>
-        </div>
+        </div> */}
       </div>
 
       <a

@@ -333,11 +333,10 @@ export default function OffcanvasMenu({
                       <li key={item.key || item.title} className="w-full">
                         <a
                           href={item.url || "#"}
-                          className={`flex items-center px-4 py-4 border rounded-xl hover:bg-gray-100 ${
-                            isOpen
+                          className={`flex items-center px-4 py-4 border rounded-xl hover:bg-gray-100 ${isOpen
                               ? "border-[#795CF5] bg-gray-100"
                               : "border-[#D9D9D9]"
-                          }`}
+                            }`}
                           onClick={(e) => {
                             e.preventDefault();
                             if (hasDetails) toggleIndex(index);
@@ -363,23 +362,23 @@ export default function OffcanvasMenu({
                                 className="submenu-icon-minus"
                                 aria-hidden="true"
                               >
-                                  <img
+                                <img
                                   src="/assets/header-dropdown-images/arrow-up-icon.svg"
                                   alt="expand"
-                                  
+
                                   className="h-3 w-3"
                                 />
-                             
+
                               </span>
                             ) : (
                               <span
                                 className="submenu-icon-plus"
                                 aria-hidden="true"
                               >
-                                 <img
+                                <img
                                   src="/assets/header-dropdown-images/arrow-down-icon.svg"
                                   alt="collapse"
-                                  
+
                                   className="h-3 w-3"
                                 />
                               </span>
@@ -387,53 +386,52 @@ export default function OffcanvasMenu({
                         </a>
 
                         {/* Dropdown content */}
-                       {hasDetails && (
-  <div
-    id={`${activePanel}-panel-${index}`}
-    className={`overflow-hidden transition-all duration-200 ${
-      isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-    }`}
-  >
-    <div className="px-0 pt-3 pb-2">
-      {Array.isArray(details) ? (
-        <ul className="pl-4 space-y-4"> {/* spacing between items */}
-          {details.map((d: any, i: number) => {
-            if (typeof d === "string") {
-              return (
-                <li
-                  key={`${item.key || item.title}-str-${d}-${i}`}
-                  className="text-xs text-[#231F20] leading-relaxed"
-                >
-                  {d}
-                </li>
-              );
-            }
-            const text = d?.title ?? d?.label ?? String(d);
-            const href = d?.url || d?.href || "#";
-            return (
-              <li
-                key={`${item.key || item.title}-obj-${d?.key || text}-${i}`}
-                className="text-xs text-[#231F20] leading-relaxed"
-              >
-                {d?.url || d?.href ? (
-                  <a href={href} className="hover:underline">
-                    {text}
-                  </a>
-                ) : (
-                  text
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      ) : (
-        <pre className="text-[11px] text-[#231F20]/80 bg-gray-50 p-2 rounded">
-          {JSON.stringify(details, null, 2)}
-        </pre>
-      )}
-    </div>
-  </div>
-)}
+                        {hasDetails && (
+                          <div
+                            id={`${activePanel}-panel-${index}`}
+                            className={`overflow-hidden transition-all duration-200 ${isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+                              }`}
+                          >
+                            <div className="px-0 pt-3 pb-2">
+                              {Array.isArray(details) ? (
+                                <ul className="pl-4 space-y-4"> {/* spacing between items */}
+                                  {details.map((d: any, i: number) => {
+                                    if (typeof d === "string") {
+                                      return (
+                                        <li
+                                          key={`${item.key || item.title}-str-${d}-${i}`}
+                                          className="text-xs text-[#231F20] leading-relaxed"
+                                        >
+                                          {d}
+                                        </li>
+                                      );
+                                    }
+                                    const text = d?.title ?? d?.label ?? String(d);
+                                    const href = d?.url || d?.href || "#";
+                                    return (
+                                      <li
+                                        key={`${item.key || item.title}-obj-${d?.key || text}-${i}`}
+                                        className="text-xs text-[#231F20] leading-relaxed"
+                                      >
+                                        {d?.url || d?.href ? (
+                                          <a href={href} className="hover:underline">
+                                            {text}
+                                          </a>
+                                        ) : (
+                                          text
+                                        )}
+                                      </li>
+                                    );
+                                  })}
+                                </ul>
+                              ) : (
+                                <pre className="text-[11px] text-[#231F20]/80 bg-gray-50 p-2 rounded">
+                                  {JSON.stringify(details, null, 2)}
+                                </pre>
+                              )}
+                            </div>
+                          </div>
+                        )}
 
                       </li>
                     );

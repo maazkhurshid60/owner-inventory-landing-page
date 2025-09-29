@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Onest } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/pages/navbar/Navbar";
-import Footer from "@/components/pages/Footer";
+import Footer from "@/components/pages/footer/Footer";
 import Lenis from "@studio-freight/lenis/types";
-import LenisProvider from "@/components/pages/LenixProvider";
+import LenisProvider from "@/components/pages/lenisProvider/LenixProvider";
 
 
 // Load fonts with CSS variable bindings
@@ -41,12 +41,12 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${onest.variable} antialiased`}
       >
 
-        <Navbar/>
+        <Navbar />
         <div>
-    <LenisProvider>{children}</LenisProvider>
+          <LenisProvider>{children}</LenisProvider>
         </div>
-        <Footer/>
-     
+        <Footer />
+
       </body>
     </html>
   );
