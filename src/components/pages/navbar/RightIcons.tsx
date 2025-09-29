@@ -37,7 +37,7 @@ const RightIcons: React.FC<RightIconsProps> = ({
   id="searchIcon"
   src="/assets/header-images/search-icon.svg"
   alt="Search"
-  className={`${searchOpen ? "hidden" : "block"} cursor-pointer`}
+  className={`${searchOpen ? "hidden opacity-0" : "block"} cursor-pointer`}
   width={16}
   height={16}
 />

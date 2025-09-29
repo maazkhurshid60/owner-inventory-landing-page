@@ -25,8 +25,12 @@ const NavDropdown = ({ label, children }: NavDropdownProps) => {
 
       {/* Dropdown Menu */}
       <div
+        // className={`
+        //   dropdown-menu absolute lg:top-10 top-8 left-1/2 z-50 hidden xl:w-[1220px] lg:w-[950px] md:w-[700px] bg-amber-700  transform -translate-x-1/2  group-hover:flex flex-col h-[55
+        //           0px]
+        // `}
         className={`
-          dropdown-menu absolute lg:top-10 top-8 left-1/2 z-50 hidden xl:w-[1220px] lg:w-[950px] md:w-[700px] transform -translate-x-1/2  group-hover:flex flex-col h-[55
+          dropdown-menu absolute lg:top-10 top-8 left-1/2 z-50 hidden   transform -translate-x-1/2  group-hover:flex flex-col h-[55
                   0px]
         `}
       >
