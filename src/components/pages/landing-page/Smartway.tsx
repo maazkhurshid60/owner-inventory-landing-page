@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Tooltip from '@/components/toolTip/Tooltip';
 
 export default function PosIconsSection() {
   useEffect(() => {
@@ -225,12 +226,13 @@ export default function PosIconsSection() {
                 />
 
                 {/* Tooltip */}
-                <div className="absolute left-1/2 -translate-x-1/2 top-[100%] z-[999] hidden group-hover:flex flex-col items-center">
+                <Tooltip text={icon.label} />
+                {/* <div className="absolute left-1/2 -translate-x-1/2 top-[100%] z-[999] hidden group-hover:flex flex-col items-center">
                   <div className="w-2 h-2 rotate-45 bg-white border-l border-t border-[#795DF5] -mb-1"></div>
                   <div className="rounded-xl border border-[#795DF5] bg-white px-4 py-2 text-sm whitespace-nowrap leading-4 font-semibold text-[#231F20] shadow-lg w-fit">
                     {icon.label}
                   </div>
-                </div>
+                </div> */}
               </a>
             ))}
           </div>
@@ -245,7 +247,7 @@ const iconData = [
   // Left Side
   {
     id: 'feature-icon-1',
-     label: "Point of Sale",
+    label: "Point of Sale",
     src: '/assets/icons-section/point-of-sale.svg',
     size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
   },

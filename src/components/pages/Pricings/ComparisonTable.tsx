@@ -3,11 +3,12 @@ import React, { useEffect, useState } from "react";
 import { FeatureCategory } from "./types";
 import { pricingPlans } from "./tableConfig";
 import PricingTabs from "./PricingTabs";
+import Tooltip from "@/components/toolTip/Tooltip";
 
 interface ComparisonTableProps {
   categories: FeatureCategory[];
   tab: "monthly" | "yearly";
-  onTabChange: (tab: "monthly" | "yearly") => void; 
+  onTabChange: (tab: "monthly" | "yearly") => void;
 }
 
 const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab, onTabChange, }) => {
@@ -71,9 +72,8 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab, onTa
       </div>
 
       <div
-        className={`compare-content pt-10 md:pt-16 lg:pt-20 wrapper mx-auto ${
-          isVisible ? "block" : "hidden"
-        }`}
+        className={`compare-content pt-10 md:pt-16 lg:pt-20 wrapper mx-auto ${isVisible ? "block" : "hidden"
+          }`}
       >
         <div className="w-full flex items-center justify-end mb-10">
           <PricingTabs activeTab={tab} onTabChange={onTabChange} variant="toggle" />
@@ -98,18 +98,21 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab, onTa
                       {category.features.map((feature, featureIndex) => (
                         <tr key={featureIndex} style={{ height: "68px" }}>
                           <td
-                            className="px-4 border-b border-[#1AD1B9] text-left text-sm md:text-base lg:text-lg leading-6 text-[#231F20] font-normal"
+                            className={`
+                              px-4 text-left text-sm md:text-base lg:text-lg leading-6
+                               text-[#231F20] font-normal 
+                               ${(feature.name !== "Dedicated Account Manager") ? "border-b border-[#1AD1B9]" : "border-b border-transparent"
+                              }`}
                             style={{ height: "68px", verticalAlign: "middle" }}
                           >
                             <div className="flex flex-col items-start justify-center gap-1">
                               {/* Title + Tooltip */}
                               <div className="flex items-center gap-3">
                                 <span
-                                  className={`${
-                                    isSmallScreen
-                                      ? "max-w-[70px] truncate flex-shrink"
-                                      : ""
-                                  }`}
+                                  className={`${isSmallScreen
+                                    ? "max-w-[70px] truncate flex-shrink"
+                                    : ""
+                                    }`}
                                 >
                                   {feature.name}
                                 </span>
@@ -124,12 +127,13 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab, onTa
                                     />
 
                                     {/* Tooltip (opens upward) */}
-                                    <div className="absolute left-[-20px] bottom-[120%] z-[999] hidden group-hover:flex flex-col items-start">
+                                    <Tooltip text={feature?.infoText} isComparisonToolTip />
+                                    {/* <div className="absolute left-[-20px] bottom-[120%] z-[999] hidden group-hover:flex flex-col items-start">
                                       <div className="rounded-xl border border-[#795DF5] bg-white px-4 py-2 text-xs leading-4 font-normal text-[#231F20] shadow-lg w-[150px] md:w-[200px] lg:w-[250px]">
                                         {feature.infoText}
                                       </div>
                                       <div className="w-2 h-2 rotate-45 bg-white border-b border-r border-[#795DF5] -mt-1 ms-5"></div>
-                                    </div>
+                                    </div> */}
                                   </div>
                                 )}
                               </div>
@@ -175,11 +179,10 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab, onTa
                         <div key={categoryIndex}>
                           {/* Plan header */}
                           <div
-                            className={`p-2 md:p-4 ${
-                              planIndex < pricingPlans.length - 1
-                                ? "border-r"
-                                : ""
-                            }`}
+                            className={`p-2 md:p-4 ${planIndex < pricingPlans.length - 1
+                              ? "border-r"
+                              : ""
+                              }`}
                             style={{ borderColor: plan.color }}
                           >
                             <div
@@ -200,8 +203,8 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab, onTa
                                   {displayPrice === 0
                                     ? ""
                                     : tab === "yearly"
-                                    ? "/month"
-                                    : "/month"}
+                                      ? "/month"
+                                      : "/month"}
                                 </span>
                               </h3>
                               <p className="text-[10px] md:text-xs text-[#231F20] leading-[100%] font-normal font-onest">
@@ -241,27 +244,26 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab, onTa
                               planIndex === 0
                                 ? "#1AD1B9"
                                 : planIndex === 1
-                                ? "#38ACCC"
-                                : planIndex === 2
-                                ? "#5588DF"
-                                : "#795CF5";
+                                  ? "#38ACCC"
+                                  : planIndex === 2
+                                    ? "#5588DF"
+                                    : "#795CF5";
                             const featureValue =
                               planIndex === 0
                                 ? feature.basic
                                 : planIndex === 1
-                                ? feature.standard
-                                : planIndex === 2
-                                ? feature.professional
-                                : feature.premium;
+                                  ? feature.standard
+                                  : planIndex === 2
+                                    ? feature.professional
+                                    : feature.premium;
 
                             return (
                               <div
                                 key={featureIndex}
-                                className={`py-5 text-center text-sm md:text-base xl:text-lg leading-6 text-[#231F20] font-normal px-2 border-b ${
-                                  planIndex < pricingPlans.length - 1
-                                    ? "border-r"
-                                    : ""
-                                }`}
+                                className={`py-5 text-center text-sm md:text-base xl:text-lg leading-6 text-[#231F20] font-normal px-2 border-b ${planIndex < pricingPlans.length - 1
+                                  ? "border-r"
+                                  : ""
+                                  }`}
                                 style={{
                                   height: "68px",
                                   borderBottomColor: planColor,
