@@ -22,6 +22,13 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const NavItems = () => {
+
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
+  const open = (key: string) => setOpenMenu(key);
+  const close = () => setOpenMenu(null);
+  const toggle = (key: string) =>
+    setOpenMenu((curr) => (curr === key ? null : key));
+
   const [selectedFeatureKey, setSelectedFeatureKey] = useState("pos");
   const [selectedIndustryKey, setSelectedIndustryKey] = useState("retail");
   const [selectedResourceKey, setSelectedResourceKey] =
@@ -33,19 +40,22 @@ const NavItems = () => {
     <div className="bg-white md:px-1 md:py-1 xl:px-3 xl:py-1.5 shadow-[0_0_20px_0_#0000001A] rounded-full  inventory-menu md:flex justify-center w-auto">
       <ul className="hidden md:flex items-center justify-center md:gap-1 lg:gap-3 w-auto">
         {/* FEATURES DROPDOWN */}
-        <NavDropdown label="Features" >
+        <NavDropdown label="Features"
+
+          isOpen={openMenu === "features"}
+          onOpen={() => open("features")}
+          onClose={close}
+          onToggle={() => toggle("features")}
+        >
           <div className="h-2 bg-transparent"></div>
 
           <div
-
-
-            className="grid grid-cols-12 gap-6 p-10 mt-2 mx-auto xl:w-[1220px] lg:w-[950px] md:w-[700px] bg-white 
-                    rounded-2xl shadow-[0_0_20px_0_#0000001A] h-[450px] overflow-y-scroll overflow-x-hidden"
+            className=" bg-white grid grid-cols-12 gap-6 p-10 mt-2 mx-auto xl:w-[1220px] lg:w-[950px] md:w-[700px] 
+                    rounded-2xl shadow-[0_0_20px_0_#0000001A] h-auto lg:h-[450px]  overflow-y-auto overflow-x-hidden"
           >
             {/* Left Section (9/12) */}
             <div
-              className="col-span-12  md:col-span-8 lg:col-span-9 overflow-y-auto pr-4 
-                          scrollbar-thin scrollbar-thumb-[#D9D9D9] scrollbar-track-transparent"
+              className="col-span-12  md:col-span-8 lg:col-span-9  pr-4"
             >
               <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 content-start">
                 {featuresItems.map((item) => (
@@ -106,7 +116,12 @@ const NavItems = () => {
         </NavDropdown>
 
         {/* INDUSTRIES DROPDOWN */}
-        <NavDropdown label="Industries">
+        <NavDropdown label="Industries"
+          isOpen={openMenu === "industries"}
+          onOpen={() => open("industries")}
+          onClose={close}
+          onToggle={() => toggle("industries")}
+        >
           <div className="h-2 bg-transparent"></div>
 
           <div
@@ -172,7 +187,12 @@ const NavItems = () => {
 
         {/* RESOURCES DROPDOWN */}
 
-        <NavDropdown label="Resources">
+        <NavDropdown label="Resources"
+
+          isOpen={openMenu === "resources"}
+          onOpen={() => open("resources")}
+          onClose={close}
+          onToggle={() => toggle("resources")}>
           <div className="h-2 bg-transparent"></div>
 
           <div
@@ -239,7 +259,10 @@ const NavItems = () => {
 
         {/* COMPANY DROPDOWN */}
 
-        <NavDropdown label="Company">
+        <NavDropdown label="Company" isOpen={openMenu === "company"}
+          onOpen={() => open("company")}
+          onClose={close}
+          onToggle={() => toggle("company")}>
           <div className="h-2 bg-transparent"></div>
 
           <div
