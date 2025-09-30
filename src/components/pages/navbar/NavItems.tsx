@@ -57,6 +57,7 @@ const NavItems = () => {
                       : "border-[#D9D9D9]"
                       } hover:bg-gray-100`}
                   >
+
                     <Image
                       src={item.icon}
                       alt={item.title}
