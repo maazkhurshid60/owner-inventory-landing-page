@@ -54,8 +54,8 @@ const NavItems = () => {
                     key={item.key}
                     onClick={() => setSelectedFeatureKey(item.key)}
                     className={`relative flex items-center gap-2 px-3 py-4 border rounded-xl ${selectedFeatureKey === item.key
-                        ? "border-[#795CF5] bg-gray-100"
-                        : "border-[#D9D9D9]"
+                      ? "border-[#795CF5] bg-gray-100"
+                      : "border-[#D9D9D9]"
                       } hover:bg-gray-100`}
                   >
                     <Image
@@ -127,8 +127,8 @@ const NavItems = () => {
                     key={item.key}
                     onClick={() => setSelectedIndustryKey(item.key)}
                     className={`flex items-center gap-2 px-3 py-4 border rounded-xl ${selectedIndustryKey === item.key
-                        ? "border-[#795CF5] bg-gray-100"
-                        : "border-[#D9D9D9]"
+                      ? "border-[#795CF5] bg-gray-100"
+                      : "border-[#D9D9D9]"
                       } hover:bg-gray-100`}
                   >
                     <Image
@@ -193,8 +193,8 @@ const NavItems = () => {
                     key={item.key}
                     onClick={() => setSelectedResourceKey(item.key)}
                     className={`flex items-center gap-2 px-3 py-4 border rounded-xl ${selectedResourceKey === item.key
-                        ? "border-[#795CF5] bg-gray-100"
-                        : "border-[#D9D9D9]"
+                      ? "border-[#795CF5] bg-gray-100"
+                      : "border-[#D9D9D9]"
                       } hover:bg-gray-100`}
                   >
                     <Image
