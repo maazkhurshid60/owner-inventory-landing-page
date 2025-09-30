@@ -38,12 +38,14 @@ const NavItems = () => {
 
           <div
 
+
             className="grid grid-cols-12 gap-6 p-10 mt-2 mx-auto xl:w-[1220px] lg:w-[950px] md:w-[700px] bg-white 
+
                     rounded-2xl shadow-[0_0_20px_0_#0000001A] h-[450px] overflow-hidden"
           >
             {/* Left Section (9/12) */}
             <div
-              className="col-span-12 md:col-span-9 overflow-y-auto pr-4 
+              className="col-span-12  md:col-span-8 lg:col-span-9 overflow-y-auto pr-4 
                           scrollbar-thin scrollbar-thumb-[#D9D9D9] scrollbar-track-transparent"
             >
               <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 content-start">
@@ -89,7 +91,7 @@ const NavItems = () => {
 
             {/* Right Section (3/12, hidden on mobile) */}
             {featuresDetailsMap[selectedFeatureKey] && (
-              <div className="hidden lg:block col-span-3 border-l border-[#D9D9D9] pl-4 overflow-y-auto overflow-x-auto w-3xl">
+              <div className="hidden md:block col-span-4 lg:col-span-3 border-l border-[#D9D9D9] pl-4 overflow-y-auto overflow-x-auto w-3xl">
                 <p className="mb-4 text-xs font-bold text-[#231F20]">
                   {
                     featuresItems.find(
@@ -108,7 +110,7 @@ const NavItems = () => {
           <div className="h-2 bg-transparent"></div>
 
           <div
-            className="grid grid-cols-12 gap-6 p-10 mt-2 mx-auto bg-white 
+            className="grid grid-cols-12 gap-6 p-10 mt-2 mx-auto bg-white xl:w-[1220px] lg:w-[950px] md:w-[700px]
                rounded-2xl shadow-[0_0_20px_0_#0000001A] h-[450px] overflow-hidden"
           >
             {/* Left Section (9/12) */}
@@ -145,7 +147,7 @@ const NavItems = () => {
 
             {/* Right Section (3/12, hidden on mobile) */}
             {industryDetailsMap[selectedIndustryKey] && (
-              <div className="hidden lg:block col-span-3 border-l border-[#D9D9D9] pl-4 overflow-y-auto">
+              <div className="hidden md:block col-span-3 border-l border-[#D9D9D9] pl-4 overflow-y-auto">
                 <p className="mb-4 text-xs font-bold text-[#231F20]">
                   {
                     industriesItems.find((i) => i.key === selectedIndustryKey)
@@ -174,7 +176,7 @@ const NavItems = () => {
           <div className="h-2 bg-transparent"></div>
 
           <div
-            className="grid grid-cols-12 gap-6 p-10 mt-2 mx-auto bg-white 
+            className="grid grid-cols-12 gap-6 p-10 mt-2 mx-auto bg-white xl:w-[1220px] lg:w-[950px] md:w-[700px]
                rounded-2xl shadow-[0_0_20px_0_#0000001A] h-[450px] overflow-hidden"
           >
             {/* Left Section (9/12) */}
@@ -211,7 +213,7 @@ const NavItems = () => {
 
             {/* Right Section (3/12, hidden on mobile) */}
             {resourcesDetailsMap[selectedResourceKey] && (
-              <div className="hidden lg:block col-span-3 border-l border-[#D9D9D9] pl-4 overflow-y-auto">
+              <div className="hidden md:block col-span-3 border-l border-[#D9D9D9] pl-4 overflow-y-auto">
                 <p className="mb-4 text-xs font-bold text-[#231F20]">
                   {
                     resourcesItems.find((i) => i.key === selectedResourceKey)
