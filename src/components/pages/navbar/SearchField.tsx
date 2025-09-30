@@ -7,7 +7,7 @@ type SearchFieldProps = {
   setSearchOpen?: React.Dispatch<React.SetStateAction<boolean>>;
   searchQuery: string;
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
-  variant?: "navbar" | "page"; // NEW
+  variant?: "navbar" | "page"; 
 };
 
 const SearchField: React.FC<SearchFieldProps> = ({
@@ -25,13 +25,11 @@ const SearchField: React.FC<SearchFieldProps> = ({
     }
   }, [searchOpen, variant]);
 
-  // Wrapper classes based on variant
   const wrapperClasses =
     variant === "navbar"
       ? `absolute left-0 top-[100%] w-full h-fit bg-white shadow-[0_0_20px_0_#0000001A] rounded-2xl transition-all duration-300 ${searchOpen ? "block" : "hidden"
       }`
-      : "w-full"; // page variant is always visible
-
+      : "w-full"; 
   return (
     <div id="searchDropdown" className={wrapperClasses}>
       <div className={`${variant === "navbar" ? "py-4 px-7" : "py-4 px-0 md:px-7"} relative`}>
