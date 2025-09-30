@@ -75,7 +75,7 @@ const ComparisonTable: React.FC<ComparisonTableProps> = ({ categories, tab, onTa
         className={`compare-content pt-10 md:pt-16 lg:pt-20 wrapper mx-auto ${isVisible ? "block" : "hidden"
           }`}
       >
-        <div className="w-full flex items-center justify-end mb-10">
+        <div className="w-full flex  items-center justify-end mb-10">
           <PricingTabs activeTab={tab} onTabChange={onTabChange} variant="toggle" />
         </div>
         <div className="flex w-full overflow-hidden rounded-[30px] bg-gradient-to-r from-[#1AD1B9] to-[#795CF5] p-[2px]">

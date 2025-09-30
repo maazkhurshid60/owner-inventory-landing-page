@@ -213,7 +213,7 @@ export default function PosIconsSection() {
                 href="#"
                 id={icon.id}
                 className={`absolute cursor-pointer ${icon.size}
-                  rounded-[20px] border border-transparent hover:border-white 
+                  rounded-[20px] border border-transparent hover:border-white w-auto
                   flex items-center justify-center group`}
               >
                 <Image
@@ -226,7 +226,7 @@ export default function PosIconsSection() {
                 />
 
                 {/* Tooltip */}
-                <Tooltip text={icon.label} />
+                <Tooltip text={icon.label} isComparisonToolTip={false} />
                 {/* <div className="absolute left-1/2 -translate-x-1/2 top-[100%] z-[999] hidden group-hover:flex flex-col items-center">
                   <div className="w-2 h-2 rotate-45 bg-white border-l border-t border-[#795DF5] -mb-1"></div>
                   <div className="rounded-xl border border-[#795DF5] bg-white px-4 py-2 text-sm whitespace-nowrap leading-4 font-semibold text-[#231F20] shadow-lg w-fit">
@@ -273,7 +273,7 @@ const iconData = [
     id: 'feature-icon-8',
     label: "Sales & Orders",
     src: '/assets/icons-section/sales-order.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
+    size: 'lg:w-[87px] lg:h-[87px] md:w-30 md:h-20 w-12 h-12',
   },
   {
     id: 'feature-icon-11',

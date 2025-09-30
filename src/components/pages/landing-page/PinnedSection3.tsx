@@ -22,7 +22,7 @@ const PinnedSection3 = () => {
           end: "+=" + window.innerHeight * 3,
           pin: ".pinned-section-3",
           scrub: 2,
-          // markers: true,
+          markers: true,
         },
       });
 
@@ -62,6 +62,7 @@ const PinnedSection3 = () => {
               end: "+=" + window.innerHeight * 2,
               pin: ".pinned-section-3",
               scrub: 2,
+              markers: true,
             },
           });
 
@@ -85,6 +86,7 @@ const PinnedSection3 = () => {
               end: "+=" + window.innerHeight * 2,
               pin: ".pinned-section-3",
               scrub: 2,
+              markers: true,
             },
           });
 
@@ -108,6 +110,7 @@ const PinnedSection3 = () => {
               end: "+=" + window.innerHeight * 2,
               pin: ".pinned-section-3",
               scrub: 2,
+              markers: true,
             },
           });
 

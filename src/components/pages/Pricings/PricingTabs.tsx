@@ -18,9 +18,8 @@ const PricingTabs: React.FC<PricingTabsProps> = ({
       <div className="flex items-center gap-3">
         {/* Monthly Label */}
         <span
-          className={`text-sm md:text-base font-onest font-semibold ${
-            activeTab === "monthly" ? "text-[#231F20]" : "text-gray-400"
-          }`}
+          className={`text-sm md:text-base font-onest font-semibold ${activeTab === "monthly" ? "text-[#231F20]" : "text-gray-400"
+            }`}
         >
           Monthly
         </span>
@@ -30,22 +29,19 @@ const PricingTabs: React.FC<PricingTabsProps> = ({
           onClick={() =>
             onTabChange(activeTab === "monthly" ? "yearly" : "monthly")
           }
-          className={`relative inline-flex items-center h-6 md:h-8 w-12 md:w-16 rounded-full transition-colors duration-300 ${
-            activeTab === "yearly" ? "bg-[#795CF5]" : "bg-gray-300"
-          }`}
+          className={`relative inline-flex items-center h-6 md:h-8 w-12 md:w-16 rounded-full transition-colors duration-300 ${activeTab === "yearly" ? "bg-[#795CF5]" : "bg-[#1AD1B9]"
+            }`}
         >
           <span
-            className={`inline-block w-5 h-5 md:w-6 md:h-6 bg-white rounded-full shadow transform transition-transform duration-300 ${
-              activeTab === "yearly" ? "translate-x-6 md:translate-x-8" : "translate-x-1"
-            }`}
+            className={`inline-block w-5 h-5 md:w-6 md:h-6 bg-white rounded-full shadow transform transition-transform duration-300 ${activeTab === "yearly" ? "translate-x-6 md:translate-x-8" : "translate-x-1"
+              }`}
           />
         </button>
 
         {/* Yearly Label */}
         <span
-          className={`text-sm md:text-base font-onest font-semibold ${
-            activeTab === "yearly" ? "text-[#231F20]" : "text-gray-400"
-          }`}
+          className={`text-sm md:text-base font-onest font-semibold ${activeTab === "yearly" ? "text-[#231F20]" : "text-gray-400"
+            }`}
         >
           Yearly
         </span>
@@ -61,10 +57,9 @@ const PricingTabs: React.FC<PricingTabsProps> = ({
         onClick={() => onTabChange("monthly")}
         className={`tab-btn px-4 py-2 md:px-5 md:py-2 lg:px-[60px] lg:py-[14px] 
           text-[10px] md:text-xs lg:text-base font-onest font-semibold border rounded-full 
-          transition-colors duration-300 ${
-            activeTab === "monthly"
-              ? "text-white bg-[#795CF5] border-[#795CF5]"
-              : "text-[#231F20] bg-transparent border-transparent hover:text-white hover:bg-[#795CF5] hover:border-[#795CF5]"
+          transition-colors duration-300 ${activeTab === "monthly"
+            ? "text-white bg-[#795CF5] border-[#795CF5]"
+            : "text-[#231F20] bg-transparent border-transparent hover:text-white hover:bg-[#795CF5] hover:border-[#795CF5]"
           }`}
       >
         Monthly
@@ -76,10 +71,9 @@ const PricingTabs: React.FC<PricingTabsProps> = ({
           onClick={() => onTabChange("yearly")}
           className={`tab-btn relative px-4 py-2 md:px-5 md:py-2 lg:px-[60px] lg:py-[14px] 
             text-[10px] md:text-xs lg:text-base font-onest font-semibold border rounded-full 
-            transition-colors duration-300 ${
-              activeTab === "yearly"
-                ? "text-white bg-[#795CF5] border-[#795CF5]"
-                : "text-[#231F20] bg-transparent border-transparent hover:text-white hover:bg-[#795CF5] hover:border-[#795CF5]"
+            transition-colors duration-300 ${activeTab === "yearly"
+              ? "text-white bg-[#795CF5] border-[#795CF5]"
+              : "text-[#231F20] bg-transparent border-transparent hover:text-white hover:bg-[#795CF5] hover:border-[#795CF5]"
             }`}
         >
           Yearly
