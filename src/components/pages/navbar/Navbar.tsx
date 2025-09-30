@@ -9,7 +9,7 @@ import SearchField from "./SearchField";
 const Navbar = () => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  console.log(searchQuery, 'qweuewra');
+  console.log("SEARCH QUERY", searchQuery);
   return (
     <div className="header-animation relative z-[200]">
       <header className="fixed md:top-8 top-8  z-20 w-full transition-colors duration-300 ease-in-out">

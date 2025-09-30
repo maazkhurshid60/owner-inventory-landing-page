@@ -4,12 +4,19 @@ import FaqSection from "@/components/pages/landing-page/FAQSection";
 import SearchField from "@/components/pages/navbar/SearchField";
 import RelatedFeatures from "@/components/pages/search-page/RelatedFeatures";
 import SearchRecords from "@/components/pages/search-page/SearchRecords";
-import Image from "next/image";
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function SearchPage() {
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
+
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const searchParams = useSearchParams();
+  console.log("SEARCH", searchParams);
+
+  const q = searchParams?.get("q"); // will be "form" if URL is /search?q=form
+  useEffect(() => {
+    setSearchQuery(q ?? "");
+  }, [q]);
   return (
     <>
       <div className="wrapper">
