@@ -20,6 +20,7 @@ const RightIcons: React.FC<RightIconsProps> = ({
   return (
     <div className="header-right-col hidden md:flex justify-end items-center gap-1.5 xl:gap-4 lg:gap-[6px] ps-1 md:absolute right-2 z-50">
       <div className="relative group">
+
         <div className="bg-white rounded-full">
           {searchOpen ? <Image
             onClick={() => { setSearchOpen(false); setSearchQuery(""); }}
@@ -31,6 +32,7 @@ const RightIcons: React.FC<RightIconsProps> = ({
             height={16}
           /> : <Image
             onClick={() => setSearchOpen(true)}
+
 
             id="searchIcon"
             src="/assets/header-images/search-icon.svg"
