@@ -212,7 +212,7 @@ const NavItems = () => {
                   <button
                     key={item.key}
                     onClick={() => setSelectedResourceKey(item.key)}
-                    className={`flex items-center gap-2 px-3 py-4 border rounded-xl ${selectedResourceKey === item.key
+                    className={`relative flex items-center gap-2 px-3 py-4 border rounded-xl ${selectedResourceKey === item.key
                       ? "border-[#795CF5] bg-gray-100"
                       : "border-[#D9D9D9]"
                       } hover:bg-gray-100`}
@@ -226,6 +226,20 @@ const NavItems = () => {
                     <span className="text-xs font-medium text-left whitespace-nowrap text-[#231F20]">
                       {item.title}
                     </span>
+                     <Link
+                      href={`/resources/${item.key.toLowerCase()}`}
+
+                      className="absolute top-1/2 right-2 transform -translate-y-1/2"
+                    >
+                      <Image
+                        src="/assets/detail-icon.svg"
+                        alt="arrow-up"
+                        width={12}
+                        height={16}
+                        priority
+                        className="h-4 w-3"
+                      />
+                    </Link>
                   </button>
                 ))}
               </div>
