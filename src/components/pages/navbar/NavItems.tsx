@@ -39,7 +39,7 @@ const NavItems = () => {
           <div
 
             className="grid grid-cols-12 gap-6 p-10 mt-2 mx-auto xl:w-[1220px] lg:w-[950px] md:w-[700px] bg-white 
-                    rounded-2xl shadow-[0_0_20px_0_#0000001A] h-[450px] overflow-hidden"
+                    rounded-2xl shadow-[0_0_20px_0_#0000001A] h-[450px] overflow-y-scroll"
           >
             {/* Left Section (9/12) */}
             <div
