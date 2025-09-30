@@ -41,7 +41,7 @@ const features = [
     title: "Sales & Orders",
     description: "Streamline your order processing, from quotation to fulfillment.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/sale-order.webm",
-    className: "col-span-12 md:col-span-6 xl:col-span-4 -mt-[100px] order-5",
+    className: "col-span-12 md:col-span-6 xl:col-span-4 xl:-mt-[100px] order-5",
     mediaClassName: "h-[220px] xl:h-[320px]",
     paddingClass: "ps-[24px] pe-0",
     heightClass: "h-fit",

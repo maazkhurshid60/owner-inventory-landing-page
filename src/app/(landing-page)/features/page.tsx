@@ -77,9 +77,9 @@ const page = () => {
         features={teamFeatures}
         wrapperClass="bg-[#F3F4F6] rounded-[40px] py-10 lg:py-[100px] px-5 lg:px-[60px] mx-0"
       />
-
+    <div className="overflow-x-hidden">
       <FeaturesssSection />
-
+</div>
       <SellerClubSection
         mediaType="video"
         mediaSrc="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/general-tools.webm"
