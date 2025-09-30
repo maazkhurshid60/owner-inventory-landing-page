@@ -5,6 +5,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 import ButtonSm from '@/components/button/ButtonSm';
+import InputField from '@/components/form-fields/InputField';
+import ButtonLg from '@/components/button/ButtonLg';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,6 +15,7 @@ interface HeroSectionProps {
   description?: string; 
   video?: string; 
   showButtons?: boolean;
+  showSubscribe?: boolean;  
   children?: ReactNode; 
 }
 
@@ -21,6 +24,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   description,
   video,
   showButtons = true,
+  showSubscribe = false,
+  
   children,
 }) => {
   useEffect(() => {
@@ -155,6 +160,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 <ButtonSm url="#" text="Book Free Demo" bgColor="[#1AD1B9]" textColor="white" isBorder />
                 <ButtonSm url="#" text="View Pricing Plans" bgColor="white" textColor="[#231F20]" isBorder={false} />
               </div>
+              )}
+               {showSubscribe && (
+                <div className="mt-10 xl:mt-20 w-full max-w-xl mx-auto">
+                  <div className="flex items-center bg-white px-2 rounded-full overflow-hidden shadow-sm">
+                    <InputField
+                     placeholder="Enter email" type="email" rounded="left"/>
+                   <ButtonSm url="#" text="Subscribe" bgColor="[#795CF5]" textColor="white" isBorder/>
+                  </div>
+                </div>
               )}
                 {/* Extra flexibility */}
               {children}
