@@ -46,9 +46,9 @@ const page = () => {
 
       <KeyHighlights />
 
-      {/* <div>
+      <div>
         <PinnedSection3 />
-      </div> */}
+      </div>
 
       <SellerClubSection2
         description="Our POS system helps you sell smarter, faster, and with"
@@ -66,9 +66,7 @@ const page = () => {
         />
       </div>
 
-      <div className=''>
-        <PinnedSection3 />
-      </div>
+
 
 
       <FaqSection />
