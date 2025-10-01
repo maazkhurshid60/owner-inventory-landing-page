@@ -13,7 +13,7 @@ const PricingTabs: React.FC<PricingTabsProps> = ({
   variant = "tabs", // default is "tabs"
 }) => {
   if (variant === "toggle") {
-    // 🔄 Toggle Switch Style
+    
     return (
       <div className="flex items-center gap-3">
         {/* Monthly Label */}
@@ -49,7 +49,7 @@ const PricingTabs: React.FC<PricingTabsProps> = ({
     );
   }
 
-  // 📌 Default Tab Buttons Style
+  
   return (
     <div className="inline-flex p-1 lg:p-2 mt-10 xl:mt-20 border border-transparent rounded-full bg-white">
       {/* Monthly Button */}
@@ -79,7 +79,6 @@ const PricingTabs: React.FC<PricingTabsProps> = ({
           Yearly
         </button>
 
-        {/* 10% Off Badge */}
         <span className="px-5 py-2 text-white font-onest font-semibold text-xs lg:text-sm bg-[#1AD1B9] whitespace-nowrap absolute right-0 lg:-right-10 -top-12 lg:-top-14 rounded-full z-30">
           10% Off
         </span>

@@ -1,3 +1,4 @@
+'use client'
 import KeyHighlights from '@/components/pages/features-page/point-of-sale/KeyHighlights'
 import SellerClubSection2 from '@/components/pages/features-page/point-of-sale/SellerClubSection2'
 import WhyChoosePOS from '@/components/pages/features-page/point-of-sale/WhyChoosePOS'
@@ -5,6 +6,7 @@ import CalltoActionBottom from '@/components/pages/landing-page/CalltoActionBott
 import FaqSection from '@/components/pages/landing-page/FAQSection'
 import HeroSection from '@/components/pages/landing-page/HeroSection'
 import PinnedSection3 from '@/components/pages/landing-page/PinnedSection3'
+import { useHeroAnimation } from '@/hooks/useHeroAnimation'
 
 import React from 'react'
 
@@ -35,6 +37,8 @@ const whyChoseCards = [
 ];
 
 const page = () => {
+
+
   return (
     <div>
       <HeroSection
@@ -42,10 +46,12 @@ const page = () => {
         description="Our Point of Sale system is designed to make every sale simple, quick, and error-free. Whether you run a retail store, supermarket, or restaurant, our POS brings together speed, accuracy, and seamless integration with your inventory and accounts."
         video='https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/main-feature.webm'
         showButtons={false}
+        
       />
 
+      <div className="">
       <KeyHighlights />
-
+</div>
       <div>
         <PinnedSection3 />
       </div>

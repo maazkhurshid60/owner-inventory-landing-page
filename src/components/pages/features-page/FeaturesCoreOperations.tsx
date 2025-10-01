@@ -2,51 +2,87 @@
 import React from "react";
 import FeatureCard from "./FeatureCard";
 
+// Base features coming from backend (without class props)
 const features = [
   {
     title: "Point of Sale (POS)",
     description: "Fast, reliable, and intuitive POS system for retail and quick sales.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/purchases.webm",
-    className: "col-span-12 xl:col-span-8 order-3 xl:order-1",
-    mediaClassName: "scale-110 h-[320px]",
-    paddingClass: "px-[24px]",   
-    heightClass: "h-full",   
   },
   {
     title: "Products",
     description: "Manage product catalogs, variants, pricing, and stock in one place.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/products.webm",
-    className: "col-span-12 md:col-span-6 xl:col-span-4 order-2",
-    mediaClassName: "scale-100 h-[220px] xl:h-[190px]",
-    paddingClass: "ps-[24px] pe-0",
-    heightClass: "h-fit", 
   },
   {
     title: "Purchases",
     description: "Automate purchase orders, procurement and vendor management.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/purchases.webm",
-    className: "col-span-12 md:col-span-6 xl:col-span-4 order-2 xl:order-3",
-    mediaClassName: "scale-110 h-[220px]",
-    heightClass: "h-fit",
   },
   {
     title: "Inventory Operations",
     description: "Track stock levels, transfers, and adjustments with real-time accuracy.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/inventory-operations.webm",
-    className: "col-span-12 md:col-span-6 xl:col-span-4 order-4",
-    mediaClassName: "scale-110 h-[220px]",
-    heightClass: "h-fit",
   },
   {
     title: "Sales & Orders",
     description: "Streamline your order processing, from quotation to fulfillment.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/sale-order.webm",
-    className: "col-span-12 md:col-span-6 xl:col-span-4 xl:-mt-[100px] order-5",
+  },
+  {
+    title: "Inventory Operations",
+    description: "Track stock levels, transfers, and adjustments with real-time accuracy.",
+    videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/inventory-operations.webm",
+  },
+  {
+    title: "Inventory Operations",
+    description: "Track stock levels, transfers, and adjustments with real-time accuracy.",
+    videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/inventory-operations.webm",
+  },
+];
+
+
+const layoutClasses = [
+  
+  {
+    className: "col-span-12 xl:col-span-8 ",
+    mediaClassName: "scale-110 h-[320px]",
+    paddingClass: "px-[24px]",
+    heightClass: "h-full",
+  },
+  
+  {
+    className: "col-span-12 md:col-span-6 xl:col-span-4",
+    mediaClassName: "scale-100 h-[220px] xl:h-[190px]",
+    paddingClass: "ps-[24px] pe-0",
+    heightClass: "h-fit",
+  },
+
+  {
+    className: "col-span-12 md:col-span-6 xl:col-span-4 ",
+    mediaClassName: "scale-110 h-[220px]",
+    heightClass: "h-fit",
+  },
+
+  {
+    className: "col-span-12 md:col-span-6 xl:col-span-4",
+    mediaClassName: "scale-110 h-[220px]",
+    heightClass: "h-fit",
+  },
+
+  {
+    className: "col-span-12 md:col-span-6 xl:col-span-4 xl:-mt-[100px]",
     mediaClassName: "h-[220px] xl:h-[320px]",
     paddingClass: "ps-[24px] pe-0",
     heightClass: "h-fit",
   },
 ];
+
+const defaultLayout = {
+  className: "col-span-12 md:col-span-6 xl:col-span-4",
+  mediaClassName: "scale-110 h-[220px]",
+  heightClass: "h-fit",
+};
 
 const FeaturesCoreOperations: React.FC = () => {
   return (
@@ -64,9 +100,10 @@ const FeaturesCoreOperations: React.FC = () => {
 
       {/* Cards */}
       <div className="grid grid-cols-12 gap-6 lg:mt-20 mt-10">
-        {features.map((feature, i) => (
-          <FeatureCard key={i} {...feature} />
-        ))}
+        {features.map((feature, i) => {
+          const layout = layoutClasses[i] || defaultLayout;
+          return <FeatureCard key={i} {...feature} {...layout} />;
+        })}
       </div>
     </section>
   );

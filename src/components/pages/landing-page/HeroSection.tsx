@@ -7,6 +7,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ButtonSm from '@/components/button/ButtonSm';
 import InputField from '@/components/form-fields/InputField';
 import ButtonLg from '@/components/button/ButtonLg';
+import { useHeroAnimation } from '@/hooks/useHeroAnimation';
+import { useHeroAnimation2 } from '@/hooks/useHeroAnimation2';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +19,9 @@ interface HeroSectionProps {
   showButtons?: boolean;
   showSubscribe?: boolean;  
   children?: ReactNode; 
+  heroHeight?: string;
+  heroOverflow?: string;
+   variant?: 'animation1' | 'animation2' | 'none';
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -25,98 +30,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   video,
   showButtons = true,
   showSubscribe = false,
-  
+  heroHeight= "lg:h-[920px]",
+  heroOverflow= "overflow-y-hidden",
   children,
+  variant = 'animation1',
 }) => {
-  useEffect(() => {
-    let heroBreak = gsap.matchMedia();
+ 
 
-    // Mobile < 768px
-    heroBreak.add('(max-width: 767px)', () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          scroller: 'body',
-          start: 'top top',
-          end: '+=' + window.innerHeight * 1,
-          trigger: '.pinned-section-1',
-          scrub: 2,
-          // markers: true,
-        },
-      });
-
-      tl.to('.mobile-iventory', { width: '100%', duration: 1 }, 0);
-      tl.to('header', { y: -30, duration: 1 }, 1);
-    });
-
-    // Tablet 768px – 1023px
-    heroBreak.add('(min-width: 768px) and (max-width: 1023px)', () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          scroller: 'body',
-          start: 'top top',
-          end: '+=' + window.innerHeight * 1,
-          pin: '.pinned-section-1',
-          scrub: 2,
-          // markers: true,
-        },
-      });
-
-      gsap.set('.owner-inventory-hero__content', { y: 0, force3D: true });
-      gsap.set('.owner-inventory-hero__video', { y: 0, force3D: true });
-
-      tl.to('header', { y: -20, duration: 1.5, ease: 'power2.out' }, 0);
-
-      tl.to('.inventory-menu', { width: '100%', duration: 1 }, 0);
-      tl.to('.header-right-col', { x: '0%', duration: 1 }, 0);
-      tl.to('.header-left-col', { x: '0%', duration: 1 }, 0);
-
-      tl.to('.top-section', { autoAlpha: 0, duration: 1 }, 0);
-      tl.to(
-        '.owner-inventory-hero',
-        { y: -112, paddingLeft: 0, paddingRight: 0, duration: 1.5, ease: 'power2.out' },
-        0
-      );
-      tl.to('.owner-inventory-hero__content', { y: -800, duration: 2, ease: 'power2.out' }, 0);
-      tl.to('.owner-inventory-hero__video', { y: -100, duration: 2, ease: 'power2.out' }, 0);
-    });
-
-    // Desktop >= 1024px
-    heroBreak.add('(min-width: 1024px)', () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          scroller: 'body',
-          start: 'top top',
-          end: '+=' + window.innerHeight * 1.5,
-          pin: '.pinned-section-1',
-          scrub: 2,
-          // markers: true,
-        },
-      });
-
-      gsap.set('.owner-inventory-hero__content', { y: 0, force3D: true });
-      gsap.set('.owner-inventory-hero__video', { y: 0, force3D: true });
-
-      tl.to('header', { y: -20, duration: 1.5, ease: 'power2.out' }, 0);
-
-      tl.to('.inventory-menu', { width: '100%', duration: 1 }, 0);
-      tl.to('.header-right-col', { x: '0%', duration: 1 }, 0);
-      tl.to('.header-left-col', { x: '0%', duration: 1 }, 0);
-
-      tl.to('.top-section', { autoAlpha: 0, duration: 1 }, 0);
-      tl.to(
-        '.owner-inventory-hero',
-        { y: -150, paddingLeft: 0, paddingRight: 0, duration: 1.5, ease: 'power2.out' },
-        0
-      );
-      tl.to('.owner-inventory-hero__content', { y: -800, duration: 1, ease: 'power2.out' }, 0);
-      tl.to('.owner-inventory-hero__video', { y: -300, duration: 1, ease: 'power2.out' }, 0);
-    });
-
-    return () => {
-      heroBreak.revert(); // cleanup on unmount
-    };
-  }, []);
-
+  if (variant === 'animation1') {
+    useHeroAnimation();
+  } else if (variant === 'animation2') {
+    useHeroAnimation2();
+  }
   return (
     <div className="pinned-section-1">
       <div className="top-section md:h-6 h-8"></div>
@@ -137,7 +62,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         {/* HERO BODY */}
         <div className="md:py-[1px] bg-[#F3F4F6] rounded-[40px]">
           <div
-            className="owner-inventory-hero__bottom relative flex flex-col items-center justify-center w-full overflow-y-hidden pt-10 pb-6 md:py-[76px] lg:py-0 lg:h-[920px] px-6 md:px-[100px] bg-[#F3F4F6] rounded-b-[40px] rounded-tr-[40px] md:rounded-tl-[40px]  backdrop-blur-[374px]"
+            className={`owner-inventory-hero__bottom relative flex flex-col items-center justify-center w-full ${heroHeight} ${heroOverflow} pt-10 pb-6 md:py-[76px] lg:py-0 px-6 md:px-[100px] bg-[#F3F4F6] rounded-b-[40px] rounded-tr-[40px] md:rounded-tl-[40px]  backdrop-blur-[374px]`}
             style={{
               backgroundImage:
                 'linear-gradient(180deg, #F3F4F6 0%, transparent 40%), linear-gradient(90deg, rgba(26, 209, 185, 0.3) 0%, rgba(121, 92, 245, 0.3) 100%)',
@@ -162,11 +87,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
               )}
                {showSubscribe && (
-                <div className="mt-10 xl:mt-20 w-full max-w-xl mx-auto">
-                  <div className="flex items-center bg-white px-2 rounded-full overflow-hidden shadow-sm">
+                <div className="mt-10 relative xl:mt-20 w-full max-w-xl mx-auto">
+                  <div className="flex  items-center bg-white sm:px-2 rounded-full overflow-hidden shadow-sm">
                     <InputField
-                     placeholder="Enter email" type="email" rounded="left"/>
+                     placeholder="Enter email" type="email" rounded="left" py='py-3 sm:py-4' px='px-4 sm:px-8'/>
+                     <div className='absolute bottom-[-45px] left-0 w-full sm:relative sm:bottom-0 sm:w-auto'>
+
                    <ButtonSm url="#" text="Subscribe" bgColor="[#795CF5]" textColor="white" isBorder/>
+                     </div>
                   </div>
                 </div>
               )}

@@ -9,13 +9,13 @@ interface EmpoweredSectionProps {
   title: string;
   description: string;
   features: {
-    title: string;
-    description: string;
-    videoSrc: string;
-    className?: string;
-    mediaClassName?: string;
-    paddingClass?: string;
-    heightClass?: string;
+  title: string;
+  description: string;
+  videoSrc: string;
+  className?: string;
+  mediaClassName?: string;
+  paddingClass?: string;
+  heightClass?: string;
   }[];
   wrapperClass?: string;
 }
@@ -24,7 +24,7 @@ const EmpoweredSection: React.FC<EmpoweredSectionProps> = ({
   title,
   description,
   features,
-  wrapperClass = "", // default empty
+  wrapperClass = "", 
 }) => {
   return (
     <section className={`${wrapperClass} lg:mx-10 lg:mt-40 md:mt-28 mt-20`}>
@@ -48,12 +48,11 @@ const EmpoweredSection: React.FC<EmpoweredSectionProps> = ({
                 description={card.description}
                 videoSrc={card.videoSrc}
                 className={card.className}
-                mediaClassName={card.mediaClassName}
+                mediaClassName="w-full scale-[1.15] h-[220px] rounded-tl-[20px] rounded-tr-[20px]"
+                heightClass="h-full"
                 paddingClass={card.paddingClass}
                 buttonLabel="View Details"
-                buttonHref="#"
-                heightClass={card.heightClass}
-
+                buttonHref="#"             
               />
             </div>
           )}

@@ -5,9 +5,12 @@ import FaqSection from "@/components/pages/landing-page/FAQSection";
 import SearchField from "@/components/pages/navbar/SearchField";
 import RelatedFeatures from "@/components/pages/search-page/RelatedFeatures";
 import SearchRecords from "@/components/pages/search-page/SearchRecords";
+import { useSearchAnimation } from "@/hooks/useSearchAnimation";
 
 export default function SearchPageContent({ q }: { q: string }) {
     const [searchQuery, setSearchQuery] = useState(q);
+
+     useSearchAnimation();
 
     useEffect(() => {
         setSearchQuery(q);
