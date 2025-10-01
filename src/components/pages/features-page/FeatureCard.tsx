@@ -2,29 +2,40 @@ import React from "react";
 
 interface FeatureCardProps {
   title: string;
-  description: string;
-  videoSrc?: string;       // optional
-  imageSrc?: string;       // optional
+  description?: string;
+  videoSrc?: string;       
+  imageSrc?: string;
+  authorName?: string;      
   className?: string;
-  mediaClassName?: string; // applies to video or image
+  mediaClassName?: string; 
   paddingClass?: string;
   buttonLabel?: string;
   buttonHref?: string;
-  heightClass?: string;    // NEW → control h-full or h-fit
+  heightClass?: string;   
+  truncateTitle?: boolean; 
+  maxTitleLength?: number; 
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
-  description,
+  description="",
   videoSrc,
   imageSrc,
+  authorName= "",    
   className = "",
   mediaClassName = "",
-  paddingClass = "px-[24px]",
+  paddingClass = "px-[24px] pt-4",
   buttonLabel,
   buttonHref,
-  heightClass = "h-full", // default is h-full, but you can override with h-fit
+  heightClass = "h-full", 
+   truncateTitle = false,  
+  maxTitleLength = 50,
 }) => {
+
+  const displayedTitle =
+    truncateTitle && title.length > maxTitleLength
+      ? title.slice(0, maxTitleLength) + "..."
+      : title;
   return (
     <div
       className={`p-[1px] rounded-[30px] features-core-opretions__cards 
@@ -35,7 +46,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         <div className="flex flex-col">
           {/* Media */}
           <div
-            className={`w-full ${paddingClass} pb-0 pt-4 production-banner 
+            className={`w-full ${paddingClass} pb-0  production-banner 
               bg-[linear-gradient(90deg,rgba(26,209,185,0.2)_32.74%,rgba(56,172,204,0.2)_52.46%,rgba(85,136,223,0.2)_76.39%,rgba(121,92,245,0.2)_100%)] 
               rounded-tl-[20px] rounded-tr-[20px]`}
           >
@@ -62,10 +73,14 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           {/* Text */}
           <div className="mt-5">
             <h3 className="xl:text-2xl text-xl leading-[100%] font-semibold text-[#231F20] font-onest">
-              {title}
+              {displayedTitle}
             </h3>
             <p className="xl:text-base text-sm font-normal font-onest text-[#231F20] mt-3 lg:mt-4">
               {description}
+            </p>
+
+            <p className="xl:text-base text-base leading-6 font-bold font-onest text-[#795CF5] mt-3 lg:mt-4">
+              {authorName}
             </p>
 
             {buttonLabel && (

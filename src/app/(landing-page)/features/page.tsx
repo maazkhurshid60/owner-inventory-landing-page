@@ -8,6 +8,7 @@ import CalltoActionBottom from '@/components/pages/landing-page/CalltoActionBott
 import FaqSection from '@/components/pages/landing-page/FAQSection';
 import HeroSection from '@/components/pages/landing-page/HeroSection';
 import SellerClubSection from '@/components/pages/landing-page/SellerClubSection';
+import { useHeroAnimation } from '@/hooks/useHeroAnimation';
 import React from 'react';
 
 // Define your feature arrays here
@@ -16,22 +17,16 @@ const teamFeatures = [
     title: "People",
     description: "Centralized customer and supplier management with loyalty programs and CRM tools.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/peoples-bg.webm",
-    mediaClassName: "w-full scale-[1.15] h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
-    heightClass: "h-full",
   },
   {
     title: "Human Resource (HR)",
     description: "Simplify attendance, shifts, payroll, and employee records in one system.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/humanresources.webm",
-    mediaClassName: "w-full scale-x-[1.15] h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
-    heightClass: "h-full"
   },
   {
     title: "Facilities",
     description: "Track and manage workspaces, business assets, and internal resources effectively.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/facilities.webm",
-    mediaClassName: "w-full scale-[1.15] h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
-    heightClass: "h-full"
   },
 ];
 
@@ -40,26 +35,24 @@ const financeFeatures = [
     title: "Accounting & Financials",
     description: "Integrated invoicing, expense tracking, and tax compliance made simple.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/acounting%26financial.webm",
-    mediaClassName: "w-full scale-100 h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
-    heightClass: "h-fit"
+   
   },
   {
     title: "Advanced Reports",
     description: "Unlock in-depth analytics, trends, and forecasting for smarter decision-making.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/advance-report.webm",
-    mediaClassName: "w-full scale-150 h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
-    heightClass: "h-fit"
+   
   },
   {
     title: "Standard Reports",
     description: "Get instant insights into sales, purchases, and stock performance.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/standards-reports.webm",
-    mediaClassName: "w-full h-[220px] rounded-tl-[20px] rounded-tr-[20px]",
-    heightClass: "h-fit"
   },
 ];
 
 const page = () => {
+
+ 
   return (
     <>
       <HeroSection

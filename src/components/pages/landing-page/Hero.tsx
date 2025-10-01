@@ -1,3 +1,4 @@
+'use client'
 // src/components/Hero.tsx
 import React from 'react';
 import Image from 'next/image';
@@ -15,9 +16,12 @@ import FaqSection from './FAQSection';
 import HeroSection from './HeroSection';
 import SmartWaytoSyncndSellSection from './SmartWaytoSyncndSellSection';
 import PinnedSection3 from './PinnedSection3';
+import { useHeroAnimation } from '@/hooks/useHeroAnimation';
 
 
 export default function Hero() {
+
+  
   return (
     <>
       {/* Rounded Background Header Shape */}
