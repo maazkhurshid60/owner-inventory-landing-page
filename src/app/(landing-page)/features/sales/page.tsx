@@ -10,35 +10,21 @@ import React from 'react'
 
 const FeaturesCards = [
   {
-    title: "Quick Billing & Checkout",
-    description: "Process sales in seconds with barcode scanning, quick search, and easy product selection.",
-    imageSrc: "/assets/features-page/point-of-sale/key-highlights/quick-billing.webp",
+    title: "Quotations",
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    imageSrc: "/assets/features-page/sales-order/key-highlights/quotations.webp",
   },
   {
-    title: "Integrated with Inventory",
-    description: "Automatic stock updates with every transaction—no more manual adjustments.",
-    imageSrc: "/assets/features-page/point-of-sale/key-highlights/intigrated-with-inventory.webp",
+    title: "Sales Orders",
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    imageSrc: "/assets/features-page/sales-order/key-highlights/sales-order.webp",
   },
   {
-    title: "Multi-Store & Multi-Device Ready",
-    description: "Manage product catalogs, variants, pricing, and stock in one place.",
-    imageSrc: "/assets/features-page/point-of-sale/key-highlights/multi-store.webp",
+    title: "Invoices",
+    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    imageSrc: "/assets/features-page/sales-order/key-highlights/invoices.webp",
   },
-  {
-    title: "Offline Mode Support",
-    description: "Continue selling even without internet; data syncs automatically when you’re back online.",
-    imageSrc: "/assets/features-page/point-of-sale/key-highlights/offline-support.webp",
-  },
-  {
-    title: "Flexible Payments",
-    description: "Accept cash, cards, mobile wallets, and split payments—all in one system.",
-    imageSrc: "/assets/features-page/point-of-sale/key-highlights/flexible-payments.webp",
-  },
-  {
-    title: "Customer Engagement",
-    description: "Build loyalty with discounts, promotions, and customer profiles directly from the POS.",
-    imageSrc: "/assets/features-page/point-of-sale/key-highlights/customer-engagement.webp",
-  },
+  
 ];
 
 const layoutPatterns = [
@@ -54,27 +40,24 @@ const page = () => {
   return (
     <div>
       <HeroSection
-        title="Point of Sale (POS) Fast, Reliable & Intuitive"
-        description="Our Point of Sale system is designed to make every sale simple, quick, and error-free..."
+        title="Sales & Orders – Simplify Your Selling Process"
+        description="Take full control of your sales cycle with smart tools that handle everything from quotations to invoices. Our Sales & Orders module ensures faster deals, accurate billing, and real-time integration with inventory and accounts—so your business runs seamlessly from inquiry to payment."
         video='https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/main-feature.webm'
         showButtons={false}
       />
 
-      {/* 🔥 Custom layout + cards */}
       <KeyHighlights
         heading="Key Highlights"
         features={FeaturesCards}
         layoutPatterns={layoutPatterns}
       />
 
-      <PinnedSection3 />
-
       <SellerClubSection2
-        description="Our POS system helps you sell smarter..."
-        highlight="complete control—integrated seamlessly with your business operations."
-        buttonLabel="Book a Free Demo"
+        description="Manage quotations, orders, and invoices in one place—speeding up "
+        highlight="your sales cycle while keeping accuracy at its peak."
+        buttonLabel="Request a Demo"
         buttonHref="/demo"
-        imageSrc="/assets/features-page/point-of-sale/pos-image.webp"
+        imageSrc="/assets/features-page/sales-order/sales-order-banner.webp"
       />
 
       <WhyChoosePOS
