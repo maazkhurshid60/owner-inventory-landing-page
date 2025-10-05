@@ -70,7 +70,7 @@ const page = () => {
         features={teamFeatures}
         wrapperClass="bg-[#F3F4F6] rounded-[40px] py-10 lg:py-[100px] px-5 lg:px-[60px] mx-0"
       />
-    <div className="overflow-x-hidden">
+    <div className="overflow-hidden h-full">
       <FeaturesssSection />
 </div>
       <SellerClubSection

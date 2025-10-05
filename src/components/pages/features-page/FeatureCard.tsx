@@ -42,7 +42,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         bg-[linear-gradient(90deg,#1AD1B9_32.74%,#38ACCC_52.46%,#5588DF_76.39%,#795CF5_100%)] 
         ${heightClass} ${className}`}
     >
-      <div className="bg-white rounded-[30px] h-full p-2 lg:p-4">
+      <div className="bg-white w-full rounded-[30px] h-full p-2 lg:p-4">
         <div className="flex flex-col">
           {/* Media */}
           <div
