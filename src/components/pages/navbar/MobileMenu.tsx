@@ -7,6 +7,7 @@ import clsx from "clsx";
 import { createPortal } from "react-dom";
 import { companyItems } from "./dropdownItems/Companylist";
 import { title } from "process";
+import Link from "next/link";
 import {
   resourcesDetailsMap,
   resourcesItems,
@@ -219,92 +220,129 @@ export default function OffcanvasMenu({
             )}
           >
             <li className={listItem}>
-              <button
-                onClick={() => setActivePanel("features")}
-                className={navButton}
-                aria-expanded={activePanel === "features"}
-                aria-controls="features-content"
-              >
-                Features
-                <Image
-                  src="/assets/header-images/mobile-nav-icon.svg"
-                  width={7}
-                  height={7}
-                  alt="Open"
-                />
-              </button>
+              <div className={navButton}>
+                <Link
+                  href="/features"
+                  className="w-[70%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
+                >
+                  Features
+                </Link>
+
+                <button
+                  onClick={() => setActivePanel("features")}
+                  className="w-[30%] flex items-center justify-end"
+                  aria-expanded={activePanel === "features"}
+                  aria-controls="features-content"
+                >
+                  <Image
+                    src="/assets/header-images/mobile-nav-icon.svg"
+                    width={7}
+                    height={7}
+                    alt="Open"
+                  />
+                </button>
+              </div>
             </li>
             <li className={listItem}>
-              <button
-                onClick={() => setActivePanel("industries")}
-                className={navButton}
-                aria-expanded={activePanel === "industries"}
-                aria-controls="industries-content"
-              >
-                Industries
-                <Image
-                  src="/assets/header-images/mobile-nav-icon.svg"
-                  width={7}
-                  height={7}
-                  alt="Open"
-                />
-              </button>
+              <div className={navButton}>
+                <Link
+                  href="#"
+                  className="w-[70%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
+                >
+                  Industries
+                </Link>
+                <button
+                  onClick={() => setActivePanel("industries")}
+                  className="w-[30%] flex items-center justify-end"
+                  aria-expanded={activePanel === "industries"}
+                  aria-controls="industries-content"
+                >
+                  <Image
+                    src="/assets/header-images/mobile-nav-icon.svg"
+                    width={7}
+                    height={7}
+                    alt="Open"
+                  />
+                </button>
+              </div>
             </li>
             <li className={listItem}>
-              <a
+              <Link
                 href="/pricing"
                 className="flex items-center justify-between px-5 py-3 text-sm font-semibold text-[#231F20] bg-white border border-[#D9D9D9] hover:bg-gray-100 hover:border-[#795CF5] active:bg-gray-100 active:border-[#795CF5] rounded-full font-onest"
               >
                 Pricing
-              </a>
+              </Link>
             </li>
             <li className={listItem}>
-              <button
-                onClick={() => setActivePanel("resources")}
-                className={navButton}
-                aria-expanded={activePanel === "resources"}
-                aria-controls="resources-content"
-              >
-                Resources
-                <Image
-                  src="/assets/header-images/mobile-nav-icon.svg"
-                  width={7}
-                  height={7}
-                  alt="Open"
-                />
-              </button>
+              <div className={navButton}>
+                <Link
+                  href="/resources"
+                  className="w-[70%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
+                >
+                  Resources
+                </Link>
+                <button
+                  onClick={() => setActivePanel("resources")}
+                  className="w-[30%] flex items-center justify-end"
+                  aria-expanded={activePanel === "resources"}
+                  aria-controls="resources-content"
+                >
+                  <Image
+                    src="/assets/header-images/mobile-nav-icon.svg"
+                    width={7}
+                    height={7}
+                    alt="Open"
+                  />
+                </button>
+              </div>
             </li>
             <li className={listItem}>
-              <button
-                onClick={() => setActivePanel("company")}
-                className={navButton}
-                aria-expanded={activePanel === "company"}
-                aria-controls="company-content"
-              >
-                Company
-                <Image
-                  src="/assets/header-images/mobile-nav-icon.svg"
-                  width={7}
-                  height={7}
-                  alt="Open"
-                />
-              </button>
+              <div className={navButton}>
+                <Link
+                  href="/company"
+                  className="w-[70%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
+                >
+                  Company
+                </Link>
+
+                <button
+                  onClick={() => setActivePanel("company")}
+                  className="w-[30%] flex items-center justify-end"
+                  aria-expanded={activePanel === "company"}
+                  aria-controls="company-content"
+                >
+                  <Image
+                    src="/assets/header-images/mobile-nav-icon.svg"
+                    width={7}
+                    height={7}
+                    alt="Open"
+                  />
+                </button>
+              </div>
             </li>
             <li className={listItem}>
-              <button
-                onClick={() => setActivePanel("profile")}
-                className={navButton}
-                aria-expanded={activePanel === "profile"}
-                aria-controls="profile-content"
-              >
-                Profile
-                <Image
-                  src="/assets/header-images/mobile-nav-icon.svg"
-                  width={7}
-                  height={7}
-                  alt="Open"
-                />
-              </button>
+              <div className={navButton}>
+                <Link
+                  href="/profile"
+                  className="w-[70%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
+                >
+                  Profile
+                </Link>
+
+                <button
+                  onClick={() => setActivePanel("profile")}
+                  aria-expanded={activePanel === "profile"}
+                  aria-controls="profile-content"
+                >
+                  <Image
+                    src="/assets/header-images/mobile-nav-icon.svg"
+                    width={7}
+                    height={7}
+                    alt="Open"
+                  />
+                </button>
+              </div>
             </li>
           </ul>
 
@@ -331,92 +369,103 @@ export default function OffcanvasMenu({
 
                     return (
                       <li key={item.key || item.title} className="w-full">
-                        <a
-                          href={item.url || "#"}
-                          className={`flex items-center px-4 py-4 border rounded-xl hover:bg-gray-100 ${isOpen
+                        <div
+                          className={`flex items-center border rounded-xl overflow-hidden hover:bg-gray-100 transition-colors ${
+                            isOpen
                               ? "border-[#795CF5] bg-gray-100"
                               : "border-[#D9D9D9]"
-                            }`}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            if (hasDetails) toggleIndex(index);
-                          }}
-                          aria-expanded={isOpen}
-                          aria-controls={`${activePanel}-panel-${index}`}
+                          }`}
                         >
-                          <Image
-                            src={item.icon}
-                            alt={item.title}
-                            width={16}
-                            height={16}
-                            loading="lazy"
-                          />
+                          {/* 80% width clickable navigation link */}
+                          <Link
+                            href={`/features/${item.key.toLowerCase()}`}
+                            onClick={onClose} // closes the offcanvas when navigating
+                            className="w-[80%] flex items-center px-4 py-4"
+                          >
+                            <Image
+                              src={item.icon}
+                              alt={item.title}
+                              width={16}
+                              height={16}
+                              loading="lazy"
+                            />
+                            <span className="ml-2 text-sm font-[500] text-[#231F20] hover:font-semibold flex-1">
+                              {item.title}
+                            </span>
+                          </Link>
 
-                          <span className="ml-2 text-sm font-[500] text-[#231F20] hover:font-semibold flex-1">
-                            {item.title}
-                          </span>
-
-                          {hasDetails &&
-                            (isOpen ? (
-                              <span
-                                className="submenu-icon-minus"
-                                aria-hidden="true"
-                              >
+                          {/* 20% width toggle button */}
+                          {hasDetails && (
+                            <button
+                              onClick={(e) => {
+                                e.preventDefault();
+                                toggleIndex(index);
+                              }}
+                              aria-expanded={isOpen}
+                              aria-controls={`${activePanel}-panel-${index}`}
+                              className="w-[20%] flex items-center justify-center py-4 border-l border-[#D9D9D9] hover:bg-gray-100"
+                            >
+                              {isOpen ? (
                                 <img
                                   src="/assets/header-dropdown-images/arrow-up-icon.svg"
-                                  alt="expand"
-
+                                  alt="collapse"
                                   className="h-3 w-3"
                                 />
-
-                              </span>
-                            ) : (
-                              <span
-                                className="submenu-icon-plus"
-                                aria-hidden="true"
-                              >
+                              ) : (
                                 <img
                                   src="/assets/header-dropdown-images/arrow-down-icon.svg"
-                                  alt="collapse"
-
+                                  alt="expand"
                                   className="h-3 w-3"
                                 />
-                              </span>
-                            ))}
-                        </a>
+                              )}
+                            </button>
+                          )}
+                        </div>
 
-                        {/* Dropdown content */}
+                        {/* Dropdown details */}
                         {hasDetails && (
                           <div
                             id={`${activePanel}-panel-${index}`}
-                            className={`overflow-hidden transition-all duration-200 ${isOpen ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
-                              }`}
+                            className={`overflow-hidden transition-all duration-200 ${
+                              isOpen
+                                ? "max-h-[1000px] opacity-100"
+                                : "max-h-0 opacity-0"
+                            }`}
                           >
                             <div className="px-0 pt-3 pb-2">
                               {Array.isArray(details) ? (
-                                <ul className="pl-4 space-y-4"> {/* spacing between items */}
+                                <ul className="pl-4 space-y-4">
                                   {details.map((d: any, i: number) => {
                                     if (typeof d === "string") {
                                       return (
                                         <li
-                                          key={`${item.key || item.title}-str-${d}-${i}`}
+                                          key={`${
+                                            item.key || item.title
+                                          }-str-${d}-${i}`}
                                           className="text-xs text-[#231F20] leading-relaxed"
                                         >
                                           {d}
                                         </li>
                                       );
                                     }
-                                    const text = d?.title ?? d?.label ?? String(d);
+                                    const text =
+                                      d?.title ?? d?.label ?? String(d);
                                     const href = d?.url || d?.href || "#";
                                     return (
                                       <li
-                                        key={`${item.key || item.title}-obj-${d?.key || text}-${i}`}
+                                        key={`${item.key || item.title}-obj-${
+                                          d?.key || text
+                                        }-${i}`}
                                         className="text-xs text-[#231F20] leading-relaxed"
                                       >
-                                        {d?.url || d?.href ? (
-                                          <a href={href} className="hover:underline">
+                                        {href !== "#" ? (
+                                          <Link
+                                            href={href}
+                                            className="hover:underline"
+                                            onClick={onClose}
+                                          >
                                             {text}
-                                          </a>
+                                          </Link>
                                         ) : (
                                           text
                                         )}
@@ -432,7 +481,6 @@ export default function OffcanvasMenu({
                             </div>
                           </div>
                         )}
-
                       </li>
                     );
                   }
