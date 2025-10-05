@@ -36,6 +36,20 @@ body {
     }
 }
 
+@media (min-width: 1535px) {
+  .wrapper{
+        max-width: 1380px;
+        margin: 0 auto; 
+    }
+}
+
+@media (min-width: 1750px) {
+  .wrapper{
+        max-width: 1700px;
+        margin: 0 auto; 
+    }
+}
+
 
 /* Pagination bullets */
 .swiper .swiper-pagination-bullet {
