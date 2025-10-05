@@ -223,14 +223,14 @@ export default function OffcanvasMenu({
               <div className={navButton}>
                 <Link
                   href="/features"
-                  className="w-[70%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
+                  className="w-[80%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
                 >
                   Features
                 </Link>
 
                 <button
                   onClick={() => setActivePanel("features")}
-                  className="w-[30%] flex items-center justify-end"
+                  className="w-[20%] border-l-2 border-[#D9D9D9] flex items-center justify-end"
                   aria-expanded={activePanel === "features"}
                   aria-controls="features-content"
                 >
@@ -247,13 +247,13 @@ export default function OffcanvasMenu({
               <div className={navButton}>
                 <Link
                   href="#"
-                  className="w-[70%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
+                  className="w-[80%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
                 >
                   Industries
                 </Link>
                 <button
                   onClick={() => setActivePanel("industries")}
-                  className="w-[30%] flex items-center justify-end"
+                  className="w-[20%] border-l-2 border-[#D9D9D9] flex items-center justify-end"
                   aria-expanded={activePanel === "industries"}
                   aria-controls="industries-content"
                 >
@@ -278,13 +278,13 @@ export default function OffcanvasMenu({
               <div className={navButton}>
                 <Link
                   href="/resources"
-                  className="w-[70%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
+                  className="w-[80%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
                 >
                   Resources
                 </Link>
                 <button
                   onClick={() => setActivePanel("resources")}
-                  className="w-[30%] flex items-center justify-end"
+                  className="w-[20%] border-l-2 border-[#D9D9D9] flex items-center justify-end"
                   aria-expanded={activePanel === "resources"}
                   aria-controls="resources-content"
                 >
@@ -301,14 +301,14 @@ export default function OffcanvasMenu({
               <div className={navButton}>
                 <Link
                   href="/company"
-                  className="w-[70%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
+                  className="w-[80%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
                 >
                   Company
                 </Link>
 
                 <button
                   onClick={() => setActivePanel("company")}
-                  className="w-[30%] flex items-center justify-end"
+                  className="w-[20%] border-l-2 border-[#D9D9D9] flex items-center justify-end"
                   aria-expanded={activePanel === "company"}
                   aria-controls="company-content"
                 >
@@ -325,13 +325,14 @@ export default function OffcanvasMenu({
               <div className={navButton}>
                 <Link
                   href="/profile"
-                  className="w-[70%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
+                  className="w-[80%] flex items-center justify-start text-sm font-semibold text-[#231F20] hover:border-[#795CF5]"
                 >
                   Profile
                 </Link>
 
                 <button
                   onClick={() => setActivePanel("profile")}
+                   className="w-[20%] border-l-2 border-[#D9D9D9] flex items-center justify-end"
                   aria-expanded={activePanel === "profile"}
                   aria-controls="profile-content"
                 >
@@ -403,7 +404,7 @@ export default function OffcanvasMenu({
                               }}
                               aria-expanded={isOpen}
                               aria-controls={`${activePanel}-panel-${index}`}
-                              className="w-[20%] flex items-center justify-center py-4 border-l border-[#D9D9D9] hover:bg-gray-100"
+                              className="w-[20%]  flex items-center justify-center py-4 border-l border-[#D9D9D9] hover:bg-gray-100"
                             >
                               {isOpen ? (
                                 <img

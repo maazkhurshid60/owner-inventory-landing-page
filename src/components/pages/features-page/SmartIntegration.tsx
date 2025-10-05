@@ -27,18 +27,22 @@ const SmartIntegration: React.FC = () => {
     {
       colClass: "col-span-12 md:col-span-6 lg:col-span-7",
       scaleClass: "scale-110",
+     
     },
     {
       colClass: "col-span-12 md:col-span-6 lg:col-span-5",
       scaleClass: "scale-125",
+     
     },
     {
       colClass: "col-span-12 md:col-span-6 lg:col-span-5",
       scaleClass: "scale-125",
+     
     },
     {
       colClass: "col-span-12 md:col-span-6 lg:col-span-7",
       scaleClass: "scale-110",
+     
     },
   ];
 
@@ -59,7 +63,7 @@ const SmartIntegration: React.FC = () => {
 
         <div className="grid grid-cols-12 items-stretch gap-6">
           {features.map((feature, index) => {
-            const pattern = classPatterns[index % classPatterns.length]; // cycle 1–4
+            const pattern = classPatterns[index % classPatterns.length]; 
             return (
               <FeatureCard
                 key={index}
@@ -68,6 +72,7 @@ const SmartIntegration: React.FC = () => {
                 videoSrc={feature.videoSrc}
                 className={`${pattern.colClass} p-[1px] rounded-[30px] flex`}
                 paddingClass="p-4"
+                mediaClassName="lg:h-auto h-[280px]"
                 buttonLabel="View Details"
                 buttonHref="#"
               />
