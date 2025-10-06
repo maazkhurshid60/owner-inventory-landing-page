@@ -29,16 +29,7 @@ const features = [
     description: "Streamline your order processing, from quotation to fulfillment.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/sale-order.webm",
   },
-  {
-    title: "Inventory Operations",
-    description: "Track stock levels, transfers, and adjustments with real-time accuracy.",
-    videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/inventory-operations.webm",
-  },
-  {
-    title: "Inventory Operations",
-    description: "Track stock levels, transfers, and adjustments with real-time accuracy.",
-    videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/inventory-operations.webm",
-  },
+ 
 ];
 
 

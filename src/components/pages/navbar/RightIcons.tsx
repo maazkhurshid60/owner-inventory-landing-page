@@ -18,7 +18,7 @@ const RightIcons: React.FC<RightIconsProps> = ({
   }, [searchOpen]);
 
   return (
-    <div className="header-right-col hidden md:flex justify-end items-center gap-1.5 xl:gap-4 lg:gap-[6px] ps-1 md:absolute right-2 z-50">
+    <div className="header-right-col hidden lg:flex justify-end items-center gap-1.5 xl:gap-4 lg:gap-[6px] ps-1 md:absolute right-2 z-50">
       <div className="relative group">
 
         <div className="bg-white rounded-full">

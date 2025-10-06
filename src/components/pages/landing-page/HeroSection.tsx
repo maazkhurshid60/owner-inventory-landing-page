@@ -9,6 +9,7 @@ import InputField from '@/components/form-fields/InputField';
 import ButtonLg from '@/components/button/ButtonLg';
 import { useHeroAnimation } from '@/hooks/useHeroAnimation';
 import { useHeroAnimation2 } from '@/hooks/useHeroAnimation2';
+import { useHeaderAnimation } from '@/hooks/useHeaderAnimation';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +37,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   variant = 'animation1',
 }) => {
  
-
+   useHeaderAnimation();
   if (variant === 'animation1') {
     useHeroAnimation();
   } else if (variant === 'animation2') {
@@ -47,14 +48,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="top-section md:h-6 h-8"></div>
       <section className="owner-inventory-hero rounded-b-[40px] px-3 md:px-5 lg:px-10 w-[100%] z-50">
         {/* SHAPE HEADER */}
-        <div className=" owner-inventory-hero__home flex items-center justify-start md:justify-center md:items-center w-[63%] ml-0 md:mx-auto relative inset-x-0">
+        <div className=" owner-inventory-hero__home flex items-center justify-start lg:justify-center lg:items-center w-[63%] ml-0 lg:mx-auto relative inset-x-0">
           {/* Left Shape (only visible on md+) */}
-          <div className="owner-inventory-hero__shape-left hidden md:block relative w-1/2 h-20 bg-[#F3F4F6] rounded-tl-[40px] owner-inventory-hero__border-left-top">
+          <div className="owner-inventory-hero__shape-left hidden lg:block relative w-1/2 h-20 bg-[#F3F4F6] rounded-tl-[40px] owner-inventory-hero__border-left-top">
             <div className="absolute left-[-6rem] bottom-0 w-24 h-full bg-transparent rounded-br-[40px] shadow-[0_2.5rem_0_0_#f3f4f6]" />
           </div>
 
           {/* Right Shape */}
-          <div className="owner-inventory-hero__shape-right relative w-40 rounded-tr-[40px] rounded-tl-[40px] md:rounded-tl-none h-20 md:w-1/2 md:h-20 bg-[#F3F4F6] md:rounded-tr-[40px] owner-inventory-hero__border-right-top top-right">
+          <div className="owner-inventory-hero__shape-right relative w-40 rounded-tr-[40px] rounded-tl-[40px] lg:rounded-tl-none h-20 md:w-1/2 lg:h-20 bg-[#F3F4F6] lg:rounded-tr-[40px] owner-inventory-hero__border-right-top top-right">
             <div className="absolute right-[-6rem] bottom-0 w-24 h-full bg-transparent rounded-bl-[40px] shadow-[0_2.5rem_0_0_#f3f4f6]" />
           </div>
         </div>
@@ -62,7 +63,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         {/* HERO BODY */}
         <div className="md:py-[1px] bg-[#F3F4F6] rounded-[40px]">
           <div
-            className={`owner-inventory-hero__bottom relative flex flex-col items-center justify-center w-full ${heroHeight} ${heroOverflow} pt-10 pb-6 md:py-[76px] lg:py-0 px-6 md:px-[100px] bg-[#F3F4F6] rounded-b-[40px] rounded-tr-[40px] md:rounded-tl-[40px]  backdrop-blur-[374px]`}
+            className={`owner-inventory-hero__bottom relative flex flex-col items-center justify-center w-full ${heroHeight} ${heroOverflow} pt-10 pb-6 md:py-[76px] lg:py-0 px-6 md:px-[100px] bg-[#F3F4F6] rounded-b-[40px] rounded-tr-[40px] lg:rounded-tl-[40px]  backdrop-blur-[374px]`}
             style={{
               backgroundImage:
                 'linear-gradient(180deg, #F3F4F6 0%, transparent 40%), linear-gradient(90deg, rgba(26, 209, 185, 0.3) 0%, rgba(121, 92, 245, 0.3) 100%)',

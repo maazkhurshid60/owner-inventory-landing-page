@@ -21,6 +21,7 @@ import {
   featuresDetailsMap,
   featuresItems,
 } from "./dropdownItems/Featureslist";
+import SearchField from "./SearchField";
 
 type Panel =
   | "features"
@@ -46,7 +47,7 @@ export default function OffcanvasMenu({
   const [mounted, setMounted] = useState(false);
   const closeBtnRef = useRef<HTMLButtonElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-
+const[searchQuery,setSearchQuery]=useState('')
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleIndex = (index: number) => {
@@ -130,7 +131,7 @@ export default function OffcanvasMenu({
       <div
         data-overlay="true"
         className={clsx(
-          "fixed inset-0 bg-black/30 transition-opacity duration-300 ease-in-out z-[9998] md:hidden",
+          "fixed inset-0 bg-black/30 transition-opacity duration-300 ease-in-out z-[9998] lg:hidden",
           open
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -144,11 +145,11 @@ export default function OffcanvasMenu({
         aria-modal="true"
         aria-label="Mobile navigation"
         className={clsx(
-          "fixed top-0 right-0 h-screen bg-white shadow-lg transform transition-transform duration-300 ease-in-out w-64 z-[9999] md:hidden overflow-y-auto scrollbar-thin scrollbar-thumb-[#D9D9D9] scrollbar-track-transparent", // optional tailwind width e.g. w-1/2
+          "fixed top-0 right-0 h-screen bg-white shadow-lg transform transition-transform duration-300 ease-in-out w-64 z-[9999] lg:hidden overflow-y-auto scrollbar-thin scrollbar-thumb-[#D9D9D9] scrollbar-track-transparent", // optional tailwind width e.g. w-1/2
           open ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="p-4 flex flex-col gap-5">
+        <div className="p-4 flex flex-col gap-5 ">
           <button
             ref={closeBtnRef}
             id="close-btn"
@@ -165,7 +166,7 @@ export default function OffcanvasMenu({
           </button>
 
           {/* Search bar */}
-          <div
+          {/* <div
             id="search-wrapper"
             className={clsx(
               "relative w-full max-w-sm",
@@ -188,8 +189,9 @@ export default function OffcanvasMenu({
                 height={14}
               />
             </button>
-          </div>
-
+          </div> */}
+          
+<SearchField searchOpen={true} searchQuery={searchQuery} setSearchQuery={setSearchQuery} variant="page" />
           {/* Dynamic back button */}
           <button
             id="dynamic-back-btn"
