@@ -43,7 +43,7 @@ const SearchField: React.FC<SearchFieldProps> = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button type="submit" className="absolute top-[40%] right-4 md:right-12">
+          <button type="submit" className="absolute top-6  rounded-full sm:top-[40%] p-2 right-2   sm:right-4 md:right-12 bg-white">
             <Image
               src="/assets/header-images/search-icon.svg"
               alt="Search"

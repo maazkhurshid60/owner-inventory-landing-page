@@ -37,8 +37,8 @@ const NavItems = () => {
   const router = useRouter();
 
   return (
-    <div className="bg-white md:px-1 md:py-1 xl:px-3 xl:py-1.5 shadow-[0_0_20px_0_#0000001A] rounded-full  inventory-menu md:flex justify-center w-auto">
-      <ul className="hidden md:flex items-center justify-center md:gap-1 lg:gap-3 w-auto">
+    <div className="bg-white lg:px-1 lg:py-1 xl:px-3 xl:py-1.5 shadow-[0_0_20px_0_#0000001A] rounded-full  inventory-menu lg:flex justify-center w-auto">
+      <ul className="hidden lg:flex items-center justify-center md:gap-1 lg:gap-3 w-auto">
         {/* FEATURES DROPDOWN */}
         <NavDropdown label="Features"
 
@@ -51,7 +51,7 @@ const NavItems = () => {
 
           <div
             className=" bg-white grid grid-cols-12 gap-6 p-10 mt-2 mx-auto xl:w-[1220px] lg:w-[950px] md:w-[700px] 
-                    rounded-2xl shadow-[0_0_20px_0_#0000001A] h-auto lg:h-[450px]  overflow-y-auto overflow-x-hidden"
+                    rounded-2xl shadow-[0_0_20px_0_#0000001A] h-auto lg:min-h-[450px]  overflow-y-visible overflow-x-hidden"
           >
             {/* Left Section (9/12) */}
             <div
@@ -59,13 +59,14 @@ const NavItems = () => {
             >
               <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 content-start">
                 {featuresItems.map((item) => (
+                  <div className={`relative flex items-center justify-between gap-2 px-3 py-4 border rounded-xl ${selectedFeatureKey === item.key
+                      ? "border-[#795CF5] bg-gray-100"
+                      : "border-[#D9D9D9]"
+                      } hover:bg-gray-100`}>
                   <button
                     key={item.key}
                     onClick={() => setSelectedFeatureKey(item.key)}
-                    className={`relative flex items-center gap-2 px-3 py-4 border rounded-xl ${selectedFeatureKey === item.key
-                      ? "border-[#795CF5] bg-gray-100"
-                      : "border-[#D9D9D9]"
-                      } hover:bg-gray-100`}
+                    className={`relative flex items-center gap-2 w-[80%]`}
                   >
 
                     <Image
@@ -74,15 +75,15 @@ const NavItems = () => {
                       width={16}
                       height={16}
                     />
-                    <span className="text-xs font-medium text-left whitespace-nowrap text-[#231F20]">
+                    <span className="text-sm font-medium text-left text-[#231F20]">
                       {item.title}
                     </span>
-
+                     </button>
                     {/* Absolute arrow link */}
                     <Link
                       href={`/features/${item.key.toLowerCase()}`}
 
-                      className="absolute top-1/2 right-2 transform -translate-y-1/2"
+                      className="w-[20%] border-l-2 flex items-center justify-end border-gray-300"
                     >
                       <Image
                         src="/assets/detail-icon.svg"
@@ -93,7 +94,8 @@ const NavItems = () => {
                         className="h-4 w-3"
                       />
                     </Link>
-                  </button>
+                    </div>
+                  
 
                 ))}
               </div>
@@ -138,13 +140,14 @@ const NavItems = () => {
             >
               <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 content-start">
                 {industriesItems.map((item) => (
+                  <div className={`relative flex items-center justify-between gap-2 px-3 py-4 border rounded-xl ${selectedFeatureKey === item.key
+                      ? "border-[#795CF5] bg-gray-100"
+                      : "border-[#D9D9D9]"
+                      } hover:bg-gray-100`}>
                   <button
                     key={item.key}
                     onClick={() => setSelectedIndustryKey(item.key)}
-                    className={`flex items-center gap-2 px-3 py-4 border rounded-xl ${selectedIndustryKey === item.key
-                      ? "border-[#795CF5] bg-gray-100"
-                      : "border-[#D9D9D9]"
-                      } hover:bg-gray-100`}
+                    className={`flex items-center gap-2 w-[80%]`}
                   >
                     <Image
                       src={item.icon}
@@ -152,10 +155,25 @@ const NavItems = () => {
                       width={16}
                       height={16}
                     />
-                    <span className="text-xs font-medium text-left whitespace-nowrap text-[#231F20]">
+                    <span className="text-sm font-medium text-left text-[#231F20]">
                       {item.title}
                     </span>
                   </button>
+                   <Link
+                      href={`/industries/${item.key.toLowerCase()}`}
+
+                      className="w-[20%] border-l-2 flex items-center justify-end border-gray-300"
+                    >
+                      <Image
+                        src="/assets/detail-icon.svg"
+                        alt="arrow-up"
+                        width={12}
+                        height={16}
+                        priority
+                        className="h-4 w-3"
+                      />
+                    </Link>
+                  </div>
                 ))}
               </div>
             </div>
@@ -209,13 +227,14 @@ const NavItems = () => {
             >
               <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 content-start">
                 {resourcesItems.map((item) => (
+                   <div className={`flex items-center gap-2 px-3 py-4 border rounded-xl ${selectedResourceKey === item.key
+                      ? "border-[#795CF5] bg-gray-100"
+                      : "border-[#D9D9D9]"
+                      } hover:bg-gray-100`}>
                   <button
                     key={item.key}
                     onClick={() => setSelectedResourceKey(item.key)}
-                    className={`relative flex items-center gap-2 px-3 py-4 border rounded-xl ${selectedResourceKey === item.key
-                      ? "border-[#795CF5] bg-gray-100"
-                      : "border-[#D9D9D9]"
-                      } hover:bg-gray-100`}
+                    className={`flex items-center gap-2 w-[80%] `}
                   >
                     <Image
                       src={item.icon}
@@ -223,13 +242,14 @@ const NavItems = () => {
                       width={16}
                       height={16}
                     />
-                    <span className="text-xs font-medium text-left whitespace-nowrap text-[#231F20]">
+                    <span className="text-sm font-medium text-left text-[#231F20]">
                       {item.title}
                     </span>
+                    </button>
                      <Link
                       href={`/resources/${item.key.toLowerCase()}`}
 
-                      className="absolute top-1/2 right-2 transform -translate-y-1/2"
+                      className="w-[20%] border-l-2 flex items-center justify-end border-gray-300"
                     >
                       <Image
                         src="/assets/detail-icon.svg"
@@ -240,7 +260,8 @@ const NavItems = () => {
                         className="h-4 w-3"
                       />
                     </Link>
-                  </button>
+                  
+                  </div>
                 ))}
               </div>
             </div>

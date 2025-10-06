@@ -11,7 +11,7 @@ const Mobileicons = () => {
   };
 
   return (
-    <div className="flex items-center justify-end gap-2 p-2 rounded-full bg-white shadow-[0px_0px_10px_0px_#00000026] md:hidden mobile-iventory">
+    <div className="flex items-center justify-end gap-2 p-2 rounded-full bg-white shadow-[0px_0px_10px_0px_#00000026] lg:hidden mobile-iventory">
       <a
         href="#"
         className="px-4 py-2 text-sm font-bold text-white bg-[#231F20] rounded-full whitespace-nowrap"

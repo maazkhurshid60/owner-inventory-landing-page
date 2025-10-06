@@ -5,6 +5,7 @@ import Navbar from "@/components/pages/navbar/Navbar";
 import Footer from "@/components/pages/footer/Footer";
 import Lenis from "@studio-freight/lenis/types";
 import LenisProvider from "@/components/pages/lenisProvider/LenixProvider";
+import { useHeaderAnimation } from "@/hooks/useHeaderAnimation";
 
 
 // Load fonts with CSS variable bindings
@@ -35,6 +36,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
   return (
     <html lang="en">
       <body

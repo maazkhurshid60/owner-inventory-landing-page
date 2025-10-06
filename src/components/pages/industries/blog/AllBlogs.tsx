@@ -63,7 +63,7 @@ const AllBlogs: React.FC = () => {
   return (
     <section className="wrapper features-core-opretions">
       {/* Heading */}
-      <div className="bg-white mt-20 md:mt-0">
+      <div className="bg-white mt-20 md:mt-28 lg:mt-0">
         <div className="flex finance-reporting-shadow items-end md:items-center flex-col gap-5 justify-end md:flex-row md:justify-between">
           <div className="flex flex-col sm:flex-row justify-between md:justify-start gap-3 w-full lg:w-fit items-center md:gap-x-[60px]">
             <h1 className="font-onest font-semibold text-[#231F20] text-[27px] sm:text-4xl md:text-[40px] lg:text-5xl leading-9 sm:leading-[48px] lg:leading-[60px] lg:max-w-4xl">
