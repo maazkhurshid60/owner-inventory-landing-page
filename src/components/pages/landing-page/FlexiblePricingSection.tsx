@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import '../../../app/globals.css'
+import Paragraph from '../typography/Paragraph';
 
 
 export default function FlexiblePricingSection() {
@@ -15,11 +16,15 @@ export default function FlexiblePricingSection() {
               Flexible Pricing for Every Business
             </h1>
 
-            <p className="font-onest font-normal text-[#231F20] xl:text-xl lg:text-lg md:text-base text-xs xl:leading-9 lg:leading-7 md:leading-6 leading-5 xl:mb-14 md:mb-10 mb-8">
+            {/* <p className="font-onest font-normal text-[#231F20] xl:text-xl lg:text-lg md:text-base text-xs xl:leading-9 lg:leading-7 md:leading-6 leading-5 xl:mb-14 md:mb-10 mb-8">
               Start free, scale when you’re ready. No contracts. No surprises. Whether you're a solo seller or managing
               multiple retail outlets, our plans are designed to grow with you. Enjoy full access to core features,
               transparent billing, and the freedom to upgrade only when your business is ready for more.
-            </p>
+            </p> */}
+
+            <Paragraph>Start free, scale when you’re ready. No contracts. No surprises. Whether you're a solo seller or managing
+              multiple retail outlets, our plans are designed to grow with you. Enjoy full access to core features,
+              transparent billing, and the freedom to upgrade only when your business is ready for more.</Paragraph>
 
             <Link
               href="#"

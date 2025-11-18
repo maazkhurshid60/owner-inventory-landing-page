@@ -3,10 +3,9 @@ import { Geist, Geist_Mono, Onest } from "next/font/google";
 import "../globals.css";
 import Navbar from "@/components/pages/navbar/Navbar";
 import Footer from "@/components/pages/footer/Footer";
-import Lenis from "@studio-freight/lenis/types";
-import LenisProvider from "@/components/pages/lenisProvider/LenixProvider";
-import { useHeaderAnimation } from "@/hooks/useHeaderAnimation";
 
+import ScrollToTop from "@/components/ScrollToTop";
+import LenisProvider from "@/components/pages/lenisProvider/LenixProvider";
 
 // Load fonts with CSS variable bindings
 const geistSans = Geist({
@@ -36,20 +35,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${onest.variable} antialiased`}
       >
-
+        <ScrollToTop />
         <Navbar />
         <div>
           <LenisProvider>{children}</LenisProvider>
         </div>
         <Footer />
-
       </body>
     </html>
   );

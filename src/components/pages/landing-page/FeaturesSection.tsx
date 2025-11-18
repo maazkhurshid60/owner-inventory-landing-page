@@ -6,26 +6,26 @@ import Image from "next/image";
 const features = [
   {
     id: "inventorypos-system",
-    title: "Smart POS system for modern retail",
+    title: "Smart POS System for Modern Retail",
     icon: "/assets/features-section/pos-system.svg",
     video: "/assets/Posvideo.mp4",
   },
   {
     id: "inventory-ecommerce",
-    title: "Sell online with built-in, fully synced e-commerce",
+    title: "Built-in E-commerce - Fully Synced and Ready to Sell",
     icon: "/assets/features-section/cart-icon.svg",
     video: "/assets/Posvideo.mp4",
   },
   {
     id: "inventory-management",
-    title: "Inventory management to stay in control of every product",
+    title: "Inventory Management to Stay in Control of Every Product",
     icon: "/assets/features-section/inventory-management.svg",
     video:
       "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/inventory-management.webm",
   },
   {
     id: "inventory-autosync",
-    title: "Smart analytics and reports to drive visibility and accountability",
+    title: "Streamline Manufacturing + Stay in Control of Every Process",
     icon: "/assets/features-section/autosync.svg",
     video:
       "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/smart-analytics.webm",
@@ -116,7 +116,7 @@ export default function FeaturesTabSection() {
                     onClick={() => setActiveFeature(feature.id)}
                   >
                     <div
-                      className={`tab-icon-wrapper w-10 xl:w-11 p-2.5 flex items-center justify-center rounded-full ${
+                      className={`tab-icon-wrapper w-10 xl:w-11 px-2.5 py-2.5 flex items-center justify-center rounded-full ${
                         isActive ? "bg-[#795CF5]" : "bg-[rgba(243,244,246,0.1)]"
                       }`}
                     >
@@ -129,10 +129,10 @@ export default function FeaturesTabSection() {
                       />
                     </div>
                     <span
-                      className={`tab-label text-base xl:text-xl leading-6 xl:leading-9 font-onest ${
+                      className={`tab-label leading-6 xl:leading-9 font-onest ${
                         isActive
-                          ? "text-[#795CF5] font-semibold"
-                          : "text-white font-normal"
+                          ? "text-[#795CF5] font-semibold text-base xl:text-2xl"
+                          : "text-white text-sm xl:text-xl font-normal"
                       }`}
                     >
                       {feature.title}

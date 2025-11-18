@@ -1,56 +1,81 @@
-import Image from 'next/image';
-const insights = [
-  {
-    title: 'Mastering Stock Control in 5 Steps',
-    date: 'June 27, 2025',
-    author: 'John Doe',
-    image: '/assets/industry-type/restaurant.webp',
-  },
-  {
-    title: 'Offline to Online: A Retail Guide',
-    date: 'June 27, 2025',
-    author: 'John Doe',
-    image: '/assets/industry-type/restaurant.webp',
-  },
-  {
-    title: 'How to Read Your Inventory Reports',
-    date: 'June 27, 2025',
-    author: 'John Doe',
-    image: '/assets/industry-type/restaurant.webp',
-  },
-];
+import Image from "next/image";
+import { blogData } from "@/constant/blogData/blogData";
+import CardHeading from "../typography/CardHeading";
+import Paragraph from "../typography/Paragraph";
+import MainHeading from "../typography/MainHeading";
+import { useEffect } from "react";
+import CardDesc from "../typography/CardDesc";
 
 export default function InsightsSection() {
-  return (
-    <section
-      className="ownerinventory-landing-insights rounded-[40px] w-full lg:py-[100px] md:py-[75px] py-10 z-50 lg:mt-40 md:mt-28 mt-20"
-      style={{
-        backgroundImage: `
-          radial-gradient(at top left, rgba(121, 92, 245, 0.5), transparent 70%),
-          radial-gradient(at top right, rgba(26, 209, 185, 0.5), transparent 70%),
-          radial-gradient(at bottom right, rgba(121, 92, 245, 0.5), transparent 70%),
-          radial-gradient(at bottom left, rgba(26, 209, 185, 0.5), transparent 70%)`,
-        backgroundBlendMode: 'screen',
-      }}
-    >
-      <div className="wrapper text-center">
-        <h2 className="font-onest font-semibold text-[#231F20] lg:text-[64px] md:text-[44px] text-4xl md:leading-[60px] leading-[48px] lg:mb-20 md:mb-14 mb-10">
-          Insights to Help You Grow
-        </h2>
+  // Define repeating desktop col-span sequence
+  const desktopPattern = [6, 6, 4, 4, 4, 6, 6, 4, 4, 4]; // pattern for lg:col-span-X
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-6 gap-5">
-          {insights.map((insight, index) => {
-           
+  useEffect(() => {
+    // Function to synchronize card heading and paragraph heights
+    const setEqualHeights = (className: string) => {
+      if (typeof window === 'undefined') return;
+      
+      const elements = document.querySelectorAll(className);
+      let maxHeight = 0;
+      
+      // Reset heights to auto to get the actual height
+      elements.forEach((el: Element) => {
+        (el as HTMLElement).style.height = 'auto';
+      });
+      
+      // Find the maximum height
+      elements.forEach((el: Element) => {
+        if ((el as HTMLElement).offsetHeight > maxHeight) {
+          maxHeight = (el as HTMLElement).offsetHeight;
+        }
+      });
+      
+      // Set all elements to the maximum height
+      elements.forEach((el: Element) => {
+        (el as HTMLElement).style.height = maxHeight + 'px';
+      });
+    };
+
+    // Set equal heights for headings and paragraphs
+    setEqualHeights('.card-heading');
+    setEqualHeights('.card-paragraph');
+
+    // Update heights on window resize
+    const handleResize = () => {
+      setEqualHeights('.card-heading');
+      setEqualHeights('.card-paragraph');
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return (
+    <section className="ownerinventory-landing-insights rounded-[40px] w-full lg:py-[100px] md:py-40 py-28 z-50">
+      <div className="wrapper text-center">
+        <MainHeading className="mb-4">Everything You Want to Know</MainHeading>
+        <Paragraph className="lg:mb-10 md:mb-6 mb-5">
+          We know that you may have questions regarding how Owners Inventory operates, its functions, and integrations. These are the most frequently asked questions that we have responded to so that you can have the confidence to start and start fast.
+        </Paragraph>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 lg:gap-6 gap-5 items-stretch">
+          {blogData.slice(0, 5).map((blog, index) => {
+
+            const patternIndex = index % desktopPattern.length;
+            const lgCol = `lg:col-span-${desktopPattern[patternIndex]}`;
 
             return (
               <div
                 key={index}
-                className={`bg-white rounded-[20px] lg:block lg:p-6 p-4`}
+                className={`col-span-12 md:col-span-6 ${lgCol} bg-white shadow-[2px_2px_22px_0px_#33333326] rounded-[20px] lg:p-6 p-4 flex flex-col h-full`}
               >
-                <div className="relative w-full">
+                <div className="relative w-full mb-6">
                   <Image
-                    src={insight.image}
-                    alt={insight.title}
+                    src={blog.blogImg}
+                    alt={blog.heading}
                     width={800}
                     height={300}
                     loading="lazy"
@@ -60,26 +85,42 @@ export default function InsightsSection() {
                     2 mins read
                   </span>
                 </div>
-                <div className="text-left">
-                  <h3 className="font-onest font-semibold text-[#231F20] xl:text-2xl lg:text-xl md:text-sm text-xl lg:leading-9 leading-7 xl:mb-6 mb-4 lg:mt-[30px] md:mt-[18px] mt-4">
-                    {insight.title}
-                  </h3>
-                  <p className="font-onest font-medium text-[#231F20] xl:text-lg lg:text-sm md:text-xs text-sm xl:leading-9 md:leading-7 leading-5 mb-2">
-                     Posted: <span className="text-[#795CF5]">{insight.date}</span> <span
-                                    className="text-[#D9D9D9]">|</span> by{' '}
-                    <span className="text-[#795CF5]">{insight.author}</span>
-                  </p>
+                
+                <div className="flex flex-col flex-grow justify-between">
+                  <div>
+                    <div className="card-heading-wrapper text-left mb-4">
+                      <CardHeading className="card-heading min-h-[30px] flex items-start">
+                        {blog.heading}
+                      </CardHeading>
+                    </div>
+                    
+                    <div className="card-paragraph-wrapper text-left mb-2">
+                      <CardDesc className="card-paragraph xl:text-lg leading-[28px] min-h-[30px] flex items-start text-[#666666]">
+                        {blog.blogOverview.slice(0, 200)}
+                        {blog.blogOverview.length > 200 ? "..." : ""}
+                      </CardDesc>
+                    </div>
+                  </div>
+                  
+                  <div className=" pt-4 border-gray-100 text-left">
+                    <p className="font-onest font-medium text-[#231F20] xl:text-lg lg:text-sm md:text-xs text-sm xl:leading-9 md:leading-7 leading-5">
+                      Posted:{" "}
+                      <span className="text-[#795CF5]">{blog.date}</span>{" "}
+                      <span className="text-[#D9D9D9]">|</span> by{" "}
+                      <span className="text-[#795CF5]">{blog.author}</span>
+                    </p>
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
 
-        <div className="lg:mt-[100px] md:mt-[60px] mt-10">
+        {/* <div className="lg:mt-[100px] md:mt-[60px] mt-10">
           <button className="bg-[#795CF5] text-white border border-transparent cursor-pointer hover:bg-transparent hover:border-[#795CF5] hover:text-[#795CF5] font-onest font-semibold text-base px-[60px] py-5 rounded-full transition">
             Browse Insights
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

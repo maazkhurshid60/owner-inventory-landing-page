@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       className="owner-inventory-footer relative  -mt-[131px] pt-[251px] lg:pt-[291px] pb-10 px-4 md:px-6 lg:px-10"
       style={{
         background:
-          "linear-gradient(90deg, rgba(121, 92, 245, 0.25) 0%, rgba(26, 209, 185, 0.25) 100%)",
+          "linear-gradient(90deg,  rgba(158, 2, 255, 0.3) 0%, rgba(207, 181, 249, 1) 10%, rgba(26, 209, 185, 0.3) 80%) ",
       }}
     >
       <div className="flex flex-col gap-10 bg-white px-6 py-10 xl:px-[60px] xl:py-[60px] rounded-[40px]">
