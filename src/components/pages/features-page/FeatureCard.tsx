@@ -1,4 +1,6 @@
 import React from "react";
+import CardHeading from "../typography/CardHeading";
+import CardDesc from "../typography/CardDesc";
 
 interface FeatureCardProps {
   title: string;
@@ -72,12 +74,15 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 
           {/* Text */}
           <div className="mt-5">
-            <h3 className="xl:text-2xl text-xl leading-[100%] font-semibold text-[#231F20] font-onest">
+            <CardHeading>
               {displayedTitle}
-            </h3>
-            <p className="xl:text-base text-sm font-normal font-onest text-[#231F20] mt-3 lg:mt-4">
+            </CardHeading>
+              
+            {/* <p className="xl:text-base text-sm font-normal font-onest text-[#231F20] mt-3 lg:mt-4">
               {description}
-            </p>
+            </p> */}
+
+            <CardDesc>{description}</CardDesc>
 
             <p className="xl:text-base text-base leading-6 font-bold font-onest text-[#795CF5] mt-3 lg:mt-4">
               {authorName}

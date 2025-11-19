@@ -2,7 +2,9 @@
 import React from 'react';
 import Link from 'next/link';
 import '../../../app/globals.css'
-import ButtonLg from '@/components/button/ButtonLg';
+import ButtonSm from '@/components/button/ButtonSm';
+import MainHeading from '../typography/MainHeading';
+import Paragraph from '../typography/Paragraph';
 
 const CalltoActionBottom: React.FC = () => {
   return (
@@ -18,46 +20,25 @@ const CalltoActionBottom: React.FC = () => {
     >
       <div className="wrapper">
         <div className="flex flex-col items-center justify-center w-full mx-auto lg:py-44 md:py-48 py-24 text-center lg:max-w-4xl">
-          <h2 className="text-4xl md:text-[40px] lg:text-5xl xl:text-[64px] leading-[48px] md:leading-[57px] lg:leading-[60px] xl:leading-[76px] font-semibold text-white mb-5 md:mb-8 lg:mb-10 font-onest">
-            Grow with a platform trusted by businesses worldwide.
-          </h2>
-          <p className="text-xs md:text-base lg:text-xl leading-6 lg:leading-9 font-normal text-white mb-10 md:mb-8 lg:mb-14 font-onest">
-            Join a growing community of retailers, wholesalers, and entrepreneurs who are transforming how they manage
-            inventory, sales, and growth. With Owners Inventory, you're not just using another tool — you're becoming
-            part of a forward-thinking ecosystem that’s built to scale with your ambition. Let’s build smarter,
-            together.
-          </p>
-          <div className="inline-flex w-fit mx-auto p-1 lg:p-1.5 border bg-white rounded-full">
-            {/* <Link
-              href="#"
-              className="px-4 md:px-5 lg:px-[30px] py-2.5 md:py-2 lg:py-[14px] text-[10px] md:text-xs lg:text-base font-semibold text-white bg-[#795CF5] border hover:bg-transparent hover:text-[#231F20] hover:border-[#795CF5] rounded-full transition-colors duration-300 font-onest"
-            >
-              Book Free Demo
-            </Link>
-            <Link
-              href="#"
-              className="px-4 md:px-5 lg:px-[30px] py-2.5 md:py-2 lg:py-[14px] text-[10px] md:text-xs lg:text-base font-semibold text-[#231F20] bg-transparent rounded-full transition-colors duration-300 font-onest"
-            >
-              Contact Us
-            </Link> */}
-          <ButtonLg 
-  url="#" 
-  text="Book Free Demo" 
-  bgColor="#795CF5" 
-  textColor="white" 
-  isBorder 
-/>
-
-<ButtonLg 
-  url="#" 
-  text="Contact Us" 
-  bgColor="transparent"  
-  textColor="#231F20" 
-  hoverBgColor="#795CF5" 
-  isBorder 
-/>
-
-          </div>
+          {/* <h2 className="text-4xl md:text-[40px] lg:text-5xl xl:text-[64px] leading-[48px] md:leading-[57px] lg:leading-[60px] xl:leading-[76px] font-semibold text-white mb-5 md:mb-8 lg:mb-10 font-onest">
+            Empower Your Business with a Platform Built for Growth
+          </h2> */}
+          <MainHeading className='text-white lg:mb-10 md:mb-6 mb-5'>Empower Your Business with a Platform Built for Growth</MainHeading>
+          {/* <p className="text-xs md:text-base lg:text-xl leading-6 lg:leading-9 font-normal text-white mb-10 md:mb-8 lg:mb-14 font-onest">
+            Enter into a world of ambitious retailers, wholesalers, and entrepreneurs who are transforming the way inventory, sales and growth are handled. You are not merely taking a tool with Owners Inventory, but rather entering an intelligent, scaled ecosystem that can get your business through any phase. Automatize, base decisions on data, and realize your full potential. We combine aspiration with success.
+          </p> */}
+          <Paragraph className='text-white mb-10 md:mb-8 lg:mb-14'>
+            Enter into a world of ambitious retailers, wholesalers, and entrepreneurs who are transforming the way inventory, sales and growth are handled. You are not merely taking a tool with Owners Inventory, but rather entering an intelligent, scaled ecosystem that can get your business through any phase. Automatize, base decisions on data, and realize your full potential. We combine aspiration with success.
+          </Paragraph>
+              <div className="flex gap-6 items-center justify-center">
+        
+          <a href="" className="bg-transparent
+    px-4 py-2.5 md:px-5 md:py-3 lg:px-[64px] lg:py-5 flex items-center justify-center text-[10px] md:text-xs lg:text-xs font-onest font-semibold
+     text-white  border border-white hover:border-transparent rounded-full hover:text-black  hover:bg-white
+     transition-colors duration-300">Free Demo</a>
+      <ButtonSm url='#' text='Get Stared for Free' bgColor='[#795CF5]' textColor="white" paddingLg="lg:px-[64px] lg:py-5" isBorder/>
+          
+        </div>
         </div>
       </div>
       

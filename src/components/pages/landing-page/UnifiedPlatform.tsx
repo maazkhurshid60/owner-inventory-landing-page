@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ButtonLg from "@/components/button/ButtonLg";
 import Image from "next/image";
 import React from "react";
+import MainHeading from "../typography/MainHeading";
+import Paragraph from "../typography/Paragraph";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -107,21 +109,15 @@ export default function UnifiedPlatform() {
 
           {/* Text Column */}
           <div className="w-full order-1 md:order-2 md:w-1/2 lg:w-3/5">
-            <div className="flex flex-col items-start justify-center">
-              <h1 className="text-4xl md:text-[40px] lg:text-5xl xl:text-6xl leading-[48px] md:leading-[56px] lg:leading-[60px] xl:leading-[76px] mb-6 xl:mb-10 font-semibold text-[#231F20]">
-                The Power of One Unified Platform
-              </h1>
-              <p className="text-sm lg:text-lg xl:text-xl leading-6 lg:leading-7 xl:leading-9 mb-10 xl:mb-14 text-[#231F20]">
-                With Owners Inventory, everything you need—inventory, POS,
-                e-commerce, customer management, and reporting—works together
-                seamlessly in one place. Simplify your operations, reduce manual
-                errors, and scale your business faster with a platform built to
-                unify, automate, and grow alongside you.
-              </p>
+            <div className="flex flex-col items-center justify-center">
+              <MainHeading className="text-center mb-4"> 
+                 Features That Set Us Apart
+              </MainHeading>
+              <Paragraph className="text-center mb-6">Modern tools designed to simplify, scale, and smarten your business.</Paragraph>
 
               <ButtonLg
                 url="#"
-                text="Book Free Demo"
+                text="View All FAQs"
                 bgColor="#1AD1B9"
                 textColor="white"
                 isBorder

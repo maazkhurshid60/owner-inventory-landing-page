@@ -2,11 +2,11 @@
     {
     id:"1",
     blogImg:"/assets/blog-page/first-blog.webp",
-    heading:"10 Common Inventory Mistakes Businesses Make",
+    heading:"How does Owners Inventory sync across multiple platforms?",
     author:"John",
     date:"14 August, 2025",
-    totalRead:"5mins"
-    ,blogOverview:"Inventory is the backbone of any business that sells products—whether you’re running a retail store, an e-commerce site, or managing a large warehouse. Poor inventory management can lead to lost sales, unhappy customers, and wasted resources. Many companies unknowingly fall into the same traps."
+    totalRead:"5mins",
+    blogOverview:"Our intelligent syncing engine automatically updates stock, pricing and product information in real time across all the linked stores, online marketplaces and POS systems."
   ,
   status:"recent",
   blogDetails:[{
@@ -25,12 +25,12 @@
   },
    {
     id:"2",
-    heading:"The Future of Inventory Management: Trends to Watch in 2025",
+    heading:"Can I integrate Owners Inventory with my e-commerce store?",
     author:"John",
     date:"14 August, 2025",
     totalRead:"5mins",
       blogImg:"/assets/blog-page/second-blog.webp"
-    ,blogOverview:"Inventory is the backbone of any business that sells products—whether you’re running a retail store, an e-commerce site, or managing a large warehouse. Poor inventory management can lead to lost sales, unhappy customers, and wasted resources. Many companies unknowingly fall into the same traps."
+    ,blogOverview:"Yes! It is easy to sell on multiple channels with us, and we provide easy integrations with large e-commerce articles such as Shopify, WooCommerce, and others."
   ,
   status:"popular",
 
@@ -50,14 +50,14 @@
   },
    {
     id:"3",
-    heading:"How Smart Inventory Systems Save Time and Cut Costs",
+    heading:"Is Owners Inventory suitable for small businesses?",
     author:"John",
     date:"14 August, 2025",
   status:"popular",
 
     totalRead:"5mins",
       blogImg:"/assets/blog-page/third-blog.webp"
-    ,blogOverview:"Inventory is the backbone of any business that sells products—whether you’re running a retail store, an e-commerce site, or managing a large warehouse. Poor inventory management can lead to lost sales, unhappy customers, and wasted resources. Many companies unknowingly fall into the same traps."
+    ,blogOverview:"Absolutely. Our inventory for small business provides small stores up to big chain stores with flexible features and affordable plans depending on the size of your business."
   ,
   blogDetails:[{
     heading:"Lack of Real-Time Tracking",
@@ -75,12 +75,12 @@
   },
    {
     id:"4",
-    heading:"The Future of Inventory Management: Trends to Watch in 2025",
+    heading:"Does the system offer reporting and analytics?",
     author:"John",
     date:"14 August, 2025",
     totalRead:"5mins",
-      blogImg:"/assets/blog-page/fourth-blog.webp"
-    ,blogOverview:"Inventory is the backbone of any business that sells products—whether you’re running a retail store, an e-commerce site, or managing a large warehouse. Poor inventory management can lead to lost sales, unhappy customers, and wasted resources. Many companies unknowingly fall into the same traps."
+      blogImg:"/assets/blog-page/fourth-blog.webp",
+      blogOverview:"Yes. Owner Inventory offers real-time dashboards, predictive analytics, and customizable reports to assist you in effortlessly monitoring sales, performance and inventory trends."
   ,
   status:"recent",
 
@@ -100,14 +100,14 @@
   },
    {
     id:"5",
-    heading:"How Smart Inventory Systems Save Time and Cut Costs",
+    heading:"What support options are available if I face issues?",
     author:"John",
     date:"14 August, 2025",
   status:"recent",
 
     totalRead:"5mins",
       blogImg:"/assets/blog-page/third-blog.webp"
-    ,blogOverview:"Inventory is the backbone of any business that sells products—whether you’re running a retail store, an e-commerce site, or managing a large warehouse. Poor inventory management can lead to lost sales, unhappy customers, and wasted resources. Many companies unknowingly fall into the same traps."
+    ,blogOverview:"We have a committed support staff on chat, email, and phone. We also have some excellent tutorials, video instructions and FAQs so that you can solve problems fast."
   ,
   blogDetails:[{
     heading:"Lack of Real-Time Tracking",

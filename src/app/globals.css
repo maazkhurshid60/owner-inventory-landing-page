@@ -1,13 +1,16 @@
 @import "tailwindcss";
 /* globals.css */
 
+
+
+
 body {
   font-family: var(--font-onest), sans-serif;
 }
 
 
+/* Wrapper for complete website styling started here */
 
-/* Your custom styles */
 .wrapper {
     margin: 0 24px;
 }
@@ -49,6 +52,18 @@ body {
         margin: 0 auto; 
     }
 }
+
+/* Wrapper for complete website styling ended here */
+
+.gradient-text {
+  background: linear-gradient(90deg, #231F20 0%, #8A8A8A 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+  color: transparent;
+}
+
 
 
 /* Pagination bullets */
@@ -189,5 +204,6 @@ body {
   filter: blur(20px);
   z-index: -1;
 }
+
 
 

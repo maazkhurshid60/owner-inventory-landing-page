@@ -2,8 +2,8 @@
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
+// import "swiper/css";
+// import "swiper/css/pagination";
 
 import { ReactNode } from "react";
 
@@ -27,7 +27,7 @@ export default function CustomSwiper<T>({
       pagination={{
         clickable: true,
         renderBullet: (index, className) =>
-          `<span class="${className}"></span>`, // ✅ no reload issue
+          `<span class="${className}"></span>`, 
       }}
       breakpoints={{
         768: { slidesPerView: 2 },

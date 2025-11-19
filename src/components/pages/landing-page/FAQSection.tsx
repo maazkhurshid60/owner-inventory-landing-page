@@ -32,27 +32,27 @@ const faqs = [
 ];
 
 export default function FaqSection() {
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggle = (index: any) => {
+  const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
-  };
+  };  
 
   return (
     <section className="wrapper">
-      <div className="rounded-[40px] lg:mt-40 md:mt-28 mt-20 bg-[#F3F4F6]">
+      <div className="rounded-[40px] bg-[#F3F4F6]">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center justify-center gap-10 md-gap-[100px] lg:gap-12 w-full px-5 md:px-[77px] lg:px-[87px] py-10 md:py-[58px] lg:py-[60px]">
           {/* Left Accordion Cards */}
           <div className="order-2 lg:order-1 lg:col-span-7">
             {faqs.map((faq, index) => (
-              <div key={index} className="mb-6  rounded-[20px] bg-white">
+              <div key={index} className="mb-6  rounded-[20px] bg-white overflow-hidden">
                 <button
                   type="button"
-                  className="accordion-toggle flex items-center justify-between w-full p-5 md:px-6 md:py-4 text-left font-medium rounded-[20px] focus:outline-none"
+                  className="accordion-toggle flex items-center justify-between w-full p-5 md:px-6 md:py-4 text-left font-medium focus:outline-none rounded-[20px] transition-colors duration-300"
                   onClick={() => toggle(index)}
                 >
                   <span
-                    className={`spansss w-full max-w-[90%] text-sm md:text-xl leading-5 md:leading-9 font-onest
+                    className={`w-full max-w-[90%] text-sm md:text-xl leading-5 md:leading-9 font-onest transition-colors duration-300
                     
                     ${openIndex === index ? "text-[#795cf5]" : "text-[#231f20]"}
                     `}
@@ -60,7 +60,7 @@ export default function FaqSection() {
                     {faq.question}
                   </span>
                   <span
-                    className={`icon-plus ${
+                    className={` ${
                       openIndex === index ? "hidden" : "block"
                     }`}
                   >
@@ -73,7 +73,7 @@ export default function FaqSection() {
                     />
                   </span>
                   <span
-                    className={`icon-minus ${
+                    className={`${
                       openIndex === index ? "block" : "hidden"
                     }`}
                   >
@@ -87,9 +87,9 @@ export default function FaqSection() {
                   </span>
                 </button>
                 <div
-                  className={`accordion-content px-5 pb-5 text-xs md:text-base text-[#231F20] ${
-                    openIndex === index ? "block" : "hidden"
-                  }`}
+                  className={` overflow-hidden transition-all duration-300 ease-in-out
+                    px-5 text-xs md:text-base text-[#231F20]
+                    ${openIndex === index ? "max-h-96 opacity-100 pb-5" : "max-h-0 opacity-0 pb-0"}`}
                 >
                   {faq.answer}
                 </div>
@@ -102,7 +102,7 @@ export default function FaqSection() {
             <h1 className="mb-5 lg:mb-10 text-[32px] md:text-[44px] lg:text-5xl leading-10 md:leading-[60px] lg:leading-[60px] font-semibold text-[#231F20] font-onest">
               Everything You Were About to Ask
             </h1>
-            <p className="mb-8 md:mb-5 xl:mb-14 text-xs md:text-xl leading-6 lg:leading-9 font-normal text-[#231F20] font-onest">
+            <p className="mb-8 md:mb-5 xl:mb-10 text-xs md:text-xl leading-6 lg:leading-9 font-normal text-[#231F20] font-onest">
               We’ve compiled the most common questions about Owners Inventory —
               from setup and features to pricing and support. If you’re still
               unsure, our team is here to help.
@@ -116,7 +116,7 @@ export default function FaqSection() {
 
             <ButtonLg
               url="#"
-              text="Book Free Demo"
+              text="Start Now"
               bgColor="#1AD1B9"
               textColor="white"
               isBorder
