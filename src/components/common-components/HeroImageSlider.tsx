@@ -22,64 +22,80 @@ const HeroImageSlider: React.FC<HeroImageSliderProps> = ({
     if (el) imageRefs.current[idx] = el;
   };
 
-  useEffect(() => {
-    const imgs = imageRefs.current;
-    if (!imgs || imgs.length === 0 || !containerRef.current) return;
+ useEffect(() => {
+  const imgs = imageRefs.current;
+  if (!imgs || imgs.length === 0 || !containerRef.current) return;
 
-    gsap.set(imgs, {
-      opacity: 0,
-      scale: 1,
-      position: "absolute",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-    });
-    gsap.set(imgs[0], { opacity: 1 }); // Show first image initially
-    if (backgrounds[0]) containerRef.current.style.backgroundColor = backgrounds[0];
+  // --- Initial Styles ---
+  gsap.set(imgs, {
+    opacity: 0,
+    scale: 1,
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+  });
 
-    const tl = gsap.timeline({ repeat: -1, defaults: { ease: "power2.inOut" } });
+  gsap.set(imgs[0], { opacity: 1, scale: 1 });
 
-    const startSlider = () => {
-      imgs.forEach((current, idx) => {
-        const next = imgs[(idx + 1) % imgs.length];
-        const nextBg = backgrounds[(idx + 1) % backgrounds.length];
+  if (backgrounds[0])
+    containerRef.current.style.backgroundColor = backgrounds[0];
 
+  const tl = gsap.timeline({ repeat: -1, defaults: { ease: "power2.inOut" } });
+
+  const startSlider = () => {
+    imgs.forEach((current, idx) => {
+      const next = imgs[(idx + 1) % imgs.length];
+      const nextBg = backgrounds[(idx + 1) % backgrounds.length];
+
+      // CURRENT IMAGE → zoom little → fade out
+      tl.to(
+        current,
+        {
+          scale: 1.4,
+          opacity: 0,
+          duration: 2,
+        },
+        "+=2" // wait 2 seconds before each transition
+      );
+
+      // NEXT IMAGE → fade in smoothly (scale stays normal)
+      tl.fromTo(
+        next,
+        { opacity: 0, scale: 1 },
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 2,
+        },
+        "<" // run at the same time as fade out
+      );
+
+      // Background change in sync
+      if (nextBg) {
         tl.to(
-          current,
-          { opacity: 0, scale: 1.05, duration: 2 },
-          "+=2" // hold current image for 2s before fading
+          containerRef.current,
+          { backgroundColor: nextBg, duration: 2 },
+          "<"
         );
+      }
+    });
+  };
 
-        tl.fromTo(
-          next,
-          { opacity: 0, scale: 1 },
-          { opacity: 1, scale: 1.05, duration: 2 },
-          "<" // overlap slightly with current fading
-        );
+  const handle = () => startSlider();
+  document.addEventListener("heroAnimationFinished", handle);
 
-        if (nextBg)
-          tl.to(
-            containerRef.current,
-            { backgroundColor: nextBg, duration: 2 },
-            "<"
-          );
-      });
-    };
-
-    const handle = () => startSlider();
-    document.addEventListener("heroAnimationFinished", handle);
-
-    return () => {
-      document.removeEventListener("heroAnimationFinished", handle);
-      tl.kill();
-    };
-  }, [images, backgrounds]);
+  return () => {
+    document.removeEventListener("heroAnimationFinished", handle);
+    tl.kill();
+  };
+}, [images, backgrounds]);
 
   return (
     <div
       ref={containerRef}
-      className={`w-full h-[598px] px-6 rounded-[40px] relative overflow-hidden ${className}`}
+      className={`w-full h-[376px] lg:h-[598px] px-6 rounded-[40px] relative overflow-hidden ${className}`}
     >
       {images.map((src, idx) => (
         <div key={idx} ref={(el) => setImageRef(el, idx)}>
@@ -87,7 +103,8 @@ const HeroImageSlider: React.FC<HeroImageSliderProps> = ({
             src={src}
             alt={`Hero Image ${idx + 1}`}
             fill
-            className="object-contain w-full max-w-[90%] mx-auto h-full"
+            className="object-contain w-full max-w-[100%] mx-auto h-full"
+            priority={idx === 0} // First image should be prioritized for loading
           />
         </div>
       ))}

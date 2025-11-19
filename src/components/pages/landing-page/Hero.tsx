@@ -30,7 +30,7 @@ const caseStudiesData = [
     overview:
       "We helped Al-Asif optimize operations by integrating sales, inventory, and finance into a unified POS system. The solution automated billing, enabled real-time stock tracking, and enhanced profit visibility—empowering the team to make faster, data-driven decisions and operate more efficiently.",
     quote:
-      "“Owners Inventory completely transformed our retail operations. Real-time sync keeps all locations updated and minimizes stock errors. The dashboards give clear sales insights, and automation saves us hours every week — it’s like having a full operations team in one system.”",
+      "Owners Inventory completely transformed our retail operations. Real-time sync keeps all locations updated and minimizes stock errors. The dashboards give clear sales insights, and automation saves us hours every week — it’s like having a full operations team in one system.",
     author: "Faique Asif",
     position: "AL-Asif CEO",
     image: "/assets/home-page-images/client-image-1.webp",
@@ -114,7 +114,7 @@ export default function Hero() {
         <SmartWaytoSyncndSellSection />
         <UnifiedPlatform />
         <VoicesRealBusiness />
-          <PinnedSection3 />
+        <PinnedSection3 />
         <PosIconsSection />
         <ToolsSection/>
         <SmartTools />

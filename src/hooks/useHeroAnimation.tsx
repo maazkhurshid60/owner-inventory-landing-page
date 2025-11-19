@@ -65,7 +65,7 @@ export const useHeroAnimation = () => {
         scrollTrigger: {
           scroller: 'body',
           start: 'top top',
-          end: '+=' + window.innerHeight * 1.5,
+          end: '+=' + window.innerHeight * 0.5,
           pin: '.pinned-section-1',
           scrub: 2,
           // markers: true,
@@ -92,7 +92,7 @@ export const useHeroAnimation = () => {
     });
 
     return () => {
-      heroBreak.revert(); // cleanup on unmount
+      heroBreak.revert(); 
     };
   }, []);
 };

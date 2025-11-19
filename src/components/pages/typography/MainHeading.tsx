@@ -12,8 +12,8 @@ const MainHeading: React.FC<MainHeadingProps> = ({ children, className }) => {
       className={clsx(
         "font-semibold text-[#231F20]",
         "font-onest",
-        "xl:text-[64px] lg:text-5xl md:text-[40px] text-4xl",
-        "xl:leading-[76px] lg:leading-[60px] leading-[48px]",
+        "xl:text-[64px] lg:text-5xl md:text-[40px] text-[32px]",
+        "xl:leading-[76px] lg:leading-[60px] leading-[130%]",
         className 
       )}
     >

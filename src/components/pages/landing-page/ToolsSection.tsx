@@ -21,17 +21,20 @@ const ToolsSection = () => {
 
         <div className="mt-10 grid grid-cols-12 gap-6">
           {usedTools.map((tool, index) => {
-            const patternIndex = index % 5;
+            const i = index % 5;
 
-            let colSpan = "col-span-12";
+            // ----- TABLET (md) -----
+            let mdCol = "md:col-span-6";
+            if (i === 4) mdCol = "md:col-span-12"; // every 5th item
 
-            if (patternIndex < 3) colSpan = "col-span-12 md:col-span-6 lg:col-span-4";
-            else colSpan = "col-span-12 md:col-span-6"; 
+            // ----- DESKTOP (lg) -----
+            let lgCol = "lg:col-span-4";
+            if (i >= 3) lgCol = "lg:col-span-6"; // items 4 & 5 of each cycle
 
             return (
               <div
                 key={tool.id}
-                className={`${colSpan} bg-white p-5 rounded-2xl flex flex-col gap-4 items-center justify-start`}
+                className={`col-span-12 ${mdCol} ${lgCol} bg-white p-5 rounded-2xl flex flex-col gap-4 items-center justify-start`}
               >
                 <img
                   src={tool.image}

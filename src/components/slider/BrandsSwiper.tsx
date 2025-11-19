@@ -22,7 +22,7 @@ export default function BrandsSwiper<T>({
     <Swiper
       modules={[Pagination, Autoplay, EffectFade]}
       spaceBetween={20}
-      slidesPerView={2}
+      slidesPerView={1.5}
       loop={true}
        fadeEffect={{ crossFade: true }}
       speed={1200} // Smooth transition speed
@@ -35,7 +35,7 @@ export default function BrandsSwiper<T>({
       watchSlidesProgress={true} // helps smooth rendering
       breakpoints={{
         640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
+        768: { slidesPerView: 3 },
         1280: { slidesPerView: 4 },
       }}
       className="mySwiper overflow-x-hidden"

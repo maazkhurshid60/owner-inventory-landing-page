@@ -3,11 +3,12 @@ import React from "react";
 
 interface ButtonLgProps {
   text: string;
-  bgColor: string;       // initial background
+  bgColor: string;
   url: string;
   textColor?: string;
   isBorder?: boolean;
-  hoverBgColor?: string; // ✅ new optional hover bg color
+  hoverBgColor?: string;
+  className?: string;   // ✅ optional extra classes
 }
 
 const ButtonLg: React.FC<ButtonLgProps> = ({
@@ -17,6 +18,7 @@ const ButtonLg: React.FC<ButtonLgProps> = ({
   textColor = "white",
   isBorder = false,
   hoverBgColor,
+  className = "",        // ✅ default empty
 }) => {
   return (
     <Link
@@ -26,23 +28,24 @@ const ButtonLg: React.FC<ButtonLgProps> = ({
         color: textColor,
         border: isBorder ? `1px solid ${bgColor}` : "transparent",
       }}
-      className={`px-4 py-2.5 md:px-5 md:py-2 lg:px-[40px] lg:py-3.5 
-        flex items-center justify-center text-[10px] md:text-xs lg:text-sm 
-        font-onest font-semibold rounded-full transition-colors duration-300`}
+      className={`
+        px-4 py-2.5 md:px-5 md:py-2 lg:px-[40px] lg:py-3.5
+        flex items-center justify-center text-sm md:text-base
+        font-onest font-semibold rounded-full transition-colors duration-300
+        ${className}                // ✅ merged here
+      `}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.backgroundColor =
-          hoverBgColor ?? "transparent"; // ✅ use hoverBgColor if provided
-        (e.currentTarget as HTMLElement).style.color =
-          hoverBgColor ? "#fff" : bgColor; // auto white text if hover bg given
-        (e.currentTarget as HTMLElement).style.border = `1px solid ${
-          hoverBgColor ?? bgColor
-        }`;
+        const el = e.currentTarget as HTMLElement;
+        el.style.backgroundColor = hoverBgColor ?? "transparent";
+        el.style.color = hoverBgColor ? "#fff" : bgColor;
+        el.style.border = `1px solid ${hoverBgColor ?? bgColor}`;
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLElement).style.backgroundColor =
+        const el = e.currentTarget as HTMLElement;
+        el.style.backgroundColor =
           bgColor === "transparent" ? "transparent" : bgColor;
-        (e.currentTarget as HTMLElement).style.color = textColor;
-        (e.currentTarget as HTMLElement).style.border = isBorder
+        el.style.color = textColor;
+        el.style.border = isBorder
           ? `1px solid ${bgColor}`
           : "transparent";
       }}

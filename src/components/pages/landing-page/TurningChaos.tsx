@@ -97,9 +97,9 @@ const TurningChaos: React.FC<TurningChaosProps> = ({
   }, []);
 
   return (
-    <div className="md:py-[1px] bg-[#F3F4F6] rounded-bl-[100px] rounded-br-[100px] mb-28 md:mb-20 lg:mb-[100px]">
+    <div className="md:py-[1px] bg-[#F3F4F6] lg:rounded-bl-[40px] lg:rounded-br-[40px] rounded-bl-[24px] rounded-br-[24px] mb-28 md:mb-20 lg:mb-[100px]">
       <div
-        className={`relative  flex flex-col items-center justify-center w-full ${heroHeight} ${heroOverflow} pt-10 py-0 px-6 md:px-[100px]  bg-[#F3F4F6] rounded-bl-[100px] rounded-br-[100px] backdrop-blur-[42px]`}
+        className={`relative  flex flex-col items-center justify-center w-full ${heroHeight} ${heroOverflow} pt-10 py-0 px-6 lg:px-[100px]  bg-[#F3F4F6] lg:rounded-bl-[40px] lg:rounded-br-[40px] rounded-bl-[24px] rounded-br-[24px] backdrop-blur-[42px]`}
            style={{
  backgroundImage: `
     linear-gradient(180deg, #F3F4F6 0%, transparent 60%),
@@ -112,9 +112,9 @@ const TurningChaos: React.FC<TurningChaosProps> = ({
             {title}
           </MainHeading>
 
-          <Paragraph className="mb-4 text-center">{description}</Paragraph>
+          <Paragraph className="lg:mb-4 mb-6 text-center">{description}</Paragraph>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-8 mt-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full gap-4 lg:gap-8 mt-10">
             {chaos.map(({ id, chaosHead, chaosDesc }, index) => (
               <div
                 key={id}

@@ -8,11 +8,13 @@ interface ButtonProps {
   textColor: string;
   isBorder?: boolean;
   icon?: ReactNode;
-  onClick?: () => void;   // <-- added
+  onClick?: () => void;
 
   padding?: string;
   paddingMd?: string;
   paddingLg?: string;
+
+  className?: string;   // <-- OPTIONAL extra classes
 }
 
 export default function Button({
@@ -22,10 +24,11 @@ export default function Button({
   textColor,
   isBorder,
   icon,
-  onClick,                // <-- added
-  padding = "px-4 py-2.5",
+  onClick,
+  padding = "px-3 py-2.5",
   paddingMd = "md:px-5 md:py-3",
   paddingLg = "lg:px-[30px] lg:py-5",
+  className = "",         // <-- default empty
 }: ButtonProps) {
   const classes = `
     ${padding}
@@ -34,17 +37,18 @@ export default function Button({
     bg-${bgColor}
     text-${textColor}
     flex items-center justify-center gap-2 whitespace-nowrap
-    text-[10px] md:text-xs lg:text-xs font-onest font-semibold
-    ${isBorder ? `border border-${bgColor} hover:border hover:border-${bgColor}` : ""}
+    text-[11px] sm:text-sm md:text-base font-onest font-semibold
+    ${isBorder ? `border border-${bgColor} hover:border-${bgColor}` : ""}
     rounded-full hover:text-${bgColor} hover:bg-transparent
     transition-colors duration-300 cursor-pointer
+    ${className}          // <-- added here
   `;
 
   const style = {
     border: isBorder ? `1px solid ${bgColor}` : "transparent",
   };
 
-  // If onClick exists → return Button instead of Link
+  // If onClick is passed → render <button>
   if (onClick) {
     return (
       <button onClick={onClick} style={style} className={classes}>
@@ -54,7 +58,7 @@ export default function Button({
     );
   }
 
-  // Default → Link button
+  // Otherwise → render <Link>
   return (
     <Link href={url} style={style} className={classes}>
       <span>{text}</span>
