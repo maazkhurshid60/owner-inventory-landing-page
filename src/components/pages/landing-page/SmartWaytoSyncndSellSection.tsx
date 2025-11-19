@@ -141,11 +141,11 @@ function SmartWaytoSyncndSellSection() {
             {/* <h1 className="text-4xl md:text-[40px] lg:text-5xl xl:text-[64px] leading-[48px] lg:leading-[60px] xl:leading-[76px] mb-5 lg:mb-6 xl:mb-10 font-semibold text-[#231F20]">
               The Smart Way to Sell, Sync & Scale
             </h1> */}
-            <MainHeading className="mb-[50px]">
+            <MainHeading className=" mb-0 md:mb-10 lg:mb-[50px]">
               Modern Features Designed for Real Owners and Real Growth.
             </MainHeading>
 
-            <div className="flex gap-4 w-full items-center justify-start">
+            <div className="hidden md:flex gap-4 w-full items-center justify-start">
               <ButtonSm
                 url="#"
                 text="Boost Your Sales"
@@ -271,6 +271,27 @@ function SmartWaytoSyncndSellSection() {
                    md:bottom-[120px] bottom-[130px] 2xl:left-10 left-6 lg:w-[42px] lg:h-[42px] h-7"
             />
           </div>
+
+           <div className="md:hidden flex gap-4 w-full items-center justify-start">
+              <ButtonSm
+                url="#"
+                text="Boost Your Sales"
+                bgColor="[#1AD1B9]"
+                textColor="white"
+                isBorder
+                paddingLg="lg:px-[64px] lg:py-5"
+                className="w-full"
+              />  
+              <ButtonSm
+                url="#"
+                text="Scale with Ease"
+                bgColor="[#795CF5]"
+                textColor="white"
+                isBorder
+                paddingLg="lg:px-[64px] lg:py-5"
+                className="w-full"
+              />
+            </div>
         </div>
       </div>
     </section>

@@ -36,14 +36,10 @@ const usedTools = [
 ];
 
 const SmartTools = () => {
-
   const [openModal, setOpenModal] = useState(false);
   return (
     <section className="wrapper">
-        <ContactModal
-        isOpen={openModal}
-        onClose={() => setOpenModal(false)}
-      />
+      <ContactModal isOpen={openModal} onClose={() => setOpenModal(false)} />
       <div
         className="w-full px-8 pt-[60px] pb-0 rounded-[40px] mt-[28px] md:mt-20 lg:mt-[100px] bg-cover bg-center"
         style={{
@@ -58,10 +54,10 @@ const SmartTools = () => {
           Everything you need to grow your business, learn at your pace, and
           stay connected with the community of smart sellers.
         </Paragraph>
-        <div className="flex gap-6 items-center justify-center">
+        <div className="flex gap-6 flex-col md:flex-row items-center justify-center">
           <a
             href=""
-            className="bg-transparent
+            className="bg-transparent w-full md:w-fit
     px-4 py-2.5 md:px-5 md:py-3 lg:px-[64px] lg:py-5 flex items-center justify-center text-[10px] md:text-xs lg:text-xs font-onest font-semibold
      text-white  border border-white hover:border-transparent rounded-full hover:text-black  hover:bg-white
      transition-colors duration-300"
@@ -75,7 +71,8 @@ const SmartTools = () => {
             textColor="white"
             paddingLg="lg:px-[64px] lg:py-5"
             isBorder
-             onClick={() => setOpenModal(true)}
+            className="w-full md:w-fit"
+            onClick={() => setOpenModal(true)}
           />
         </div>
 

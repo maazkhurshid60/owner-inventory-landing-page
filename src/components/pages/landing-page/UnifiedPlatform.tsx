@@ -61,7 +61,7 @@ export default function UnifiedPlatform() {
       const tl1 = gsap.timeline({
         scrollTrigger: {
           trigger: ".pinned-section-2",
-          start: "top -15%",
+          start: "top -10%",
           end: "+=" + window.innerHeight * 2,
           pin: ".pinned-section-2",
           scrub: 2,
@@ -78,7 +78,7 @@ export default function UnifiedPlatform() {
   return (
     <div className="pinned-section-2 lg:h-auto md:h-screen flex items-center justify-center md:mt-0 mt-6">
       <section className="max-w-[1312px] mx-auto pt-4 md:pt-28 lg:pt-40">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-5 lg:gap-14 xl:gap-32 py-8 sm:py-20 xl:py-16 px-6 sm:px-10 xl:px-28 rounded-[40px] bg-[#F3F4F6]">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-5 lg:gap-14 xl:gap-32 py-8 sm:py-20 xl:py-16 px-6 sm:px-10 xl:px-28 rounded-[20px] lg:rounded-[40px] bg-[#F3F4F6]">
           {/* Cards Column */}
           <div className="md:order-1 order-2 md:w-3/6 lg:w-2/5 md:h-[560px] lg:h-[695px] overflow-hidden">
             <div className="unified-platform-cards flex flex-col items-center justify-start gap-4 w-full">
@@ -115,15 +115,30 @@ export default function UnifiedPlatform() {
               </MainHeading>
               <Paragraph className="text-center mb-6">Modern tools designed to simplify, scale, and smarten your business.</Paragraph>
 
+
+           <div className="hidden md:flex">
               <ButtonLg
                 url="#"
                 text="View All FAQs"
                 bgColor="#1AD1B9"
                 textColor="white"
                 isBorder
+               
               />
+              </div>
             </div>
           </div>
+
+           <div className="md:hidden flex order-3">
+              <ButtonLg
+                url="#"
+                text="View All FAQs"
+                bgColor="#1AD1B9"
+                textColor="white"
+                isBorder
+                 className="px-[50px]"
+              />
+              </div>
         </div>
       </section>
     </div>

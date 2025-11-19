@@ -38,7 +38,7 @@ const otherBrands = [
 const VoicesRealBusiness = () => {
   return (
     <section
-      className="mt-28 md:mt-40 lg:mt-[100px] py-[60px] mb-28 md:mb-40 lg:mb-[100px]"
+      className="mt-28 md:mt-40 lg:mt-[100px] py-8 lg:py-[60px] mb-28 md:mb-40 lg:mb-[100px]"
       style={{
         backgroundImage: `
     linear-gradient(180deg, #F3F4F6 0%, transparent 0%),
@@ -54,7 +54,7 @@ const VoicesRealBusiness = () => {
         <BrandsSwiper
           slides={otherBrands}
           renderSlide={(brandItem) => (
-            <div className="relative z-[10] bg-white py-4 px-[68px] my-10 rounded-2xl 
+            <div className="relative z-[10] bg-white py-4 lg:px-[68px] my-10 rounded-2xl 
       border border-[#666666]/40 flex justify-center items-center">
               <Image
                 src={brandItem.logo}
@@ -70,8 +70,8 @@ const VoicesRealBusiness = () => {
                 height={57}
                 alt="Yellow Stars"
                 loading="lazy"
-                className="absolute -bottom-10 left-1/2 -translate-x-1/2
-         w-full xl:max-w-[202px] lg:max-w-[180px] lg:py-2 lg:px-3 py-0 px-0 rounded-2xl"
+                className="absolute bottom-[-24px] lg:bottom-[-40px] -xl:bottom-10 left-1/2 -translate-x-1/2
+         w-full xl:max-w-[202px] lg:max-w-[180px] lg:py-2 max-w-[133px] lg:px-3 py-0 px-0 rounded-2xl"
               />
             </div>
           )}

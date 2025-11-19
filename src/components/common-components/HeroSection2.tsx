@@ -13,6 +13,7 @@ import Paragraph from "../pages/typography/Paragraph";
 import Image from "next/image";
 import SubHeading from "../pages/typography/CardHeading";
 import HeroImageSlider from "./HeroImageSlider";
+import { H1Icon } from "@heroicons/react/16/solid";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -139,7 +140,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
         y: 0,
         duration: 2,
         onComplete: () => {
-          document.dispatchEvent(new Event("heroAnimationFinished")); // SIGNAL HERO ANIMATION COMPLETE
+          document.dispatchEvent(new Event("heroAnimationFinished")); 
         },
       },
       "3"
@@ -165,15 +166,12 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
           </div>
 
           {/* HERO BODY */}
-          <div className="md:py-[1px] bg-[#F3F4F6] rounded-[40px]">
+          <div className="md:py-[1px] bg-[#F3F4F6] rounded-[20px] lg:rounded-[40px]">
             <div
-              className={`owner-inventory-hero__bottom relative flex flex-col items-center justify-center bac w-full ${heroHeight} ${heroOverflow} pt-10 pb-6 md:py-[76px] lg:py-0 px-6 md:px-[100px] bg-[#F3F4F6] rounded-b-[40px] rounded-tr-[40px] lg:rounded-tl-[40px]  backdrop-blur-[374px]`}
-              style={{
-                backgroundImage: `
-    linear-gradient(180deg, #F3F4F6 0%, transparent 60%),
-    linear-gradient(90deg, rgba(26, 209, 185, 0.3) 0%, rgba(207, 181, 249, 1) 50%, rgba(158, 2, 255, 0.3) 80%)
-  `,
-              }}
+              className={`owner-inventory-hero__bottom relative flex flex-col items-center justify-center  w-full ${heroHeight} ${heroOverflow} pt-10 pb-6 md:py-[76px] lg:py-0 px-6 lg:px-[100px] bg-[#F3F4F6] rounded-tr-[20px] rounded-b-[20px] lg:rounded-b-[40px] lg:rounded-tr-[40px] lg:rounded-tl-[40px] bg-cover bg-no-repeat backdrop-blur-[374px]`}
+             style={{
+            backgroundImage: "url('/assets/home-page-images/hero-bg.webp')",
+          }}
             >
               {/* Heading */}
               <div className="owner-inventory-hero__content flex flex-col items-center justify-center w-full">
@@ -181,18 +179,18 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                 {title}
               </h1> */}
                 <div ref={mainHeadingRef}>
-                  <MainHeading className="text-center mx-auto md:max-w-screen-sm xl:max-w-5xl lg:mt-[70px] xl:mb-8 lg:mb-6 mb-5">
+                  <h1 className="text-center xl:text-[64px] lg:text-5xl md:text-[40px] text-4xl xl:leading-[76px] lg:leading-[60px] leading-[48px] font-semibold text-[#231F20] font-onest xl:max-w-5xl lg:mt-[70px] xl:mb-8 lg:mb-6 mb-5">
                     {title}
-                  </MainHeading>
+                  </h1>
                 </div>
 
                 <div ref={paragraphRef}>
-                  <Paragraph className="mb-4 text-center">
+                  <Paragraph className="mb-4 text-center mx-auto md:max-w-screen-sm xl:max-w-5xl 2xl:max-w-6xl ">
                     {description}
                   </Paragraph>
                 </div>
 
-                <div className="flex gap-4 lg:p-1.5  relative z-[60] owner-inventory-hero__content--buttons">
+                <div className="flex md:gap-4 gap-2 lg:p-1.5  relative z-[60] owner-inventory-hero__content--buttons">
                   <ButtonSm
                     url="#"
                     text="Get Started for Free"
@@ -215,15 +213,13 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
 
                 {/* Extra flexibility */}
                 {children}
-              </div>
-
-              <div
+                 <div
                 ref={heroLowerRef}
                 className="owner-inventory-hero__lower relative w-full mt-10 md:mt-10 xl:mt-10 "
               >
                 <div
                   ref={heroLowerBoxRef}
-                  className="w-full max-w-[498px] mx-auto relative z-[-10] backdrop-blur-md  px-6 py-5 border-[3px] border-[rgba(255,255,255,0.5)] bg-[rgba(255, 255, 255, 0.12)] rounded-[40px] -mb-20"
+                  className="w-full max-w-[250px] md:max-w-[300px] lg:max-w-[498px] mx-auto relative z-[-10] backdrop-blur-xl  px-[14px] py-3 lg:px-6 lg:py-5 border-[3px] border-[rgba(255,255,255,0.5)] bg-[rgba(255, 255, 255, 0.12)] rounded-[40px] -mb-34 -lg:mb-20"
                 >
                   <HeroImageSlider
                     images={[
@@ -244,7 +240,10 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
 
                   <div
                     ref={productsImageRef}
-                    className="flex w-fit items-center justify-center gap-4 px-4 py-3 shadow-[0_4px_4px_0_rgba(0,0,0,0.13)] backdrop-blur-md bg-[rgba(255, 255, 255, 0.07)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[120px] left-[-60px]"
+                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 shadow-[0_4px_4px_0_rgba(0,0,0,0.13)] backdrop-blur-xl border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[90px] lg:top-[120px] left-[-20px] lg:left-[-60px]"
+                    style={{
+                      background: "linear-gradient(90deg, rgba(255, 255, 255, 0.8) 30%, rgba(252, 231, 243, 0.3) 100%)"
+                    }}
                   >
                     <Image
                       src="/assets/home-page-images/products.svg"
@@ -252,16 +251,19 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                       width={33}
                       height={33}
                       loading="lazy"
-                      className="w-[33px] h-[33px]"
+                      className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
                     />
-                    <p className="text-[22px] leading-[38px] font-medium font-onest text-[#333333]">
+                    <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
                       Products
                     </p>
                   </div>
 
                   <div
                     ref={advanceReportImageRef}
-                    className="flex w-fit items-center justify-center gap-4 px-4 py-3 backdrop-blur-md bg-[rgba(255, 255, 255, 0.25)] border-[1.5px] border-[rgba(255,255,255,1)] rounded-full absolute top-[300px] left-[-60px]"
+                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 backdrop-blur-xl  border-[1.5px] border-[rgba(255,255,255,1)] rounded-full absolute top-[180px] left-[-20px] lg:top-[300px] lg:left-[-60px]"
+                    style={{
+                      background: "linear-gradient(90deg, rgba(255, 255, 255, 0.8) 30%, rgba(252, 231, 243, 0.3) 100%)"
+                    }}
                   >
                     <Image
                       src="/assets/home-page-images/advance-report.svg"
@@ -269,16 +271,19 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                       width={800}
                       height={600}
                       loading="lazy"
-                      className="w-[33px] h-[33px]"
+                      className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
                     />
-                    <p className="text-[22px] leading-[38px] font-medium font-onest text-[#333333]">
+                    <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
                       Advance Reports
                     </p>
                   </div>
 
                   <div
                     ref={inventorySystemImageRef}
-                    className="flex w-fit items-center justify-center gap-4 px-4 py-3 backdrop-blur-md bg-[rgba(255, 255, 255, 0.25)] border-[1.5px] border-[rgba(255,255,255,1)] rounded-full absolute top-[120px] right-[-200px]"
+                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 backdrop-blur-xl border-[1.5px] border-[rgba(255,255,255,1)] rounded-full absolute top-[55px] right-[-19px] md:top-[110px] lg:top-[130px] md:right-[-110px] lg:right-[-150px] 2xl:top-[120px] 2xl:right-[-200px]"
+                     style={{
+                      background: "linear-gradient(90deg, rgba(255, 255, 255, 0.8) 30%, rgba(252, 231, 243, 0.3) 100%)"
+                    }}
                   >
                     <Image
                       src="/assets/home-page-images/inventory-system.svg"
@@ -286,15 +291,18 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                       width={800}
                       height={600}
                       loading="lazy"
-                      className="w-[33px] h-[33px]"
+                      className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
                     />
-                    <p className="text-[22px] leading-[38px] font-medium font-onest text-[#333333]">
+                    <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
                       Inventory Operations
                     </p>
                   </div>
                   <div
                     ref={reportsImageRef}
-                    className="flex w-fit items-center justify-center gap-4 px-4 py-3 backdrop-blur-md bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[300px] right-[-120px]"
+                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 backdrop-blur-xl border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[148px] -right-5 md:top-[200px] md:right-[-60px] lg:top-[300px] lg:right-[-120px]"
+                     style={{
+                      background: "linear-gradient(90deg, rgba(255, 255, 255, 0.8) 30%, rgba(252, 231, 243, 0.3) 100%)"
+                    }}
                   >
                     <Image
                       src="/assets/home-page-images/reports.svg"
@@ -302,9 +310,9 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                       width={800}
                       height={600}
                       loading="lazy"
-                      className="w-[33px] h-[33px]"
+                      className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
                     />
-                    <p className="text-[22px] leading-[38px] font-medium font-onest text-[#333333]">
+                    <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
                       Reports
                     </p>
                   </div>
@@ -312,7 +320,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
 
                 <div
                   ref={fastServiceDescRef}
-                  className="flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-md bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[120px] left-[-30px]"
+                  className="hidden lg:flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-xl bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[200px] left-0 2xl:top-[120px] 2xl:left-[-30px]"
                 >
                   <p className="text-base leading-5 font-medium font-onest text-[#581C87]">
                     Fast Service
@@ -325,11 +333,11 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                   width={800}
                   height={600}
                   loading="lazy"
-                  className="w-[51px] h-[64px] absolute top-[50px] left-[60px]"
+                  className="w-[51px] h-[64px] hidden lg:block absolute top-[110px] left-[30px] 2xl:top-[50px] 2xl:left-[60px]"
                 />
                 <div
                   ref={safeSecureDescRef}
-                  className="flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-md bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute bottom-[200px] right-[-10px]"
+                  className="hidden lg:flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-xl bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute bottom-[40px] right-[-10px] xl:bottom-[250px] 2xl:bottom-[200px] 2xl:right-[-10px]"
                 >
                   <p className="text-base leading-5 font-medium font-onest text-[#581C87]">
                     Safe & Secure
@@ -342,7 +350,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                   width={800}
                   height={600}
                   loading="lazy"
-                  className="w-[100px] h-[118px] absolute bottom-[250px] right-[60px]"
+                  className="2xl:w-[100px] hidden lg:block 2xl:h-[118px] w-20 h-[90px] absolute bottom-[85px] right-[0px] xl:bottom-[300px] 2xl:bottom-[250px] 2xl:right-[60px]"
                 />
 
                 <Image
@@ -352,7 +360,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                   width={800}
                   height={600}
                   loading="lazy"
-                  className="w-[120px] h-[120px] absolute top-[0px] right-[60px]"
+                  className="2xl:w-[120px] lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] 2xl:h-[120px] absolute top-[-20px] right-[-10px] md:top-[-10px] 2xl:right-[20px] md:right-0"
                 />
 
                 <Image
@@ -362,12 +370,12 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                   width={800}
                   height={600}
                   loading="lazy"
-                  className="w-[120px] h-[120px] absolute top-[30px] right-[80px]"
+                  className="2xl:w-[120px] 2xl:h-[120px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] absolute top-[-5px] right-[-5px] md:top-[10px] md:right-[20px] lg:top-[10px] lg:right-[20px] 2xl:right-[40px]"
                 />
 
                 <div
                   ref={growthBoxRef}
-                  className="flex flex-col w-full max-w-[480px] p-4 absolute bottom-[0px] z-[-10]"
+                  className="hidden lg:flex flex-col w-full max-w-[300px] xl:max-w-[400px] 2xl:max-w-[480px] p-4 absolute bottom-[0px]  z-[-20]"
                 >
                   <div ref={totalGrowthHeadingRef}>
                     <SubHeading>42.5k</SubHeading>
@@ -382,10 +390,13 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                     className="w-full "
                   />
                   <div ref={totalGrowthDescRef}>
-                    <Paragraph className="text-center">Total Growth</Paragraph>
+                    <Paragraph className="text-left xl:text-center mt-3">Total Growth</Paragraph>
                   </div>
                 </div>
               </div>
+              </div>
+
+             
             </div>
           </div>
         </section>

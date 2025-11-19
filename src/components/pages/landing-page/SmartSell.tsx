@@ -4,7 +4,7 @@ import React from "react";
 export default function SmartSellSection() {
   return (
     <section className="wrapper" id="pos-animation">
-      <div className="flex flex-col items-start  justify-center lg:pt-[136px] 2xl:pt-40 lg:mt-0 md:mt-36 mt-20" id="pos-animation">
+      <div className="flex flex-col items-start  justify-center" id="pos-animation">
         
         {/* Heading */}
         <h1 className="font-onest font-semibold text-[#231F20] text-4xl md:text-3xl xl:text-5xl leading-9 xl:leading-[60px] lg:max-w-4xl xl:mb-2 lg:mb-2 mb-5">

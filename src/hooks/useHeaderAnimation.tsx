@@ -14,7 +14,7 @@ export function useHeaderAnimation() {
       });
 
       gsap.set(".inventory-menu, .header-left-col, .header-right-col", {
-        y: -300,
+        y: -150,
         opacity: 0,
       });
      
@@ -29,7 +29,7 @@ export function useHeaderAnimation() {
       });
 
       gsap.set(".mobile-iventory, .header-left-col", {
-        y: -300,
+        y: -150,
         opacity: 0,
       });
       
