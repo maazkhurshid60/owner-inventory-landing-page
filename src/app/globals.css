@@ -204,6 +204,27 @@ body {
   filter: blur(20px);
   z-index: -1;
 }
+.glass-bg {
+  border-radius: 9999px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.28) 30%,
+    rgba(255, 255, 255, 0.30) 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+
+.glass-background {
+  border-radius: 47.692px;
+  border: 1.59px solid white;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(40px) !important;
+  -webkit-backdrop-filter: blur(40px) !important;
+}
 
 

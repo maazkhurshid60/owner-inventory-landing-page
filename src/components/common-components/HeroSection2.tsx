@@ -240,10 +240,8 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
 
                   <div
                     ref={productsImageRef}
-                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 shadow-[0_4px_4px_0_rgba(0,0,0,0.13)] backdrop-blur-xl border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[90px] lg:top-[120px] left-[-20px] lg:left-[-60px]"
-                    style={{
-                      background: "linear-gradient(90deg, rgba(255, 255, 255, 0.8) 30%, rgba(252, 231, 243, 0.3) 100%)"
-                    }}
+                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[90px] lg:top-[120px] left-[-20px] lg:left-[-60px]"
+                   
                   >
                     <Image
                       src="/assets/home-page-images/products.svg"
@@ -260,10 +258,8 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
 
                   <div
                     ref={advanceReportImageRef}
-                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 backdrop-blur-xl  border-[1.5px] border-[rgba(255,255,255,1)] rounded-full absolute top-[180px] left-[-20px] lg:top-[300px] lg:left-[-60px]"
-                    style={{
-                      background: "linear-gradient(90deg, rgba(255, 255, 255, 0.8) 30%, rgba(252, 231, 243, 0.3) 100%)"
-                    }}
+                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[180px] left-[-20px] lg:top-[300px] lg:left-[-60px]"
+                  
                   >
                     <Image
                       src="/assets/home-page-images/advance-report.svg"
@@ -280,10 +276,8 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
 
                   <div
                     ref={inventorySystemImageRef}
-                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 backdrop-blur-xl border-[1.5px] border-[rgba(255,255,255,1)] rounded-full absolute top-[55px] right-[-19px] md:top-[110px] lg:top-[130px] md:right-[-110px] lg:right-[-150px] 2xl:top-[120px] 2xl:right-[-200px]"
-                     style={{
-                      background: "linear-gradient(90deg, rgba(255, 255, 255, 0.8) 30%, rgba(252, 231, 243, 0.3) 100%)"
-                    }}
+                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[55px] right-[-19px] md:top-[110px] lg:top-[130px] md:right-[-110px] lg:right-[-150px] 2xl:top-[120px] 2xl:right-[-200px]"
+                     
                   >
                     <Image
                       src="/assets/home-page-images/inventory-system.svg"
@@ -299,10 +293,8 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                   </div>
                   <div
                     ref={reportsImageRef}
-                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 backdrop-blur-xl border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[148px] -right-5 md:top-[200px] md:right-[-60px] lg:top-[300px] lg:right-[-120px]"
-                     style={{
-                      background: "linear-gradient(90deg, rgba(255, 255, 255, 0.8) 30%, rgba(252, 231, 243, 0.3) 100%)"
-                    }}
+                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[148px] -right-5 md:top-[200px] md:right-[-60px] lg:top-[300px] lg:right-[-120px]"
+                     
                   >
                     <Image
                       src="/assets/home-page-images/reports.svg"
