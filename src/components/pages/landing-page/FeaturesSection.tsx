@@ -38,34 +38,37 @@ export default function FeaturesTabSection() {
 
   const desktopRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
   const mobileRefs = useRef<{ [key: string]: HTMLVideoElement | null }>({});
+  const animationRef = useRef<number | null>(null);
 
   useEffect(() => {
     const video =
       desktopRefs.current[activeFeature] || mobileRefs.current[activeFeature];
     if (!video) return;
 
-    // reset only current active tab’s progress
+    // reset progress and play video
     setProgressMap((prev) => ({ ...prev, [activeFeature]: 0 }));
     video.currentTime = 0;
     video.play();
 
-    const updateProgress = () => {
+    const animateProgress = () => {
       if (video.duration > 0) {
         const percent = (video.currentTime / video.duration) * 100;
         setProgressMap((prev) => ({ ...prev, [activeFeature]: percent }));
       }
+      animationRef.current = requestAnimationFrame(animateProgress);
     };
+
+    animationRef.current = requestAnimationFrame(animateProgress);
 
     const handleLoop = () => {
       setProgressMap((prev) => ({ ...prev, [activeFeature]: 0 }));
     };
 
-    video.addEventListener("timeupdate", updateProgress);
     video.addEventListener("ended", handleLoop);
 
     return () => {
-      video.removeEventListener("timeupdate", updateProgress);
       video.removeEventListener("ended", handleLoop);
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
   }, [activeFeature]);
 
@@ -77,7 +80,7 @@ export default function FeaturesTabSection() {
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-7 lg:gap-14 xl:gap-32 items-center justify-center w-full">
-      
+          {/* Desktop Videos */}
           <div className="hidden md:flex flex-col justify-center items-center gap-3 h-full">
             {features.map((feature) => (
               <div
@@ -102,7 +105,7 @@ export default function FeaturesTabSection() {
             ))}
           </div>
 
-          {/* Right Side (Tabs + Mobile Video + Progress Bar) */}
+          {/* Right Side Tabs + Mobile Video */}
           <div className="flex flex-col items-start justify-center gap-10 xl:gap-10 h-full">
             {features.map((feature) => {
               const isActive = activeFeature === feature.id;
@@ -146,17 +149,13 @@ export default function FeaturesTabSection() {
                     }`}
                   >
                     <div
-                      className="h-full bg-[#F3F4F6] transition-[width] duration-200 ease-linear"
+                      className="h-full bg-[#F3F4F6]"
                       style={{ width: `${progress}%` }}
                     ></div>
                   </div>
 
                   {/* Mobile Video */}
-                  <div
-                    className={`md:hidden w-full mt-5 ${
-                      isActive ? "block" : "hidden"
-                    }`}
-                  >
+                  <div className={`md:hidden w-full mt-5 ${isActive ? "block" : "hidden"}`}>
                     <video
                       ref={(el) => {
                         mobileRefs.current[feature.id] = el;
