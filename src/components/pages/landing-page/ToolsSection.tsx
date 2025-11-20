@@ -13,7 +13,7 @@ const usedTools = [
 const ToolsSection = () => {
   return (
     <section className="wrapper">
-      <div className="w-full bg-[#F3F4F6] p-8 rounded-[40px] mt-[28px] md:mt-20 lg:mt-[100px]">
+      <div className="w-full bg-[#F3F4F6] p-8 rounded-[20px] lg:rounded-[40px] mt-[28px] md:mt-20 lg:mt-[100px]">
 
         <MainHeading className="text-center lg:mb-10 md:mb-6 mb-5">
           Connect Seamlessly with Your Favorite Tools
@@ -23,13 +23,11 @@ const ToolsSection = () => {
           {usedTools.map((tool, index) => {
             const i = index % 5;
 
-            // ----- TABLET (md) -----
             let mdCol = "md:col-span-6";
-            if (i === 4) mdCol = "md:col-span-12"; // every 5th item
+            if (i === 4) mdCol = "md:col-span-12"; 
 
-            // ----- DESKTOP (lg) -----
             let lgCol = "lg:col-span-4";
-            if (i >= 3) lgCol = "lg:col-span-6"; // items 4 & 5 of each cycle
+            if (i >= 3) lgCol = "lg:col-span-6"; 
 
             return (
               <div

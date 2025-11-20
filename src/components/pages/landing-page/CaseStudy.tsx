@@ -140,7 +140,7 @@ export default function CaseStudies({ caseStudies }: CaseStudiesProps) {
               <div className="px-0 py-2 lg:p-2  md:col-span-6 lg:col-span-7 xl:col-span-8 relative z-[10]">
                 <MainHeading className="mb-6">{study.title}</MainHeading>
                 <div className="flex flex-col items-end">
-                  <div className="bg-[#F3F4F6] rounded-l-[28px] rounded-tr-[28px] p-6">
+                  <div className="bg-[#F3F4F6] rounded-l-[20px] rounded-tr-[20px] lg:rounded-l-[28px] lg:rounded-tr-[28px] p-6">
                     <p className="text-[#666666] font-onest text-2xl leading-[165%] lg:text-[32px] lg:leading-[52px]">
                       {study.overview}
                     </p>
@@ -156,7 +156,7 @@ export default function CaseStudies({ caseStudies }: CaseStudiesProps) {
                         icon={<ArrowUpRight size={18} />}
                       />
                     </div>
-                    <div className="relative flex bg-[#F3F4F6] w-full lg:max-w-[60%] xl:max-w-[70%] 2xl:max-w-[73%] rounded-b-[28px] ">
+                    <div className="relative flex bg-[#F3F4F6] w-full lg:max-w-[60%] xl:max-w-[70%] 2xl:max-w-[73%] lg:rounded-b-[28px] rounded-b-[20px] ">
                       <div className="absolute z-[-100] left-[-5.4rem] md:left-[-5.8rem] bottom-0 w-24 h-full bg-transparent rounded-bl-[40px] rotate-180 shadow-[0_2.5rem_0_0_#f3f4f6]" />
                     </div>
                     {/* CTA Button */}

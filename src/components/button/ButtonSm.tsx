@@ -27,7 +27,7 @@ export default function Button({
   onClick,
   padding = "px-3 py-2.5",
   paddingMd = "md:px-5 md:py-3",
-  paddingLg = "lg:px-[30px] lg:py-5",
+  paddingLg = "lg:px-[30px] lg:py-4",
   className = "",         // <-- default empty
 }: ButtonProps) {
   const classes = `

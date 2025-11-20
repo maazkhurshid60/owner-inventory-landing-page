@@ -132,9 +132,9 @@ function SmartWaytoSyncndSellSection() {
     return () => ctx.revert();
   }, []);
 
-  return (
-    <section className="w-full px-6 md:px-10 xl:px-20 2xl:px-[100px] lg:mt-[100px] md:mt-20 mt-[60px]">
-      <div className="mt-20 md:mt-28 lg:mt-0">
+  return ( 
+    <section className="wrapper lg:pt-[100px] md:pt-20 pt-[60px]">
+      
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-7 lg:gap-14 xl:gap-32 items-center justify-center w-full">
           {/* Left Content */}
           <div className="flex flex-col items-start justify-center">
@@ -293,7 +293,7 @@ function SmartWaytoSyncndSellSection() {
               />
             </div>
         </div>
-      </div>
+    
     </section>
   );
 }

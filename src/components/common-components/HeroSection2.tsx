@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, useRef, useEffect } from "react";
+import { ReactNode, useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ButtonSm from "@/components/button/ButtonSm";
@@ -41,7 +41,11 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
     useHeroAnimation();
   } else if (variant === "animation2") {
     useHeroAnimation2();
+
   }
+
+
+  const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
 
   // Refs
   const mainHeadingRef = useRef<HTMLHeadingElement>(null);
@@ -69,6 +73,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
   const heroLowerRef = useRef<HTMLImageElement>(null);
   const heroLowerBoxRef = useRef<HTMLImageElement>(null);
   const growthBoxRef = useRef<HTMLImageElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -130,7 +135,12 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
         inventoryBlurIconRef.current,
         inventoryIconRef.current,
       ],
-      { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 2 },
+      { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 2 ,
+         onComplete: () => {
+          // Trigger video playback when animation completes
+          setShouldPlayVideo(true);
+        }
+      },
       "2"
     );
     tl.to(
@@ -139,13 +149,22 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
         opacity: 1,
         y: 0,
         duration: 2,
-        onComplete: () => {
-          document.dispatchEvent(new Event("heroAnimationFinished")); 
-        },
+        // onComplete: () => {
+        //   document.dispatchEvent(new Event("heroAnimationFinished")); 
+        // },
       },
       "3"
     );
   }, []);
+
+
+   useEffect(() => {
+    if (shouldPlayVideo && videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log("Video play failed:", error);
+      });
+    }
+  }, [shouldPlayVideo]);
 
   return (
     <div className="" ref={homeHeroSecRef}>
@@ -215,13 +234,13 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                 {children}
                  <div
                 ref={heroLowerRef}
-                className="owner-inventory-hero__lower relative w-full mt-10 md:mt-10 xl:mt-10 "
+                className="owner-inventory-hero__lower relative w-full wrapper pt-10 md:pt-10 xl:pt-10 "
               >
                 <div
                   ref={heroLowerBoxRef}
-                  className="w-full max-w-[250px] md:max-w-[300px] lg:max-w-[498px] mx-auto relative z-[-10] backdrop-blur-xl  px-[14px] py-3 lg:px-6 lg:py-5 border-[3px] border-[rgba(255,255,255,0.5)] bg-[rgba(255, 255, 255, 0.12)] rounded-[40px] -mb-34 -lg:mb-20"
+                  className="w-full h-[376px] lg:h-[650px] max-w-[250px] md:max-w-[300px] lg:max-w-[498px] mx-auto relative z-[-10] backdrop-blur-xl  px-[14px] py-3 lg:px-6 lg:py-5 border-[3px] border-[rgba(255,255,255,0.5)] bg-[rgba(255, 255, 255, 0.12)] rounded-[40px] -mb-34 -lg:mb-20"
                 >
-                  <HeroImageSlider
+                  {/* <HeroImageSlider
                     images={[
                       "/assets/home-page-images/home-herofirst.webp",
                       "/assets/home-page-images/girl.webp",
@@ -236,7 +255,22 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                       "#F1F6E3",
                       "#E9E3F6",
                     ]}
-                  />
+                  /> */}
+
+                  <div className="w-full h-full  rounded-[40px] relative overflow-hidden">
+
+                   <video
+                     ref={videoRef}
+                      className="w-full object-cover rounded-3xl"
+                      muted
+                      playsInline
+                       autoPlay={shouldPlayVideo}
+                      loop
+                    >
+                      <source src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/hero-animation.webm" type="video/mp4" />
+                    </video>
+
+                    </div>
 
                   <div
                     ref={productsImageRef}
@@ -312,7 +346,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
 
                 <div
                   ref={fastServiceDescRef}
-                  className="hidden lg:flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-xl bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[200px] left-0 2xl:top-[120px] 2xl:left-[-30px]"
+                  className="hidden lg:flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-xl bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[200px] left-0 2xl:top-[120px] 2xl:left-0"
                 >
                   <p className="text-base leading-5 font-medium font-onest text-[#581C87]">
                     Fast Service
@@ -329,7 +363,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                 />
                 <div
                   ref={safeSecureDescRef}
-                  className="hidden lg:flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-xl bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute bottom-[40px] right-[-10px] xl:bottom-[250px] 2xl:bottom-[200px] 2xl:right-[-10px]"
+                  className="hidden lg:flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-xl bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute bottom-[40px] right-[-10px] xl:bottom-[250px] 2xl:bottom-[200px] 2xl:right-0"
                 >
                   <p className="text-base leading-5 font-medium font-onest text-[#581C87]">
                     Safe & Secure
@@ -352,7 +386,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                   width={800}
                   height={600}
                   loading="lazy"
-                  className="2xl:w-[120px]  lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] 2xl:h-[120px] absolute top-[-20px] right-[-10px] md:top-[-10px] 2xl:right-[20px] md:right-0"
+                  className="2xl:w-[120px] lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] 2xl:h-[120px] absolute top-[-20px] right-[-10px] md:top-[-10px] 2xl:top-[-60px] 2xl:right-[200px] md:right-0"
                 />
 
                 <Image
@@ -362,7 +396,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                   width={800}
                   height={600}
                   loading="lazy"
-                  className="2xl:w-[120px] 2xl:h-[120px] lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] absolute top-[-5px] right-[-5px] md:top-[10px] md:right-[20px] lg:top-[10px] lg:right-[20px] 2xl:right-[40px]"
+                  className="2xl:w-[120px] 2xl:h-[120px] lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] absolute top-[-5px] right-[-5px] md:top-[10px] md:right-[20px] lg:top-[10px] lg:right-[20px] 2xl:top-[-40px] 2xl:right-[180px]"
                 />
 
                 <div

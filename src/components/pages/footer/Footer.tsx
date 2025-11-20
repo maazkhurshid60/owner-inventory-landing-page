@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
           "linear-gradient(90deg,  rgba(158, 2, 255, 0.3) 0%, rgba(207, 181, 249, 1) 10%, rgba(26, 209, 185, 0.3) 80%) ",
       }}
     >
-      <div className="flex flex-col gap-10 bg-white px-6 py-10 xl:px-[60px] xl:py-[60px] rounded-[40px]">
+      <div className="flex  flex-col gap-10 bg-white px-6 py-10 xl:px-[60px] xl:py-[60px] rounded-[40px]">
         {/* Top Row */}
         <div className="flex flex-col md:flex-row items-center justify-between w-full gap-10">
           {/* Logo */}
