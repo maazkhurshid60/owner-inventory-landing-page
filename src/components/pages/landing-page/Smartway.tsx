@@ -68,89 +68,89 @@ export default function PosIconsSection() {
       const tl = gsap.timeline();
       
       if (window.innerWidth < 375) {
-        tl.to("#feature-icon-1", { x: -115, y: -180, duration: 0.8 }, 0);
+        tl.to("#feature-icon-1", { x: -115, y: -180, duration: 1.6 }, 0);
       } else {
-        tl.to("#feature-icon-1", { x: -136, y: -180, duration: 0.8 }, 0);
+        tl.to("#feature-icon-1", { x: -136, y: -180, duration: 1.6 }, 0);
       }
 
       if (window.innerWidth < 375) {
-        tl.to("#feature-icon-2", { x: 115, y: -180, duration: 0.8 }, 0);
+        tl.to("#feature-icon-2", { x: 115, y: -180, duration: 1.6 }, 0);
       } else {
-        tl.to("#feature-icon-2", { x: 136, y: -180, duration: 0.8 }, 0);
+        tl.to("#feature-icon-2", { x: 136, y: -180, duration: 1.6 }, 0);
       }
 
-      tl.to("#feature-icon-3", { x: -70, y: -120, duration: 0.8 }, 0);
-      tl.to("#feature-icon-4", { x: 70, y: -120, duration: 0.8 }, 0);
+      tl.to("#feature-icon-3", { x: -70, y: -120, duration: 1.6 }, 0);
+      tl.to("#feature-icon-4", { x: 70, y: -120, duration: 1.6 }, 0);
 
       if (window.innerWidth < 375) {
-        tl.to("#feature-icon-5", { x: -115, y: 240, duration: 0.8 }, 0);
+        tl.to("#feature-icon-5", { x: -115, y: 240, duration: 1.6 }, 0);
       } else {
-        tl.to("#feature-icon-5", { x: -136, y: 240, duration: 0.8 }, 0);
+        tl.to("#feature-icon-5", { x: -136, y: 240, duration: 1.6 }, 0);
       }
 
-      tl.to("#feature-icon-6", { x: 0, y: 240, duration: 0.8 }, 0);
-      tl.to("#feature-icon-7", { x: -70, y: 200, duration: 0.8 }, 0);
+      tl.to("#feature-icon-6", { x: 0, y: 240, duration: 1.6 }, 0);
+      tl.to("#feature-icon-7", { x: -70, y: 200, duration: 1.6 }, 0);
 
       if (window.innerWidth < 375) {
-        tl.to("#feature-icon-8", { x: -115, y: 0, duration: 0.8 }, 0);
+        tl.to("#feature-icon-8", { x: -115, y: 0, duration: 1.6 }, 0);
       } else {
-        tl.to("#feature-icon-8", { x: -136, y: 0, duration: 0.8 }, 0);
-      }
-
-      if (window.innerWidth < 375) {
-        tl.to("#feature-icon-9", { x: 115, y: 0, duration: 0.8 }, 0);
-      } else {
-        tl.to("#feature-icon-9", { x: 136, y: 0, duration: 0.8 }, 0);
-      }
-
-      tl.to("#feature-icon-10", { x: 70, y: 200, duration: 0.8 }, 0);
-      tl.to("#feature-icon-11", { x: 0, y: -180, duration: 0.8 }, 0);
-
-      if (window.innerWidth < 375) {
-        tl.to("#feature-icon-12", { x: 115, y: 240, duration: 0.8 }, 0);
-      } else {
-        tl.to("#feature-icon-12", { x: 136, y: 240, duration: 0.8 }, 0);
-      }
-
-      tl.to("#feature-icon-13", { x: -70, y: 80, duration: 0.8 }, 0);
-      tl.to("#feature-icon-14", { x: 70, y: 80, duration: 0.8 }, 0);
-
-      if (window.innerWidth < 375) {
-        tl.to("#feature-icon-15", { x: -115, y: 140, duration: 0.8 }, 0);
-      } else {
-        tl.to("#feature-icon-15", { x: -136, y: 140, duration: 0.8 }, 0);
+        tl.to("#feature-icon-8", { x: -136, y: 0, duration: 1.6 }, 0);
       }
 
       if (window.innerWidth < 375) {
-        tl.to("#feature-icon-16", { x: 115, y: 140, duration: 0.8 }, 0);
+        tl.to("#feature-icon-9", { x: 115, y: 0, duration: 1.6 }, 0);
       } else {
-        tl.to("#feature-icon-16", { x: 136, y: 140, duration: 0.8 }, 0);
+        tl.to("#feature-icon-9", { x: 136, y: 0, duration: 1.6 }, 0);
       }
 
-      tl.to("#feature-icon-17", { x: 0, y: 140, duration: 0.8 }, 0);
+      tl.to("#feature-icon-10", { x: 70, y: 200, duration: 1.6 }, 0);
+      tl.to("#feature-icon-11", { x: 0, y: -180, duration: 1.6 }, 0);
+
+      if (window.innerWidth < 375) {
+        tl.to("#feature-icon-12", { x: 115, y: 240, duration: 1.6 }, 0);
+      } else {
+        tl.to("#feature-icon-12", { x: 136, y: 240, duration: 1.6 }, 0);
+      }
+
+      tl.to("#feature-icon-13", { x: -70, y: 80, duration: 1.6 }, 0);
+      tl.to("#feature-icon-14", { x: 70, y: 80, duration: 1.6 }, 0);
+
+      if (window.innerWidth < 375) {
+        tl.to("#feature-icon-15", { x: -115, y: 140, duration: 1.6 }, 0);
+      } else {
+        tl.to("#feature-icon-15", { x: -136, y: 140, duration: 1.6 }, 0);
+      }
+
+      if (window.innerWidth < 375) {
+        tl.to("#feature-icon-16", { x: 115, y: 140, duration: 1.6 }, 0);
+      } else {
+        tl.to("#feature-icon-16", { x: 136, y: 140, duration: 1.6 }, 0);
+      }
+
+      tl.to("#feature-icon-17", { x: 0, y: 140, duration: 1.6 }, 0);
     });
 
     // 💻 Tablet
     iconsBreak.current.add("(min-width: 768px) and (max-width: 1023px)", () => {
       const tl = gsap.timeline();
       
-      tl.to("#feature-icon-1", { x: -272, y: -230, duration: 0.8 }, 0);
-      tl.to("#feature-icon-2", { x: 272, y: -230, duration: 0.8 }, 0);
-      tl.to("#feature-icon-3", { x: -132, y: -140, duration: 0.8 }, 0);
-      tl.to("#feature-icon-4", { x: 132, y: -140, duration: 0.8 }, 0);
-      tl.to("#feature-icon-5", { x: -330, y: -140, duration: 0.8 }, 0);
-      tl.to("#feature-icon-6", { x: 330, y: -140, duration: 0.8 }, 0);
-      tl.to("#feature-icon-7", { x: -340, y: 100, duration: 0.8 }, 0);
-      tl.to("#feature-icon-8", { x: -220, y: 0, duration: 0.8 }, 0);
-      tl.to("#feature-icon-9", { x: 220, y: 0, duration: 0.8 }, 0);
-      tl.to("#feature-icon-10", { x: 220, y: 250, duration: 0.8 }, 0);
-      tl.to("#feature-icon-11", { x: -220, y: 250, duration: 0.8 }, 0);
-      tl.to("#feature-icon-12", { x: 340, y: 100, duration: 0.8 }, 0);
-      tl.to("#feature-icon-13", { x: -132, y: 130, duration: 0.8 }, 0);
-      tl.to("#feature-icon-14", { x: 132, y: 130, duration: 0.8 }, 0);
-      tl.to("#feature-icon-15", { x: -240, y: 170, duration: 0.8 }, 0);
-      tl.to("#feature-icon-16", { x: 240, y: 170, duration: 0.8 }, 0);
-      tl.to("#feature-icon-17", { x: 0, y: 250, duration: 0.8 }, 0);
+      tl.to("#feature-icon-1", { x: -272, y: -230, duration: 1.6 }, 0);
+      tl.to("#feature-icon-2", { x: 272, y: -230, duration: 1.6 }, 0);
+      tl.to("#feature-icon-3", { x: -132, y: -140, duration: 1.6 }, 0);
+      tl.to("#feature-icon-4", { x: 132, y: -140, duration: 1.6 }, 0);
+      tl.to("#feature-icon-5", { x: -330, y: -140, duration: 1.6 }, 0);
+      tl.to("#feature-icon-6", { x: 330, y: -140, duration: 1.6 }, 0);
+      tl.to("#feature-icon-7", { x: -340, y: 100, duration: 1.6 }, 0);
+      tl.to("#feature-icon-8", { x: -220, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-9", { x: 220, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-10", { x: 220, y: 250, duration: 1.6 }, 0);
+      tl.to("#feature-icon-11", { x: -220, y: 250, duration: 1.6 }, 0);
+      tl.to("#feature-icon-12", { x: 340, y: 100, duration: 1.6 }, 0);
+      tl.to("#feature-icon-13", { x: -132, y: 130, duration: 1.6 }, 0);
+      tl.to("#feature-icon-14", { x: 132, y: 130, duration: 1.6 }, 0);
+      tl.to("#feature-icon-15", { x: -240, y: 170, duration: 1.6 }, 0);
+      tl.to("#feature-icon-16", { x: 240, y: 170, duration: 1.6 }, 0);
+      tl.to("#feature-icon-17", { x: 0, y: 250, duration: 1.6 }, 0);
     });
 
     // 🖥 Desktop
@@ -158,41 +158,41 @@ export default function PosIconsSection() {
       const tl = gsap.timeline();
       
       if (window.innerWidth >= 1280) {
-        tl.to("#feature-icon-1", { x: -460, y: -240, duration: 0.8 }, 0);
-        tl.to("#feature-icon-2", { x: 460, y: -240, duration: 0.8 }, 0);
-        tl.to("#feature-icon-3", { x: -160, y: -170, duration: 0.8 }, 0);
-        tl.to("#feature-icon-4", { x: 160, y: -170, duration: 0.8 }, 0);
-        tl.to("#feature-icon-5", { x: -400, y: -130, duration: 0.8 }, 0);
-        tl.to("#feature-icon-6", { x: 400, y: -130, duration: 0.8 }, 0);
-        tl.to("#feature-icon-7", { x: -540, y: 0, duration: 0.8 }, 0);
-        tl.to("#feature-icon-8", { x: -220, y: 0, duration: 0.8 }, 0);
-        tl.to("#feature-icon-9", { x: 540, y: 0, duration: 0.8 }, 0);
-        tl.to("#feature-icon-10", { x: 220, y: 0, duration: 0.8 }, 0);
-        tl.to("#feature-icon-11", { x: -400, y: 100, duration: 0.8 }, 0);
-        tl.to("#feature-icon-12", { x: 400, y: 100, duration: 0.8 }, 0);
-        tl.to("#feature-icon-13", { x: -160, y: 140, duration: 0.8 }, 0);
-        tl.to("#feature-icon-14", { x: 160, y: 140, duration: 0.8 }, 0);
-        tl.to("#feature-icon-15", { x: -460, y: 200, duration: 0.8 }, 0);
-        tl.to("#feature-icon-16", { x: 460, y: 200, duration: 0.8 }, 0);
-        tl.to("#feature-icon-17", { x: 0, y: 200, duration: 0.8 }, 0);
+        tl.to("#feature-icon-1", { x: -460, y: -240, duration: 1.6 }, 0);
+        tl.to("#feature-icon-2", { x: 460, y: -240, duration: 1.6 }, 0);
+        tl.to("#feature-icon-3", { x: -160, y: -170, duration: 1.6 }, 0);
+        tl.to("#feature-icon-4", { x: 160, y: -170, duration: 1.6 }, 0);
+        tl.to("#feature-icon-5", { x: -400, y: -130, duration: 1.6 }, 0);
+        tl.to("#feature-icon-6", { x: 400, y: -130, duration: 1.6 }, 0);
+        tl.to("#feature-icon-7", { x: -540, y: 0, duration: 1.6 }, 0);
+        tl.to("#feature-icon-8", { x: -220, y: 0, duration: 1.6 }, 0);
+        tl.to("#feature-icon-9", { x: 540, y: 0, duration: 1.6 }, 0);
+        tl.to("#feature-icon-10", { x: 220, y: 0, duration: 1.6 }, 0);
+        tl.to("#feature-icon-11", { x: -400, y: 100, duration: 1.6 }, 0);
+        tl.to("#feature-icon-12", { x: 400, y: 100, duration: 1.6 }, 0);
+        tl.to("#feature-icon-13", { x: -160, y: 140, duration: 1.6 }, 0);
+        tl.to("#feature-icon-14", { x: 160, y: 140, duration: 1.6 }, 0);
+        tl.to("#feature-icon-15", { x: -460, y: 200, duration: 1.6 }, 0);
+        tl.to("#feature-icon-16", { x: 460, y: 200, duration: 1.6 }, 0);
+        tl.to("#feature-icon-17", { x: 0, y: 200, duration: 1.6 }, 0);
       } else {
-        tl.to("#feature-icon-1", { x: -460, y: -240, duration: 0.8 }, 0);
-        tl.to("#feature-icon-2", { x: 460, y: -240, duration: 0.8 }, 0);
-        tl.to("#feature-icon-3", { x: -160, y: -170, duration: 0.8 }, 0);
-        tl.to("#feature-icon-4", { x: 160, y: -170, duration: 0.8 }, 0);
-        tl.to("#feature-icon-5", { x: -400, y: -130, duration: 0.8 }, 0);
-        tl.to("#feature-icon-6", { x: 400, y: -130, duration: 0.8 }, 0);
-        tl.to("#feature-icon-7", { x: -460, y: 0, duration: 0.8 }, 0);
-        tl.to("#feature-icon-8", { x: -220, y: 0, duration: 0.8 }, 0);
-        tl.to("#feature-icon-9", { x: 460, y: 0, duration: 0.8 }, 0);
-        tl.to("#feature-icon-10", { x: 220, y: 0, duration: 0.8 }, 0);
-        tl.to("#feature-icon-11", { x: -400, y: 100, duration: 0.8 }, 0);
-        tl.to("#feature-icon-12", { x: 400, y: 100, duration: 0.8 }, 0);
-        tl.to("#feature-icon-13", { x: -160, y: 140, duration: 0.8 }, 0);
-        tl.to("#feature-icon-14", { x: 160, y: 140, duration: 0.8 }, 0);
-        tl.to("#feature-icon-15", { x: -460, y: 220, duration: 0.8 }, 0);
-        tl.to("#feature-icon-16", { x: 460, y: 220, duration: 0.8 }, 0);
-        tl.to("#feature-icon-17", { x: 0, y: 220, duration: 0.8 }, 0);
+        tl.to("#feature-icon-1", { x: -460, y: -240, duration: 1.6 }, 0);
+        tl.to("#feature-icon-2", { x: 460, y: -240, duration: 1.6 }, 0);
+        tl.to("#feature-icon-3", { x: -160, y: -170, duration: 1.6 }, 0);
+        tl.to("#feature-icon-4", { x: 160, y: -170, duration: 1.6 }, 0);
+        tl.to("#feature-icon-5", { x: -400, y: -130, duration: 1.6 }, 0);
+        tl.to("#feature-icon-6", { x: 400, y: -130, duration: 1.6 }, 0);
+        tl.to("#feature-icon-7", { x: -460, y: 0, duration: 1.6 }, 0);
+        tl.to("#feature-icon-8", { x: -220, y: 0, duration: 1.6 }, 0);
+        tl.to("#feature-icon-9", { x: 460, y: 0, duration: 1.6 }, 0);
+        tl.to("#feature-icon-10", { x: 220, y: 0, duration: 1.6 }, 0);
+        tl.to("#feature-icon-11", { x: -400, y: 100, duration: 1.6 }, 0);
+        tl.to("#feature-icon-12", { x: 400, y: 100, duration: 1.6 }, 0);
+        tl.to("#feature-icon-13", { x: -160, y: 140, duration: 1.6 }, 0);
+        tl.to("#feature-icon-14", { x: 160, y: 140, duration: 1.6 }, 0);
+        tl.to("#feature-icon-15", { x: -460, y: 220, duration: 1.6 }, 0);
+        tl.to("#feature-icon-16", { x: 460, y: 220, duration: 1.6 }, 0);
+        tl.to("#feature-icon-17", { x: 0, y: 220, duration: 1.6 }, 0);
       }
     });
   };
