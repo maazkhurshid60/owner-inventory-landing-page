@@ -55,7 +55,7 @@ const HeroImageSlider: React.FC<HeroImageSliderProps> = ({
         {
           scale: 1.4,
           opacity: 0,
-          duration: 1,
+          duration: 1.5,
         },
         "+=2" // wait 2 seconds before each transition
       );
@@ -67,7 +67,7 @@ const HeroImageSlider: React.FC<HeroImageSliderProps> = ({
         {
           opacity: 1,
           scale: 1,
-          duration: 1,
+          duration: 1.5,
         },
         "<" // run at the same time as fade out
       );
@@ -76,7 +76,7 @@ const HeroImageSlider: React.FC<HeroImageSliderProps> = ({
       if (nextBg) {
         tl.to(
           containerRef.current,
-          { backgroundColor: nextBg, duration: 1 },
+          { backgroundColor: nextBg, duration: 1.5 },
           "<"
         );
       }
