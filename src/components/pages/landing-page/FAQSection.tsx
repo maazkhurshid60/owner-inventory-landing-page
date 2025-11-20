@@ -40,7 +40,7 @@ export default function FaqSection() {
 
   return (
     <section className="wrapper">
-      <div className="rounded-[40px] bg-[#F3F4F6]">
+      <div className="rounded-[20px] lg:rounded-[40px] bg-[#F3F4F6]">
         <div className="grid grid-cols-1 lg:grid-cols-12 items-center justify-center gap-10 md-gap-[100px] lg:gap-12 w-full px-5 md:px-[77px] lg:px-[87px] py-10 md:py-[58px] lg:py-[60px]">
           {/* Left Accordion Cards */}
           <div className="order-2 lg:order-1 lg:col-span-7">

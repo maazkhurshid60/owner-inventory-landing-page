@@ -8,27 +8,26 @@ const features = [
     id: "inventorypos-system",
     title: "Smart POS System for Modern Retail",
     icon: "/assets/features-section/pos-system.svg",
-    video: "/assets/Posvideo.mp4",
+    video: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/pos-systemopt.webm",
   },
   {
     id: "inventory-ecommerce",
     title: "Built-in E-commerce - Fully Synced and Ready to Sell",
     icon: "/assets/features-section/cart-icon.svg",
-    video: "/assets/Posvideo.mp4",
+    video: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/e-commerceopt.webm",
   },
   {
     id: "inventory-management",
     title: "Inventory Management to Stay in Control of Every Product",
     icon: "/assets/features-section/inventory-management.svg",
-    video:
-      "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/inventory-management.webm",
+    video: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/inventory-managementopt.webm",
   },
   {
     id: "inventory-autosync",
     title: "Streamline Manufacturing + Stay in Control of Every Process",
     icon: "/assets/features-section/autosync.svg",
     video:
-      "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/smart-analytics.webm",
+      "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/manufacturing-opt.webm",
   },
 ];
 
@@ -73,7 +72,7 @@ export default function FeaturesTabSection() {
   }, [activeFeature]);
 
   return (
-    <section className="features-tab-section mt-20 md:mt-28 lg:mt-40 py-10 md:py-10 xl:py-24 rounded-[40px] bg-[#231F20] z-11">
+    <section className="features-tab-section mt-20 md:mt-28 lg:mt-40 py-10 md:py-10 xl:py-24 rounded-[20px] lg:rounded-[40px] bg-[#231F20] z-11">
       <div className="wrapper">
         <h1 className="w-full text-4xl md:text-[44px] lg:text-[56px] xl:text-[64px] leading-[48px] md:leading-[56px] lg:leading-[60px] xl:leading-[76px] mb-10 md:mb-11 xl:mb-10 text-left font-onest font-semibold text-white lg:max-w-[867px] md:max-w-[657px]">
           Powerful Features Built for Growing Businesses
@@ -85,7 +84,7 @@ export default function FeaturesTabSection() {
             {features.map((feature) => (
               <div
                 key={feature.id}
-                className={`feature-image w-full ${
+                className={`feature-image w-full max-w-[743] h-full max-h-[460px] p-1 ${
                   activeFeature === feature.id ? "flex" : "hidden"
                 } items-center justify-center`}
               >
@@ -93,7 +92,7 @@ export default function FeaturesTabSection() {
                   ref={(el) => {
                     desktopRefs.current[feature.id] = el;
                   }}
-                  className="w-full md:h-[300px] lg:h-[380px] xl:h-[430px] object-cover rounded-3xl"
+                  className=" object-cover rounded-3xl"
                   muted
                   playsInline
                   autoPlay

@@ -107,7 +107,7 @@ const TurningChaos: React.FC<TurningChaosProps> = ({
   `,
 }}
       >
-        <div className="flex flex-col items-center justify-center w-full">
+        <div className="flex wrapper flex-col items-center justify-center w-full">
           <MainHeading className="text-center mx-auto md:max-w-screen-sm xl:max-w-5xl lg:mt-[70px] xl:mb-8 lg:mb-6 mb-5">
             {title}
           </MainHeading>

@@ -38,10 +38,10 @@ body {
         margin: 0 auto; 
     }
 }
-
+/* 
 @media (min-width: 1535px) {
   .wrapper{
-        max-width: 1460px;
+        max-width: 1380px;
         margin: 0 auto; 
     }
 }
@@ -51,7 +51,7 @@ body {
         max-width: 1700px;
         margin: 0 auto; 
     }
-}
+} */
 
 /* Wrapper for complete website styling ended here */
 

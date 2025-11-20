@@ -46,7 +46,7 @@ const DropdownButtonSm: React.FC<DropdownButtonSmProps> = ({
     >
       <button
         onClick={() => window.innerWidth < 1024 && setOpen(!open)}
-        className={`bg-${bgColor} px-3 py-2.5 md:px-5 md:py-3 border border-transparent lg:px-[30px] lg:py-5 flex items-center justify-center text-[11px] sm:text-sm whitespace-nowrap md:text-base font-onest font-semibold text-${textColor}
+        className={`bg-${bgColor} px-3 py-2.5 md:px-5 md:py-3 border border-transparent lg:px-[30px] lg:py-4 flex items-center justify-center text-[11px] sm:text-sm whitespace-nowrap md:text-base font-onest font-semibold text-${textColor}
           ${isBorder ? `hover:border hover:border-${bgColor}` : ""}
           rounded-full hover:text-[#231F20] hover:bg-transparent transition-colors duration-300`}
       >

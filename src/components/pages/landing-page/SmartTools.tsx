@@ -41,7 +41,7 @@ const SmartTools = () => {
     <section className="wrapper">
       <ContactModal isOpen={openModal} onClose={() => setOpenModal(false)} />
       <div
-        className="w-full px-8 pt-[60px] pb-0 rounded-[40px] mt-[28px] md:mt-20 lg:mt-[100px] bg-cover bg-center"
+        className="w-full px-8 pt-[60px] pb-0 rounded-[20px] lg:rounded-[40px] mt-[28px] md:mt-20 lg:mt-[100px] bg-cover bg-center"
         style={{
           backgroundImage:
             "url('/assets/home-page-images/black-background.webp')",
@@ -58,7 +58,7 @@ const SmartTools = () => {
           <a
             href=""
             className="bg-transparent w-full md:w-fit
-    px-4 py-2.5 md:px-5 md:py-3 lg:px-[64px] lg:py-5 flex items-center justify-center text-[10px] md:text-xs lg:text-xs font-onest font-semibold
+    px-4 py-2.5 md:px-5 md:py-3 lg:px-[64px] lg:py-4 flex items-center justify-center text-base font-onest font-semibold
      text-white  border border-white hover:border-transparent rounded-full hover:text-black  hover:bg-white
      transition-colors duration-300"
           >
@@ -69,7 +69,7 @@ const SmartTools = () => {
             text="Contact Now"
             bgColor="[#795CF5]"
             textColor="white"
-            paddingLg="lg:px-[64px] lg:py-5"
+            paddingLg="lg:px-[64px] lg:py-4"
             isBorder
             className="w-full md:w-fit"
             onClick={() => setOpenModal(true)}
