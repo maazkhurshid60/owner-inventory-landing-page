@@ -34,8 +34,9 @@ export const useHeroAnimation2 = () => {
         scrollTrigger: {
           scroller: 'body',
           start: 'top top',
-          end: '+=' + window.innerHeight * 1.5,
-          pin: '.pinned-section-1',
+          end: '+=' + window.innerHeight * 1,
+          // pin: '.pinned-section-1',
+          trigger: '.pinned-section-1',
           scrub: 2,
           // markers: true,
         },

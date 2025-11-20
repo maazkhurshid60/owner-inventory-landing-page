@@ -352,7 +352,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                   width={800}
                   height={600}
                   loading="lazy"
-                  className="2xl:w-[120px] lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] 2xl:h-[120px] absolute top-[-20px] right-[-10px] md:top-[-10px] 2xl:right-[20px] md:right-0"
+                  className="2xl:w-[120px]  lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] 2xl:h-[120px] absolute top-[-20px] right-[-10px] md:top-[-10px] 2xl:right-[20px] md:right-0"
                 />
 
                 <Image
@@ -362,7 +362,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                   width={800}
                   height={600}
                   loading="lazy"
-                  className="2xl:w-[120px] 2xl:h-[120px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] absolute top-[-5px] right-[-5px] md:top-[10px] md:right-[20px] lg:top-[10px] lg:right-[20px] 2xl:right-[40px]"
+                  className="2xl:w-[120px] 2xl:h-[120px] lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] absolute top-[-5px] right-[-5px] md:top-[10px] md:right-[20px] lg:top-[10px] lg:right-[20px] 2xl:right-[40px]"
                 />
 
                 <div
