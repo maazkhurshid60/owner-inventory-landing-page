@@ -114,7 +114,7 @@ export default function Hero() {
         <SmartWaytoSyncndSellSection />
         <UnifiedPlatform />
         <VoicesRealBusiness />
-        <PinnedSection3 />
+        {/* <PinnedSection3 /> */}
         <PosIconsSection />
         <ToolsSection/>
         <SmartTools />

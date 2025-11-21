@@ -92,9 +92,32 @@ export default function PosIconsSection() {
       tl.to("#feature-icon-17", { x: 0, y: 250, duration: 1.6 }, 0);
     });
 
-    iconsBreak.current.add("(min-width: 1024px)", () => {
+    iconsBreak.current.add("(min-width: 1024px) and (max-width: 1199px)", () => {
       const tl = gsap.timeline();
-      const xOffset = window.innerWidth >= 1280 ? 460 : 460;
+      const xOffset = window.innerWidth >= 1280 ? 400 : 400;
+      const yOffset = window.innerWidth >= 1280 ? 240 : 220;
+      tl.to("#feature-icon-1", { x: -xOffset, y: -240, duration: 1.6 }, 0);
+      tl.to("#feature-icon-2", { x: xOffset, y: -240, duration: 1.6 }, 0);
+      tl.to("#feature-icon-3", { x: -160, y: -170, duration: 1.6 }, 0);
+      tl.to("#feature-icon-4", { x: 160, y: -170, duration: 1.6 }, 0);
+      tl.to("#feature-icon-5", { x: -400, y: -130, duration: 1.6 }, 0);
+      tl.to("#feature-icon-6", { x: 400, y: -130, duration: 1.6 }, 0);
+      tl.to("#feature-icon-7", { x: -460, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-8", { x: -220, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-9", { x: 460, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-10", { x: 220, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-11", { x: -400, y: 100, duration: 1.6 }, 0);
+      tl.to("#feature-icon-12", { x: 400, y: 100, duration: 1.6 }, 0);
+      tl.to("#feature-icon-13", { x: -160, y: 140, duration: 1.6 }, 0);
+      tl.to("#feature-icon-14", { x: 160, y: 140, duration: 1.6 }, 0);
+      tl.to("#feature-icon-15", { x: -460, y: yOffset, duration: 1.6 }, 0);
+      tl.to("#feature-icon-16", { x: 460, y: yOffset, duration: 1.6 }, 0);
+      tl.to("#feature-icon-17", { x: 0, y: yOffset, duration: 1.6 }, 0);
+    });
+
+    iconsBreak.current.add("(min-width: 1200px)", () => {
+  const tl = gsap.timeline();
+   const xOffset = window.innerWidth >= 1280 ? 460 : 460;
       const yOffset = window.innerWidth >= 1280 ? 240 : 220;
       tl.to("#feature-icon-1", { x: -xOffset, y: -240, duration: 1.6 }, 0);
       tl.to("#feature-icon-2", { x: xOffset, y: -240, duration: 1.6 }, 0);
@@ -113,32 +136,59 @@ export default function PosIconsSection() {
       tl.to("#feature-icon-15", { x: -460, y: yOffset, duration: 1.6 }, 0);
       tl.to("#feature-icon-16", { x: 460, y: yOffset, duration: 1.6 }, 0);
       tl.to("#feature-icon-17", { x: 0, y: yOffset, duration: 1.6 }, 0);
-    });
+});
+
   };
 
   // ScrollTrigger effect
-  useEffect(() => {
-    if (!sectionRef.current) return;
+ useEffect(() => {
+  if (!sectionRef.current) return;
 
-    const trigger = ScrollTrigger.create({
+  const mm = gsap.matchMedia(); // matchMedia instance
+
+  // Desktop – start at 30%
+  mm.add("(min-width: 1200px)", () => {
+    return ScrollTrigger.create({
       trigger: sectionRef.current,
-      start: "top 30%",
+      start: "top 45%",
       once: true,
       onEnter: animateIconsToPositions,
     });
+  });
 
-    return () => {
-      trigger.kill();
-      if (iconsBreak.current) iconsBreak.current.revert();
-    };
-  }, []);
+  // Tablet – start at 50%
+  mm.add("(min-width: 768px) and (max-width: 1199px)", () => {
+    return ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top 50%",
+      once: true,
+      onEnter: animateIconsToPositions,
+    });
+  });
+
+  // Mobile – start at 70%
+  mm.add("(max-width: 767px)", () => {
+    return ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top 60%",
+      once: true,
+      onEnter: animateIconsToPositions,
+    });
+  });
+
+  return () => {
+    mm.revert(); 
+    if (iconsBreak.current) iconsBreak.current.revert();
+  };
+}, []);
+
 
   return (
     <div
       ref={sectionRef}
       className="pinned-section-4 lg:mt-40 md:mt-28 mt-20 smart-features-icons"
     >
-      <div className=" lg:h-auto md:h-screen flex flex-col items-center justify-center">
+      <div className=" md:h-auto flex flex-col items-center justify-center">
         <section
           className="w-full relative rounded-[20px] lg:rounded-[40px] py-10 px-6 xl:p-[70px] lg:p-10 md:p-10 ownerinventory-landing__pos-icons-section bg-cover bg-no-repeat bg-top"
           style={{ backgroundImage: "url('/assets/icons-section/icons-section.webp')" }}

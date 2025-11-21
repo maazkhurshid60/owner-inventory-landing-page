@@ -5,6 +5,7 @@ import MainHeading from "../pages/typography/MainHeading";
 import Paragraph from "../pages/typography/Paragraph";
 import InputField from "../inputField/InputField";
 import SelectField from "../inputField/SelectField";
+import ButtonSm from "../button/ButtonSm";
 
 interface ContactModalProps {
   isOpen: boolean;
@@ -17,7 +18,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className="flex flex-col items-center justify-start">
         <MainHeading className="mb-5">Contact Us</MainHeading>
-        <Paragraph className="text-center text-[#434242]">
+        <Paragraph className="text-center text-[#434242] hidden md:flex">
           We'd love to hear from you! Our team is available to answer any
           questions you may have regarding features, pricing or help installing
           your POS system. Complete the form below and one of our experts will
@@ -26,10 +27,12 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         </Paragraph>
 
         <div
-          className="bg-white  w-full max-w-[768px] h-auto mt-10 rounded-[30px] p-8"
+          className="bg-white  w-full max-w-[768px] h-auto mt-5 rounded-[20px] lg:rounded-[30px] p-4 md:p-8"
           style={{ boxShadow: "2px 2px 22px 0px rgba(0,0,0,0.15)" }}
         >
-          <div className="grid md:grid-cols-2 gap-x-4 gap-y-6">
+          
+            <form action="">
+              <div className="grid md:grid-cols-2 gap-x-4 gap-y-4">
             <div className="">
               <InputField
                 required
@@ -85,7 +88,19 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 //   error={selected === "" ? "Please select a plan" : ""}
               />
             </div>
-          </div>
+           </div>
+            <div className="flex justify-center items-center mt-6">
+              <ButtonSm
+                url="#"
+                className="w-full md:w-fit"
+                text="Send a request"
+                bgColor="[#795CF5]"
+                textColor="white"
+                isBorder
+                paddingLg="lg:px-[160px] lg:py-5"
+              />
+            </div>
+            </form>
         </div>
       </div>
     </Modal>

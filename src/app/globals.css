@@ -34,7 +34,7 @@ body {
 
 @media (min-width: 1440px) {
    .wrapper{
-        max-width: 1312px;
+        max-width: 1350px;
         margin: 0 auto; 
     }
 }

@@ -143,7 +143,7 @@ function SmartWaytoSyncndSellSection() {
               bgColor="[#1AD1B9]"
               textColor="white"
               isBorder
-              paddingLg="lg:px-[64px] lg:py-5"
+              paddingLg="xl:px-[64px] lg:px-[40px] lg:py-5"
             />
             <ButtonSm
               url="#"
@@ -151,7 +151,7 @@ function SmartWaytoSyncndSellSection() {
               bgColor="[#795CF5]"
               textColor="white"
               isBorder
-              paddingLg="lg:px-[64px] lg:py-5"
+              paddingLg="xl:px-[64px] lg:px-[40px] lg:py-5"
             />
           </div>
         </div>
