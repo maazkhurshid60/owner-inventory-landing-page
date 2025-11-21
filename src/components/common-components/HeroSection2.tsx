@@ -226,9 +226,8 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                     textColor="white"
                     isBorder={true}
                     items={[
-                      { label: "Profile", url: "/profile" },
-                      { label: "Settings", url: "/settings" },
-                      { label: "Logout", url: "/logout" },
+                      { label: "Meet With Expert", url: "" },
+                      { label: "View Demo", url: "" },
                     ]}
                   />
                 </div>
