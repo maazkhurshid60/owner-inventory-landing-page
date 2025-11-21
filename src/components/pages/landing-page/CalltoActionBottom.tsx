@@ -33,7 +33,7 @@ const CalltoActionBottom: React.FC = () => {
               <div className="flex gap-6 flex-col w-full  md:flex-row items-center justify-center">
         
           <a href="" className="bg-transparent
-    px-4 py-2.5 md:px-[70px] md:py-3 lg:px-[70px] lg:py-4 flex items-center justify-center w-full text-[10px] md:text-xs lg:text-xs font-onest font-semibold
+    px-4 py-2.5 md:px-[70px] md:py-3 lg:px-[70px] lg:py-4 flex items-center justify-center w-full md:w-fit text-[10px] md:text-xs lg:text-xs font-onest font-semibold
      text-white  border border-white hover:border-transparent rounded-full hover:text-black  hover:bg-white
      transition-colors duration-300">Free Demo</a>
       <ButtonSm url='#' text='Get Stared for Free' className='w-full md:w-fit' bgColor='[#795CF5]' textColor="white" paddingLg="md:px-[38px] lg:px-[38px] lg:py-4" isBorder/>
