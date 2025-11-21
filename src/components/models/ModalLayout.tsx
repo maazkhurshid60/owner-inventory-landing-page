@@ -13,7 +13,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
   return (
     <div className="fixed inset-0  flex items-center justify-center z-[99999] "  
 >
-      <div className="rounded-2xl py-[60px] px-5 w-full backdrop-blur-xl h-screen shadow-xl relative bg-contain z-[10000] bg-center bg-no-repeat" 
+      <div className="rounded-2xl py-[40px] px-0 md:px-5 w-full backdrop-blur-xl h-screen flex items-center justify-center shadow-xl relative bg-contain z-[10000] bg-center bg-no-repeat" 
        style={{
          backgroundImage: `
     linear-gradient(360deg, rgba(255, 255, 255, 0.9) 55%, transparent 100%),

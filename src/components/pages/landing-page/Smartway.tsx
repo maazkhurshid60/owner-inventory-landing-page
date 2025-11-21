@@ -92,9 +92,32 @@ export default function PosIconsSection() {
       tl.to("#feature-icon-17", { x: 0, y: 250, duration: 1.6 }, 0);
     });
 
-    iconsBreak.current.add("(min-width: 1024px)", () => {
+    iconsBreak.current.add("(min-width: 1024px) and (max-width: 1199px)", () => {
       const tl = gsap.timeline();
-      const xOffset = window.innerWidth >= 1280 ? 460 : 460;
+      const xOffset = window.innerWidth >= 1280 ? 400 : 400;
+      const yOffset = window.innerWidth >= 1280 ? 240 : 220;
+      tl.to("#feature-icon-1", { x: -xOffset, y: -240, duration: 1.6 }, 0);
+      tl.to("#feature-icon-2", { x: xOffset, y: -240, duration: 1.6 }, 0);
+      tl.to("#feature-icon-3", { x: -160, y: -170, duration: 1.6 }, 0);
+      tl.to("#feature-icon-4", { x: 160, y: -170, duration: 1.6 }, 0);
+      tl.to("#feature-icon-5", { x: -400, y: -130, duration: 1.6 }, 0);
+      tl.to("#feature-icon-6", { x: 400, y: -130, duration: 1.6 }, 0);
+      tl.to("#feature-icon-7", { x: -460, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-8", { x: -220, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-9", { x: 460, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-10", { x: 220, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-11", { x: -400, y: 100, duration: 1.6 }, 0);
+      tl.to("#feature-icon-12", { x: 400, y: 100, duration: 1.6 }, 0);
+      tl.to("#feature-icon-13", { x: -160, y: 140, duration: 1.6 }, 0);
+      tl.to("#feature-icon-14", { x: 160, y: 140, duration: 1.6 }, 0);
+      tl.to("#feature-icon-15", { x: -460, y: yOffset, duration: 1.6 }, 0);
+      tl.to("#feature-icon-16", { x: 460, y: yOffset, duration: 1.6 }, 0);
+      tl.to("#feature-icon-17", { x: 0, y: yOffset, duration: 1.6 }, 0);
+    });
+
+    iconsBreak.current.add("(min-width: 1200px)", () => {
+  const tl = gsap.timeline();
+   const xOffset = window.innerWidth >= 1280 ? 460 : 460;
       const yOffset = window.innerWidth >= 1280 ? 240 : 220;
       tl.to("#feature-icon-1", { x: -xOffset, y: -240, duration: 1.6 }, 0);
       tl.to("#feature-icon-2", { x: xOffset, y: -240, duration: 1.6 }, 0);
@@ -113,7 +136,8 @@ export default function PosIconsSection() {
       tl.to("#feature-icon-15", { x: -460, y: yOffset, duration: 1.6 }, 0);
       tl.to("#feature-icon-16", { x: 460, y: yOffset, duration: 1.6 }, 0);
       tl.to("#feature-icon-17", { x: 0, y: yOffset, duration: 1.6 }, 0);
-    });
+});
+
   };
 
   // ScrollTrigger effect

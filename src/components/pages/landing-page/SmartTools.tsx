@@ -54,11 +54,11 @@ const SmartTools = () => {
           Everything you need to grow your business, learn at your pace, and
           stay connected with the community of smart sellers.
         </Paragraph>
-        <div className="flex gap-6 flex-col md:flex-row items-center justify-center">
+        <div className="flex gap-3 lg:gap-6 flex-col md:flex-row items-center justify-center">
           <a
             href=""
             className="bg-transparent w-full md:w-fit
-    px-4 py-2.5 md:px-5 md:py-3 lg:px-[64px] lg:py-4 flex items-center justify-center text-base font-onest font-semibold
+    px-4 py-2.5 md:px-5 md:py-3 lg:px-[40px] xl:px-[64px] lg:py-4 flex items-center justify-center text-base font-onest font-semibold
      text-white  border border-white hover:border-transparent rounded-full hover:text-black  hover:bg-white
      transition-colors duration-300"
           >
@@ -69,14 +69,14 @@ const SmartTools = () => {
             text="Contact Now"
             bgColor="[#795CF5]"
             textColor="white"
-            paddingLg="lg:px-[64px] lg:py-4"
+            paddingLg="lg:px-[40px] xl:px-[64px] lg:py-4"
             isBorder
             className="w-full md:w-fit"
             onClick={() => setOpenModal(true)}
           />
         </div>
 
-        <div className="w-full max-w-[913px] bg-transparent px-5 mx-auto">
+        <div className="w-full lg:max-w-[1000px] md:max-w-[750px] xl:max-w-[1065px] bg-transparent px-5 mx-auto -md:mt-[90px] -lg:mt-[162px]">
           {/* <Image
             src="/assets/home-page-images/smart-tools.webp"
             alt="Chaos Image"

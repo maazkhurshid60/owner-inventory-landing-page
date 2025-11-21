@@ -36,7 +36,7 @@ const InputField: React.FC<InputFieldProps> = ({
             <div className="relative">
                 <input
                     // {...register}
-                    className="w-[100%] px-4 py-[18px] outline-0 rounded-[14px] border border-[#D9D9D9] placeholder:text-[16px] text-[#9A9A9A] placeholder:text-[#9A9A9A] appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:m-0"
+                    className="w-[100%] px-4 py-3 outline-0 rounded-[14px] border border-[#D9D9D9] placeholder:text-[16px] text-[#9A9A9A] placeholder:text-[#9A9A9A] appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:m-0"
                     type={
                         type === "password"
                             ? isHidden
