@@ -1,6 +1,6 @@
 "use client";
 // src/components/Hero.tsx
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 
 import CalltoActionBottom from "./CalltoActionBottom";
@@ -93,6 +93,14 @@ const caseStudiesData = [
 ];
 
 export default function Hero() {
+
+  useEffect(() => {
+  // Always reset scroll on page load
+  window.scrollTo(0, 0);
+
+  // Prevent Chrome/Next.js restoring scroll
+  history.scrollRestoration = "manual";
+}, []);
   return (
     <>
       {/* Rounded Background Header Shape */}
@@ -111,8 +119,8 @@ export default function Hero() {
         />
         <CaseStudies caseStudies={caseStudiesData} />
         <FeaturesSection />
-        <UnifiedPlatform />
         <SmartWaytoSyncndSellSection />
+        <UnifiedPlatform />
         <VoicesRealBusiness />
         {/* <PinnedSection3 /> */}
         <PosIconsSection />
