@@ -77,14 +77,31 @@ const SmartTools = () => {
         </div>
 
         <div className="w-full max-w-[913px] px-5 mx-auto">
-          <Image
+          {/* <Image
             src="/assets/home-page-images/smart-tools.webp"
             alt="Chaos Image"
             width={800}
             height={600}
             loading="lazy"
             className="w-full"
-          />
+          /> */}
+           <video
+                        className="w-full object-cover rounded-3xl"
+                        muted
+                        playsInline
+                        autoPlay
+                        loop
+                      >
+                        <source
+                          src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/stay-ahead.mp4"
+                          type="video/mp4"
+                        />
+                        <source
+                          src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/stay-ahead.webm"
+                          type="video/webm"
+                        />
+                      </video>
+
         </div>
       </div>
     </section>
