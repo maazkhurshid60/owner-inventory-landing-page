@@ -76,7 +76,7 @@ const SmartTools = () => {
           />
         </div>
 
-        <div className="w-full lg:max-w-[1000px] md:max-w-[750px] xl:max-w-[1065px] bg-transparent px-5 mx-auto -md:mt-[90px] -lg:mt-[162px]">
+        <div className="w-full lg:max-w-[1000px] md:max-w-[750px] xl:max-w-[1065px] bg-transparent px-5 mx-auto mt-[-90px] -lg:mt-[162px]">
           {/* <Image
             src="/assets/home-page-images/smart-tools.webp"
             alt="Chaos Image"

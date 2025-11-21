@@ -50,7 +50,7 @@ export default function UnifiedPlatform() {
           end: "+=" + window.innerHeight * 2,
           pin: ".pinned-section-2",
           scrub: 2,
-          // markers: true,
+          markers: true,
         },
       });
 
@@ -61,11 +61,11 @@ export default function UnifiedPlatform() {
       const tl1 = gsap.timeline({
         scrollTrigger: {
           trigger: ".pinned-section-2",
-          start: "top -10%",
+          start: "top -15%",
           end: "+=" + window.innerHeight * 2,
           pin: ".pinned-section-2",
           scrub: 2,
-          // markers: true,
+          markers: true,
         },
       });
 
