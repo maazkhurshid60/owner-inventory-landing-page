@@ -47,10 +47,10 @@ export default function UnifiedPlatform() {
       mm.add("(min-width:768px) and (max-width:1023px)", () => {
         gsap.timeline({
           scrollTrigger: {
-            trigger: ".pinned-section-2",
+            // trigger: ".pinned-section-2",
             start: "top top",
             end: "+=" + window.innerHeight * 2,
-            pin: true,
+            pin: ".pinned-section-2",
             scrub: 1.2,
             markers: true
           },
@@ -61,10 +61,10 @@ export default function UnifiedPlatform() {
       mm.add("(min-width:1024px)", () => {
         gsap.timeline({
           scrollTrigger: {
-            trigger: ".pinned-section-2",
+            // trigger: ".pinned-section-2",
             start: "top 10%",
             end: "+=" + window.innerHeight * 2,
-            pin: true,
+             pin: ".pinned-section-2",
             scrub: 1.2,
             markers: true
           },

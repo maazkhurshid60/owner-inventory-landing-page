@@ -4,9 +4,11 @@
 
 
 
-body {
+html, body {
   font-family: var(--font-onest), sans-serif;
+  overscroll-behavior: none;
 }
+
 
 
 /* Wrapper for complete website styling started here */
