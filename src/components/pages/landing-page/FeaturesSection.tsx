@@ -8,19 +8,22 @@ const features = [
     id: "inventorypos-system",
     title: "Smart POS System for Modern Retail",
     icon: "/assets/features-section/pos-system.svg",
-    video: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/pos-systemopt.webm",
+    video:
+      "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/pos-systemopt.webm",
   },
   {
     id: "inventory-ecommerce",
     title: "Built-in E-commerce - Fully Synced and Ready to Sell",
     icon: "/assets/features-section/cart-icon.svg",
-    video: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/e-commerceopt.webm",
+    video:
+      "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/e-commerceopt.webm",
   },
   {
     id: "inventory-management",
     title: "Inventory Management to Stay in Control of Every Product",
     icon: "/assets/features-section/inventory-management.svg",
-    video: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/inventory-managementopt.webm",
+    video:
+      "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/inventory-managementopt.webm",
   },
   {
     id: "inventory-autosync",
@@ -111,7 +114,10 @@ export default function FeaturesTabSection() {
               const progress = progressMap[feature.id] || 0;
 
               return (
-                <div key={feature.id} className="flex flex-col w-full items-start">
+                <div
+                  key={feature.id}
+                  className="flex flex-col w-full items-start"
+                >
                   {/* Tab Button */}
                   <div
                     className="feature-tab flex items-center justify-center gap-4 xl:gap-6 cursor-pointer"
@@ -154,8 +160,12 @@ export default function FeaturesTabSection() {
                   </div>
 
                   {/* Mobile Video */}
-                  <div className={`md:hidden w-full mt-5 ${isActive ? "block" : "hidden"}`}>
-                    <video
+                  <div
+                    className={`md:hidden w-full mt-5 ${
+                      isActive ? "block" : "hidden"
+                    }`}
+                  >
+                    {/* <video
                       ref={(el) => {
                         mobileRefs.current[feature.id] = el;
                       }}
@@ -166,6 +176,25 @@ export default function FeaturesTabSection() {
                       loop
                     >
                       <source src={feature.video} type="video/mp4" />
+                    </video> */}
+                    <video
+                      ref={(el) => {
+                        desktopRefs.current[feature.id] = el;
+                      }}
+                      className="object-cover rounded-3xl"
+                      muted
+                      playsInline
+                      autoPlay
+                      loop
+                    >
+                      {/* MP4 fallback first */}
+                      <source
+                        src={feature.video.replace(".webm", ".mp4")}
+                        type="video/mp4"
+                      />
+
+                      {/* Correct WebM MIME type */}
+                      <source src={feature.video} type="video/webm" />
                     </video>
                   </div>
                 </div>
