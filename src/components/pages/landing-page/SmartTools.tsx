@@ -76,7 +76,7 @@ const SmartTools = () => {
           />
         </div>
 
-        <div className="w-full max-w-[913px] px-5 mx-auto">
+        <div className="w-full max-w-[913px] bg-transparent px-5 mx-auto">
           {/* <Image
             src="/assets/home-page-images/smart-tools.webp"
             alt="Chaos Image"
@@ -86,7 +86,7 @@ const SmartTools = () => {
             className="w-full"
           /> */}
            <video
-                        className="w-full object-cover rounded-3xl"
+                        className="w-full object-cover bg-transparent rounded-3xl"
                         muted
                         playsInline
                         autoPlay

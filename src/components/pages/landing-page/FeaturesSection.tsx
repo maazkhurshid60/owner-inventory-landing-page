@@ -91,7 +91,7 @@ export default function FeaturesTabSection() {
             {features.map((feature) => (
               <div
                 key={feature.id}
-                className={`w-full max-w-[743px] h-full max-h-[460px] p-1 ${
+                className={`w-full max-w-[743px] bg-transparent h-full max-h-[460px] p-1 ${
                   activeFeature === feature.id ? "flex" : "hidden"
                 }`}
               >
@@ -99,7 +99,7 @@ export default function FeaturesTabSection() {
                   ref={(el) => {
                     desktopRefs.current[feature.id] = el;
                   }}
-                  className="w-full h-full object-cover rounded-3xl"
+                  className="w-full h-full object-contain bg-transparent rounded-3xl"
                   muted
                   playsInline
                   autoPlay
