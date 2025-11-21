@@ -76,7 +76,8 @@ export default function UnifiedPlatform() {
   }, []);
 
   return (
-    <div className="pinned-section-2 lg:h-auto md:h-screen flex items-center justify-center md:mt-0 mt-6">
+    <div className="pinned-section-2 ">
+      <div className="lg:h-auto md:h-screen flex items-center justify-center md:mt-0 mt-6">
       <section className="wrapper pt-4 md:pt-28 lg:pt-40">
         <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-5 lg:gap-14 xl:gap-32 py-8 sm:py-20 xl:py-16 px-6 sm:px-10 xl:px-28 rounded-[20px] lg:rounded-[40px] bg-[#F3F4F6]">
           {/* Cards Column */}
@@ -141,6 +142,7 @@ export default function UnifiedPlatform() {
               </div>
         </div>
       </section>
+      </div>
     </div>
   );
 }
