@@ -111,8 +111,8 @@ export default function Hero() {
         />
         <CaseStudies caseStudies={caseStudiesData} />
         <FeaturesSection />
-        <SmartWaytoSyncndSellSection />
         <UnifiedPlatform />
+        <SmartWaytoSyncndSellSection />
         <VoicesRealBusiness />
         {/* <PinnedSection3 /> */}
         <PosIconsSection />

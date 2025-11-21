@@ -7,122 +7,122 @@ import Image from "next/image";
 import MainHeading from "../typography/MainHeading";
 
 function SmartWaytoSyncndSellSection() {
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        repeat: -1,
-        repeatDelay: 1,
-        defaults: { duration: 1, ease: "power1.inOut" },
-      });
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     const tl = gsap.timeline({
+  //       repeat: -1,
+  //       repeatDelay: 1,
+  //       defaults: { duration: 1, ease: "power1.inOut" },
+  //     });
 
-      // Safe screen width
-      const moveX =
-        typeof window !== "undefined" && window.innerWidth >= 1024 ? 70 : 40;
+  //     // Safe screen width
+  //     const moveX =
+  //       typeof window !== "undefined" && window.innerWidth >= 1024 ? 70 : 40;
 
-      // Initial states
-      gsap.set(
-        [
-          "#gif-anime__text1",
-          "#gif-anime__staryellow",
-          "#gif-anime__text2",
-          "#gif-anime__arrow-right",
-        ],
-        { opacity: 0, clipPath: "inset(0% 100% 0% 0%)" }
-      );
+  //     // Initial states
+  //     gsap.set(
+  //       [
+  //         "#gif-anime__text1",
+  //         "#gif-anime__staryellow",
+  //         "#gif-anime__text2",
+  //         "#gif-anime__arrow-right",
+  //       ],
+  //       { opacity: 0, clipPath: "inset(0% 100% 0% 0%)" }
+  //     );
 
-      gsap.set("#gif-anime__arrow-left", {
-        opacity: 0,
-        clipPath: "inset(0% 0% 0% 100%)",
-      });
+  //     gsap.set("#gif-anime__arrow-left", {
+  //       opacity: 0,
+  //       clipPath: "inset(0% 0% 0% 100%)",
+  //     });
 
-      gsap.set("#gif-anime__line", {
-        opacity: 0,
-        clipPath: "inset(0% 100% 0% 0%)",
-      });
+  //     gsap.set("#gif-anime__line", {
+  //       opacity: 0,
+  //       clipPath: "inset(0% 100% 0% 0%)",
+  //     });
 
-      gsap.set(["#gif-anime__white-star1", "#gif-anime__white-star2"], {
-        opacity: 0,
-        scale: 0,
-      });
+  //     gsap.set(["#gif-anime__white-star1", "#gif-anime__white-star2"], {
+  //       opacity: 0,
+  //       scale: 0,
+  //     });
 
-      // Sequence
-      tl.to("#gif-anime__text1", {
-        opacity: 1,
-        clipPath: "inset(0% 0% 0% 0%)",
-      });
+  //     // Sequence
+  //     tl.to("#gif-anime__text1", {
+  //       opacity: 1,
+  //       clipPath: "inset(0% 0% 0% 0%)",
+  //     });
 
-      tl.to(
-        "#gif-anime__staryellow",
-        {
-          opacity: 1,
-          clipPath: "inset(0% 0% 0% 0%)",
-        },
-        "<0.1"
-      );
+  //     tl.to(
+  //       "#gif-anime__staryellow",
+  //       {
+  //         opacity: 1,
+  //         clipPath: "inset(0% 0% 0% 0%)",
+  //       },
+  //       "<0.1"
+  //     );
 
-      tl.to(
-        "#gif-anime__text2",
-        {
-          opacity: 1,
-          clipPath: "inset(0% 0% 0% 0%)",
-        },
-        "<0.2"
-      );
+  //     tl.to(
+  //       "#gif-anime__text2",
+  //       {
+  //         opacity: 1,
+  //         clipPath: "inset(0% 0% 0% 0%)",
+  //       },
+  //       "<0.2"
+  //     );
 
-      tl.to(
-        "#gif-anime__arrow-left",
-        {
-          opacity: 1,
-        },
-        "<"
-      );
+  //     tl.to(
+  //       "#gif-anime__arrow-left",
+  //       {
+  //         opacity: 1,
+  //       },
+  //       "<"
+  //     );
 
-      tl.to(
-        "#gif-anime__arrow-right",
-        {
-          opacity: 1,
-        },
-        "<"
-      );
+  //     tl.to(
+  //       "#gif-anime__arrow-right",
+  //       {
+  //         opacity: 1,
+  //       },
+  //       "<"
+  //     );
 
-      tl.to(
-        "#gif-anime__line",
-        {
-          opacity: 1,
-          clipPath: "inset(0% 0% 0% 0%)",
-        },
-        "<"
-      );
+  //     tl.to(
+  //       "#gif-anime__line",
+  //       {
+  //         opacity: 1,
+  //         clipPath: "inset(0% 0% 0% 0%)",
+  //       },
+  //       "<"
+  //     );
 
-      // Stars animation
-      tl.to("#gif-anime__white-star1", { opacity: 1, scale: 1 }, "<0.1");
+  //     // Stars animation
+  //     tl.to("#gif-anime__white-star1", { opacity: 1, scale: 1 }, "<0.1");
 
-      tl.to("#gif-anime__white-star1", { x: moveX }, "+=0.3");
+  //     tl.to("#gif-anime__white-star1", { x: moveX }, "+=0.3");
 
-      tl.to("#gif-anime__white-star2", { opacity: 1, scale: 1 }, "<0.2");
+  //     tl.to("#gif-anime__white-star2", { opacity: 1, scale: 1 }, "<0.2");
 
-      tl.to("#gif-anime__white-star2", { x: moveX }, "+=0.2");
+  //     tl.to("#gif-anime__white-star2", { x: moveX }, "+=0.2");
 
-      // END FADE OUT
-      tl.to(
-        [
-          "#gif-anime__text1",
-          "#gif-anime__text2",
-          "#gif-anime__staryellow",
-          "#gif-anime__arrow-left",
-          "#gif-anime__arrow-right",
-          "#gif-anime__line",
-          "#gif-anime__white-star1",
-          "#gif-anime__white-star2",
-        ],
-        { opacity: 0 },
-        "+=0.5"
-      );
-    });
+  //     // END FADE OUT
+  //     tl.to(
+  //       [
+  //         "#gif-anime__text1",
+  //         "#gif-anime__text2",
+  //         "#gif-anime__staryellow",
+  //         "#gif-anime__arrow-left",
+  //         "#gif-anime__arrow-right",
+  //         "#gif-anime__line",
+  //         "#gif-anime__white-star1",
+  //         "#gif-anime__white-star2",
+  //       ],
+  //       { opacity: 0 },
+  //       "+=0.5"
+  //     );
+  //   });
 
-    // Cleanup
-    return () => ctx.revert();
-  }, []);
+  //   // Cleanup
+  //   return () => ctx.revert();
+  // }, []);
 
   return (
     <section className="wrapper lg:pt-[100px] md:pt-20 pt-[60px]">
