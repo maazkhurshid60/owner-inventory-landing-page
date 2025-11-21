@@ -1,12 +1,14 @@
 'use client';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Tooltip from '@/components/toolTip/Tooltip';
 import MainHeading from '../typography/MainHeading';
 import Paragraph from '../typography/Paragraph';
 
-// Define the type for GSAP match media context
+gsap.registerPlugin(ScrollTrigger);
+
 type GSAPMatchMedia = {
   add: (query: string, context: () => void) => void;
   revert: () => void;
@@ -16,16 +18,13 @@ export default function PosIconsSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const iconsBreak = useRef<GSAPMatchMedia | null>(null);
   const [hasAnimated, setHasAnimated] = useState(false);
-   const spanRef = useRef<HTMLSpanElement>(null);
+  const spanRef = useRef<HTMLSpanElement>(null);
   const loopTl = useRef<gsap.core.Tween | null>(null);
 
-
-   const handleMouseEnter = () => {
+  // Hover bounce effect for nav icon
+  const handleMouseEnter = () => {
     if (spanRef.current) {
-      // Kill existing animation if any
       loopTl.current?.kill();
-
-      // Create looping tween
       loopTl.current = gsap.to(spanRef.current, {
         scale: 1.2,
         duration: 0.5,
@@ -38,102 +37,42 @@ export default function PosIconsSection() {
 
   const handleMouseLeave = () => {
     loopTl.current?.kill();
-    if (spanRef.current) {
-      gsap.set(spanRef.current, { scale: 1 });
-    }
+    if (spanRef.current) gsap.set(spanRef.current, { scale: 1 });
   };
 
-  useEffect(() => {
-    
-    return () => {
-      if (iconsBreak.current) {
-        iconsBreak.current.revert();
-      }
-    };
-  }, []);
-
+  // Animate icons to positions with responsive breakpoints
   const animateIconsToPositions = () => {
-    if (hasAnimated) return; // Prevent re-animation if already animated
-    
+    if (hasAnimated) return;
     setHasAnimated(true);
 
-    if (iconsBreak.current) {
-      iconsBreak.current.revert();
-    }
-
+    if (iconsBreak.current) iconsBreak.current.revert();
     iconsBreak.current = gsap.matchMedia();
 
-    
+    const small = window.innerWidth < 375;
+
     iconsBreak.current.add("(max-width: 767px)", () => {
       const tl = gsap.timeline();
-      
-      if (window.innerWidth < 375) {
-        tl.to("#feature-icon-1", { x: -115, y: -180, duration: 1.6 }, 0);
-      } else {
-        tl.to("#feature-icon-1", { x: -136, y: -180, duration: 1.6 }, 0);
-      }
-
-      if (window.innerWidth < 375) {
-        tl.to("#feature-icon-2", { x: 115, y: -180, duration: 1.6 }, 0);
-      } else {
-        tl.to("#feature-icon-2", { x: 136, y: -180, duration: 1.6 }, 0);
-      }
-
+      tl.to("#feature-icon-1", { x: small ? -115 : -136, y: -180, duration: 1.6 }, 0);
+      tl.to("#feature-icon-2", { x: small ? 115 : 136, y: -180, duration: 1.6 }, 0);
       tl.to("#feature-icon-3", { x: -70, y: -120, duration: 1.6 }, 0);
       tl.to("#feature-icon-4", { x: 70, y: -120, duration: 1.6 }, 0);
-
-      if (window.innerWidth < 375) {
-        tl.to("#feature-icon-5", { x: -115, y: 240, duration: 1.6 }, 0);
-      } else {
-        tl.to("#feature-icon-5", { x: -136, y: 240, duration: 1.6 }, 0);
-      }
-
+      tl.to("#feature-icon-5", { x: small ? -115 : -136, y: 240, duration: 1.6 }, 0);
       tl.to("#feature-icon-6", { x: 0, y: 240, duration: 1.6 }, 0);
       tl.to("#feature-icon-7", { x: -70, y: 200, duration: 1.6 }, 0);
-
-      if (window.innerWidth < 375) {
-        tl.to("#feature-icon-8", { x: -115, y: 0, duration: 1.6 }, 0);
-      } else {
-        tl.to("#feature-icon-8", { x: -136, y: 0, duration: 1.6 }, 0);
-      }
-
-      if (window.innerWidth < 375) {
-        tl.to("#feature-icon-9", { x: 115, y: 0, duration: 1.6 }, 0);
-      } else {
-        tl.to("#feature-icon-9", { x: 136, y: 0, duration: 1.6 }, 0);
-      }
-
+      tl.to("#feature-icon-8", { x: small ? -115 : -136, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-9", { x: small ? 115 : 136, y: 0, duration: 1.6 }, 0);
       tl.to("#feature-icon-10", { x: 70, y: 200, duration: 1.6 }, 0);
       tl.to("#feature-icon-11", { x: 0, y: -180, duration: 1.6 }, 0);
-
-      if (window.innerWidth < 375) {
-        tl.to("#feature-icon-12", { x: 115, y: 240, duration: 1.6 }, 0);
-      } else {
-        tl.to("#feature-icon-12", { x: 136, y: 240, duration: 1.6 }, 0);
-      }
-
+      tl.to("#feature-icon-12", { x: small ? 115 : 136, y: 240, duration: 1.6 }, 0);
       tl.to("#feature-icon-13", { x: -70, y: 80, duration: 1.6 }, 0);
       tl.to("#feature-icon-14", { x: 70, y: 80, duration: 1.6 }, 0);
-
-      if (window.innerWidth < 375) {
-        tl.to("#feature-icon-15", { x: -115, y: 140, duration: 1.6 }, 0);
-      } else {
-        tl.to("#feature-icon-15", { x: -136, y: 140, duration: 1.6 }, 0);
-      }
-
-      if (window.innerWidth < 375) {
-        tl.to("#feature-icon-16", { x: 115, y: 140, duration: 1.6 }, 0);
-      } else {
-        tl.to("#feature-icon-16", { x: 136, y: 140, duration: 1.6 }, 0);
-      }
-
+      tl.to("#feature-icon-15", { x: small ? -115 : -136, y: 140, duration: 1.6 }, 0);
+      tl.to("#feature-icon-16", { x: small ? 115 : 136, y: 140, duration: 1.6 }, 0);
       tl.to("#feature-icon-17", { x: 0, y: 140, duration: 1.6 }, 0);
     });
 
-    // 💻 Tablet
     iconsBreak.current.add("(min-width: 768px) and (max-width: 1023px)", () => {
       const tl = gsap.timeline();
-      
       tl.to("#feature-icon-1", { x: -272, y: -230, duration: 1.6 }, 0);
       tl.to("#feature-icon-2", { x: 272, y: -230, duration: 1.6 }, 0);
       tl.to("#feature-icon-3", { x: -132, y: -140, duration: 1.6 }, 0);
@@ -153,71 +92,64 @@ export default function PosIconsSection() {
       tl.to("#feature-icon-17", { x: 0, y: 250, duration: 1.6 }, 0);
     });
 
-    // 🖥 Desktop
     iconsBreak.current.add("(min-width: 1024px)", () => {
       const tl = gsap.timeline();
-      
-      if (window.innerWidth >= 1280) {
-        tl.to("#feature-icon-1", { x: -460, y: -240, duration: 1.6 }, 0);
-        tl.to("#feature-icon-2", { x: 460, y: -240, duration: 1.6 }, 0);
-        tl.to("#feature-icon-3", { x: -160, y: -170, duration: 1.6 }, 0);
-        tl.to("#feature-icon-4", { x: 160, y: -170, duration: 1.6 }, 0);
-        tl.to("#feature-icon-5", { x: -400, y: -130, duration: 1.6 }, 0);
-        tl.to("#feature-icon-6", { x: 400, y: -130, duration: 1.6 }, 0);
-        tl.to("#feature-icon-7", { x: -540, y: 0, duration: 1.6 }, 0);
-        tl.to("#feature-icon-8", { x: -220, y: 0, duration: 1.6 }, 0);
-        tl.to("#feature-icon-9", { x: 540, y: 0, duration: 1.6 }, 0);
-        tl.to("#feature-icon-10", { x: 220, y: 0, duration: 1.6 }, 0);
-        tl.to("#feature-icon-11", { x: -400, y: 100, duration: 1.6 }, 0);
-        tl.to("#feature-icon-12", { x: 400, y: 100, duration: 1.6 }, 0);
-        tl.to("#feature-icon-13", { x: -160, y: 140, duration: 1.6 }, 0);
-        tl.to("#feature-icon-14", { x: 160, y: 140, duration: 1.6 }, 0);
-        tl.to("#feature-icon-15", { x: -460, y: 200, duration: 1.6 }, 0);
-        tl.to("#feature-icon-16", { x: 460, y: 200, duration: 1.6 }, 0);
-        tl.to("#feature-icon-17", { x: 0, y: 200, duration: 1.6 }, 0);
-      } else {
-        tl.to("#feature-icon-1", { x: -460, y: -240, duration: 1.6 }, 0);
-        tl.to("#feature-icon-2", { x: 460, y: -240, duration: 1.6 }, 0);
-        tl.to("#feature-icon-3", { x: -160, y: -170, duration: 1.6 }, 0);
-        tl.to("#feature-icon-4", { x: 160, y: -170, duration: 1.6 }, 0);
-        tl.to("#feature-icon-5", { x: -400, y: -130, duration: 1.6 }, 0);
-        tl.to("#feature-icon-6", { x: 400, y: -130, duration: 1.6 }, 0);
-        tl.to("#feature-icon-7", { x: -460, y: 0, duration: 1.6 }, 0);
-        tl.to("#feature-icon-8", { x: -220, y: 0, duration: 1.6 }, 0);
-        tl.to("#feature-icon-9", { x: 460, y: 0, duration: 1.6 }, 0);
-        tl.to("#feature-icon-10", { x: 220, y: 0, duration: 1.6 }, 0);
-        tl.to("#feature-icon-11", { x: -400, y: 100, duration: 1.6 }, 0);
-        tl.to("#feature-icon-12", { x: 400, y: 100, duration: 1.6 }, 0);
-        tl.to("#feature-icon-13", { x: -160, y: 140, duration: 1.6 }, 0);
-        tl.to("#feature-icon-14", { x: 160, y: 140, duration: 1.6 }, 0);
-        tl.to("#feature-icon-15", { x: -460, y: 220, duration: 1.6 }, 0);
-        tl.to("#feature-icon-16", { x: 460, y: 220, duration: 1.6 }, 0);
-        tl.to("#feature-icon-17", { x: 0, y: 220, duration: 1.6 }, 0);
-      }
+      const xOffset = window.innerWidth >= 1280 ? 460 : 460;
+      const yOffset = window.innerWidth >= 1280 ? 240 : 220;
+      tl.to("#feature-icon-1", { x: -xOffset, y: -240, duration: 1.6 }, 0);
+      tl.to("#feature-icon-2", { x: xOffset, y: -240, duration: 1.6 }, 0);
+      tl.to("#feature-icon-3", { x: -160, y: -170, duration: 1.6 }, 0);
+      tl.to("#feature-icon-4", { x: 160, y: -170, duration: 1.6 }, 0);
+      tl.to("#feature-icon-5", { x: -400, y: -130, duration: 1.6 }, 0);
+      tl.to("#feature-icon-6", { x: 400, y: -130, duration: 1.6 }, 0);
+      tl.to("#feature-icon-7", { x: -540, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-8", { x: -220, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-9", { x: 540, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-10", { x: 220, y: 0, duration: 1.6 }, 0);
+      tl.to("#feature-icon-11", { x: -400, y: 100, duration: 1.6 }, 0);
+      tl.to("#feature-icon-12", { x: 400, y: 100, duration: 1.6 }, 0);
+      tl.to("#feature-icon-13", { x: -160, y: 140, duration: 1.6 }, 0);
+      tl.to("#feature-icon-14", { x: 160, y: 140, duration: 1.6 }, 0);
+      tl.to("#feature-icon-15", { x: -460, y: yOffset, duration: 1.6 }, 0);
+      tl.to("#feature-icon-16", { x: 460, y: yOffset, duration: 1.6 }, 0);
+      tl.to("#feature-icon-17", { x: 0, y: yOffset, duration: 1.6 }, 0);
     });
   };
 
+  // ScrollTrigger effect
+  useEffect(() => {
+    if (!sectionRef.current) return;
+
+    const trigger = ScrollTrigger.create({
+      trigger: sectionRef.current,
+      start: "top 30%",
+      once: true,
+      onEnter: animateIconsToPositions,
+    });
+
+    return () => {
+      trigger.kill();
+      if (iconsBreak.current) iconsBreak.current.revert();
+    };
+  }, []);
+
   return (
-    <div 
+    <div
       ref={sectionRef}
       className="pinned-section-4 lg:mt-40 md:mt-28 mt-20 smart-features-icons"
-      onMouseEnter={animateIconsToPositions}
     >
       <div className="lg:h-auto md:h-screen flex flex-col items-center justify-center">
         <section
           className="w-full relative rounded-[20px] lg:rounded-[40px] py-10 px-6 xl:p-[70px] lg:p-10 md:p-10 ownerinventory-landing__pos-icons-section bg-cover bg-no-repeat bg-top"
-          style={{
-            backgroundImage: "url('/assets/icons-section/icons-section.webp')",
-          }}
+          style={{ backgroundImage: "url('/assets/icons-section/icons-section.webp')" }}
         >
-          {/* Heading */}
-            <MainHeading className='text-white text-center mb-6'>
+          <MainHeading className="text-white text-center mb-6">
             Your Complete Inventory Toolkit
-            </MainHeading>
+          </MainHeading>
+          <Paragraph className="text-white text-center">
+            Click any feature below to get started
+          </Paragraph>
 
-            <Paragraph className='text-white text-center'>Click any feature below to get started</Paragraph>
-
-          {/* Center logo */}
           <div className="relative h-[500px] md:h-[600px] lg:h-[550px] flex flex-col justify-center items-center">
             <a
               href="#"
@@ -231,44 +163,38 @@ export default function PosIconsSection() {
                 className="flex items-center justify-center w-full mx-auto md:max-w-[198px] max-w-[100px] h-[100px] z-10"
               />
             </a>
-            
-           <p
-      className="text-sm font-medium leading-5 font-onest text-white flex items-center justify-center gap-2"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      <span ref={spanRef}>
-        <Image
-          src="/assets/icons-section/navigation-icon.svg"
-          alt="Logo Image"
-          width={24}
-          height={24}
-          className="flex items-center justify-center w-6 h-6 z-10"
-        />
-      </span>
-      Click on Interactive Features
-    </p>
 
-            {/* Feature icons */}
+            <p
+              className="text-sm font-medium leading-5 font-onest text-white flex items-center justify-center gap-2"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span ref={spanRef}>
+                <Image
+                  src="/assets/icons-section/navigation-icon.svg"
+                  alt="Navigation Icon"
+                  width={24}
+                  height={24}
+                  className="flex items-center justify-center w-6 h-6 z-10"
+                />
+              </span>
+              Click on Interactive Features
+            </p>
+
             {iconData.map((icon) => (
               <a
                 key={icon.id}
                 href="#"
                 id={icon.id}
-                className={`absolute cursor-pointer ${icon.size}
-                  rounded-[20px] border border-transparent hover:border-white w-auto
-                  flex items-center justify-center group`}
+                className={`absolute cursor-pointer ${icon.size} rounded-[20px] border border-transparent hover:border-white w-auto flex items-center justify-center group`}
               >
                 <Image
                   src={icon.src}
                   alt={icon.label}
                   width={80}
                   height={80}
-                  className="w-full h-full rounded-[20px] transition 
-                             group-hover:invert group-hover:brightness-0 group-hover:contrast-100"
+                  className="w-full h-full rounded-[20px] transition group-hover:invert group-hover:brightness-0 group-hover:contrast-100"
                 />
-
-                {/* Tooltip */}
                 <Tooltip text={icon.label} isComparisonToolTip={false} />
               </a>
             ))}
@@ -280,109 +206,21 @@ export default function PosIconsSection() {
 }
 
 const iconData = [
-  // Left Side
-  {
-    id: 'feature-icon-1',
-    label: "Point of Sale",
-    src: '/assets/icons-section/point-of-sale.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-3',
-    label: "People",
-    src: '/assets/icons-section/people.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-5',
-    label: " Products",
-    src: '/assets/icons-section/products.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-7',
-    label: "Restaurant",
-    src: '/assets/icons-section/restaurant.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-8',
-    label: "Sales & Orders",
-    src: '/assets/icons-section/sales-order.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-30 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-11',
-    label: "Marketing",
-    src: '/assets/icons-section/marketing.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-15',
-    label: "Facilities",
-    src: '/assets/icons-section/facilities.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-13',
-    label: "General Tools",
-    src: '/assets/icons-section/general-tools.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-17',
-    label: "Integrations",
-    src: '/assets/icons-section/integration.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-
-  // Right Side
-  {
-    id: 'feature-icon-2',
-    label: "Ecommerce",
-    src: '/assets/icons-section/ecomerce.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-6',
-    src: '/assets/icons-section/inventory-operation.svg',
-    label: "Inventory Operations",
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-4',
-    src: '/assets/icons-section/reports.svg',
-    label: "Reports",
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-10',
-    label: "Purchases",
-    src: '/assets/icons-section/purchases.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-9',
-    label: "Human Resource",
-    src: '/assets/icons-section/human-resource.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-12',
-    label: "Advance Reports",
-    src: '/assets/icons-section/advance-reports.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-14',
-    label: "Accounts & Finance",
-    src: '/assets/icons-section/acounts-finance.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
-  {
-    id: 'feature-icon-16',
-    label: "Manufacturing",
-    src: '/assets/icons-section/manufacturing.svg',
-    size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12',
-  },
+  { id: 'feature-icon-1', label: "Point of Sale", src: '/assets/icons-section/point-of-sale.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-2', label: "Ecommerce", src: '/assets/icons-section/ecomerce.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-3', label: "People", src: '/assets/icons-section/people.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-4', label: "Reports", src: '/assets/icons-section/reports.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-5', label: "Products", src: '/assets/icons-section/products.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-6', label: "Inventory Operations", src: '/assets/icons-section/inventory-operation.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-7', label: "Restaurant", src: '/assets/icons-section/restaurant.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-8', label: "Sales & Orders", src: '/assets/icons-section/sales-order.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-30 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-9', label: "Human Resource", src: '/assets/icons-section/human-resource.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-10', label: "Purchases", src: '/assets/icons-section/purchases.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-11', label: "Marketing", src: '/assets/icons-section/marketing.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-12', label: "Advance Reports", src: '/assets/icons-section/advance-reports.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-13', label: "General Tools", src: '/assets/icons-section/general-tools.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-14', label: "Accounts & Finance", src: '/assets/icons-section/acounts-finance.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-15', label: "Facilities", src: '/assets/icons-section/facilities.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-16', label: "Manufacturing", src: '/assets/icons-section/manufacturing.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
+  { id: 'feature-icon-17', label: "Integrations", src: '/assets/icons-section/integration.svg', size: 'lg:w-[87px] lg:h-[87px] md:w-20 md:h-20 w-12 h-12' },
 ];
