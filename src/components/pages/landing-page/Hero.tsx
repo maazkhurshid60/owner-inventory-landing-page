@@ -95,10 +95,7 @@ const caseStudiesData = [
 export default function Hero() {
 
   useEffect(() => {
-  // Always reset scroll on page load
   window.scrollTo(0, 0);
-
-  // Prevent Chrome/Next.js restoring scroll
   history.scrollRestoration = "manual";
 }, []);
   return (
@@ -119,7 +116,9 @@ export default function Hero() {
         />
         <CaseStudies caseStudies={caseStudiesData} />
         <FeaturesSection />
+        <div className="mb-[100px]">
         <SmartWaytoSyncndSellSection />
+        </div>
         <UnifiedPlatform />
         <VoicesRealBusiness />
         {/* <PinnedSection3 /> */}
