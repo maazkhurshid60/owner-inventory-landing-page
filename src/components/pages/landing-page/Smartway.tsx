@@ -138,7 +138,7 @@ export default function PosIconsSection() {
       ref={sectionRef}
       className="pinned-section-4 lg:mt-40 md:mt-28 mt-20 smart-features-icons"
     >
-      <div className="lg:h-auto md:h-screen flex flex-col items-center justify-center">
+      <div className=" lg:h-auto md:h-screen flex flex-col items-center justify-center">
         <section
           className="w-full relative rounded-[20px] lg:rounded-[40px] py-10 px-6 xl:p-[70px] lg:p-10 md:p-10 ownerinventory-landing__pos-icons-section bg-cover bg-no-repeat bg-top"
           style={{ backgroundImage: "url('/assets/icons-section/icons-section.webp')" }}
