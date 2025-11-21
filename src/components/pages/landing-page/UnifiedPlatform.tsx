@@ -52,6 +52,7 @@ export default function UnifiedPlatform() {
             end: "+=" + window.innerHeight * 2,
             pin: true,
             scrub: 1.2,
+            markers: true
           },
         }).to(".unified-platform-cards", { y: "-50%" });
       });
@@ -61,10 +62,11 @@ export default function UnifiedPlatform() {
         gsap.timeline({
           scrollTrigger: {
             trigger: ".pinned-section-2",
-            start: "top top",
+            start: "top 10%",
             end: "+=" + window.innerHeight * 2,
             pin: true,
             scrub: 1.2,
+            markers: true
           },
         }).to(".unified-platform-cards", { y: "-50%" });
       });
@@ -76,7 +78,7 @@ export default function UnifiedPlatform() {
   }, []);
 
   return (
-    <div className="pt-4 md:pt-28 lg:pt-40">
+    <div className="pt-4 md:pt-28 lg:pt-[100px]">
     <div className="pinned-section-2 min-h-[100vh] relative">
       <div className="flex items-center justify-center md:mt-0 mt-6">
         <section className="wrapper w-full">
