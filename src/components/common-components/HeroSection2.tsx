@@ -41,9 +41,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
     useHeroAnimation();
   } else if (variant === "animation2") {
     useHeroAnimation2();
-
   }
-
 
   const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
 
@@ -73,7 +71,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
   const heroLowerRef = useRef<HTMLImageElement>(null);
   const heroLowerBoxRef = useRef<HTMLImageElement>(null);
   const growthBoxRef = useRef<HTMLImageElement>(null);
-    const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
@@ -135,11 +133,17 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
         inventoryBlurIconRef.current,
         inventoryIconRef.current,
       ],
-      { opacity: 1, x: 0, y: 0, scale: 1, rotation: 0, duration: 2 ,
-         onComplete: () => {
+      {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        duration: 2,
+        onComplete: () => {
           // Trigger video playback when animation completes
           setShouldPlayVideo(true);
-        }
+        },
       },
       "2"
     );
@@ -150,17 +154,16 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
         y: 0,
         duration: 2,
         // onComplete: () => {
-        //   document.dispatchEvent(new Event("heroAnimationFinished")); 
+        //   document.dispatchEvent(new Event("heroAnimationFinished"));
         // },
       },
       "3"
     );
   }, []);
 
-
-   useEffect(() => {
+  useEffect(() => {
     if (shouldPlayVideo && videoRef.current) {
-      videoRef.current.play().catch(error => {
+      videoRef.current.play().catch((error) => {
         console.log("Video play failed:", error);
       });
     }
@@ -188,9 +191,9 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
           <div className="md:py-[1px] bg-[#F3F4F6] rounded-[20px] lg:rounded-[40px]">
             <div
               className={`owner-inventory-hero__bottom relative flex flex-col items-center justify-center  w-full ${heroHeight} ${heroOverflow} pt-10 pb-6 md:py-[76px] lg:py-0 px-6 lg:px-[100px] bg-[#F3F4F6] rounded-tr-[20px] rounded-b-[20px] lg:rounded-b-[40px] lg:rounded-tr-[40px] lg:rounded-tl-[40px] bg-cover bg-no-repeat backdrop-blur-[374px]`}
-             style={{
-            backgroundImage: "url('/assets/home-page-images/hero-bg.webp')",
-          }}
+              style={{
+                backgroundImage: "url('/assets/home-page-images/hero-bg.webp')",
+              }}
             >
               {/* Heading */}
               <div className="owner-inventory-hero__content flex flex-col items-center justify-center w-full">
@@ -232,15 +235,15 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
 
                 {/* Extra flexibility */}
                 {children}
-                 <div
-                ref={heroLowerRef}
-                className="owner-inventory-hero__lower relative w-full wrapper pt-10 md:pt-10 xl:pt-10 "
-              >
                 <div
-                  ref={heroLowerBoxRef}
-                  className="w-full h-[376px] lg:h-[650px] max-w-[250px] md:max-w-[300px] lg:max-w-[498px] mx-auto relative z-[-10] backdrop-blur-xl  px-[14px] py-3 lg:px-6 lg:py-5 border-[3px] border-[rgba(255,255,255,0.5)] bg-[rgba(255, 255, 255, 0.12)] rounded-[40px] -mb-34 -lg:mb-20"
+                  ref={heroLowerRef}
+                  className="owner-inventory-hero__lower relative w-full wrapper pt-10 md:pt-10 xl:pt-10 "
                 >
-                  {/* <HeroImageSlider
+                  <div
+                    ref={heroLowerBoxRef}
+                    className="w-full h-[376px] lg:h-[650px] max-w-[250px] md:max-w-[300px] lg:max-w-[498px] mx-auto relative z-[-10] backdrop-blur-xl  px-[14px] py-3 lg:px-6 lg:py-5 border-[3px] border-[rgba(255,255,255,0.5)] bg-[rgba(255, 255, 255, 0.12)] rounded-[40px] -mb-34 -lg:mb-20"
+                  >
+                    {/* <HeroImageSlider
                     images={[
                       "/assets/home-page-images/home-herofirst.webp",
                       "/assets/home-page-images/girl.webp",
@@ -257,172 +260,173 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                     ]}
                   /> */}
 
-                  <div className="w-full h-full  rounded-[40px] relative overflow-hidden">
-
-                   <video
-                     ref={videoRef}
-                      className="w-full object-cover rounded-3xl"
-                      muted
-                      playsInline
-                       autoPlay={shouldPlayVideo}
-                      loop
-                    >
-                      <source src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/hero-animation.webm" type="video/mp4" />
-                    </video>
-
+                    <div className="w-full h-full  rounded-[40px] relative overflow-hidden">
+                      <video
+                        ref={videoRef}
+                        className="w-full object-cover rounded-3xl"
+                        muted
+                        playsInline
+                        autoPlay={shouldPlayVideo}
+                        loop
+                      >
+                        <source
+                          src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/hero-animation.mp4"
+                          type="video/mp4"
+                        />
+                        <source
+                          src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/hero-animation.webm"
+                          type="video/webm"
+                        />
+                      </video>
                     </div>
 
-                  <div
-                    ref={productsImageRef}
-                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[90px] lg:top-[120px] left-[-20px] lg:left-[-60px]"
-                   
-                  >
-                    <Image
-                      src="/assets/home-page-images/products.svg"
-                      alt="Pricing Image"
-                      width={33}
-                      height={33}
-                      loading="lazy"
-                      className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
-                    />
-                    <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
-                      Products
-                    </p>
+                    <div
+                      ref={productsImageRef}
+                      className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[90px] lg:top-[120px] left-[-20px] lg:left-[-60px]"
+                    >
+                      <Image
+                        src="/assets/home-page-images/products.svg"
+                        alt="Pricing Image"
+                        width={33}
+                        height={33}
+                        loading="lazy"
+                        className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
+                      />
+                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
+                        Products
+                      </p>
+                    </div>
+
+                    <div
+                      ref={advanceReportImageRef}
+                      className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[180px] left-[-20px] lg:top-[300px] lg:left-[-60px]"
+                    >
+                      <Image
+                        src="/assets/home-page-images/advance-report.svg"
+                        alt="Pricing Image"
+                        width={800}
+                        height={600}
+                        loading="lazy"
+                        className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
+                      />
+                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
+                        Advance Reports
+                      </p>
+                    </div>
+
+                    <div
+                      ref={inventorySystemImageRef}
+                      className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[55px] right-[-19px] md:top-[110px] lg:top-[130px] md:right-[-110px] lg:right-[-150px] 2xl:top-[120px] 2xl:right-[-200px]"
+                    >
+                      <Image
+                        src="/assets/home-page-images/inventory-system.svg"
+                        alt="Pricing Image"
+                        width={800}
+                        height={600}
+                        loading="lazy"
+                        className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
+                      />
+                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
+                        Inventory Operations
+                      </p>
+                    </div>
+                    <div
+                      ref={reportsImageRef}
+                      className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[148px] -right-5 md:top-[200px] md:right-[-60px] lg:top-[300px] lg:right-[-120px]"
+                    >
+                      <Image
+                        src="/assets/home-page-images/reports.svg"
+                        alt="Pricing Image"
+                        width={800}
+                        height={600}
+                        loading="lazy"
+                        className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
+                      />
+                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
+                        Reports
+                      </p>
+                    </div>
                   </div>
 
                   <div
-                    ref={advanceReportImageRef}
-                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[180px] left-[-20px] lg:top-[300px] lg:left-[-60px]"
-                  
+                    ref={fastServiceDescRef}
+                    className="hidden lg:flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-xl bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[200px] left-0 2xl:top-[120px] 2xl:left-0"
                   >
-                    <Image
-                      src="/assets/home-page-images/advance-report.svg"
-                      alt="Pricing Image"
-                      width={800}
-                      height={600}
-                      loading="lazy"
-                      className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
-                    />
-                    <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
-                      Advance Reports
+                    <p className="text-base leading-5 font-medium font-onest text-[#581C87]">
+                      Fast Service
                     </p>
-                  </div>
-
-                  <div
-                    ref={inventorySystemImageRef}
-                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[55px] right-[-19px] md:top-[110px] lg:top-[130px] md:right-[-110px] lg:right-[-150px] 2xl:top-[120px] 2xl:right-[-200px]"
-                     
-                  >
-                    <Image
-                      src="/assets/home-page-images/inventory-system.svg"
-                      alt="Pricing Image"
-                      width={800}
-                      height={600}
-                      loading="lazy"
-                      className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
-                    />
-                    <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
-                      Inventory Operations
-                    </p>
-                  </div>
-                  <div
-                    ref={reportsImageRef}
-                    className="flex w-fit items-center justify-center gap-[6px] md:gap-4 px-[10px] py-[6px] md:px-4 md:py-3 glass-background absolute top-[148px] -right-5 md:top-[200px] md:right-[-60px] lg:top-[300px] lg:right-[-120px]"
-                     
-                  >
-                    <Image
-                      src="/assets/home-page-images/reports.svg"
-                      alt="Pricing Image"
-                      width={800}
-                      height={600}
-                      loading="lazy"
-                      className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
-                    />
-                    <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
-                      Reports
-                    </p>
-                  </div>
-                </div>
-
-                <div
-                  ref={fastServiceDescRef}
-                  className="hidden lg:flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-xl bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute top-[200px] left-0 2xl:top-[120px] 2xl:left-0"
-                >
-                  <p className="text-base leading-5 font-medium font-onest text-[#581C87]">
-                    Fast Service
-                  </p>
-                </div>
-                <Image
-                  src="/assets/home-page-images/fast-service.svg"
-                  alt="Pricing Image"
-                  ref={fastServiceImageRef}
-                  width={800}
-                  height={600}
-                  loading="lazy"
-                  className="w-[51px] h-[64px] hidden lg:block absolute top-[110px] left-[30px] 2xl:top-[50px] 2xl:left-[60px]"
-                />
-                <div
-                  ref={safeSecureDescRef}
-                  className="hidden lg:flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-xl bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute bottom-[40px] right-[-10px] xl:bottom-[250px] 2xl:bottom-[200px] 2xl:right-0"
-                >
-                  <p className="text-base leading-5 font-medium font-onest text-[#581C87]">
-                    Safe & Secure
-                  </p>
-                </div>
-                <Image
-                  src="/assets/home-page-images/safe-secure.svg"
-                  alt="Pricing Image"
-                  ref={safeSecureImageRef}
-                  width={800}
-                  height={600}
-                  loading="lazy"
-                  className="2xl:w-[100px] hidden lg:block 2xl:h-[118px] w-20 h-[90px] absolute bottom-[85px] right-[0px] xl:bottom-[300px] 2xl:bottom-[250px] 2xl:right-[60px]"
-                />
-
-                <Image
-                  src="/assets/home-page-images/inventory-blur-icon.svg"
-                  alt="Pricing Image"
-                  ref={inventoryBlurIconRef}
-                  width={800}
-                  height={600}
-                  loading="lazy"
-                  className="2xl:w-[120px] lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] 2xl:h-[120px] absolute top-[-20px] right-[-10px] md:top-[-10px] 2xl:top-[-60px] 2xl:right-[200px] md:right-0"
-                />
-
-                <Image
-                  src="/assets/home-page-images/inventory-icon.svg"
-                  alt="Pricing Image"
-                  ref={inventoryIconRef}
-                  width={800}
-                  height={600}
-                  loading="lazy"
-                  className="2xl:w-[120px] 2xl:h-[120px] lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] absolute top-[-5px] right-[-5px] md:top-[10px] md:right-[20px] lg:top-[10px] lg:right-[20px] 2xl:top-[-40px] 2xl:right-[180px]"
-                />
-
-                <div
-                  ref={growthBoxRef}
-                  className="hidden lg:flex flex-col w-full max-w-[300px] xl:max-w-[400px] 2xl:max-w-[480px] p-4 absolute bottom-[0px]  z-[-20]"
-                >
-                  <div ref={totalGrowthHeadingRef}>
-                    <SubHeading>42.5k</SubHeading>
                   </div>
                   <Image
-                    src="/assets/home-page-images/total-growth.svg"
+                    src="/assets/home-page-images/fast-service.svg"
                     alt="Pricing Image"
-                    ref={totalGrowthImageRef}
+                    ref={fastServiceImageRef}
                     width={800}
                     height={600}
                     loading="lazy"
-                    className="w-full "
+                    className="w-[51px] h-[64px] hidden lg:block absolute top-[110px] left-[30px] 2xl:top-[50px] 2xl:left-[60px]"
                   />
-                  <div ref={totalGrowthDescRef}>
-                    <Paragraph className="text-left xl:text-center mt-3">Total Growth</Paragraph>
+                  <div
+                    ref={safeSecureDescRef}
+                    className="hidden lg:flex w-fit items-center justify-center gap-4 px-4 py-2 backdrop-blur-xl bg-[rgba(255, 255, 255, 0.25)] border-[1.5px]  border-[rgba(255,255,255,1)] rounded-full absolute bottom-[40px] right-[-10px] xl:bottom-[250px] 2xl:bottom-[200px] 2xl:right-0"
+                  >
+                    <p className="text-base leading-5 font-medium font-onest text-[#581C87]">
+                      Safe & Secure
+                    </p>
+                  </div>
+                  <Image
+                    src="/assets/home-page-images/safe-secure.svg"
+                    alt="Pricing Image"
+                    ref={safeSecureImageRef}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    className="2xl:w-[100px] hidden lg:block 2xl:h-[118px] w-20 h-[90px] absolute bottom-[85px] right-[0px] xl:bottom-[300px] 2xl:bottom-[250px] 2xl:right-[60px]"
+                  />
+
+                  <Image
+                    src="/assets/home-page-images/inventory-blur-icon.svg"
+                    alt="Pricing Image"
+                    ref={inventoryBlurIconRef}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    className="2xl:w-[120px] lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] 2xl:h-[120px] absolute top-[-20px] right-[-10px] md:top-[-10px] 2xl:top-[-60px] 2xl:right-[200px] md:right-0"
+                  />
+
+                  <Image
+                    src="/assets/home-page-images/inventory-icon.svg"
+                    alt="Pricing Image"
+                    ref={inventoryIconRef}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    className="2xl:w-[120px] 2xl:h-[120px] lg:w-[90px] lg:h-[90px] md:w-[63px] md:h-[63px] w-[46px] h-[46px] absolute top-[-5px] right-[-5px] md:top-[10px] md:right-[20px] lg:top-[10px] lg:right-[20px] 2xl:top-[-40px] 2xl:right-[180px]"
+                  />
+
+                  <div
+                    ref={growthBoxRef}
+                    className="hidden lg:flex flex-col w-full max-w-[300px] xl:max-w-[400px] 2xl:max-w-[480px] p-4 absolute bottom-[0px]  z-[-20]"
+                  >
+                    <div ref={totalGrowthHeadingRef}>
+                      <SubHeading>42.5k</SubHeading>
+                    </div>
+                    <Image
+                      src="/assets/home-page-images/total-growth.svg"
+                      alt="Pricing Image"
+                      ref={totalGrowthImageRef}
+                      width={800}
+                      height={600}
+                      loading="lazy"
+                      className="w-full "
+                    />
+                    <div ref={totalGrowthDescRef}>
+                      <Paragraph className="text-left xl:text-center mt-3">
+                        Total Growth
+                      </Paragraph>
+                    </div>
                   </div>
                 </div>
               </div>
-              </div>
-
-             
             </div>
           </div>
         </section>
