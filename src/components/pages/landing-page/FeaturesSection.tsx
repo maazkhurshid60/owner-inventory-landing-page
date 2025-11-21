@@ -96,7 +96,9 @@ export default function FeaturesTabSection() {
                 }`}
               >
                 <video
-                  ref={(el) => (desktopRefs.current[feature.id] = el)}
+                  ref={(el) => {
+                    desktopRefs.current[feature.id] = el;
+                  }}
                   className="w-full h-full object-cover rounded-3xl"
                   muted
                   playsInline
@@ -157,7 +159,9 @@ export default function FeaturesTabSection() {
                   {isActive && (
                     <div className="md:hidden w-full mt-5">
                       <video
-                        ref={(el) => (mobileRefs.current[feature.id] = el)}
+                        ref={(el) => {
+                          mobileRefs.current[feature.id] = el;
+                        }}
                         className="w-full object-cover rounded-3xl"
                         muted
                         playsInline
