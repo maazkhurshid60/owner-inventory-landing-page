@@ -189,7 +189,7 @@ export default function FeaturesTabSection() {
                     >
                       {/* MP4 fallback first */}
                       <source
-                        src={feature.video.replace(".webm", ".mp4")}
+                        src={feature.video}
                         type="video/mp4"
                       />
 
