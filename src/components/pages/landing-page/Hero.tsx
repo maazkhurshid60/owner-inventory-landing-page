@@ -76,7 +76,6 @@ const caseStudiesData = [
     backgroundImage: "/assets/home-page-images/isolation-mode.webp",
     ctaText: "Read Case Study",
   },
-  // Add more if you have them, or duplicate these for demo
   {
     id: "5",
     title: "Global Mart",
@@ -93,15 +92,19 @@ const caseStudiesData = [
 ];
 
 export default function Hero() {
-
   useEffect(() => {
-  window.scrollTo(0, 0);
-  history.scrollRestoration = "manual";
-}, []);
+    // keep user at top on mount; restore manual behavior
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+      try {
+        history.scrollRestoration = "manual";
+      } catch (e) {}
+    }
+  }, []);
+
   return (
     <>
-      {/* Rounded Background Header Shape */}
-      <div className="font-onset ">
+      <div className="font-onset">
         <HeroSection2
           title="Take Control. Gain Clarity. Grow with Owners Inventory."
           description="Turn all assets to advantage. Our Owners Inventory services assist you in managing, examining and displaying your inventory in a single, smart, interconnected environment - created to respond to real expansion."
@@ -116,26 +119,13 @@ export default function Hero() {
         />
         <CaseStudies caseStudies={caseStudiesData} />
         <FeaturesSection />
-        <div className="mb-[100px]">
+
         <SmartWaytoSyncndSellSection />
-        </div>
         <UnifiedPlatform />
         <VoicesRealBusiness />
-        {/* <PinnedSection3 /> */}
         <PosIconsSection />
-        <ToolsSection/>
+        <ToolsSection />
         <SmartTools />
-        {/* <ReviewSection />
-
-        <SellerClubSection
-          mediaType="image"
-          mediaSrc="/assets/features-section/testing.webp"
-          heading="Join the Smart Sellers Club"
-          description="Discover how easy it is to manage inventory, run POS, and launch an online store — all from a single, unified dashboard."
-          buttonText="Book a Free Demo"
-          buttonUrl="#"
-        />
-        <FlexiblePricingSection /> */}
         <InsightsSection />
         <FaqSection />
         <CalltoActionBottom />
