@@ -193,10 +193,10 @@ export default function PosIconsSection() {
           className="w-full relative rounded-[20px] lg:rounded-[40px] py-10 px-6 xl:p-[70px] lg:p-10 md:p-10 ownerinventory-landing__pos-icons-section bg-cover bg-no-repeat bg-top"
           style={{ backgroundImage: "url('/assets/icons-section/icons-section.webp')" }}
         >
-          <MainHeading className="text-white text-center mb-6">
+          <MainHeading className="text-[var(--white-color)] text-center mb-6">
             Your Complete Inventory Toolkit
           </MainHeading>
-          <Paragraph className="text-white text-center">
+          <Paragraph className="text-[var(--white-color)] text-center">
             Click any feature below to get started
           </Paragraph>
 
@@ -215,7 +215,7 @@ export default function PosIconsSection() {
             </a>
 
             <p
-              className="text-sm font-medium leading-5 font-onest text-white flex items-center justify-center gap-2"
+              className="text-sm font-medium leading-5 font-onest text-[var(--white-color)] flex items-center justify-center gap-2"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
             >

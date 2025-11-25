@@ -35,7 +35,12 @@ const industries = [
       "Track every size, color, and style with product variants, manage seasonal collections, and keep stock aligned across online and physical stores, whether you sell streetwear, shoes, or high fashion.",
     image: "/assets/industry-type/fashion.webp",
   },
-  
+  {
+    title: "Hardware Stores",
+    description:
+      "Manage diverse inventory with variants, track tools and equipment, and handle both retail and contractor sales efficiently.",
+    image: "/assets/industry-type/hardware.webp",
+  },
 ];
 
 export default function IndustryPOSShowcase() {
@@ -135,21 +140,21 @@ export default function IndustryPOSShowcase() {
     }
     
     switch(screenSize) {
-      case "mobile": return "min-w-full ";
-      case "tablet": return "min-w-auto max-w-[48%]";
-      case "smallDesktop": return "min-w-auto max-w-[32%]";
-      case "desktop": return "min-w-auto max-w-[32%]";
-      default: return "min-w-auto";
+      case "mobile": return "min-w-full";
+      case "tablet": return "min-w-[50%]";
+      case "smallDesktop": return "min-w-[50%]";
+      case "desktop": return "min-w-[33%]";
+      default: return "min-w-[33%]";
     }
   };
 
   const getHoverCardWidth = () => {
     switch(screenSize) {
       case "mobile": return "hover:min-w-full";
-      case "tablet": return "hover:min-w-[55%]";
+      case "tablet": return "hover:min-w-[60%]";
       case "smallDesktop": return "hover:min-w-[60%]";
-      case "desktop": return "hover:min-w-[42%]";
-      default: return "hover:min-w-[42%]";
+      case "desktop": return "hover:min-w-[48%]";
+      default: return "hover:min-w-[48%]";
     }
   };
 
@@ -162,7 +167,7 @@ export default function IndustryPOSShowcase() {
           {/* SLIDER CONTAINER */}
           <div className="flex flex-col gap-10 w-full">
             {/* WRAPPER */}
-            <div className="flex gap-4 lg:gap-6 items-stretch transition-all duration-500 ease-in-out transform">
+            <div className="flex gap-4 lg:gap-12 items-stretch transition-all duration-500 ease-in-out transform">
               {visibleCards.map((item, i) => {
                 const globalIndex = currentSlide + i;
                 const isExpanded = isCardExpanded(i);
@@ -174,6 +179,10 @@ export default function IndustryPOSShowcase() {
                     ? "group-hover:bg-[#1AD1B9]"
                     : "group-hover:bg-[#795CF5]";
 
+                // For tablet active cards, apply same styles as desktop hover
+                const isTabletActive = screenSize === "tablet" && isExpanded;
+                const showHoverStyles = !isMobileOrTablet || isTabletActive;
+
                 return (
                   <div
                     key={globalIndex}
@@ -181,8 +190,8 @@ export default function IndustryPOSShowcase() {
                     className={`group relative grid grid-cols-12 gap-4 ${getCardWidth(i)} ${screenSize !== "tablet" ? getHoverCardWidth() : ""} h-[370px] p-4 lg:p-6 xl:p-8 
                       rounded-[30px] shadow-[0px_0px_20px_0px_#00000005]
                       ${cardBg}
-                      ${(!isMobileOrTablet && "hover:bg-[var(--background-light)]") || ""}
-                      ${isExpanded ? "bg-[var(--background-light)]" : ""}
+                      ${(!isMobileOrTablet && "hover:bg-[#F3F3F3]") || ""}
+                      ${isExpanded ? "bg-[#F3F3F3]" : ""}
                       transition-all duration-1000 overflow-hidden cursor-pointer
                       ${
                         isAnimating
@@ -192,24 +201,20 @@ export default function IndustryPOSShowcase() {
                   >
                     <div
                       className={`col-span-8 flex flex-col justify-between gap-6 transition-all duration-1000
-                        ${!isMobileOrTablet ? "group-hover:col-span-8" : isExpanded ? "col-span-8" : ""}`}
+                        ${showHoverStyles ? "col-span-8" : ""}`}
                     >
                       <div>
                         <h4
-                          className={`text-[24px] lg:text-[28px] lg:whitespace-nowrap  xl:text-[32px] font-medium mb-4 ${
-                            (!isMobileOrTablet &&
-                              "text-[var(--white-color)] group-hover:text-[var(--text-dark)]") ||
-                            (isMobileOrTablet &&
-                              (isExpanded ? "text-[var(--text-dark)]" : "text-[var(--white-color)]"))
+                          className={`text-[24px] lg:text-[28px] xl:text-[32px] font-medium mb-4 ${
+                            showHoverStyles ? "text-[#231F20]" : "text-white"
                           } transition-colors duration-1000`}
                         >
                           {item.title}
                         </h4>
 
                         <p
-                          className={`text-sm lg:text-base text-[var(--text-grey)] transition-opacity duration-700
-                            ${!isMobileOrTablet ? "opacity-0 group-hover:opacity-100" : "opacity-0"}
-                            ${isMobileOrTablet && isExpanded ? "opacity-100" : ""}
+                          className={`text-sm lg:text-base text-[#666666] transition-opacity duration-700
+                            ${showHoverStyles ? "opacity-100" : "opacity-0"}
                           `}
                         >
                           {item.description}
@@ -219,17 +224,14 @@ export default function IndustryPOSShowcase() {
                       <Link
                         href="#"
                         className={`flex justify-between absolute bottom-6 left-6 lg:left-8 items-center rounded-full bg-white 
-                          py-[6px] ps-4 pe-1 w-[85%] gap-4 text-[#333333] cursor-pointer text-sm lg:text-base font-semibold leading-[100%]
+                          py-[6px] ps-4 pe-1 w-[85%] max-w-full gap-4 text-[#333333] cursor-pointer text-sm lg:text-base font-semibold leading-[100%]
                           transition-[max-width] duration-1000 overflow-hidden
-                          ${
-                            (!isMobileOrTablet && "max-w-full group-hover:max-w-[180px]") ||
-                            (isMobileOrTablet && (isExpanded ? "max-w-[180px]" : "max-w-full"))
-                          }`}
+                          ${showHoverStyles ? "max-w-[180px]" : "max-w-full"}`}
                       >
                         Read more
                         <span
-                          className={`px-4 py-[18px] rounded-[50%] bg-[var(--background-light)] transition-colors duration-1000 ${
-                            !isMobileOrTablet ? hoverBg : isExpanded ? hoverBg : ""
+                          className={`px-4 py-[18px] rounded-[50%] bg-[#F3F3F3] transition-colors duration-1000 ${
+                            showHoverStyles ? hoverBg : ""
                           }`}
                         >
                           <MoveUpRight size={20} />
@@ -240,8 +242,7 @@ export default function IndustryPOSShowcase() {
                     {/* IMAGE */}
                     <div
                       className={`col-span-4 transition-opacity duration-700
-                        ${!isMobileOrTablet ? "opacity-0 group-hover:opacity-100" : "opacity-0"}
-                        ${isMobileOrTablet && isExpanded ? "opacity-100" : ""}
+                        ${showHoverStyles ? "opacity-100" : "opacity-0"}
                       `}
                     >
                       <Image
@@ -256,8 +257,7 @@ export default function IndustryPOSShowcase() {
                     {/* SVG DECORATIONS */}
                     <div
                       className={`absolute top-14 left-0 transition-all duration-1000 ${
-                        (!isMobileOrTablet && "group-hover:hidden") ||
-                        (isMobileOrTablet && (isExpanded ? "hidden" : "block"))
+                        showHoverStyles ? "hidden" : "block"
                       }`}
                     >
                       <svg
@@ -303,8 +303,7 @@ export default function IndustryPOSShowcase() {
 
                     <div
                       className={`absolute right-0 top-0 transition-all duration-1000 ${
-                        (!isMobileOrTablet && "group-hover:hidden") ||
-                        (isMobileOrTablet && (isExpanded ? "hidden" : "block"))
+                        showHoverStyles ? "hidden" : "block"
                       }`}
                     >
                       <svg
@@ -313,7 +312,6 @@ export default function IndustryPOSShowcase() {
                         viewBox="0 0 111 94"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
-                        opacity="0.40"
                       >
                         <path
                           d="M151.526 18.9166C149.997 59.9948 115.457 92.0555 74.3787 90.5263C33.3005 88.997 1.23975 54.4568 2.76901 13.3787C4.29826 -27.6995 38.8384 -59.7603 79.9166 -58.231C120.995 -56.7018 153.056 -22.1616 151.526 18.9166ZM11.7311 13.7123C10.3861 49.8409 38.5838 80.2192 74.7123 81.5642C110.841 82.9092 141.219 54.7115 142.564 18.5829C143.909 -17.5456 115.712 -47.924 79.583 -49.269C43.4544 -50.6139 13.0761 -22.4163 11.7311 13.7123Z"

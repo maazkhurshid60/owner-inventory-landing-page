@@ -6,6 +6,7 @@ import ButtonSm from "@/components/button/ButtonSm";
 import ButtonOutline from "@/components/button/ButtonOutline";
 import Image from "next/image";
 import ContactModal from "@/components/models/ContactModal";
+import Link from "next/link";
 
 const usedTools = [
   {
@@ -47,23 +48,23 @@ const SmartTools = () => {
             "url('/assets/home-page-images/black-background.webp')",
         }}
       >
-        <MainHeading className="text-center lg:mb-6 md:mb-6 mb-5 text-white">
+        <MainHeading className="text-center lg:mb-6 md:mb-6 mb-5 text-[var(--white-color)]">
           Stay Ahead with Smart Tools
         </MainHeading>
-        <Paragraph className="text-center lg:mb-[42px] md:mb-6 mb-5 text-white">
+        <Paragraph className="text-center lg:mb-[42px] md:mb-6 mb-5 text-[var(--white-color)]">
           Everything you need to grow your business, learn at your pace, and
           stay connected with the community of smart sellers.
         </Paragraph>
-        <div className="flex gap-3 lg:gap-6 flex-col md:flex-row items-center justify-center">
-          <a
+        <div className="flex gap-3 lg:gap-6 flex-col md:flex-row items-center justify-center relative z-50">
+          <Link
             href=""
             className="bg-transparent w-full md:w-fit
     px-4 py-2.5 md:px-5 md:py-3 lg:px-[40px] xl:px-[64px] lg:py-4 flex items-center justify-center text-base font-onest font-semibold
-     text-white  border border-white hover:border-transparent rounded-full hover:text-black  hover:bg-white
+     text-[var(--white-color)]  border border-[var(--white-color)] hover:border-transparent rounded-full hover:text-black  hover:bg-[var(--white-color)]
      transition-colors duration-300"
           >
             Watch Tutorials
-          </a>
+          </Link>
           <ButtonSm
             url="#"
             text="Contact Now"
@@ -76,7 +77,7 @@ const SmartTools = () => {
           />
         </div>
 
-        <div className="w-full lg:max-w-[1000px] md:max-w-[760px] xl:max-w-[1065px] bg-transparent px-5 mx-auto md:mt-[-88px] lg:mt-[-162px]">
+        <div className="w-full lg:max-w-[1000px] md:max-w-[760px] xl:max-w-[1065px] bg-transparent px-5 relative z-30 mx-auto md:mt-[-88px] lg:mt-[-162px]">
           {/* <Image
             src="/assets/home-page-images/smart-tools.webp"
             alt="Chaos Image"

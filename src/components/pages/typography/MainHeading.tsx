@@ -10,7 +10,7 @@ const MainHeading: React.FC<MainHeadingProps> = ({ children, className }) => {
   return (
     <h2
       className={clsx(
-        "font-semibold text-[#231F20]",
+        "font-semibold text-[var(--text-dark)]",
         "font-onest",
         "xl:text-[64px] lg:text-5xl md:text-[40px] text-[32px]",
         "xl:leading-[76px] lg:leading-[60px] leading-[130%]",

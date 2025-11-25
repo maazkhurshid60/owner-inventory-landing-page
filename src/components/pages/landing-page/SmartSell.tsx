@@ -1,24 +1,32 @@
 import ButtonSm from "@/components/button/ButtonSm";
 import React from "react";
+import MainHeading from "../typography/MainHeading";
+import Paragraph from "../typography/Paragraph";
+import IndustryPOSShowcase from "./IndustryPosShowcase";
 
 export default function SmartSellSection() {
   return (
-    <section className="wrapper" id="pos-animation">
-      <div className="flex flex-col items-start  justify-center" id="pos-animation">
+    <section className="wrapper">
+      <div className="flex flex-col items-start justify-center">
         
         {/* Heading */}
-        <h1 className="font-onest font-semibold text-[#231F20] text-4xl md:text-3xl xl:text-5xl leading-9 xl:leading-[60px] lg:max-w-4xl xl:mb-2 lg:mb-2 mb-5">
-                            Built for Every Industry
-                        </h1>
+                <MainHeading className="mb-6">
+                    Built for Every Industry
+                </MainHeading>
 
-        {/* Description */}
-                        <p
-                            className="font-onest font-normal text-[#231F20] text-sm lg:text-lg xl:text-xl leading-6 lg:leading-7 w-full xl:mb-3 lg:mb-3 md:mb-10 mb-8">
-                            No matter what you sell, the Owners Inventory management program adapts to you.
-                        </p>
+        {/* Description */}             
+                        <Paragraph className="mb-6">
+                          No matter what you sell, the Owners Inventory management program adapts to you.
+                        </Paragraph>
+
+  
 
       
           <ButtonSm url='#' text='Get Explore Now' bgColor='[#795CF5]' textColor="white" isBorder/>
+
+          <div className="w-full">
+            <IndustryPOSShowcase/>
+          </div>
 
       </div>
     </section>

@@ -140,8 +140,8 @@ const PinnedSection3 = () => {
   return (
     <div className="pinned-section-3">
       <div className="md:h-screen lg:block flex flex-col items-start md:pt-[140px] lg:pt-[110px] justify-center">
-        <SmartSellSection />
-        <IndustryPOSShowcase />
+        {/* <SmartSellSection /> */}
+        {/* <IndustryPOSShowcase /> */}
         <IndustryPosMobile />
       </div>
     </div>

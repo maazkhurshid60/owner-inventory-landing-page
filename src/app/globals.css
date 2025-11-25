@@ -10,6 +10,32 @@ html, body {
 }
 
 
+:root {
+  /* Light mode colors */
+  --primary-purple: #795CF5;
+  --primary-teal: #1AD1B9;
+  --background-light: #F3F3F3;
+  --background-halfwhite: #F3F4F6;
+  --white-color: #FFFFFF;
+  --text-dark:   #231F20;
+  --text-grey: #666666;
+  --text-light: #333333;
+  --border-light: #E5E7EB;
+}
+
+
+
+/* .dark {
+  --primary-purple: #8C75F7;
+  --primary-teal: #2BE3CB;
+  --background-light: #1F2937;
+  --background-white: #111827;
+  --text-dark: #F9FAFB;
+  --text-gray: #D1D5DB;
+  --text-light: #F3F4F6;
+  --border-light: #374151;
+} */
+
 
 /* Wrapper for complete website styling started here */
 
@@ -72,7 +98,7 @@ html, body {
 .swiper .swiper-pagination-bullet {
   width: 10px;
   height: 10px;
-  background-color: #795CF5;
+  background-color: var(--primary-purple);
   opacity: 0.4;
   transition: all 0.3s ease;
   border-radius: 50%;
@@ -83,7 +109,7 @@ html, body {
   opacity: 1;
   width: 15px;
   height: 15px;
-  background-color: #795CF5;
+  background-color: (--primary-purple);
 }
 
 .swiper-mobile {
@@ -230,3 +256,11 @@ html, body {
 }
 
 
+/* OPTIONAL — ADD IN YOUR GLOBAL CSS */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

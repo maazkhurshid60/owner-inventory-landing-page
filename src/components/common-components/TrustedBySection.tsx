@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import MainHeading from "../pages/typography/MainHeading";
 import BrandsSwiper from "../slider/BrandsSwiper";
@@ -19,7 +20,7 @@ const TrustedBySection = () => {
         </MainHeading>
 
         <BrandsSwiper
-          slides={brands} // ✅ pass brands array
+          slides={brands}
           renderSlide={(brandItem) => (
             <div className="flex items-center justify-center rounded-0 p-4">
               <Image

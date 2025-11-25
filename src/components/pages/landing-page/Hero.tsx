@@ -22,6 +22,7 @@ import CaseStudies from "./CaseStudy";
 import VoicesRealBusiness from "./VoicesRealBusiness";
 import ToolsSection from "./ToolsSection";
 import SmartTools from "./SmartTools";
+import SmartSellSection from "./SmartSell";
 
 const caseStudiesData = [
   {
@@ -123,6 +124,7 @@ export default function Hero() {
         <SmartWaytoSyncndSellSection />
         <UnifiedPlatform />
         <VoicesRealBusiness />
+        <SmartSellSection/>
         <PosIconsSection />
         <ToolsSection />
         <SmartTools />

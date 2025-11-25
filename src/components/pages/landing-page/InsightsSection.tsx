@@ -74,7 +74,7 @@ export default function InsightsSection() {
             return (
               <div
                 key={index}
-                className={`col-span-12 ${mdCol} ${lgCol} bg-white shadow-[2px_2px_22px_0px_#33333326] rounded-[20px] lg:p-6 p-4 flex flex-col h-full`}
+                className={`col-span-12 ${mdCol} ${lgCol} bg-[var(--white-color)] shadow-[2px_2px_22px_0px_#33333326] rounded-[20px] lg:p-6 p-4 flex flex-col h-full`}
               >
                 <div className="relative w-full mb-6">
                   <Image
@@ -85,7 +85,7 @@ export default function InsightsSection() {
                     loading="lazy"
                     className="w-full h-72 object-cover rounded-[20px]"
                   />
-                  <span className="absolute inline-block text-white bg-[#795CF5] font-onest text-xs lg:text-sm bottom-4 left-4 lg:bottom-3 lg:left-3 px-2 py-1 rounded-md">
+                  <span className="absolute inline-block text-[var(--white-color)] bg-[var(--primary-purple)] font-onest text-xs lg:text-sm bottom-4 left-4 lg:bottom-3 lg:left-3 px-2 py-1 rounded-md">
                     2 mins read
                   </span>
                 </div>
@@ -99,7 +99,7 @@ export default function InsightsSection() {
                     </div>
 
                     <div className="card-paragraph-wrapper text-left mb-2">
-                      <CardDesc className="card-paragraph xl:text-lg leading-[28px] min-h-[30px] flex items-start text-[#666666]">
+                      <CardDesc className="card-paragraph xl:text-lg leading-[28px] min-h-[30px] flex items-start ">
                         {blog.blogOverview.slice(0, 200)}
                         {blog.blogOverview.length > 200 ? "..." : ""}
                       </CardDesc>
@@ -109,9 +109,9 @@ export default function InsightsSection() {
                   <div className=" pt-4 border-gray-100 text-left">
                     <p className="font-onest font-medium text-[#231F20] xl:text-lg lg:text-sm md:text-xs text-sm xl:leading-9 md:leading-7 leading-5">
                       Posted:{" "}
-                      <span className="text-[#795CF5]">{blog.date}</span>{" "}
+                      <span className="text-[var(--primary-purple)]">{blog.date}</span>{" "}
                       <span className="text-[#D9D9D9]">|</span> by{" "}
-                      <span className="text-[#795CF5]">{blog.author}</span>
+                      <span className="text-[var(--primary-purple)]">{blog.author}</span>
                     </p>
                   </div>
                 </div>
@@ -121,7 +121,7 @@ export default function InsightsSection() {
         </div>
 
         {/* <div className="lg:mt-[100px] md:mt-[60px] mt-10">
-          <button className="bg-[#795CF5] text-white border border-transparent cursor-pointer hover:bg-transparent hover:border-[#795CF5] hover:text-[#795CF5] font-onest font-semibold text-base px-[60px] py-5 rounded-full transition">
+          <button className="bg-[var(--primary-purple)] text-[var(--white-color)] border border-transparent cursor-pointer hover:bg-transparent hover:border-[var(--primary-purple)] hover:text-[var(--primary-purple)] font-onest font-semibold text-base px-[60px] py-5 rounded-full transition">
             Browse Insights
           </button>
         </div> */}
