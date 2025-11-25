@@ -3,6 +3,8 @@ import { useState } from "react";
 import Image from "next/image";
 import "../../../app/globals.css";
 import ButtonLg from "@/components/button/ButtonLg";
+import MainHeading from "../typography/MainHeading";
+import Paragraph from "../typography/Paragraph";
 const faqs = [
   {
     question: "What can I manage with Owners Inventory?",
@@ -54,7 +56,7 @@ export default function FaqSection() {
                   <span
                     className={`w-full max-w-[90%] text-sm md:text-xl leading-5 md:leading-9 font-onest transition-colors duration-300
                     
-                    ${openIndex === index ? "text-[#795cf5]" : "text-[#231f20]"}
+                    ${openIndex === index ? "text-[var(--primary-purple)]" : "text-[var(--text-dark)]"}
                     `}
                   >
                     {faq.question}
@@ -88,7 +90,7 @@ export default function FaqSection() {
                 </button>
                 <div
                   className={` overflow-hidden transition-all duration-300 ease-in-out
-                    px-5 text-xs md:text-base text-[#231F20]
+                    px-5 text-xs md:text-base text-[var(--text-dark)]
                     ${openIndex === index ? "max-h-96 opacity-100 pb-5" : "max-h-0 opacity-0 pb-0"}`}
                 >
                   {faq.answer}
@@ -99,14 +101,14 @@ export default function FaqSection() {
 
           {/* Right Content */}
           <div className="order-1 lg:order-2 lg:col-span-5 flex flex-col items-start justify-start text-left">
-            <h1 className="mb-5 lg:mb-10 text-[32px] md:text-[44px] lg:text-5xl leading-10 md:leading-[60px] lg:leading-[60px] font-semibold text-[#231F20] font-onest">
+            <MainHeading className="mb-5 lg:mb-10">
               Everything You Were About to Ask
-            </h1>
-            <p className="mb-8 md:mb-5 xl:mb-10 text-xs md:text-xl leading-6 lg:leading-9 font-normal text-[#231F20] font-onest">
+            </MainHeading>
+            <Paragraph className="mb-8 md:mb-5 xl:mb-10 text-[var(--text-dark)]">
               We’ve compiled the most common questions about Owners Inventory —
               from setup and features to pricing and support. If you’re still
               unsure, our team is here to help.
-            </p>
+            </Paragraph>
             {/* <a
               href="#"
               className="inline-block px-6 md:px-10 lg:px-12 py-3 md:py-2.5 lg:py-5 text-xs lg:text-base leading-none font-semibold text-white bg-[#1AD1B9] border border-transparent hover:bg-transparent hover:border-[#1AD1B9] hover:text-[#1AD1B9] rounded-full font-onest"

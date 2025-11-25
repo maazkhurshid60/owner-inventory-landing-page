@@ -197,11 +197,11 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
             >
               {/* Heading */}
               <div className="owner-inventory-hero__content flex flex-col items-center justify-center w-full">
-                {/* <h1 className="owner-inventory-hero__content--title text-4xl md:text-[60px] xl:text-7xl leading-[48px] md:leading-[66px] xl:leading-[90px] text-center font-onest font-semibold mx-auto md:max-w-screen-sm xl:max-w-5xl lg:mt-[150px] text-[#231F20]">
+                {/* <h1 className="owner-inventory-hero__content--title text-4xl md:text-[60px] xl:text-7xl leading-[48px] md:leading-[66px] xl:leading-[90px] text-center font-onest font-semibold mx-auto md:max-w-screen-sm xl:max-w-5xl lg:mt-[150px] text-[var(--text-dark)]">
                 {title}
               </h1> */}
                 <div ref={mainHeadingRef}>
-                  <h1 className="text-center xl:text-[64px] lg:text-5xl md:text-[40px] text-4xl xl:leading-[76px] lg:leading-[60px] leading-[48px] font-semibold text-[#231F20] font-onest xl:max-w-5xl lg:mt-[70px] xl:mb-8 lg:mb-6 mb-5">
+                  <h1 className="text-center xl:text-[64px] lg:text-5xl md:text-[40px] text-4xl xl:leading-[76px] lg:leading-[60px] leading-[48px] font-semibold text-[var(--text-dark)] font-onest xl:max-w-5xl lg:mt-[70px] xl:mb-8 lg:mb-6 mb-5">
                     {title}
                   </h1>
                 </div>
@@ -291,7 +291,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                         loading="lazy"
                         className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
                       />
-                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
+                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[var(--text-light)]">
                         Products
                       </p>
                     </div>
@@ -308,7 +308,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                         loading="lazy"
                         className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
                       />
-                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
+                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[var(--text-light)]">
                         Advance Reports
                       </p>
                     </div>
@@ -325,7 +325,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                         loading="lazy"
                         className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
                       />
-                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
+                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[var(--text-light)]">
                         Inventory Operations
                       </p>
                     </div>
@@ -341,7 +341,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
                         loading="lazy"
                         className="xl:w-[33px] xl:h-[33px] lg:w-[24px] lg:h-[24px] md:w-[18px] md:h-[18px] w-[13px] h-[13px]"
                       />
-                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[#333333]">
+                      <p className="text-[10px] leading-4 md:text-[12px] md:leading-[19px] lg:text-lg lg:leading-6 xl:text-[22px] xl:leading-[38px] font-medium font-onest text-[var(--text-light)]">
                         Reports
                       </p>
                     </div>

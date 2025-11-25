@@ -64,7 +64,7 @@ export default function CaseStudies({ caseStudies }: CaseStudiesProps) {
         {/* Navigation */}
         <div className="flex justify-between items-start">
           <div className="flex flex-col gap-y-2">
-            <h3 className="text-2xl font-[200] leading-[100%] text-[#666666]">
+            <h3 className="text-2xl font-[200] leading-[100%] text-[var(--text-grey)]">
               Case Study:
             </h3>
           </div>
@@ -140,8 +140,8 @@ export default function CaseStudies({ caseStudies }: CaseStudiesProps) {
               <div className="px-0 py-2 lg:p-2  md:col-span-6 lg:col-span-7 xl:col-span-8 relative z-[10]">
                 <MainHeading className="mb-6">{study.title}</MainHeading>
                 <div className="flex flex-col items-end">
-                  <div className="bg-[#F3F4F6] rounded-l-[20px] rounded-tr-[20px] lg:rounded-l-[28px] lg:rounded-tr-[28px] p-6">
-                    <p className="text-[#666666] font-onest text-2xl leading-[165%] lg:text-[32px] lg:leading-[52px]">
+                  <div className="bg-[var(--background-halfwhite)] rounded-l-[20px] rounded-tr-[20px] lg:rounded-l-[28px] lg:rounded-tr-[28px] p-6">
+                    <p className="text-[var(--text-grey)] font-onest text-2xl leading-[165%] lg:text-[32px] lg:leading-[52px]">
                       {study.overview}
                     </p>
                   </div>
@@ -156,7 +156,7 @@ export default function CaseStudies({ caseStudies }: CaseStudiesProps) {
                         icon={<ArrowUpRight size={18} />}
                       />
                     </div>
-                    <div className="relative flex bg-[#F3F4F6] w-full lg:max-w-[60%] xl:max-w-[70%] 2xl:max-w-[73%] lg:rounded-b-[28px] rounded-b-[20px] ">
+                    <div className="relative flex bg-[var(--background-halfwhite)] w-full lg:max-w-[60%] xl:max-w-[70%] 2xl:max-w-[73%] lg:rounded-b-[28px] rounded-b-[20px] ">
                       <div className="absolute z-[-100] left-[-5.4rem] md:left-[-5.8rem] bottom-0 w-24 h-full bg-transparent rounded-bl-[40px] rotate-180 shadow-[0_2.5rem_0_0_#f3f4f6]" />
                     </div>
                     {/* CTA Button */}
@@ -177,10 +177,10 @@ export default function CaseStudies({ caseStudies }: CaseStudiesProps) {
                       className="w-[36px] h-[33px]"
                     />
                     <div className="flex flex-col gap-1">
-                      <p className="font-semibold text-[38px] font-onest  leading-[100%] text-[#231F20]">
+                      <p className="font-semibold text-[38px] font-onest  leading-[100%] text-[[var(--text-dark)]]">
                         {study.author}
                       </p>
-                      <p className="px-4 py-2 text-[#795CF5] w-fit bg-[#F1EEFE] rounded-full">
+                      <p className="px-4 py-2 text-[var(--primary-purple)] w-fit bg-[#F1EEFE] rounded-full">
                         {study.position}
                       </p>
                     </div>
@@ -201,7 +201,7 @@ export default function CaseStudies({ caseStudies }: CaseStudiesProps) {
                       className="w-full h-full"
                     />
                   </div>
-                  <p className="text-[#231F20] p-4 lg:p-6 italic text-lg leading-relaxed absolute bottom-0 bg-[#FFF7D7] rounded-xl border-[5px] border-white">
+                  <p className="text-[[var(--text-dark)]] p-4 lg:p-6 italic text-lg leading-relaxed absolute bottom-0 bg-[#FFF7D7] rounded-xl border-[5px] border-white">
                     “{study.quote}”
                   </p>
                 </div>

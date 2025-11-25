@@ -2,6 +2,7 @@
 import KeyHighlights from '@/components/pages/features-page/point-of-sale/KeyHighlights'
 import SellerClubSection2 from '@/components/pages/features-page/point-of-sale/SellerClubSection2'
 import WhyChoosePOS from '@/components/pages/features-page/point-of-sale/WhyChoosePOS'
+import SubFeaturesHero from '@/components/pages/features-page/SubFeaturesHero'
 import CalltoActionBottom from '@/components/pages/landing-page/CalltoActionBottom'
 import FaqSection from '@/components/pages/landing-page/FAQSection'
 import HeroSection from '@/components/pages/landing-page/HeroSection'
@@ -53,12 +54,12 @@ const layoutPatterns = [
 const page = () => {
   return (
     <div>
-      <HeroSection
-        title="Point of Sale (POS) Fast, Reliable & Intuitive"
-        description="Our Point of Sale system is designed to make every sale simple, quick, and error-free..."
-        video='https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/main-feature.webm'
-        showButtons={false}
-      />
+       <SubFeaturesHero
+          title="Take Control. Gain Clarity. Grow with Owners Inventory."
+          description="Turn all assets to advantage. Our Owners Inventory services assist you in managing, examining and displaying your inventory in a single, smart, interconnected environment - created to respond to real expansion."
+          video="/assets/Manual.mp4"
+          variant="animation2"
+        />
 
       {/* 🔥 Custom layout + cards */}
       <KeyHighlights

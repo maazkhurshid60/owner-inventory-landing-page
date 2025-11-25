@@ -201,10 +201,10 @@ export default function UnifiedPlatform() {
                       className="w-14 h-14"
                     />
                   </div>
-                  <h3 className="text-xl lg:text-2xl leading-8 lg:leading-10 mb-3 lg:mb-4 font-semibold text-[#231F20]">
+                  <h3 className="text-xl lg:text-2xl leading-8 lg:leading-10 mb-3 lg:mb-4 font-semibold text-[var(--text-dark)]">
                     {card.title}
                   </h3>
-                  <p className="text-sm lg:text-base leading-6 text-[#231F20]">
+                  <p className="text-sm lg:text-base leading-6 text-[var(--text-grey)]">
                     {card.description}
                   </p>
                 </div>

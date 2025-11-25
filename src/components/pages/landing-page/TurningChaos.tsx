@@ -100,7 +100,7 @@ const TurningChaos: React.FC<TurningChaosProps> = ({
         className={`relative  flex flex-col items-center justify-center w-full  pt-10 py-0 px-6 lg:px-[100px]  min-h-screen overflow-hidden bg-[#F3F4F6] lg:rounded-bl-[40px] lg:rounded-br-[40px] rounded-bl-[24px] rounded-br-[24px] backdrop-blur-[42px]`}
            style={{
  backgroundImage: `
-    linear-gradient(180deg, #F3F4F6 0%, transparent 60%),
+    linear-gradient(180deg, #F3F4F6 33%, transparent 60%),
     linear-gradient(90deg, rgba(26, 209, 185, 0.3) 0%, rgba(207, 181, 249, 1) 50%, rgba(158, 2, 255, 0.3) 80%)
   `,
 }}
@@ -116,7 +116,7 @@ const TurningChaos: React.FC<TurningChaosProps> = ({
             {chaos.map(({ id, chaosHead, chaosDesc }, index) => (
               <div
                 key={id}
-                className="flex flex-col gap-3 items-center justify-start p-4 bg-white/23 border border-[rgba(255,255,255,0.5)] rounded-[30px] shadow-[0_4px_4px_0_rgba(0,0,0,0.13)] backdrop-blur-[22px] text-center"
+                className="flex flex-col gap-3 items-center justify-start p-4 [var(--white-color)] border border-[rgba(255,255,255,0.5)] rounded-[30px] shadow-[0_4px_4px_0_rgba(0,0,0,0.13)] backdrop-blur-[22px] text-center"
               >
                 <h2
                   className="text-[42px] leading-[100%] font-onest text-center font-semibold"
