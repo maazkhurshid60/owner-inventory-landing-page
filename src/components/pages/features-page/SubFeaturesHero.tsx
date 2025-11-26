@@ -36,6 +36,7 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
   }
 
   const [videoError, setVideoError] = useState(false);
+  const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
 
   // Refs
   const mainHeadingRef = useRef<HTMLHeadingElement>(null);
@@ -43,6 +44,60 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
   const homeHeroSecRef = useRef<HTMLDivElement>(null);
   const heroLowerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const growthBoxRef = useRef<HTMLDivElement>(null); // Added missing ref
+
+  useEffect(() => {
+    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+    // Initial states - FIXED properties
+    gsap.set(mainHeadingRef.current, { opacity: 0, y: 50 });
+    gsap.set(paragraphRef.current, { opacity: 0, y: 30 });
+    gsap.set(homeHeroSecRef.current, { 
+      clipPath: "inset(0% 0% 100% 0%)" // Correct clipPath syntax
+    });
+    gsap.set(videoRef.current, { 
+      y: 150, 
+      opacity: 0 // Fixed: separated properties
+    });
+    gsap.set(growthBoxRef.current, { // Initialize the missing ref
+      opacity: 0,
+      y: 50
+    });
+
+    // Animations - FIXED timeline
+    tl.to(mainHeadingRef.current, { 
+      opacity: 1, 
+      y: 0, 
+      duration: 0.8 
+    }, 0);
+    
+    tl.to(paragraphRef.current, { 
+      opacity: 1, 
+      y: 0, 
+      duration: 0.8 
+    }, 0.2); 
+    
+    tl.to(homeHeroSecRef.current, { 
+      clipPath: "inset(0% 0% 0% 0%)", 
+      duration: 1 
+    }, 0.5);
+    
+    tl.to(videoRef.current, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      onComplete: () => {
+        setShouldPlayVideo(true);
+      },
+    }, 1);
+    
+    tl.to(growthBoxRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+    }, 1.2);
+
+  }, []);
 
   // Handle video load error
   const handleVideoError = () => {
@@ -64,6 +119,14 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
     if (videoUrl.endsWith('.mp4')) return 'video/mp4';
     return 'video/mp4'; // default fallback
   };
+
+   useEffect(() => {
+    if (shouldPlayVideo && videoRef.current) {
+      videoRef.current.play().catch((error) => {
+        console.log("Video play failed:", error);
+      });
+    }
+  }, [shouldPlayVideo]);
 
   return (
     <div className="" ref={homeHeroSecRef}>
@@ -105,7 +168,10 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
                   </Paragraph>
                 </div>
 
-                <div className="flex md:gap-4 gap-2 lg:p-1.5 relative z-[60] owner-inventory-hero__content--buttons">
+                <div 
+                  ref={growthBoxRef} // Added the missing ref here
+                  className="flex md:gap-4 gap-2 lg:p-1.5 relative z-[60] owner-inventory-hero__content--buttons"
+                >
                   <ButtonSm
                     url="#"
                     text="Get Started for Free"
@@ -113,16 +179,6 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
                     textColor="white"
                     isBorder
                   />
-                  {/* <DropdownButtonSm
-                    text="Book a Free Demo"
-                    bgColor="[#1AD1B9]"
-                    textColor="white"
-                    isBorder={true}
-                    items={[
-                      { label: "Meet With Expert", url: "" },
-                      { label: "View Demo", url: "" },
-                    ]}
-                  /> */}
                 </div>
 
                 <div
@@ -135,7 +191,7 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
                       className="w-full object-cover rounded-3xl"
                       muted
                       playsInline
-                      autoPlay
+                      autoPlay={shouldPlayVideo} // Control autoplay with state
                       loop
                       onError={handleVideoError}
                     >
