@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
 import FeatureCard from "../FeatureCard";
+import MainHeading from "../../typography/MainHeading";
+
+
 
 interface Feature {
   title: string;
@@ -29,9 +32,9 @@ const KeyHighlights: React.FC<KeyHighlightsProps> = ({
     <section className="wrapper features-core-opretions">
       {/* Heading */}
       <div className="flex flex-col items-start justify-center lg:mt-[10px] md:mt-28 mt-20">
-        <h1 className="font-onest font-semibold text-[#231F20] text-[27px] sm:text-4xl md:text-[40px] lg:text-5xl leading-9 sm:leading-[48px] lg:leading-[60px] xl:mb-10 lg:mb-6 mb-5 text-center w-full">
+        <MainHeading className="xl:mb-10 lg:mb-6 mb-5 text-center w-full">
           {heading}
-        </h1>
+        </MainHeading>
       </div>
 
       {/* Cards */}
