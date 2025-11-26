@@ -35,7 +35,6 @@ const industries = [
       "Track every size, color, and style with product variants, manage seasonal collections, and keep stock aligned across online and physical stores, whether you sell streetwear, shoes, or high fashion.",
     image: "/assets/industry-type/fashion.webp",
   },
-  
 ];
 
 export default function IndustryPOSShowcase() {
@@ -43,6 +42,7 @@ export default function IndustryPOSShowcase() {
   const [screenSize, setScreenSize] = useState("desktop");
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [slideDirection, setSlideDirection] = useState<"next" | "prev">("next");
 
   // Calculate visible cards based on screen size
   const getVisibleCardsCount = () => {
@@ -56,35 +56,69 @@ export default function IndustryPOSShowcase() {
   };
 
   const visibleCardsCount = getVisibleCardsCount();
-  const visibleCards = industries.slice(currentSlide, currentSlide + visibleCardsCount);
+  
+  // Create an array that includes previous, current, and next slides for smooth flow
+  const getVisibleCards = () => {
+    const cards = [];
+    const totalCards = industries.length;
+    
+    // Always show the exact number of cards needed for current view
+    for (let i = 0; i < visibleCardsCount; i++) {
+      const index = (currentSlide + i) % totalCards;
+      cards.push({
+        ...industries[index],
+        originalIndex: index,
+        position: i
+      });
+    }
+    
+    return cards;
+  };
 
-  // Calculate max slides based on screen size
-  const maxSlides = Math.max(0, industries.length - visibleCardsCount);
+  const visibleCards = getVisibleCards();
+  const maxSlides = industries.length;
 
-  // Next/Prev with animation
+  // Auto slide configuration
+  const autoSlideInterval = 5000; // 5 seconds
+
+  // Next/Prev with smooth flowing animation
   const nextSlide = () => {
-    if (currentSlide < maxSlides && !isAnimating) {
+    if (!isAnimating) {
+      setSlideDirection("next");
       setIsAnimating(true);
-      setCurrentSlide((prev) => prev + 1);
-      setTimeout(() => setIsAnimating(false), 500);
+      setCurrentSlide((prev) => (prev + 1) % maxSlides);
+      setTimeout(() => setIsAnimating(false), 600);
     }
   };
 
   const prevSlide = () => {
-    if (currentSlide > 0 && !isAnimating) {
+    if (!isAnimating) {
+      setSlideDirection("prev");
       setIsAnimating(true);
-      setCurrentSlide((prev) => prev - 1);
-      setTimeout(() => setIsAnimating(false), 500);
+      setCurrentSlide((prev) => (prev - 1 + maxSlides) % maxSlides);
+      setTimeout(() => setIsAnimating(false), 600);
     }
   };
 
   const goToSlide = (index: number) => {
-    if (!isAnimating && index !== currentSlide && index >= 0 && index <= maxSlides) {
+    if (!isAnimating && index !== currentSlide) {
+      setSlideDirection(index > currentSlide ? "next" : "prev");
       setIsAnimating(true);
       setCurrentSlide(index);
-      setTimeout(() => setIsAnimating(false), 500);
+      setTimeout(() => setIsAnimating(false), 600);
     }
   };
+
+  // Auto slide effect
+  useEffect(() => {
+    if (isAnimating) return;
+
+    const autoSlideTimer = setInterval(() => {
+      nextSlide();
+    }, autoSlideInterval);
+
+    return () => clearInterval(autoSlideTimer);
+  }, [currentSlide, isAnimating, maxSlides]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -111,18 +145,17 @@ export default function IndustryPOSShowcase() {
   }, [screenSize]);
 
   const toggleCard = (index: number) => {
-    const globalIndex = currentSlide + index;
+    const globalIndex = visibleCards[index].originalIndex;
     
     // On mobile and tablet, toggle card open/close on click
     if (screenSize === "mobile" || screenSize === "tablet") {
       setActiveCard(activeCard === globalIndex ? -1 : globalIndex);
     }
-    // On desktop, we keep hover functionality
   };
 
   // Check if card is expanded (for mobile/tablet)
   const isCardExpanded = (index: number) => {
-    const globalIndex = currentSlide + index;
+    const globalIndex = visibleCards[index].originalIndex;
     return (screenSize === "mobile" || screenSize === "tablet") && activeCard === globalIndex;
   };
 
@@ -135,10 +168,10 @@ export default function IndustryPOSShowcase() {
     }
     
     switch(screenSize) {
-      case "mobile": return "min-w-full ";
+      case "mobile": return "min-w-full";
       case "tablet": return "min-w-auto max-w-[48%]";
       case "smallDesktop": return "min-w-auto max-w-[32%]";
-      case "desktop": return "min-w-auto max-w-[32%]";
+      case "desktop": return "min-w-auto w-[32%]";
       default: return "min-w-auto";
     }
   };
@@ -148,23 +181,100 @@ export default function IndustryPOSShowcase() {
       case "mobile": return "hover:min-w-full";
       case "tablet": return "hover:min-w-[55%]";
       case "smallDesktop": return "hover:min-w-[60%]";
-      case "desktop": return "hover:min-w-[42%]";
-      default: return "hover:min-w-[42%]";
+      case "desktop": return "hover:min-w-[42%] transition-all duration-300 ease-in-out";
+      default: return "hover:min-w-[42%] transition-all duration-300 ease-in-out";
     }
   };
+
+  // Get slide animation class based on direction
+const getSlideAnimationClass = (position: number) => {
+  if (!isAnimating) return "";
+  
+  if (slideDirection === "next") {
+    return `
+      animate-[slideFlowOut_0.6s_ease-in-out_forwards]
+    `;
+  } else {
+    return `
+      animate-[slideFlowOutReverse_0.6s_ease-in-out_forwards]
+    `;
+  }
+};
 
   const isMobileOrTablet = screenSize === "mobile" || screenSize === "tablet";
 
   return (
     <section className="flex items-stretch justify-center relative xl:py-5 md:px-0 px-6 md:py-5 py-5 lg:mt-0 md:mt-6 mt-10 mx-auto rounded-2xl">
+     <style jsx>{`
+ @keyframes continuousFlowOut {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-80%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes continuousFlowOutReverse {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(80%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes continuousFlowIn {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(80%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes continuousFlowInReverse {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  20% {
+    transform: translateX(-80%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+`}</style>
+      
       <div className="flex items-center justify-center lg:py-[30px] md:py-14 py-2 rounded-br-2xl rounded-tr-2xl w-full">
         <div className="w-full overflow-hidden">
           {/* SLIDER CONTAINER */}
           <div className="flex flex-col gap-10 w-full">
-            {/* WRAPPER */}
-            <div className="flex gap-4 lg:gap-6 items-stretch transition-all duration-500 ease-in-out transform">
+            {/* WRAPPER WITH FLOWING ANIMATION */}
+            <div className="flex gap-4 lg:gap-6 items-stretch justify-between relative">
               {visibleCards.map((item, i) => {
-                const globalIndex = currentSlide + i;
+                const globalIndex = item.originalIndex;
                 const isExpanded = isCardExpanded(i);
 
                 const cardBg =
@@ -176,38 +286,37 @@ export default function IndustryPOSShowcase() {
 
                 return (
                   <div
-                    key={globalIndex}
+                    key={`${globalIndex}-${currentSlide}`}
                     onClick={() => toggleCard(i)}
-                    className={`group relative grid grid-cols-12 gap-4 ${getCardWidth(i)} ${screenSize !== "tablet" ? getHoverCardWidth() : ""} h-[370px] p-4 lg:p-6 xl:p-8 
+                    className={`group relative grid grid-cols-12 gap-4 ${getCardWidth(i)} ${
+                      screenSize !== "tablet" ? getHoverCardWidth() : ""
+                    } h-auto md:h-[400px] lg:h-[370px] p-4 lg:p-6 xl:p-8 
                       rounded-[30px] shadow-[0px_0px_20px_0px_#00000005]
                       ${cardBg}
                       ${(!isMobileOrTablet && "hover:bg-[var(--background-light)]") || ""}
                       ${isExpanded ? "bg-[var(--background-light)]" : ""}
-                      transition-all duration-1000 overflow-hidden cursor-pointer
-                      ${
-                        isAnimating
-                          ? "transition-transform duration-500 ease-in-out"
-                          : ""
-                      }`}
+                      transition-all duration-300 ease-in-out transform-gpu overflow-hidden cursor-pointer
+                      ${isAnimating ? getSlideAnimationClass(i) : ""}
+                      ${!isAnimating ? "animate-[slideInLeft_0.6s_ease-in-out]" : ""}`}
                   >
                     <div
-                      className={`col-span-8 flex flex-col justify-between gap-6 transition-all duration-1000
-                        ${!isMobileOrTablet ? "group-hover:col-span-8" : isExpanded ? "col-span-8" : ""}`}
+                      className={`col-span-12 md:col-span-8 flex flex-col justify-between gap-6 transition-all duration-300
+                        ${!isMobileOrTablet ? "col-span-12 group-hover:md:col-span-8" : isExpanded ? "col-span-12 md:col-span-8" : ""}`}
                     >
                       <div>
                         <h4
-                          className={`text-[24px] lg:text-[28px] lg:whitespace-nowrap  xl:text-[32px] font-medium mb-4 ${
+                          className={`text-[24px] lg:text-[28px] lg:whitespace-nowrap xl:text-[32px] font-medium mb-4 ${
                             (!isMobileOrTablet &&
                               "text-[var(--white-color)] group-hover:text-[var(--text-dark)]") ||
                             (isMobileOrTablet &&
                               (isExpanded ? "text-[var(--text-dark)]" : "text-[var(--white-color)]"))
-                          } transition-colors duration-1000`}
+                          } transition-colors duration-300`}
                         >
                           {item.title}
                         </h4>
 
                         <p
-                          className={`text-sm lg:text-base text-[var(--text-grey)] transition-opacity duration-700
+                          className={`text-sm lg:text-base text-[var(--text-grey)] transition-opacity duration-300
                             ${!isMobileOrTablet ? "opacity-0 group-hover:opacity-100" : "opacity-0"}
                             ${isMobileOrTablet && isExpanded ? "opacity-100" : ""}
                           `}
@@ -218,17 +327,17 @@ export default function IndustryPOSShowcase() {
 
                       <Link
                         href="#"
-                        className={`flex justify-between absolute bottom-6 left-6 lg:left-8 items-center rounded-full bg-white 
-                          py-[6px] ps-4 pe-1 w-[85%] gap-4 text-[#333333] cursor-pointer text-sm lg:text-base font-semibold leading-[100%]
-                          transition-[max-width] duration-1000 overflow-hidden
+                        className={`flex justify-between md:absolute bottom-6 left-6 lg:left-8 items-center rounded-full bg-white 
+                          py-[6px] ps-4 pe-1 w-full md:w-[85%] gap-4 text-[#333333] cursor-pointer text-sm lg:text-base font-semibold leading-[100%]
+                          transition-all duration-300 overflow-hidden
                           ${
                             (!isMobileOrTablet && "max-w-full group-hover:max-w-[180px]") ||
-                            (isMobileOrTablet && (isExpanded ? "max-w-[180px]" : "max-w-full"))
+                            (isMobileOrTablet && (isExpanded ? "max-w-full md:max-w-[180px]" : "max-w-full"))
                           }`}
                       >
                         Read more
                         <span
-                          className={`px-4 py-[18px] rounded-[50%] bg-[var(--background-light)] transition-colors duration-1000 ${
+                          className={`px-4 py-[18px] rounded-[50%] bg-[var(--background-light)] transition-colors duration-300 ${
                             !isMobileOrTablet ? hoverBg : isExpanded ? hoverBg : ""
                           }`}
                         >
@@ -239,7 +348,7 @@ export default function IndustryPOSShowcase() {
 
                     {/* IMAGE */}
                     <div
-                      className={`col-span-4 transition-opacity duration-700
+                      className={`col-span-12 md:col-span-4 transition-opacity duration-300
                         ${!isMobileOrTablet ? "opacity-0 group-hover:opacity-100" : "opacity-0"}
                         ${isMobileOrTablet && isExpanded ? "opacity-100" : ""}
                       `}
@@ -252,10 +361,11 @@ export default function IndustryPOSShowcase() {
                         className="w-full h-full object-contain"
                       />
                     </div>
+                    
 
                     {/* SVG DECORATIONS */}
                     <div
-                      className={`absolute top-14 left-0 transition-all duration-1000 ${
+                      className={`absolute top-14 left-0 transition-all duration-300 ${
                         (!isMobileOrTablet && "group-hover:hidden") ||
                         (isMobileOrTablet && (isExpanded ? "hidden" : "block"))
                       }`}
@@ -302,7 +412,7 @@ export default function IndustryPOSShowcase() {
                     </div>
 
                     <div
-                      className={`absolute right-0 top-0 transition-all duration-1000 ${
+                      className={`absolute right-0 top-0 transition-all duration-300 ${
                         (!isMobileOrTablet && "group-hover:hidden") ||
                         (isMobileOrTablet && (isExpanded ? "hidden" : "block"))
                       }`}
@@ -348,9 +458,9 @@ export default function IndustryPOSShowcase() {
               {/* Previous Button */}
               <button
                 onClick={prevSlide}
-                disabled={currentSlide === 0 || isAnimating}
+                disabled={isAnimating}
                 className={`p-2 rounded-full shadow-[0_4px_6px_-4px_rgba(0,0,0,0.1)] border transition-all duration-300 ${
-                  currentSlide === 0 || isAnimating
+                  isAnimating
                     ? "border-gray-200 text-gray-400 cursor-not-allowed"
                     : "border-gray-300 text-gray-600 hover:bg-gray-50 hover:scale-105 active:scale-95"
                 } ${isAnimating ? "opacity-50" : ""}`}
@@ -368,13 +478,13 @@ export default function IndustryPOSShowcase() {
 
               {/* Bullets */}
               <div className="flex gap-2">
-                {Array.from({ length: maxSlides + 1 }).map(
+                {Array.from({ length: industries.length }).map(
                   (_, index) => (
                     <button
                       key={index}
                       onClick={() => goToSlide(index)}
                       disabled={isAnimating}
-                      className={`transition-all duration-500 ease-in-out ${
+                      className={`transition-all duration-300 ease-in-out ${
                         index === currentSlide
                           ? "w-[34px] h-[15px] bg-[rgba(26,209,185,1)] rounded-[60px] transform scale-110"
                           : "w-[16px] h-[15px] bg-[rgba(243,244,246,1)] rounded-[60px] hover:bg-gray-300"
@@ -388,9 +498,9 @@ export default function IndustryPOSShowcase() {
               {/* Next Button */}
               <button
                 onClick={nextSlide}
-                disabled={currentSlide === maxSlides || isAnimating}
+                disabled={isAnimating}
                 className={`p-2 rounded-full border shadow-[0_4px_6px_-4px_rgba(0,0,0,0.1)] transition-all duration-300 ${
-                  currentSlide === maxSlides || isAnimating
+                  isAnimating
                     ? "border-gray-200 text-gray-400 cursor-not-allowed"
                     : "border-gray-300 text-gray-600 hover:bg-gray-50 hover:scale-105 active:scale-95"
                 } ${isAnimating ? "opacity-50" : ""}`}

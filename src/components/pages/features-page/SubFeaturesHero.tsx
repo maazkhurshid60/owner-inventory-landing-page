@@ -19,9 +19,6 @@ interface SubFeaturesHeroProps {
   title?: string;
   video?: string;
   description?: string;
-  children?: ReactNode;
-  heroHeight?: string;
-  heroOverflow?: string;
   variant?: "animation1" | "animation2" | "none";
 }
 
@@ -29,9 +26,6 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
   title = "Grow Faster with Smarter Inventory Tools",
   description,
   video,
-  heroHeight = "",
-  heroOverflow = "overflow-y-hidden",
-  children,
   variant = "animation1",
 }) => {
   useHeaderAnimation();
@@ -41,17 +35,35 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
     useHeroAnimation2();
   }
 
-  const [shouldPlayVideo, setShouldPlayVideo] = useState(false);
+  const [videoError, setVideoError] = useState(false);
 
   // Refs
   const mainHeadingRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
-   const homeHeroSecRef = useRef<HTMLImageElement>(null);
-  const heroLowerRef = useRef<HTMLImageElement>(null);
+  const homeHeroSecRef = useRef<HTMLDivElement>(null);
+  const heroLowerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  // Handle video load error
+  const handleVideoError = () => {
+    console.error("Video failed to load");
+    setVideoError(true);
+  };
 
- 
+  // Get MP4 version if WebM is provided
+  const getMp4Version = (videoUrl: string) => {
+    if (videoUrl.endsWith('.webm')) {
+      return videoUrl.replace('.webm', '.mp4');
+    }
+    return videoUrl;
+  };
+
+  // Get video type based on extension
+  const getVideoType = (videoUrl: string) => {
+    if (videoUrl.endsWith('.webm')) return 'video/webm';
+    if (videoUrl.endsWith('.mp4')) return 'video/mp4';
+    return 'video/mp4'; // default fallback
+  };
 
   return (
     <div className="" ref={homeHeroSecRef}>
@@ -59,7 +71,7 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
         <div className="top-section md:h-6 h-8"></div>
         <section className="owner-inventory-hero rounded-b-[40px] px-3 md:px-5 lg:px-10 w-[100%] z-50">
           {/* SHAPE HEADER */}
-          <div className=" owner-inventory-hero__home flex items-center justify-start lg:justify-center lg:items-center w-[63%] ml-0 lg:mx-auto relative inset-x-0">
+          <div className="owner-inventory-hero__home flex items-center justify-start lg:justify-center lg:items-center w-[63%] ml-0 lg:mx-auto relative inset-x-0">
             {/* Left Shape (only visible on md+) */}
             <div className="owner-inventory-hero__shape-left hidden lg:block relative w-1/2 h-20 bg-[#F3F4F6] rounded-tl-[40px] owner-inventory-hero__border-left-top">
               <div className="absolute left-[-6rem] bottom-0 w-24 h-full bg-transparent rounded-br-[40px] shadow-[0_2.5rem_0_0_#f3f4f6]" />
@@ -74,18 +86,15 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
           {/* HERO BODY */}
           <div className="md:py-[1px] bg-[#F3F4F6] rounded-[20px] lg:rounded-[40px]">
             <div
-              className={`owner-inventory-hero__bottom relative flex flex-col items-center justify-center  w-full ${heroHeight} ${heroOverflow} pt-10 pb-6 md:py-[76px] lg:py-0 px-6 lg:px-[100px] bg-[#F3F4F6] rounded-tr-[20px] rounded-b-[20px] lg:rounded-b-[40px] lg:rounded-tr-[40px] lg:rounded-tl-[40px] bg-cover bg-no-repeat backdrop-blur-[374px]`}
+              className={`owner-inventory-hero__bottom relative flex flex-col items-center justify-center w-full pt-10 pb-6 md:py-[76px] lg:py-0 px-6 lg:px-[100px] bg-[#F3F4F6] rounded-tr-[20px] rounded-b-[20px] lg:rounded-b-[40px] lg:rounded-tr-[40px] lg:rounded-tl-[40px] bg-cover bg-no-repeat backdrop-blur-[374px]`}
               style={{
                 backgroundImage: "url('/assets/home-page-images/hero-bg.webp')",
               }}
             >
               {/* Heading */}
               <div className="owner-inventory-hero__content flex flex-col items-center justify-center w-full">
-                {/* <h1 className="owner-inventory-hero__content--title text-4xl md:text-[60px] xl:text-7xl leading-[48px] md:leading-[66px] xl:leading-[90px] text-center font-onest font-semibold mx-auto md:max-w-screen-sm xl:max-w-5xl lg:mt-[150px] text-[#231F20]">
-                {title}
-              </h1> */}
                 <div ref={mainHeadingRef}>
-                  <h1 className="text-center xl:text-[64px] lg:text-5xl md:text-[40px] text-4xl xl:leading-[76px] lg:leading-[60px] leading-[48px] font-semibold text-[#231F20] font-onest   lg:mt-[70px] xl:mb-8 lg:mb-6 mb-5">
+                  <h1 className="text-center xl:text-[64px] lg:text-5xl md:text-[40px] text-4xl xl:leading-[76px] lg:leading-[60px] leading-[48px] font-semibold text-[#231F20] font-onest lg:mt-[70px] xl:mb-8 lg:mb-6 mb-5">
                     {title}
                   </h1>
                 </div>
@@ -96,7 +105,7 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
                   </Paragraph>
                 </div>
 
-                <div className="flex md:gap-4 gap-2 lg:p-1.5  relative z-[60] owner-inventory-hero__content--buttons">
+                <div className="flex md:gap-4 gap-2 lg:p-1.5 relative z-[60] owner-inventory-hero__content--buttons">
                   <ButtonSm
                     url="#"
                     text="Get Started for Free"
@@ -116,29 +125,47 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
                   /> */}
                 </div>
 
-                {/* Extra flexibility */}
-                {children}
                 <div
                   ref={heroLowerRef}
                   className="owner-inventory-hero__lower relative w-full wrapper"
                 >
-                  <video
-                        ref={videoRef}
-                        className="w-full object-cover rounded-3xl"
-                        muted
-                        playsInline
-                        autoPlay
-                        loop
-                      >
+                  {video && !videoError ? (
+                    <video
+                      ref={videoRef}
+                      className="w-full object-cover rounded-3xl"
+                      muted
+                      playsInline
+                      autoPlay
+                      loop
+                      onError={handleVideoError}
+                    >
+                      {/* Primary source - use the provided video */}
+                      <source
+                        src={video}
+                        type={getVideoType(video)}
+                      />
+                      
+                      {/* Fallback to MP4 if WebM is provided */}
+                      {video.endsWith('.webm') && (
                         <source
-                          src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/pos_system-hero.mp4"
+                          src={getMp4Version(video)}
                           type="video/mp4"
                         />
-                        <source
-                          src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/pos_system-hero.webm"
-                          type="video/webm"
-                        />
-                      </video>
+                      )}
+                      
+                      Your browser does not support the video tag.
+                    </video>
+                  ) : videoError ? (
+                    // Fallback content if video fails to load
+                    <div className="w-full h-64 bg-gray-200 rounded-3xl flex items-center justify-center">
+                      <p className="text-gray-500">Video failed to load</p>
+                    </div>
+                  ) : (
+                    // Fallback when no video is provided
+                    <div className="w-full h-64 bg-gray-200 rounded-3xl flex items-center justify-center">
+                      <p className="text-gray-500">No video available</p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

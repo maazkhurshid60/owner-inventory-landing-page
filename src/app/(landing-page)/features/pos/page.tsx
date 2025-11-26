@@ -1,4 +1,5 @@
 'use client'
+import TrustedBySection from '@/components/common-components/TrustedBySection'
 import KeyHighlights from '@/components/pages/features-page/point-of-sale/KeyHighlights'
 import SellerClubSection2 from '@/components/pages/features-page/point-of-sale/SellerClubSection2'
 import WhyChoosePOS from '@/components/pages/features-page/point-of-sale/WhyChoosePOS'
@@ -40,30 +41,60 @@ const FeaturesCards = [
     description: "Build loyalty with discounts, promotions, and customer profiles directly from the POS.",
     imageSrc: "/assets/features-page/point-of-sale/key-highlights/customer-engagement.webp",
   },
+  {
+    title: "Quick Billing & Checkout",
+    description: "Process sales in seconds with barcode scanning, quick search, and easy product selection.",
+    imageSrc: "/assets/features-page/point-of-sale/key-highlights/quick-billing.webp",
+  },
+  {
+    title: "Integrated with Inventory",
+    description: "Automatic stock updates with every transaction—no more manual adjustments.",
+    imageSrc: "/assets/features-page/point-of-sale/key-highlights/intigrated-with-inventory.webp",
+  },
+  {
+    title: "Multi-Store & Multi-Device Ready",
+    description: "Manage product catalogs, variants, pricing, and stock in one place.",
+    imageSrc: "/assets/features-page/point-of-sale/key-highlights/multi-store.webp",
+  },
+  {
+    title: "Offline Mode Support",
+    description: "Continue selling even without internet; data syncs automatically when you’re back online.",
+    imageSrc: "/assets/features-page/point-of-sale/key-highlights/offline-support.webp",
+  },
+  {
+    title: "Flexible Payments",
+    description: "Accept cash, cards, mobile wallets, and split payments—all in one system.",
+    imageSrc: "/assets/features-page/point-of-sale/key-highlights/flexible-payments.webp",
+  },
+  {
+    title: "Customer Engagement",
+    description: "Build loyalty with discounts, promotions, and customer profiles directly from the POS.",
+    imageSrc: "/assets/features-page/point-of-sale/key-highlights/customer-engagement.webp",
+  },
 ];
 
 const layoutPatterns = [
-  { className: "xl:col-span-4", mediaClassName: "w-full h-[220px] xl:h-[260px] object-cover", paddingClass: "px-0" },
-  { className: "xl:col-span-4 xl:row-span-2 xl:col-start-5", mediaClassName: "w-full h-[220px] xl:h-[320px] object-cover", paddingClass: "px-0" },
-  { className: "xl:col-span-4 xl:col-start-9", mediaClassName: "w-full h-[220px] xl:h-[260px] object-cover", paddingClass: "px-0" },
-  { className: "xl:col-span-4 xl:row-span-2 xl:col-start-1 xl:row-start-2", mediaClassName: "w-full h-[220px] xl:h-[320px] object-cover", paddingClass: "px-0" },
-  { className: "xl:col-span-4 xl:col-start-5 xl:row-start-3", mediaClassName: "w-full h-[220px] xl:h-[260px] object-cover", paddingClass: "px-0" },
-  { className: "xl:col-span-4 xl:row-span-2 xl:col-start-9 xl:row-start-2", mediaClassName: "w-full h-[220px] xl:h-[320px] object-cover", paddingClass: "px-0" },
+  { className: "col-span-6", mediaClassName: "w-full h-[220px] xl:h-[260px] object-cover", paddingClass: "px-0" },
+  { className: "col-span-3", mediaClassName: "w-full h-[220px] xl:h-[260px] object-cover", paddingClass: "px-0" },
+  { className: "col-span-3", mediaClassName: "w-full h-[220px] xl:h-[260px] object-cover", paddingClass: "px-0" },
+  { className: "col-span-3", mediaClassName: "w-full h-[220px] xl:h-[260px] object-cover", paddingClass: "px-0" },
+  { className: "col-span-3", mediaClassName: "w-full h-[220px] xl:h-[260px] object-cover", paddingClass: "px-0" },
+  { className: "col-span-6", mediaClassName: "w-full h-[220px] xl:h-[260px] object-cover", paddingClass: "px-0" },
 ];
-
 const page = () => {
   return (
     <div>
        <SubFeaturesHero
-          title="Take Control. Gain Clarity. Grow with Owners Inventory."
-          description="Turn all assets to advantage. Our Owners Inventory services assist you in managing, examining and displaying your inventory in a single, smart, interconnected environment - created to respond to real expansion."
-          video="/assets/Manual.mp4"
+          title="Empower Your Business with POS"
+          description="Sell smarter with our POS system. Intended to be fast, accurate, and the best point of sale, it simplifies all transactions, operates inventory in real-time, and provides you with complete control over your business, all through a simple, easy-to-use interface."
+          video="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/pos_system-hero.webm"
           variant="animation2"
         />
 
       {/* 🔥 Custom layout + cards */}
+      <TrustedBySection/>
       <KeyHighlights
-        heading="Key Highlights"
+        heading="Power-Packed Features at Your Fingertips"
         features={FeaturesCards}
         layoutPatterns={layoutPatterns}
       />
