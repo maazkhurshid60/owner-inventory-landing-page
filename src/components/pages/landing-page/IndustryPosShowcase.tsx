@@ -213,7 +213,7 @@ const getSlideAnimationClass = (position: number) => {
   }
   80% {
     transform: translateX(-80%);
-    opacity: 1;
+    opacity: 0.7;
   }
   100% {
     transform: translateX(-100%);
@@ -228,7 +228,7 @@ const getSlideAnimationClass = (position: number) => {
   }
   80% {
     transform: translateX(80%);
-    opacity: 1;
+    opacity: 0.5;
   }
   100% {
     transform: translateX(100%);
@@ -243,7 +243,7 @@ const getSlideAnimationClass = (position: number) => {
   }
   20% {
     transform: translateX(80%);
-    opacity: 1;
+    opacity: 0.4;
   }
   100% {
     transform: translateX(0%);
@@ -258,7 +258,7 @@ const getSlideAnimationClass = (position: number) => {
   }
   20% {
     transform: translateX(-80%);
-    opacity: 1;
+    opacity: 0.6;
   }
   100% {
     transform: translateX(0%);
@@ -295,9 +295,9 @@ const getSlideAnimationClass = (position: number) => {
                       ${cardBg}
                       ${(!isMobileOrTablet && "hover:bg-[var(--background-light)]") || ""}
                       ${isExpanded ? "bg-[var(--background-light)]" : ""}
-                      transition-all duration-300 ease-in-out transform-gpu overflow-hidden cursor-pointer
+                      transition-all duration-1500 ease-in-out transform-gpu overflow-hidden cursor-pointer
                       ${isAnimating ? getSlideAnimationClass(i) : ""}
-                      ${!isAnimating ? "animate-[slideInLeft_0.6s_ease-in-out]" : ""}`}
+                      ${!isAnimating ? "animate-[slideInLeft_1.5s_ease-in-out]" : ""}`}
                   >
                     <div
                       className={`col-span-12 md:col-span-8 flex flex-col justify-between gap-6 transition-all duration-300
@@ -337,11 +337,11 @@ const getSlideAnimationClass = (position: number) => {
                       >
                         Read more
                         <span
-                          className={`px-4 py-[18px] rounded-[50%] bg-[var(--background-light)] transition-colors duration-300 ${
+                          className={`px-4 py-[18px] rounded-[50%] bg-[var(--background-light)]  transition-colors duration-300 ${
                             !isMobileOrTablet ? hoverBg : isExpanded ? hoverBg : ""
                           }`}
                         >
-                          <MoveUpRight size={20} />
+                          <MoveUpRight size={20} className="group-hover:rotate-45 group-hover:fill-white" />
                         </span>
                       </Link>
                     </div>
