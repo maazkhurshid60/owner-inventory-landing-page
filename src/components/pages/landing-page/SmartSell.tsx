@@ -23,6 +23,7 @@ export default function SmartSellSection() {
 
       
           <ButtonSm url='#' text='Get Explore Now' bgColor='[#795CF5]' textColor="white" isBorder/>
+          
 
           <div className="w-full">
             <IndustryPOSShowcase/>
