@@ -23,6 +23,7 @@ import VoicesRealBusiness from "./VoicesRealBusiness";
 import ToolsSection from "./ToolsSection";
 import SmartTools from "./SmartTools";
 import SmartSellSection from "./SmartSell";
+import IndustryPOSShowcase from "./IndustryPosShowcase";
 
 const caseStudiesData = [
   {
@@ -124,7 +125,8 @@ export default function Hero() {
         <SmartWaytoSyncndSellSection />
         <UnifiedPlatform />
         <VoicesRealBusiness />
-        <SmartSellSection/>
+        {/* <SmartSellSection/> */}
+        < IndustryPOSShowcase/>
         <PosIconsSection />
         <ToolsSection />
         <SmartTools />

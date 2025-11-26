@@ -38,7 +38,7 @@ const KeyHighlights: React.FC<KeyHighlightsProps> = ({
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-12 xl:auto-rows-auto items-stretch gap-6">
+      <div className="grid grid-cols-12 xl:auto-rows-auto items-stretch gap-6">
         {features.map((feature, i) => {
           const pattern = layoutPatterns[i % layoutPatterns.length];
           return <FeatureCard key={i} {...feature} {...pattern} />;

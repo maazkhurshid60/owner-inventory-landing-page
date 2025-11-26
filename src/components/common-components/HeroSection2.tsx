@@ -48,12 +48,12 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
   // Refs
   const mainHeadingRef = useRef<HTMLHeadingElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
-  const homeHeroImageRef = useRef<HTMLImageElement>(null);
-  const homeHeroImage1Ref = useRef<HTMLImageElement>(null);
-  const homeHeroImage2Ref = useRef<HTMLImageElement>(null);
-  const homeHeroImage3Ref = useRef<HTMLImageElement>(null);
-  const homeHeroImage4Ref = useRef<HTMLImageElement>(null);
-  const homeHeroImage5Ref = useRef<HTMLImageElement>(null);
+  // const homeHeroImageRef = useRef<HTMLImageElement>(null);
+  // const homeHeroImage1Ref = useRef<HTMLImageElement>(null);
+  // const homeHeroImage2Ref = useRef<HTMLImageElement>(null);
+  // const homeHeroImage3Ref = useRef<HTMLImageElement>(null);
+  // const homeHeroImage4Ref = useRef<HTMLImageElement>(null);
+  // const homeHeroImage5Ref = useRef<HTMLImageElement>(null);
   const productsImageRef = useRef<HTMLImageElement>(null);
   const advanceReportImageRef = useRef<HTMLImageElement>(null);
   const homeHeroSecRef = useRef<HTMLImageElement>(null);
@@ -79,6 +79,9 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
     // Initial states
     gsap.set(mainHeadingRef.current, { opacity: 0, y: 50 });
     gsap.set(paragraphRef.current, { opacity: 0, y: 30 });
+    gsap.set(homeHeroSecRef.current, { 
+      clipPath: "inset(0% 0% 100% 0%)" // Fixed: using clipPath instead of inset
+    });
     gsap.set(productsImageRef.current, {
       opacity: 0,
       rotation: 45,
@@ -119,6 +122,8 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
     // Animations
     tl.to(mainHeadingRef.current, { opacity: 1, y: 0, duration: 0.8 }, "0");
     tl.to(paragraphRef.current, { opacity: 1, y: 0, duration: 0.8 }, "0");
+  
+     tl.to(homeHeroSecRef.current, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.8}, "0.2");
     tl.to(
       [
         productsImageRef.current,
@@ -141,11 +146,11 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
         rotation: 0,
         duration: 2,
         onComplete: () => {
-          // Trigger video playback when animation completes
+          
           setShouldPlayVideo(true);
         },
       },
-      "2"
+      "0.4"
     );
     tl.to(
       growthBoxRef.current,
@@ -157,7 +162,7 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
         //   document.dispatchEvent(new Event("heroAnimationFinished"));
         // },
       },
-      "3"
+      "0.6"
     );
   }, []);
 
