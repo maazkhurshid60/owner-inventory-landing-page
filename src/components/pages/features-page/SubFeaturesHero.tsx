@@ -8,7 +8,6 @@ import { useHeroAnimation } from "@/hooks/useHeroAnimation";
 import { useHeroAnimation2 } from "@/hooks/useHeroAnimation2";
 import { useHeaderAnimation } from "@/hooks/useHeaderAnimation";
 import Image from "next/image";
-import { H1Icon } from "@heroicons/react/16/solid";
 import Paragraph from "../typography/Paragraph";
 import DropdownButtonSm from "@/components/dropdown/DropdownButtonSm";
 import SubHeading from "../typography/SubHeading";

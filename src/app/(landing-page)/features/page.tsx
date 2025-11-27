@@ -90,8 +90,9 @@ const page = () => {
         features={financeFeatures}
         wrapperClass="finance-reporting-shadow mx-10"
       />
-
+     <div className="lg:mt-[100px] md:mt-28 mt-20">
       <FaqSection />
+      </div>
       <CalltoActionBottom />
     </>
   );
