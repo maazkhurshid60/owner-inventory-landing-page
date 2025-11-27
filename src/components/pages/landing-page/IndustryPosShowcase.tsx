@@ -116,12 +116,10 @@ export default function IndustryPOSShowcase() {
       // Reset card widths based on screen size and expanded state
       if (screenSize === "tablet") {
         if (expandedCard === index) {
-          // Expanded card on tablet - 65%
           gsap.set(cardRefs.current[index], {
             minWidth: "63%",
             backgroundColor: "var(--background-light)",
           });
-          // Show content for expanded card
           gsap.set(descriptionRefs.current[index], { opacity: 1 });
           gsap.set(imageRefs.current[index], { opacity: 1 });
           gsap.set(linkRefs.current[index], {
@@ -131,7 +129,6 @@ export default function IndustryPOSShowcase() {
           gsap.set(svgRefs.current[index], { opacity: 0 });
           gsap.set(titleRefs.current[index], { color: "var(--text-dark)" });
         } else {
-          // Collapsed card on tablet - 34%
           gsap.set(cardRefs.current[index], {
             minWidth: "32%",
             backgroundColor:
@@ -141,13 +138,11 @@ export default function IndustryPOSShowcase() {
           });
         }
       } else if (screenSize === "mobile") {
-        // Mobile cards - full width with all content visible
         gsap.set(cardRefs.current[index], {
           minWidth: "100%",
           maxWidth: "100%",
           backgroundColor: "var(--background-light)",
         });
-        // Show all content for mobile
         gsap.set(descriptionRefs.current[index], { opacity: 1 });
         gsap.set(imageRefs.current[index], { opacity: 1 });
         gsap.set(linkRefs.current[index], { width: "auto", maxWidth: "180px" });
@@ -470,81 +465,90 @@ export default function IndustryPOSShowcase() {
     if (!card || !description || !image || !link || !svgs || !title) return;
 
     // Create timeline for this specific card
-    const newTimeline = gsap.timeline({
-      defaults: {
-        duration: 0.6,
-        ease: "power2.inOut",
-      },
-    });
+    // Create timeline for this specific card
+const newTimeline = gsap.timeline({
+  defaults: {
+    duration: 0.6,
+    ease: "power2.inOut",
+  },
+});
 
-    timelineRefs.current[index] = newTimeline;
+timelineRefs.current[index] = newTimeline;
 
-    // HOVER IN ANIMATION for this specific card - FASTER
-    newTimeline
-      // Expand this card
-      .to(
-        card,
-        {
-          minWidth: "41%",
-          backgroundColor: "var(--background-light)",
-          duration: 0.6,
-        },
-        0
-      )
+// HOVER IN ANIMATION for this specific card - FASTER
+newTimeline
+  // Expand this card - at position 0
+  .to(
+    card,
+    {
+      minWidth: "41%",
+      duration: 0.5,
+    },
+    0 // At timeline position 0
+  )
 
-      .to(
-        [description, image],
+  // All other properties at timeline position 1 (after the width expansion)
+  .to(
+    card,
+    {
+      backgroundColor: "var(--background-light)",
+      duration: 0.4,
+    },
+    0.6
+  )
+  .to(
+    [description, image],
+    {
+      opacity: 1,
+      duration: 0.4,
+    },
+    0.6
+  )
+  // Hide SVGs
+  .to(
+    svgs,
+    {
+      opacity: 0,
+      duration: 0.4,
+    },
+    0.6
+  )
+  // Change title color
+  .to(
+    title,
+    {
+      color: "var(--text-dark)",
+      duration: 0.4,
+    },
+    0.6
+  )
+  // Animate link width
+  .to(
+    link,
+    {
+      width: "auto",
+      maxWidth: "180px",
+      duration: 0.6,
+    },
+   0.6
+  );
+
+// Compress other cards - FASTER
+visibleCards.forEach((_, i) => {
+  if (i !== index) {
+    const otherCard = cardRefs.current[i];
+    if (otherCard) {
+      newTimeline.to(
+        otherCard,
         {
-          opacity: 1,
-          duration: 0.4,
+          minWidth: `calc(${(100 - 42) / (visibleCardsCount - 1)}% - 20px)`,
+          duration: 0.5,
         },
-        0
-      )
-      // Hide SVGs
-      .to(
-        svgs,
-        {
-          opacity: 0,
-          duration: 0.4,
-        },
-        0
-      )
-      // Change title color
-      .to(
-        title,
-        {
-          color: "var(--text-dark)",
-          duration: 0.4,
-        },
-        0
-      )
-      // Animate link width
-      .to(
-        link,
-        {
-          width: "auto",
-          maxWidth: "180px",
-          duration: 0.6,
-        },
-        0
+        0 
       );
-
-    // Compress other cards - FASTER
-    visibleCards.forEach((_, i) => {
-      if (i !== index) {
-        const otherCard = cardRefs.current[i];
-        if (otherCard) {
-          newTimeline.to(
-            otherCard,
-            {
-              minWidth: `calc(${(100 - 42) / (visibleCardsCount - 1)}% - 20px)`,
-              duration: 0.5,
-            },
-            0
-          );
-        }
-      }
-    });
+    }
+  }
+});
   };
 
   const handleCardLeave = (index: number) => {

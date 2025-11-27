@@ -4,6 +4,7 @@ import React, { useEffect, Suspense,  } from "react";
 import Image from "next/image";
 import dynamic from 'next/dynamic';
 
+
 // Lazy load all components
 const HeroSection2 = dynamic(() => import('@/components/common-components/HeroSection2'));
 const TrustedBySection = dynamic(() => import('@/components/common-components/TrustedBySection'));
@@ -19,6 +20,7 @@ const SmartTools = dynamic(() => import('@/components/pages/landing-page/SmartTo
 const InsightsSection = dynamic(() => import('@/components/pages/landing-page/InsightsSection'));
 const FaqSection = dynamic(() => import('@/components/pages/landing-page/FAQSection'));
 const CalltoActionBottom = dynamic(() => import('@/components/pages/landing-page/CalltoActionBottom'));
+const FeaturesTabSection = dynamic(() => import('@/components/pages/landing-page/FeaturesSection'));
 
 const caseStudiesData = [
   {
@@ -126,6 +128,9 @@ export default function Home() {
           />
 
           <CaseStudies caseStudies={caseStudiesData} />
+
+
+          <FeaturesTabSection/>
 
           <SmartWaytoSyncndSellSection />
 

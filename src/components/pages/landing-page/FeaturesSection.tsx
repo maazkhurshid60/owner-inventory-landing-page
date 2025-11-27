@@ -79,7 +79,7 @@ export default function FeaturesTabSection() {
   }, [activeFeature]);
 
   return (
-    <section className="features-tab-section mt-20 md:mt-28 lg:mt-40 py-10 md:py-10 xl:py-24 rounded-[20px] lg:rounded-[40px] bg-[#231F20] z-11">
+    <section className="features-tab-section mt-20 md:mt-28 lg:mt-[100px] py-10 md:py-10 xl:py-24 rounded-[20px] lg:rounded-[40px] bg-[#231F20] z-11">
       <div className="wrapper">
         <MainHeading className="max-w-[800px] leading-tight text-[var(--white-color)] lg:mb-20 md:mb-[60px] mb-10">
           Powerful Features Built for Growing Businesses
