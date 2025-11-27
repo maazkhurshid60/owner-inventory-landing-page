@@ -10,7 +10,8 @@ const brands: Brand[] = [
   { id: 1, name: "ASK Food Industries", logo: "/brands-section/ask-food.webp" },
   { id: 2, name: "Industrial Valco", logo: "/brands-section/industrial-valco.webp" },
   { id: 3, name: "Texas Pipe & Supply", logo: "/brands-section/texas-pipe.webp" },
-  { id: 4, name: "Al-Asif", logo: "/brands-section/sportifi.webp" },
+  { id: 4, name: "Al Asif", logo: "/brands-section/al-asif.webp" },
+  { id: 5, name: "Sportifi", logo: "/brands-section/sportifi.webp" },
 ];
 
 function trustedBrand(){
