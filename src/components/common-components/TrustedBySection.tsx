@@ -4,12 +4,13 @@ import MainHeading from "../pages/typography/MainHeading";
 import BrandsSwiper from "../slider/BrandsSwiper";
 
 const brands = [
-  { id: 1, name: "ASK Food Industries", logo: "/assets/brands-logos/ask-food.webp" },
-  { id: 2, name: "Industrial Valco", logo: "/assets/brands-logos/industrial-valco.webp" },
-  { id: 3, name: "Texas Pipe & Supply", logo: "/assets/brands-logos/texas-pipe.webp" },
-  { id: 4, name: "Al-Asif", logo: "/assets/brands-logos/sportifi.webp" },
-  // { id: 5, name: "ASK Food Industries", logo: "/assets/brands-section/ask-food-industries.webp" },
+  { id: 1, name: "ASK Food Industries", logo: "/assets/brands-logo-section/ask-food.webp" },
+  { id: 2, name: "Industrial Valco", logo: "/assets/brands-logo-section/industrial-valco.webp" },
+  { id: 3, name: "Texas Pipe & Supply", logo: "/assets/brands-logo-section/texas-pipe.webp" },
+  { id: 4, name: "Al-Asif", logo: "/assets/brands-logo-section/al-asif.webp" },
+ { id: 5, name: "Sportifi", logo: "/assets/brands-logo-section/sportifi.webp" },
 ];
+
 
 const TrustedBySection = () => {
   return (
