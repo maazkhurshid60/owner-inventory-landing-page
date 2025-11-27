@@ -7,7 +7,7 @@ import React from "react";
 const Footer: React.FC = () => {
   return (
     <footer
-      className="owner-inventory-footer relative  -mt-[131px] pt-[251px] lg:pt-[291px] pb-10 px-4 md:px-6 lg:px-10"
+      className="owner-inventory-footer relative -mt-[131px] pt-[251px] lg:pt-[291px] pb-10 px-4 md:px-6 lg:px-10 bg-white/50 backdrop-blur-xl"
       style={{
         background:
           "linear-gradient(90deg,  rgba(158, 2, 255, 0.3) 0%, rgba(207, 181, 249, 1) 10%, rgba(26, 209, 185, 0.3) 80%) ",

@@ -196,9 +196,26 @@ export default function PosIconsSection() {
           <MainHeading className="text-[var(--white-color)] text-center mb-6">
             Your Complete Inventory Toolkit
           </MainHeading>
-          <Paragraph className="text-[var(--white-color)] text-center">
+
+           <p
+              className="font-onest font-normal text-[var(--white-color)] xl:text-xl lg:text-lg md:text-base text-xs xl:leading-9 lg:leading-7 md:leading-6 leading-5 flex items-center justify-center gap-2"
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+            >
+              <span ref={spanRef}>
+                <Image
+                  src="/assets/icons-section/navigation-icon.svg"
+                  alt="Navigation Icon"
+                  width={24}
+                  height={24}
+                  className="flex items-center justify-center w-6 h-6 z-10"
+                />
+              </span>
+              Click any feature below to get started
+            </p>
+          {/* <Paragraph className="text-[var(--white-color)] text-center">
             Click any feature below to get started
-          </Paragraph>
+          </Paragraph> */}
 
           <div className="relative h-[500px] md:h-[600px] lg:h-[550px] flex flex-col justify-center items-center">
             <a
@@ -214,7 +231,7 @@ export default function PosIconsSection() {
               />
             </a>
 
-            <p
+            {/* <p
               className="text-sm font-medium leading-5 font-onest text-[var(--white-color)] flex items-center justify-center gap-2"
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
@@ -229,7 +246,7 @@ export default function PosIconsSection() {
                 />
               </span>
               Click on Interactive Features
-            </p>
+            </p> */}
 
             {iconData.map((icon) => (
               <a
