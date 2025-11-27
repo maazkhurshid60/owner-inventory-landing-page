@@ -409,25 +409,20 @@ export default function IndustryPOSShowcase() {
   };
 
   const handleCardClick = (index: number) => {
-    // Only handle clicks for tablet, ignore mobile clicks
     if (screenSize === "tablet") {
       const globalIndex = visibleCards[index].originalIndex;
 
-      // Tablet behavior - GSAP animations
       if (expandedCard === index) {
-        // If clicking the same card that's already expanded, collapse all to default
         resetTabletCards();
       } else {
-        // If clicking a different card, expand it and compress others
         expandCardOnTablet(index);
       }
     }
-    // Mobile behavior: No click effects, just simple cards
+ 
   };
 
   const autoSlideInterval = 5000;
 
-  // Start auto slide
   const startAutoSlide = () => {
     if (autoSlideTimerRef.current) {
       clearInterval(autoSlideTimerRef.current);
@@ -444,7 +439,6 @@ export default function IndustryPOSShowcase() {
     }, autoSlideInterval);
   };
 
-  // Stop auto slide
   const stopAutoSlide = () => {
     if (autoSlideTimerRef.current) {
       clearInterval(autoSlideTimerRef.current);
@@ -452,14 +446,14 @@ export default function IndustryPOSShowcase() {
     }
   };
 
-  // GSAP Hover Animations for desktop - FASTER
+
   const handleCardHover = (index: number) => {
     if (screenSize !== "desktop" || expandedCard !== null) return;
 
     setIsHovering(true);
     stopAutoSlide();
 
-    // Kill any existing timeline for this specific card - FIXED: Check if timeline exists
+    
     const existingTimeline = timelineRefs.current[index];
     if (existingTimeline) {
       existingTimeline.kill();
@@ -497,7 +491,7 @@ export default function IndustryPOSShowcase() {
         },
         0
       )
-      // Show description and image
+
       .to(
         [description, image],
         {
