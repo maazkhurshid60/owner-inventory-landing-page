@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import MainHeading from "../../typography/MainHeading";
+import Paragraph from "../../typography/Paragraph";
 
 interface CardItem {
   icon: string;
@@ -10,24 +12,29 @@ interface CardItem {
 
 interface WhyChoosePOSProps {
   heading: string;
+  paragraph: string;
   cards: CardItem[];
   mainImage: string;
 }
 
 export default function WhyChoosePOS({
   heading,
+  paragraph,
   cards,
   mainImage,
 }: WhyChoosePOSProps) {
   return (
-    <section className="lg:mt-40 md:mt-28 mt-20">
+    <section className="lg:mt-[100px] md:mt-28 mt-20">
       <div className="finance-reporting-shadow">
         <div className="wrapper">
           {/* Heading */}
           <div className="flex flex-col items-center justify-center">
-            <h1 className="font-onest font-semibold text-[#231F20] text-[27px] sm:text-4xl md:text-[40px] lg:text-5xl leading-9 sm:leading-[48px] lg:leading-[60px] xl:mb-10 lg:mb-6 mb-5 text-center">
+            <MainHeading className="mb-6 text-center">
               {heading}
-            </h1>
+            </MainHeading>
+            <Paragraph className="mb-[60px] text-center">
+              {paragraph}
+            </Paragraph>
           </div>
 
           {/* Grid Layout */}
@@ -37,7 +44,7 @@ export default function WhyChoosePOS({
               {cards.map((card, index) => (
                 <div
                   key={index}
-                  className="bg-white xl:px-[30px] xl:py-6 px-4 py-4 flex items-center justify-start gap-[30px] rounded-[20px]"
+                  className="bg-white xl:px-[30px] xl:py-6 px-4 py-4 flex flex-col md:flex-row items-start justify-start gap-[30px] rounded-[20px]"
                 >
                   <Image
                     src={card.icon}
@@ -46,11 +53,11 @@ export default function WhyChoosePOS({
                     height={40}
                     className="w-10 h-10"
                   />
-                  <div className="flex flex-col xl:gap-4 gap-2">
-                    <h4 className="xl:text-2xl sm:text-xl text-base font-semibold text-[#231F20] font-onest">
+                  <div className="flex flex-col items-start justify-baseline xl:gap-4 gap-2">
+                    <h4 className="xl:text-2xl sm:text-xl text-base font-semibold text-[var(--text-dark)] font-onest">
                       {card.title}
                     </h4>
-                    <p className="xl:text-base text-sm font-normal font-onest text-[#231F20]">
+                    <p className="xl:text-base leading-6 font-normal font-onest text-[var(--text-grey)]">
                       {card.description}
                     </p>
                   </div>

@@ -5,35 +5,34 @@ import CardDesc from "../typography/CardDesc";
 interface FeatureCardProps {
   title: string;
   description?: string;
-  videoSrc?: string;       
+  videoSrc?: string;
   imageSrc?: string;
-  authorName?: string;      
+  authorName?: string;
   className?: string;
-  mediaClassName?: string; 
+  mediaClassName?: string;
   paddingClass?: string;
   buttonLabel?: string;
   buttonHref?: string;
-  heightClass?: string;   
-  truncateTitle?: boolean; 
-  maxTitleLength?: number; 
+  heightClass?: string;
+  truncateTitle?: boolean;
+  maxTitleLength?: number;
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
-  description="",
+  description = "",
   videoSrc,
   imageSrc,
-  authorName= "",    
+  authorName = "",
   className = "",
   mediaClassName = "",
   paddingClass = "px-[24px] pt-4",
   buttonLabel,
   buttonHref,
-  heightClass = "h-full", 
-   truncateTitle = false,  
+  heightClass = "h-full",
+  truncateTitle = false,
   maxTitleLength = 50,
 }) => {
-
   const displayedTitle =
     truncateTitle && title.length > maxTitleLength
       ? title.slice(0, maxTitleLength) + "..."
@@ -74,15 +73,13 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
 
           {/* Text */}
           <div className="mt-5">
-            <CardHeading>
+            <CardHeading className="mb-6 min-h-[40px] flex items-start">
               {displayedTitle}
             </CardHeading>
-              
-            {/* <p className="xl:text-base text-sm font-normal font-onest text-[#231F20] mt-3 lg:mt-4">
-              {description}
-            </p> */}
 
-            <CardDesc>{description}</CardDesc>
+            <CardDesc className="min-h-[60px] flex items-start">
+              {description}
+            </CardDesc>
 
             <p className="xl:text-base text-base leading-6 font-bold font-onest text-[#795CF5] mt-3 lg:mt-4">
               {authorName}

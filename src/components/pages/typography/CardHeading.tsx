@@ -12,7 +12,7 @@ const CardHeading: React.FC<SubHeadingProps> = ({ children, className }) => {
       className={clsx(
         "font-semibold text-[var(--text-dark)]",
         "font-onest",
-        "xl:text-2xl text-xl",
+        "text-2xl",
         "leading-[100%]",
         "",
         className 

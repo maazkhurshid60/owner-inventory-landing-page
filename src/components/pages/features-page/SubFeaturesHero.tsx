@@ -99,13 +99,12 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
 
   }, []);
 
-  // Handle video load error
   const handleVideoError = () => {
     console.error("Video failed to load");
     setVideoError(true);
   };
 
-  // Get MP4 version if WebM is provided
+
   const getMp4Version = (videoUrl: string) => {
     if (videoUrl.endsWith('.webm')) {
       return videoUrl.replace('.webm', '.mp4');
@@ -113,11 +112,11 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
     return videoUrl;
   };
 
-  // Get video type based on extension
+ 
   const getVideoType = (videoUrl: string) => {
     if (videoUrl.endsWith('.webm')) return 'video/webm';
     if (videoUrl.endsWith('.mp4')) return 'video/mp4';
-    return 'video/mp4'; // default fallback
+    return 'video/mp4'; 
   };
 
    useEffect(() => {
@@ -169,7 +168,7 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
                 </div>
 
                 <div 
-                  ref={growthBoxRef} // Added the missing ref here
+                  ref={growthBoxRef} 
                   className="flex md:gap-4 gap-2 lg:p-1.5 relative z-[60] owner-inventory-hero__content--buttons"
                 >
                   <ButtonSm
@@ -191,7 +190,7 @@ const SubFeaturesHero: React.FC<SubFeaturesHeroProps> = ({
                       className="w-full object-cover rounded-3xl"
                       muted
                       playsInline
-                      autoPlay={shouldPlayVideo} // Control autoplay with state
+                      autoPlay={shouldPlayVideo} 
                       loop
                       onError={handleVideoError}
                     >
