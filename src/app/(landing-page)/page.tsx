@@ -1,6 +1,6 @@
 "use client";
 import '../globals.css'
-import React, { useEffect, Suspense,  } from "react";
+import React, { useEffect, Suspense, } from "react";
 import Image from "next/image";
 import dynamic from 'next/dynamic';
 
@@ -106,51 +106,51 @@ export default function Home() {
       window.scrollTo(0, 0);
       try {
         history.scrollRestoration = "manual";
-      } catch (e) {}
+      } catch (e) { }
     }
   }, []);
 
   return (
     <>
       <div className="font-onset">
-          <HeroSection2
-            title="Take Control. Gain Clarity. Grow with Owners Inventory."
-            description="Turn all assets to advantage. Our Owners Inventory services assist you in managing, examining and displaying your inventory in a single, smart, interconnected environment - created to respond to real expansion."
-            video="/assets/Manual.mp4"
-            variant="animation2"
-          />
+        <HeroSection2
+          title="Take Control. Gain Clarity. Grow with Owners Inventory."
+          description="Turn all assets to advantage. Our Owners Inventory services assist you in managing, examining and displaying your inventory in a single, smart, interconnected environment - created to respond to real expansion."
+          video="/assets/Manual.mp4"
+          variant="animation2"
+        />
 
-          <TrustedBySection />
+        <TrustedBySection />
 
-          <TurningChaos
-            title="Turning Chaos Into Clarity One Inventory at a Time."
-            description="With Owners Inventory, everything you need—inventory, POS, e-commerce, customer management, and reporting—works together seamlessly in one place. Simplify your operations, reduce manual errors, and scale your business faster with a platform built to unify, automate, and grow alongside you."
-          />
+        <TurningChaos
+          title="Turning Chaos Into Clarity One Inventory at a Time."
+          description="With Owners Inventory, everything you need—inventory, POS, e-commerce, customer management, and reporting—works together seamlessly in one place. Simplify your operations, reduce manual errors, and scale your business faster with a platform built to unify, automate, and grow alongside you."
+        />
 
-          <CaseStudies caseStudies={caseStudiesData} />
+        <CaseStudies caseStudies={caseStudiesData} />
 
 
-          <FeaturesTabSection/>
+        <FeaturesTabSection />
 
-          <SmartWaytoSyncndSellSection />
+        <SmartWaytoSyncndSellSection />
 
-          <UnifiedPlatform />
+        <UnifiedPlatform />
 
-          <VoicesRealBusiness />
-          
-          <IndustryPOSShowcase />
+        <VoicesRealBusiness />
 
-          <PosIconsSection />
+        <IndustryPOSShowcase />
 
-          <ToolsSection />
+        <PosIconsSection />
 
-          <SmartTools />
+        <ToolsSection />
 
-          <InsightsSection />
+        <SmartTools />
 
-          <FaqSection />
+        <InsightsSection />
 
-          <CalltoActionBottom />
+        <FaqSection />
+
+        <CalltoActionBottom />
       </div>
     </>
   );

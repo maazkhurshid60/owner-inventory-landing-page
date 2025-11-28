@@ -86,22 +86,26 @@ const SmartTools = () => {
             loading="lazy"
             className="w-full"
           /> */}
-           <video
-                        className="w-full object-cover bg-transparent rounded-3xl"
-                        muted
-                        playsInline
-                        autoPlay
-                        loop
-                      >
-                        <source
+          <video
+            className="w-full object-cover bg-transparent rounded-3xl"
+            muted
+            playsInline
+            autoPlay
+            loop
+          >
+            {/* <source
                           src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/stay-ahead.mp4"
                           type="video/mp4"
-                        />
-                        <source
+                        /> */}
+            {/* <source
                           src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/stay-ahead.webm"
                           type="video/webm"
-                        />
-                      </video>
+                        /> */}
+            <source
+              src="/assets/stay_ahead.webm"
+              type="video/webm"
+            />
+          </video>
 
         </div>
       </div>
