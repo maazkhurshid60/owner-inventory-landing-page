@@ -92,21 +92,18 @@ const SmartTools = () => {
             playsInline
             autoPlay
             loop
+            preload="auto"
+            controls={false}
           >
-            {/* <source
-                          src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/stay-ahead.mp4"
-                          type="video/mp4"
-                        /> */}
-            {/* <source
-                          src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/stay-ahead.webm"
-                          type="video/webm"
-                        /> */}
             <source
-              src="/assets/stay_ahead.webm"
+              src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/stay-ahead.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="https://owner-inventory.s3.us-east-1.amazonaws.com/videos/landing-page/stay-ahead.webm"
               type="video/webm"
             />
           </video>
-
         </div>
       </div>
     </section>

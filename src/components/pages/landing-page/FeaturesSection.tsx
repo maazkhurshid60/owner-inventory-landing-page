@@ -105,6 +105,8 @@ export default function FeaturesTabSection() {
                   playsInline
                   autoPlay
                   loop
+                  preload="auto"
+                  controls={false}
                 >
                   <source src={feature.mp4} type="video/mp4" />
                   <source src={feature.webm} type="video/webm" />

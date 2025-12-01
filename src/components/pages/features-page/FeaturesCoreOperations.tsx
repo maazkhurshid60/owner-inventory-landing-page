@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
-import FeatureCard from "./FeatureCard";
+import FeatureMainCard from "./FeatureMainCard";
+import MainHeading from "../typography/MainHeading";
+import Paragraph from "../typography/Paragraph";
 
 // Base features coming from backend (without class props)
 const features = [
@@ -29,71 +31,73 @@ const features = [
     description: "Streamline your order processing, from quotation to fulfillment.",
     videoSrc: "https://owner-inventory.s3.us-east-1.amazonaws.com/videos/features-page/sale-order.webm",
   },
- 
 ];
 
-
 const layoutClasses = [
-  
+  // First card - 8 columns (full height)
   {
-    className: "col-span-12 xl:col-span-8 ",
-    mediaClassName: "scale-110 h-[320px]",
+    className: "col-span-12 xl:col-span-8 xl:row-span-2",
+    mediaClassName: "h-[220px] lg:h-[330px] xl:h-[320px]",
     paddingClass: "px-[24px]",
-    heightClass: "h-full",
+    heightClass: "h-fit",
   },
   
+  // Second card - 4 columns (shorter height)
   {
-    className: "col-span-12 md:col-span-6 xl:col-span-4",
-    mediaClassName: "scale-100 h-[220px] xl:h-[190px]",
+    className: "col-span-12 md:col-span-6 xl:col-span-4 xl:row-span-1",
+    mediaClassName: "h-[220px] lg:h-[330px] xl:h-[194px]",
     paddingClass: "ps-[24px] pe-0",
-    heightClass: "h-fit",
+    heightClass: "xl:h-fit",
   },
 
+  // Third card - 4 columns (same height as first card)
   {
-    className: "col-span-12 md:col-span-6 xl:col-span-4 ",
-    mediaClassName: "scale-110 h-[220px]",
-    heightClass: "h-fit",
+    className: "col-span-12 md:col-span-6 xl:col-span-4 xl:col-start-1 xl:row-start-3 xl:row-span-1",
+    mediaClassName: "h-[220px] lg:h-[330px] xl:h-[204px]",
+    heightClass: "xl:h-fit",
   },
 
+  // Fourth card - 4 columns (same height as first card)
   {
-    className: "col-span-12 md:col-span-6 xl:col-span-4",
-    mediaClassName: "scale-110 h-[220px]",
-    heightClass: "h-fit",
+    className: "col-span-12 md:col-span-6 xl:col-span-4 xl:col-start-5 xl:row-start-3 xl:row-span-1",
+    mediaClassName: "h-[220px] lg:h-[310px] xl:h-[204px]",
+    heightClass: "xl:h-fit",
   },
 
+  // Fifth card - 4 columns (tallest height)
   {
-    className: "col-span-12 md:col-span-6 xl:col-span-4 xl:-mt-[100px]",
-    mediaClassName: "h-[220px] xl:h-[320px]",
-    paddingClass: "ps-[24px] pe-0",
-    heightClass: "h-fit",
+    className: "col-span-12 md:col-span-6 xl:col-span-4 xl:col-start-9 xl:row-start-2 xl:row-span-2",
+    mediaClassName: "h-[220px] lg:h-[330px] xl:h-[340px] scale-x-[1.05] scale-y-110 md:scale-110 lg:scale-x-135 lg:scale-y-110 xl:scale-100",
+    paddingClass: "px-[24px] pt-4 xl:ps-[24px] pe-0",
+    heightClass: "xl:h-fit",
   },
 ];
 
 const defaultLayout = {
   className: "col-span-12 md:col-span-6 xl:col-span-4",
-  mediaClassName: "scale-110 h-[220px]",
-  heightClass: "h-fit",
+  mediaClassName: "h-[220px] lg:h-[330px] xl:h-[204px]",
+  heightClass: "xl:h-fit",
 };
 
 const FeaturesCoreOperations: React.FC = () => {
   return (
     <section className="wrapper features-core-opretions">
       {/* Heading */}
-      <div className="flex flex-col items-start justify-center lg:mt-[10px] md:mt-28 mt-20">
-        <h1 className="font-onest font-semibold text-[#231F20] text-[27px] sm:text-4xl md:text-[40px] lg:text-5xl leading-9 sm:leading-[48px] lg:leading-[60px] lg:max-w-4xl xl:mb-10 lg:mb-6 mb-5">
+      <div className="flex flex-col items-start justify-center lg:mt-[0px] md:mt-28 mt-20">
+        <MainHeading className="lg:max-w-4xl xl:mb-10 lg:mb-6 mb-5">
           Core Business Operations
-        </h1>
-        <p className="font-onest font-normal text-[#231F20] text-sm lg:text-lg xl:text-xl leading-6 lg:leading-7 xl:leading-9 w-full max-w-[978px]">
+        </MainHeading>
+        <Paragraph className="w-full max-w-[978px]">
           Take full control of your day-to-day operations with tools designed to
           keep your business running seamlessly
-        </p>
+        </Paragraph>
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-12 gap-6 lg:mt-20 mt-10">
+      <div className="grid grid-cols-12 items-stretch xl:items-start gap-6 lg:mt-10 mt-10 xl:grid-rows-[auto_auto_auto]">
         {features.map((feature, i) => {
           const layout = layoutClasses[i] || defaultLayout;
-          return <FeatureCard key={i} {...feature} {...layout} />;
+          return <FeatureMainCard key={i} {...feature} {...layout} />;
         })}
       </div>
     </section>

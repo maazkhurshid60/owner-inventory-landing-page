@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import FeatureCard from "../FeatureCard";
 import MainHeading from "../../typography/MainHeading";
 import { ArrowDown } from "lucide-react";
+import ButtonSm from "@/components/button/ButtonSm";
 
 interface Feature {
   title: string;
@@ -59,7 +60,7 @@ const KeyHighlights: React.FC<KeyHighlightsProps> = ({
   return (
     <section className="wrapper features-core-opretions">
       {/* Heading */}
-      <div className="flex flex-col items-start justify-center lg:mt-[10px] md:mt-28 mt-20">
+      <div className="flex flex-col items-center justify-center lg:mt-[10px] md:mt-28 mt-20">
         <MainHeading className="xl:mb-10 lg:mb-6 mb-5 text-center w-full">
           {heading}
         </MainHeading>
@@ -91,6 +92,15 @@ const KeyHighlights: React.FC<KeyHighlightsProps> = ({
           </button>
         </div>
       )}
+     <div className="md:mt-7 mt-5 flex items-center justify-center">
+          <ButtonSm
+                             url="#"
+                             text="Get a Free Demo"
+                             bgColor="[#1AD1B9]"
+                             textColor="white"
+                             isBorder
+                           />
+     </div>
     </section>
   );
 };
