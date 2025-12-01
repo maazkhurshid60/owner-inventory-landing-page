@@ -39,8 +39,6 @@ const industries = [
     },
 ];
 
-
-
 const IndustryPosShowcase = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [hoveredCard, setHoveredCard] = useState<number | null>(null);
