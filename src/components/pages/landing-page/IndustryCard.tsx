@@ -70,7 +70,7 @@ const IndustryCard: React.FC<IndustryCardProps> = ({
 
                 {/* READ MORE BUTTON */}
                 <div
-                    className={`bg-white rounded-full h-[60px] flex items-center px-2 pl-6 -mt-90 transition-all duration-300 ease-in-out ${isHovered ? 'w-[200px] justify-between' : 'w-full justify-between'
+                    className={`bg-white rounded-full h-[60px] flex items-center px-2 pl-6 -mt-90 transition-all duration-300 ease-in-out ${isHovered ? 'w-[180px] justify-between' : 'w-full justify-between'
                         }`}
                 >
                     <span className="text-[#333333] text-[16px] font-semibold font-['Onest']">
