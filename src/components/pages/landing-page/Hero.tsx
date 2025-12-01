@@ -100,7 +100,7 @@ export default function Hero() {
       window.scrollTo(0, 0);
       try {
         history.scrollRestoration = "manual";
-      } catch (e) {}
+      } catch (e) { }
     }
   }, []);
 
@@ -126,7 +126,7 @@ export default function Hero() {
         <UnifiedPlatform />
         <VoicesRealBusiness />
         {/* <SmartSellSection/> */}
-        < IndustryPOSShowcase/>
+        < IndustryPOSShowcase />
         <PosIconsSection />
         <ToolsSection />
         <SmartTools />
