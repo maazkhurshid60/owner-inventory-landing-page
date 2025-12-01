@@ -60,7 +60,8 @@ function SmartWaytoSyncndSellSection() {
             playsInline
             autoPlay
             loop
-            // ensure we refresh ScrollTrigger once video metadata/data is available
+             preload="auto"
+           controls={false}
             onLoadedMetadata={onVideoLoaded}
             onLoadedData={onVideoLoaded}
           >

@@ -1,0 +1,17 @@
+.swiper .swiper-pagination-bullet {
+  width: 14px;
+  height: 14px;
+  background-color:  var(--primary-purple);
+  box-shadow: inset 0px 0px 0.5px 0px var(--primary-purple);
+  opacity: 0.4;
+  transition: all 0.3s ease;
+  border-radius: 50%;
+}
+
+/* Active bullet */
+.swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  width: 20px;
+  height: 20px;
+  background-color: var(--primary-purple);
+}
