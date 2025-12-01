@@ -137,19 +137,17 @@ const IndustryPosShowcase = () => {
                         const isVisible = index >= startIdx && index < endIdx;
                         const relativeIndex = index - startIdx;
 
-                        // Calculate transform based on hover position
                         let expandAmount = 0;
                         if (isVisible && hoveredCard !== null) {
-                            // If hovering on the last card (index 3)
                             if (hoveredCard === slidesPerView - 1) {
                                 if (relativeIndex < hoveredCard) {
-                                    expandAmount = -190; // Push other cards to the left
+                                    expandAmount = -190;
                                 } else if (relativeIndex === hoveredCard) {
-                                    expandAmount = -190; // Move the 4th card itself to the left
+                                    expandAmount = -190;
                                 }
                             }
                             else if (hoveredCard < slidesPerView - 1 && hoveredCard < relativeIndex) {
-                                expandAmount = 10; // Push to right
+                                expandAmount = 10;
                             }
                         }
 

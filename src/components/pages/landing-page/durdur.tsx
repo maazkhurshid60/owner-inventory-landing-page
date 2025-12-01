@@ -341,9 +341,7 @@ export default function IndustryPOSShowcase() {
               })}
             </div>
 
-            {/* SLIDER BUTTONS - Show on all devices */}
             <div className="flex justify-end items-center gap-2 mb-6 lg:mb-[10px]">
-              {/* Previous Button */}
               <button
                 onClick={prevSlide}
                 disabled={currentSlide === 0 || isAnimating}
@@ -364,7 +362,6 @@ export default function IndustryPOSShowcase() {
                 />
               </button>
 
-              {/* Bullets */}
               <div className="flex gap-2">
                 {Array.from({ length: maxSlides + 1 }).map(
                   (_, index) => (
@@ -383,7 +380,6 @@ export default function IndustryPOSShowcase() {
                 )}
               </div>
 
-              {/* Next Button */}
               <button
                 onClick={nextSlide}
                 disabled={currentSlide === maxSlides || isAnimating}

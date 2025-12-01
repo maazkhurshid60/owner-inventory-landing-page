@@ -8,7 +8,7 @@ import SubFeaturesHero from '@/components/pages/features-page/SubFeaturesHero'
 import CalltoActionBottom from '@/components/pages/landing-page/CalltoActionBottom'
 import FaqSection from '@/components/pages/landing-page/FAQSection'
 import HeroSection from '@/components/pages/landing-page/HeroSection'
-import IndustryPOSShowcase from '@/components/pages/landing-page/IndustryPosShowcase'
+import IndustryPosShowcase from '@/components/pages/landing-page/IndustryPosShowcase'
 import PinnedSection3 from '@/components/pages/landing-page/PinnedSection3'
 import React from 'react'
 
@@ -121,7 +121,7 @@ const page = () => {
         mainImage="/assets/features-page/point-of-sale/why-chose/why-chose-main.webp"
       />
       <div className="lg:mt-[100px] md:mt-28 mt-20">
-      <IndustryPOSShowcase/>
+      <IndustryPosShowcase/>
       </div>
       <FeaturesCallToAction/>
       <FeaturesTestimonials/>
