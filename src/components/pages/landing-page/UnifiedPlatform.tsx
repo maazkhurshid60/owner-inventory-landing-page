@@ -40,6 +40,7 @@ const cards = [
 
 export default function UnifiedPlatform() {
   const sectionRef = useRef<HTMLDivElement | null>(null);
+  const sectionTriggerRef = useRef<HTMLDivElement | null>(null);
   const ctxRef = useRef<gsap.Context | null>(null);
   const mmRef = useRef<any>(null);
 
@@ -56,10 +57,10 @@ export default function UnifiedPlatform() {
       const createTimeline = (opts: { start?: string; end?: string }) => {
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: sectionRef.current,
+            trigger: sectionTriggerRef.current,
             start: opts.start ?? "top top",
             end: opts.end ?? "+=200%",
-            pin: true,
+            pin: sectionRef.current,
             scrub: 1.2,
             anticipatePin: 1,
             invalidateOnRefresh: true,
@@ -179,9 +180,10 @@ export default function UnifiedPlatform() {
   return (
     <div
       ref={sectionRef}
-      className="pt-4 md:pt-28 lg:pt-[100px] min-h-[100vh] relative"
+      className=" min-h-[100vh] relative"
       aria-label="Unified Platform Section"
     >
+      <div ref={sectionTriggerRef} className="h-1 w-full mb-4 md:mb-28 lg:mb-[100px]"></div>
       <section className="wrapper">
         <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-5 lg:gap-14 xl:gap-32 py-8 sm:py-20 xl:py-16 px-6 sm:px-10 xl:px-28 rounded-[20px] lg:rounded-[40px] bg-[#F3F4F6]">
           {/* Cards Column */}
