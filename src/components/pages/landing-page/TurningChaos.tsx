@@ -95,9 +95,9 @@ const TurningChaos: React.FC<TurningChaosProps> = ({
   }, []);
 
   return (
-    <div className="md:py-[1px] bg-[#F3F4F6] min-h-screen overflow-hidden lg:rounded-bl-[40px] lg:rounded-br-[40px] rounded-bl-[24px] rounded-br-[24px] mb-28 md:mb-20 lg:mb-[100px]">
+    <div className="md:py-[1px] bg-[#F3F4F6] overflow-hidden lg:rounded-bl-[40px] lg:rounded-br-[40px] rounded-bl-[24px] rounded-br-[24px] mb-28 md:mb-20 lg:mb-[100px]">
       <div
-        className={`relative  flex flex-col items-center justify-center w-full  pt-10 py-0 px-6 lg:px-[100px]  min-h-screen overflow-hidden bg-[#F3F4F6] lg:rounded-bl-[40px] lg:rounded-br-[40px] rounded-bl-[24px] rounded-br-[24px] backdrop-blur-[42px]`}
+        className={`relative  flex flex-col items-center justify-center w-full  pt-10 py-0 px-6 lg:px-[100px] overflow-hidden bg-[#F3F4F6] lg:rounded-bl-[40px] lg:rounded-br-[40px] rounded-bl-[24px] rounded-br-[24px] backdrop-blur-[42px]`}
            style={{
  backgroundImage: `
     linear-gradient(180deg, #F3F4F6 33%, transparent 60%),

@@ -79,8 +79,8 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
     // Initial states
     gsap.set(mainHeadingRef.current, { opacity: 0, y: 50 });
     gsap.set(paragraphRef.current, { opacity: 0, y: 30 });
-    gsap.set(homeHeroSecRef.current, { 
-      clipPath: "inset(0% 0% 100% 0%)" // Fixed: using clipPath instead of inset
+    gsap.set(homeHeroSecRef.current, {
+      clipPath: "inset(0% 0% 100% 0%)", // Fixed: using clipPath instead of inset
     });
     gsap.set(productsImageRef.current, {
       opacity: 0,
@@ -122,8 +122,12 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
     // Animations
     tl.to(mainHeadingRef.current, { opacity: 1, y: 0, duration: 0.8 }, "0");
     tl.to(paragraphRef.current, { opacity: 1, y: 0, duration: 0.8 }, "0");
-  
-     tl.to(homeHeroSecRef.current, { clipPath: "inset(0% 0% 0% 0%)", duration: 0.8}, "0.2");
+
+    tl.to(
+      homeHeroSecRef.current,
+      { clipPath: "inset(0% 0% 0% 0%)", duration: 0.8 },
+      "0.2"
+    );
     tl.to(
       [
         productsImageRef.current,
@@ -146,7 +150,6 @@ const HeroSection2: React.FC<HeroSection2Props> = ({
         rotation: 0,
         duration: 2,
         onComplete: () => {
-          
           setShouldPlayVideo(true);
         },
       },

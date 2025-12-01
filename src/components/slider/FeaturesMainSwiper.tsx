@@ -3,6 +3,7 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { ReactNode } from "react";
+import './featureslder.css'
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
@@ -48,7 +49,7 @@ export default function FeaturesMainSwiper<T>({
       {...swiperOptions}
     >
       {slides.map((slide, i) => (
-        <SwiperSlide key={i} className="h-auto">
+        <SwiperSlide key={i} className="h-auto lg:pb-5 pb-[60px]">
           {renderSlide(slide, i)}
         </SwiperSlide>
       ))}
